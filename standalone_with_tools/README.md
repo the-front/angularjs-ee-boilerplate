@@ -31,7 +31,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
 * necessário ter o [grunt.js](http://gruntjs.com/) instalado globalmente no computador `npm install -g grunt-cli`, outras instruções : [Getting Started](http://gruntjs.com/getting-started)
 
-* dentro do diretório `/webserver`, execute o comando :  `npm install` para instalar as dependências necessárias
+* dentro do diretório `/tools`, execute o comando :  `npm install` para instalar as dependências necessárias
 
 
 ### grunt : tarefas disponíveis
@@ -43,6 +43,13 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 * `grunt` >> irá o jshint nos arquivos .js para verificar a qualidade de código
 
 * `grunt dev` >> irá executar o jshint, iniciar o servidor com suporte ao livereload e irá verificar se houve alterações nos arquivos *.html, .css, ou .js* para atualizar a página automaticamente
+
+* `grunt dev_proxy` >> além das tarefas do `grunt dev`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor. 
+
+  * Para configurar o roteamento do proxy, altere o arquivo: `/tools/helpers/grunt/config/app.js`, a configuração: `dev_server.proxies` 
+
+  * O suporte do proxy utiliza o plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
+
 
 
 ## Estrutura de diretórios
