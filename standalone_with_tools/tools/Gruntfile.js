@@ -13,7 +13,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build_dev', ['jshint', 'less:dev']);
 
-  grunt.registerTask('dev', ['build_dev', 'connect:dev', 'watch']);
+  grunt.registerTask('dev', [
+    'build_dev', 'connect:dev', 'watch'
+  ]);
+
+  grunt.registerTask('dev_proxy', [
+    'build_dev', 'configureProxies', 'connect:dev_proxy', 'watch'
+  ]);
 
   // TODO: define build_prod and prod tasks
 
