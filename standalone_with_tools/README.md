@@ -4,6 +4,7 @@ Projeto Standalone, com ferramental de suporte para o desenvolvimento
 
 * **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](https://gist.github.com/erkobridee/3868035)
 
+
 ## TODO
 
 * definir e/ou usar um componente para o NavBar
@@ -14,13 +15,13 @@ Projeto Standalone, com ferramental de suporte para o desenvolvimento
 ### Clone
 
 ```bash
-$ git clone https://github.com/erkobridee/lab-angularjs.git
-$ cd lab-angularjs/boilerplate/standalone_with_tools
+$ git clone https://github.com/erkobridee/angularjs-ee-boilerplate.git
+$ cd angularjs-ee-boilerplate/standalone_with_tools/
 ```
 
 ## Guia de Uso
 
-### webserver : ferramenta de apoio ao desenvolvimento
+### tools : ferramenta de apoio ao desenvolvimento
 
 > ferramenta de suporte ao desenvolvimento, a qual é uma aplicação em node.js com o executor de tarefas : grunt.js, a qual verifica a qualidade do código javascript, levanta um servidor com o conteúdo do diretório `/project` e utiliza a funcionalidade de *livereload*, atualizando a página conforme as atualizações dos arquivos : html, css e js
 
@@ -46,10 +47,10 @@ $ cd lab-angularjs/boilerplate/standalone_with_tools
 
 ## Estrutura de diretórios
 
-### webserver
+### Ferramentas
 
 ```
-/webserver
+/tools
   /node_modules >> diretório gerenciado pelo node.js onde são instaladas as dependências
   /helpers
     /grunt
@@ -60,12 +61,12 @@ $ cd lab-angularjs/boilerplate/standalone_with_tools
 ```
 
 
-### projeto
+### Projeto
 
 > o projeto segue uma orientação modular, conforme a [proposta](https://gist.github.com/erkobridee/6933795#projeto-modular)
 
 ```
-/project
+/src
   /app
     /404
       tpl.html
