@@ -34,14 +34,5 @@ module.exports = {
   },
 
   proxies: '<%= app.dev_server.proxies %>'
-  /*
-  proxies: [
-    {
-      context: '/api',
-      host: 'localhost',
-      port: 3000
-    }
-  ]
-  */
 
 };
