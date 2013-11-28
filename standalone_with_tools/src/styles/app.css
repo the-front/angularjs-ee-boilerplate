@@ -33,7 +33,7 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
-/*-------------------------------------------------- */
+/* -------------------------------------------------- */
 /*  source: twitter bootstrap
     https://github.com/twbs/bootstrap/blob/master/docs-assets/css/docs.css
 */
@@ -78,7 +78,7 @@ body {
 .bs-callout-info h4 {
   color: #3a87ad;
 }
-/*-------------------------------------------------- */
+/* -------------------------------------------------- */
 /* Styling for the ngProgress itself */
 #ngProgress {
   margin: 0;
@@ -106,7 +106,7 @@ body {
   right: 0;
   z-index: 99999;
 }
-/*-------------------------------------------------- */
+/* -------------------------------------------------- */
 /*
  * Toastr
  * Version 2.0.1
@@ -307,4 +307,4 @@ button.toast-close-button {
 #toast-container > div.ng-enter {
   opacity: 0;
 }
-/*-------------------------------------------------- */
+/* -------------------------------------------------- */
