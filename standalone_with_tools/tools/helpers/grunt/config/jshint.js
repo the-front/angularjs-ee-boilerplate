@@ -9,8 +9,8 @@ module.exports = {
   ],
 
   app: [
-    '<%= app.path %>/shared/**/*.js',
-    '<%= app.path %>/app/**/*.js'
+    '<%= app.src %>/shared/**/*.js',
+    '<%= app.src %>/app/**/*.js'
   ]
 
 }; 

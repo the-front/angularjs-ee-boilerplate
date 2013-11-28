@@ -3,21 +3,21 @@ module.exports = {
   dev: {
     options: {
        // These paths are searched for @imports
-      paths: ['<%= app.path %>']
+      paths: ['<%= app.src %>']
     },
     files: {
-      '<%= app.path %>/styles/app.css': '<%= app.path %>/styles/less/app.less'
+      '<%= app.src %>/styles/app.css': '<%= app.src %>/styles/less/app.less'
     }
   },
 
   prod: {
     options: {
        // These paths are searched for @imports
-      paths: ['<%= app.path %>'],
+      paths: ['<%= app.src %>'],
       compress: true
     },
     files: {
-      '<%= app.path %>/styles/app.css': '<%= app.path %>/styles/less/app.less'
+      '<%= app.src %>/styles/app.css': '<%= app.src %>/styles/less/app.less'
     }
   }
   

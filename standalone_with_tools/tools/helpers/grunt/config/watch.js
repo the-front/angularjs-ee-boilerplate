@@ -2,8 +2,7 @@ module.exports = {
 
   reload: {
     files : [
-      '!<%= app.path %>/**/*.less',
-      '<%= app.path %>/**/*.{html,css,js}'
+      '<%= app.src %>/**/*.{html,css,js}'
     ],
     options: {
       livereload: true
@@ -12,14 +11,14 @@ module.exports = {
 
   js: {
     files: [
-      '<%= app.path %>/**/*.js'
+      '<%= app.src %>/**/*.js'
     ],
     tasks : [ 'jshint:app' ]
   },
 
   less: {
     files: [
-      '<%= app.path %>/**/*.less'
+      '<%= app.src %>/**/*.less'
     ],
     tasks : [ 'less:dev' ]
   }

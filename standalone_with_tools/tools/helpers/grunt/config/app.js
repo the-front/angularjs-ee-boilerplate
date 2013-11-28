@@ -1,5 +1,5 @@
 module.exports = {
 
-  path: '../project'
+  src: '../src'
   
 };
