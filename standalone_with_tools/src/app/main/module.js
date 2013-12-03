@@ -6,8 +6,11 @@ angular.module(
 
   // module dependencies
   [
-    'fend.comp.progressbar.loading', 
-    'ngRoute',     
+    'fend.progressbar.loading', 
+    'fend.input.utils', 
+    'fend.pagination', 
+    'ngRoute', 
+    'ngResource', 
     'toaster'
   ]
 );
