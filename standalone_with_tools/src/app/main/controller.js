@@ -4,12 +4,20 @@ angular.module('app').controller(
   'MainCtrl', 
 
   // dependencies injection
-  ['ProgressConfig',
+  ['ProgressConfig', 'MenuConfig', 
 
 // controller definition
-function(progressConfig) {
+function(progressConfig, menu) {
 
+  //--- @begin: loading progressbar config
   progressConfig.eventListeners();
-  progressConfig.color('#428bca');  
+  progressConfig.color('#428bca');
+  //--- @end: loading progressbar config  
+
+  //--- @begin: menu items 
+  menu.addMenuItem('Home', '');  
+  menu.addMenuItem('Boorkmars', 'bookmarks');
+  menu.addMenuItem('About', 'about');  
+  //--- @end: menu items   
 
 }]);
