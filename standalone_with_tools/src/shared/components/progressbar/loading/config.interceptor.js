@@ -1,4 +1,4 @@
-angular.module('fend.comp.progressbar.loading').config(
+angular.module('fend.progressbar.loading').config(
 
   ['$httpProvider', 
 

@@ -17,13 +17,6 @@ require({
 
     'shared/components/progressbar/loading/config.interceptor': {
       deps: ['shared/components/progressbar/loading/factory.progress.status']
-    },
-
-    'shared/components/progressbar/loading/start': {
-      deps: [
-        'shared/components/progressbar/loading/factory.progress.config',
-        'shared/components/progressbar/loading/config.interceptor'
-      ]
     }
 
   }
@@ -34,6 +27,10 @@ require({
 
   console.log('shared/components/progressbar/loading require.js config');
 
-  require(['shared/components/progressbar/loading/start']);
+  // start
+  require([
+    'shared/components/progressbar/loading/factory.progress.config',
+    'shared/components/progressbar/loading/config.interceptor'
+  ]);
 
 });

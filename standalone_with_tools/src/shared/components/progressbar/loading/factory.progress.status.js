@@ -1,4 +1,4 @@
-angular.module('fend.comp.progressbar.loading').factory(
+angular.module('fend.progressbar.loading').factory(
 
   // resource name
   'ProgressStatus',
