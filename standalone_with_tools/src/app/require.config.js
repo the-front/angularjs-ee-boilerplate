@@ -10,14 +10,20 @@ require({
         'angular_route', 
         'angular_resource',
         'toaster',
-        'shared/components/progressbar/loading/module'
+        'shared/components/progressbar/loading/module',
+        'shared/components/input/utils/module',
+        'shared/components/pagination/module'
       ]
     },
 
     //--- @begin app files
 
-    'app/main/controller': {
+    'app/main/factory.menu.config': {
       deps: ['app/main/module']
+    },
+
+    'app/main/controller': {
+      deps: ['app/main/factory.menu.config']
     },
 
     'app/home/controller': {
