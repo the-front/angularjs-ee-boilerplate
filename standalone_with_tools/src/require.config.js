@@ -77,6 +77,7 @@ require({
   console.log('project require.js config');
 
   require([
+    'global',
     'shared/components/progressbar/loading/require.config',
     'shared/components/input/utils/require.config',
     'shared/components/pagination/require.config',

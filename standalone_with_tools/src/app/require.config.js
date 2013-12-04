@@ -7,6 +7,7 @@ require({
 
     'app/main/module': {
       deps: [
+        'global',
         'angular_route', 
         'angular_resource',
         'toaster',
