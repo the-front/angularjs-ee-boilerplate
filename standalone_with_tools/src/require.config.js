@@ -78,11 +78,15 @@ require({
 
   require([
     'global',
+    
     'shared/components/progressbar/loading/require.config',
     'shared/components/input/utils/require.config',
     'shared/components/pagination/require.config',
+    
     'app/bookmarks/require.config',
-    'app/require.config'
+    'app/require.config',
+
+    'require.mock.config'
   ]);
 
 });
