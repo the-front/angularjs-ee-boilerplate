@@ -9,6 +9,10 @@ require({
 
     'angular-mocks-backend': [
       'vendor/angular-mocks-backend/0.1.3/angular-mocks-backend'
+    ],
+
+    'lokijs': [
+      'vendor/lokijs/0.0.1/lokijs.min'
     ]
 
   },
@@ -27,6 +31,17 @@ require({
       deps: ['angular-mocks']
     },
 
+    //--- in memory database
+
+    'app/main/mock/in-memory.db': {
+      deps: [
+        'angular-mocks-backend',
+        'lokijs'
+      ]
+    },
+
+    //--- @begin: mocks
+
     'app/main/mock/allow-pass-jsonp': {
       deps: ['angular-mocks-backend']
     },
@@ -36,8 +51,10 @@ require({
     },
 
     'app/bookmarks/resources/mock': {
-      deps: ['angular-mocks-backend']
+      deps: ['app/main/mock/in-memory.db']
     }
+
+    //--- @end: mocks
 
   }
 
