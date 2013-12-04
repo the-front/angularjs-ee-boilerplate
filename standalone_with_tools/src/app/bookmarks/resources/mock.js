@@ -26,18 +26,19 @@ angular.mock.backend.addResource(function(DataStore, $httpBackend, regexpUrl, ge
     // get all
   $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\?|$)/))
     .respond(function(method, url, data) {
-      //console.log(url);
+      console.log(url);
 
-      var params = getParams(url),
+      var result,
+          params = getParams(url),
           options = {page: 1, size: 10};
 
       if(params) {
-        //console.log(params);
+        console.log(params);
         options.page = params.page;
         options.size = params.size;
       }
 
-      var result = listPaginate(options);
+      result = listPaginate(options);
 
       return [200, angular.copy(result)];
     }); 
@@ -45,50 +46,126 @@ angular.mock.backend.addResource(function(DataStore, $httpBackend, regexpUrl, ge
     // get one
   $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
     .respond(function(method, url, data) {
-      console.log(url);
+      console.log('GET ' + url);
 
-      // TODO: define code
+      var result,
+          id = getIdFromURL(url);
 
+      if(id) {
+        result = [200, angular.copy(getById(id))];
+      } else {
+        result = [404, notFound(id)];
+      }
+
+      return result;
     }); 
 
     // create
   $httpBackend.when('POST', regexpUrl(/rest\/bookmarks$/))
     .respond(function(method, url, data) {
-      console.log(url);
+      console.log('POST ' + url);
 
-      // TODO: define code
+      data = angular.fromJson(data);
+      data.id = seq++;
 
+      data = bookmarks.insert(data);
+      console.log(data);
+
+      return [201, angular.copy(data)];
     }); 
 
     // update
   $httpBackend.when('PUT', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
     .respond(function(method, url, data) {
-      console.log(url);
+      console.log('PUT ' + url);
 
-      // TODO: define code
+      data = angular.fromJson(data);
 
+      bookmarks.update(data);
+      console.log(data);
+
+      return [202, angular.copy(data)];
     }); 
 
     // delete
   $httpBackend.when('DELETE', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
     .respond(function(method, url, data) {
-      console.log(url);
+      console.log('DELETE ' + url);
 
-      // TODO: define code
+      var result, 
+          bookmark,
+          id = getIdFromURL(url);
+
+      if(id) {
+        bookmark = getById(id);
+        bookmarks.remove(bookmark);
+        result = [202, createResultMessage(202, 'Bookmark id: ' + id + ' removed')];
+      } else {
+        result = [404, notFound(id)];
+      }
+
+      return result;
 
     }); 
 
     // search
   $httpBackend.when('GET', regexpUrl(/rest\/bookmarks\/search\/([A-z0-9]+)(\?|$)/))
     .respond(function(method, url, data) {
-      console.log(url);
+      console.log('GET ' + url);
 
-      // TODO: define code
+      var result,
+          find = getFindValueFromURL(url),
+          params = getParams(url),
+          options = {page: 1, size: 10};
 
+      if(params) {
+        console.log(params);
+        options.page = params.page;
+        options.size = params.size;
+      }
+
+      console.log(find);
+
+      result = searchPaginate(find, options);
+
+      return [200, angular.copy(result)];
     }); 
 
   //--- @end: URL intercept
   
+  //--- @begin: helpers
+
+  function getIdFromURL(url) {
+    var arr = url.split(/bookmarks\//);
+    if(arr.length > 1) return parseInt(arr[1], 10);
+    return null;
+  }
+
+  function getFindValueFromURL(url) { 
+    var find = null,
+        arr = url.split(/bookmarks\/search\//);
+    if(arr.length > 1) {
+      find = arr[1];
+      arr = find.split(/\?/);
+      if(arr.length > 1) find = arr[0];
+    }
+    return find;
+  }
+
+  function createResultMessage(_code, _message) {
+    return {
+      code: _code,
+      message: _message
+    };
+  }
+
+  function notFound(id) {
+    var msg = 'Not found';
+    if(id) msg += ' - id: ' + id;
+    return createResultMessage(404, msg);
+  }
+
+  //--- @end: helpers
 
   //--- fake database
 
