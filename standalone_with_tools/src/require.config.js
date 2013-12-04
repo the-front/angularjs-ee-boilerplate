@@ -66,7 +66,14 @@ require({
 
     'toaster': {
       deps:['angular_animate']
+    },
+
+
+    // mock dependency
+    'require.mock.config': {
+      deps: ['global']
     }
+    
 
   }
 
@@ -83,10 +90,10 @@ require({
     'shared/components/input/utils/require.config',
     'shared/components/pagination/require.config',
     
-    'app/bookmarks/require.config',
-    'app/require.config',
+    'require.mock.config', // mock config
 
-    'require.mock.config'
+    'app/bookmarks/require.config',
+    'app/require.config'
   ]);
 
 });
