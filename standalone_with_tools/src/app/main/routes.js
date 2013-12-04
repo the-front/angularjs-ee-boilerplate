@@ -11,27 +11,27 @@ function ($routeProvider) {
       '/',
       {
         controller: 'HomeCtrl',
-        templateUrl: 'app/home/tpl.html'
+        templateUrl: 'app/home/template.html'
       }
     )
     .when(
       '/about',
       {
         controller: 'AboutCtrl',
-        templateUrl: 'app/about/tpl.html'
+        templateUrl: 'app/about/template.html'
       }
     )
     .when(
       '/help',
       {
         controller: 'HelpCtrl',
-        templateUrl: 'app/help/tpl.html'
+        templateUrl: 'app/help/template.html'
       }
     )
     .when(
       '/404',
       {
-        templateUrl: 'app/404/tpl.html'
+        templateUrl: 'app/404/template.html'
       }
     )
 
