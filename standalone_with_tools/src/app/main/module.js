@@ -6,9 +6,8 @@ angular.module(
 
   // module dependencies
   [
+    'bookmarks',
     'fend.progressbar.loading', 
-    'fend.input.utils', 
-    'fend.pagination', 
     'ngRoute', 
     'ngResource', 
     'toaster'
