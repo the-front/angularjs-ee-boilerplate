@@ -1,16 +1,94 @@
 angular.mock.backend.addResource(function(DataStore, $httpBackend, regexpUrl, getParams) {
   'use strict';
 
-  console.log(DataStore);
+  //--- @begin: Allow pass to server
+  /*    
+    // get all
+  $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\?|$)/)).passThrough(); 
+    // get one
+  $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/)).passThrough(); 
+    // create
+  $httpBackend.when('POST', regexpUrl(/rest\/bookmarks$/)).passThrough(); 
+    // update
+  $httpBackend.when('PUT', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/)).passThrough(); 
+    // delete
+  $httpBackend.when('DELETE', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/)).passThrough(); 
+    // search
+  $httpBackend.when('GET', regexpUrl(/rest\/bookmarks\/search\/([A-z0-9]+)(\?|$)/)).passThrough();
+  */
+  //--- @end: Allow pass to server
 
   var seq = 0;
   var bookmarks = DataStore.addCollection('bookmarks', 'Bookmark', ['id', 'name']);
 
-  console.log('TODO: define app/bookmarks mock');
+  //--- @begin: URL intercept
+  
+    // get all
+  $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\?|$)/))
+    .respond(function(method, url, data) {
+      //console.log(url);
 
-  //--- URL intercept
+      var params = getParams(url),
+          options = {page: 1, size: 10};
 
-  // TODO: define
+      if(params) {
+        //console.log(params);
+        options.page = params.page;
+        options.size = params.size;
+      }
+
+      var result = listPaginate(options);
+
+      return [200, angular.copy(result)];
+    }); 
+
+    // get one
+  $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
+    .respond(function(method, url, data) {
+      console.log(url);
+
+      // TODO: define code
+
+    }); 
+
+    // create
+  $httpBackend.when('POST', regexpUrl(/rest\/bookmarks$/))
+    .respond(function(method, url, data) {
+      console.log(url);
+
+      // TODO: define code
+
+    }); 
+
+    // update
+  $httpBackend.when('PUT', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
+    .respond(function(method, url, data) {
+      console.log(url);
+
+      // TODO: define code
+
+    }); 
+
+    // delete
+  $httpBackend.when('DELETE', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
+    .respond(function(method, url, data) {
+      console.log(url);
+
+      // TODO: define code
+
+    }); 
+
+    // search
+  $httpBackend.when('GET', regexpUrl(/rest\/bookmarks\/search\/([A-z0-9]+)(\?|$)/))
+    .respond(function(method, url, data) {
+      console.log(url);
+
+      // TODO: define code
+
+    }); 
+
+  //--- @end: URL intercept
+  
 
   //--- fake database
 
@@ -24,6 +102,18 @@ angular.mock.backend.addResource(function(DataStore, $httpBackend, regexpUrl, ge
     if('object' == typeof bookmarks) 
       return bookmarks.update(bookmark);
   }
+
+  function listPaginate(options) {
+    options = options || {page: 1, size: 10};
+    return paginate(bookmarks.find(), options);
+  }
+
+  function searchPaginate(find, options) {
+    options = options || {page: 1, size: 10};
+    return paginate(search(find), options);
+  }
+
+  //---
 
   function search(find) {
     if(!find) return [];
