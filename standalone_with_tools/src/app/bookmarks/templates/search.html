@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">&nbsp;</div>
 
+  <!-- @begin: search option -->
   <div class="row">
 
     <div class="col-md-3">
@@ -32,6 +33,7 @@
 
     <div class="col-md-6 col-md-offset-3">
       
+      <!-- @begin: searchForm -->
       <form role="form" name="searchForm" ng-submit="doSearch()">
         <div class="input-group" ng-class="{'has-error': searchForm.searchInput.$invalid}">
           <span class="input-group-addon">
@@ -55,10 +57,12 @@
           </span>
         </div>
       </form>
+      <!-- @end: searchForm -->
 
     </div>
 
-  </div> <!-- / .row -->
+  </div> 
+  <!-- @end: search option -->
 
   <!-- @begin: options --> 
   <div class="visible-xs">

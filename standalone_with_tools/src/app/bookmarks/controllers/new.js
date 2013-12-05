@@ -21,7 +21,7 @@ function ($rootScope, $scope, resource, input) {
   
   input.setFocus('focusBookmarkNameInput', 200);
 
-  //console.log(input);
+  //console.debug(input);
   //---
 
   $scope.title = 'New Bookmark';

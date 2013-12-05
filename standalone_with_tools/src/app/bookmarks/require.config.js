@@ -62,7 +62,7 @@ require({
 
 ['require'], function(require) {
 
-  console.log('app/bookmarks require.js config');
+  console.debug('app/bookmarks require.js config');
 
   // start
   require([

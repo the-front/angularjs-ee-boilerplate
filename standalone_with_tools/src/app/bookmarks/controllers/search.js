@@ -14,9 +14,9 @@ function ($scope, resource, pagination, input) {
   pagination = pagination.get(ctrlName);
 
   /*
-  console.log(ctrlName);
-  console.log(input);
-  console.log(pagination);
+  console.debug(ctrlName);
+  console.debug(input);
+  console.debug(pagination);
   */
 
   //---
@@ -74,7 +74,8 @@ function ($scope, resource, pagination, input) {
           size: pagination.getPageSize()
         },
         function(result) {
-          $scope.bookmarks = result;
+          // console.debug(result);
+          $scope.result = result;
 
           pagination.updateMetainf(
             result.count,
@@ -157,7 +158,7 @@ function ($scope, resource, pagination, input) {
   $scope.pageMaxSize = config.pageMaxSize;
 
   $scope.setPage = function() {
-    if((this.n+1) != $scope.bookmarks.page) {
+    if((this.n+1) != $scope.result.page) {
       pagination.setNextPage(this.n+1);
       loadData(pagination.getNextPage());
     }

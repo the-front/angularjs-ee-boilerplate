@@ -18,7 +18,8 @@ function ($rootScope, $scope, resource, $routeParams, input) {
     [
       'focusBookmarkNameInput'
     ]);
-  //console.log(input);
+  
+  //console.debug(input);
   //---
 
   $scope.title = 'Edit Bookmark : ' + $routeParams.id;

@@ -8,7 +8,10 @@
 
 <div class="container">
   
+  <!-- @begin: bookmarkForm -->
   <form role="form" name="bookmarkForm">
+
+    <!-- @begin: name -->
     <div class="row" ng-class="{'has-error': bookmarkForm.name.$invalid}">
       <div class="col-md-1">
         <i ng-show="bookmarkForm.name.$error.required" 
@@ -23,9 +26,13 @@
           ng-model="bookmark.name" 
           fend-focus="focusBookmarkNameInput"
           required>
-      </div>      
+      </div> 
     </div>
+    <!-- @end: name -->
+
     <div class="row">&nbsp;</div>
+
+    <!-- @begin: url -->
     <div class="row" ng-class="{'has-error': bookmarkForm.url.$invalid}">
       <div class="col-md-1">
         <i ng-show="bookmarkForm.url.$error.required" 
@@ -39,7 +46,11 @@
           name="url" ng-model="bookmark.url" required>
       </div>
     </div>
+    <!-- @end: url -->
+
     <div class="row">&nbsp;</div>
+
+    <!-- @begin: description -->
     <div class="row">
       <label class="col-md-5" for="descriptionArea">Description</label>
     </div>
@@ -50,7 +61,9 @@
           name="description" ng-model="bookmark.description"></textarea>
       </div>
     </div>
+    <!-- @end: description -->
 
+    <!-- @begin: buttons -->
     <div class="row" ng-hide="showConfirm">&nbsp;</div>
 
     <div class="row" ng-hide="showConfirm">
@@ -66,7 +79,9 @@
           class="btn btn-danger">Delete</button>
       </div>
     </div>
+    <!-- @end: buttons -->
 
+    <!-- @begin: confirm -->
     <div class="bs-callout bs-callout-danger" ng-show="showConfirm">
       <h4>Confirm</h4>
       <p>Delete <code>{{bookmark.name}}</code> bookmark?</p>
@@ -75,8 +90,11 @@
       <button ng-click="cancelRemove()"
         class="btn btn-default">Cancel</button>  
     </div>
+    <!-- @end: confirm -->
 
   </form>
+  <!-- @end: bookmarkForm -->
+
 </div>
 
   </div>
