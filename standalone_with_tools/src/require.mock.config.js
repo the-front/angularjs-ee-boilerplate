@@ -31,7 +31,7 @@ require({
       deps: ['angular-mocks']
     },
 
-    //--- in memory database
+    //--- @begin: shared utils
 
     'shared/mock/helpers': {
       deps: ['angular-mocks-backend']
@@ -43,6 +43,8 @@ require({
         'lokijs'
       ]
     },
+
+    //--- @end: shared utils
 
     //--- @begin: allow pass to server
 
