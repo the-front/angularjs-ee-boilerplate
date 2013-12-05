@@ -17,7 +17,14 @@
       //.concat(['tabs', 'pane']) // TODO: ADD HERE APP CUSTOM TAGS
       .concat(['ng:include', 'ng:pluralize', 'ng:view']); // Optionally these for CSS
     for(var t=0, len=customTags.length;t<len;t++) document.createElement(customTags[t]);
-    if(!window.console) window.console = {}; window.console.log = function(msg) {};
+    if(!window.console) { 
+      window.console = {}; 
+      function handler(msg, value) {};
+      window.console.log = handler;
+      window.console.info = handler;
+      window.console.debug = handler;
+      window.console.error = handler;
+    }
   </script>
 
   <script src="vendor/html5shiv/3.7.0/html5shiv.js"></script>
