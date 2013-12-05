@@ -1,0 +1,32 @@
+{
+  "name": "angularjs-ee-boilerplate",
+  "version": "0.0.1",
+  "description": "angularjs enterprise edition boilerplate",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erkobridee/angularjs-ee-boilerplate.git"
+  },
+  "keywords": [
+    "angular.js",
+    "javascript",
+    "boilerplate"
+  ],
+  "author": "Erko Bridee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erkobridee/angularjs-ee-boilerplate/issues"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "load-grunt-config": "~0.7.0",
+    "grunt-git": "~0.2.2",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-github-pages": "0.0.4",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.7.0"    
+  }
+}
