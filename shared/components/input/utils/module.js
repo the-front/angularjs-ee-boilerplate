@@ -1,0 +1,1 @@
+angular.module('fend.input.utils', []);
