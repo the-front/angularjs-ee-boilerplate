@@ -33,16 +33,20 @@ require({
 
     //--- in memory database
 
-    'app/main/mock/in-memory.db': {
+    'shared/mock/helpers': {
+      deps: ['angular-mocks-backend']
+    },
+
+    'shared/mock/in-memory.db': {
       deps: [
         'angular-mocks-backend',
         'lokijs'
       ]
     },
 
-    //--- @begin: mocks
+    //--- @begin: allow pass to server
 
-    'app/main/mock/allow-pass-jsonp': {
+    'shared/mock/allow-pass-jsonp': {
       deps: ['angular-mocks-backend']
     },
 
@@ -50,8 +54,23 @@ require({
       deps: ['angular-mocks-backend']
     },
 
-    'app/bookmarks/resources/mock': {
-      deps: ['app/main/mock/in-memory.db']
+    'app/bookmarks/mock/allow-pass': {
+      deps: ['angular-mocks-backend']
+    },
+
+    //--- @end: allow pass to server
+
+    //--- @begin: mocks
+
+    'app/bookmarks/mock/data': {
+      deps: [
+        'shared/mock/in-memory.db',
+        'shared/mock/helpers'
+      ]
+    },
+
+    'app/bookmarks/mock/url-interceptors': {
+      deps: ['app/bookmarks/mock/data']
     }
 
     //--- @end: mocks
@@ -73,9 +92,12 @@ require({
 
   // start
   require([
-    'app/main/mock/allow-pass-jsonp',
-    'app/help/mock/allow-pass-github',
-    'app/bookmarks/resources/mock'
+    'shared/mock/allow-pass-jsonp',    
+
+    //'app/bookmarks/mock/allow-pass',
+    'app/bookmarks/mock/url-interceptors',
+
+    'app/help/mock/allow-pass-github'
   ]);
 
 });
