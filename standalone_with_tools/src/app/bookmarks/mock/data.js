@@ -9,14 +9,14 @@ angular.module('ngMockBackend').factory(
 // factory definition
 function(DataStore, helpers) {
 
-  console.log('BookmarksCollection');
+  console.debug('BookmarksCollection');
 
-  var BookmarksCollection = (function() {
+  var Collection = (function() {
 
     //--- private att
 
     var seq = 0;
-    var bookmarks = DataStore.addCollection('bookmarks', 'Bookmark', ['id', 'name']);
+    var collection = DataStore.addCollection('bookmarks', 'Bookmark', ['id', 'name']);
 
     //--- @begin: private functions
 
@@ -25,7 +25,7 @@ function(DataStore, helpers) {
 
       var r = [], obj,
           regexp = new RegExp(find, 'i'),
-          data = bookmarks.find(),
+          data = collection.find(),
           len = data.length;
 
       for (var i = 0; i < len; i++) {
@@ -49,32 +49,32 @@ function(DataStore, helpers) {
     //--- @begin: public functions
 
     ClassDef.prototype.getById = function(id) {
-      var r = bookmarks.find({'id': id});
+      var r = collection.find({'id': id});
       if(r.length > 0) return r[0]; 
       return null;
     };
 
-    ClassDef.prototype.insert = function(bookmark) {
-      if(helpers.isObject(bookmarks)) {
-        bookmark.id = seq++;
-        return bookmarks.insert(bookmark);
+    ClassDef.prototype.insert = function(object) {
+      if(helpers.isObject(object)) {
+        object.id = seq++;
+        return collection.insert(object);
       }
       return null;
     };
 
-    ClassDef.prototype.update = function(bookmark) {
-      if(helpers.isObject(bookmarks)) 
-        bookmarks.update(bookmark);
+    ClassDef.prototype.update = function(object) {
+      if(helpers.isObject(object)) 
+        collection.update(object);
     };
 
-    ClassDef.prototype.remove = function(bookmark) {
-      if(helpers.isObject(bookmarks)) 
-        bookmarks.remove(bookmark);
+    ClassDef.prototype.remove = function(object) {
+      if(helpers.isObject(object)) 
+        collection.remove(object);
     };
 
     ClassDef.prototype.list = function(options) {
       options = options || {page: 1, size: 10};
-      return helpers.paginate(bookmarks.find(), options);
+      return helpers.paginate(collection.find(), options);
     };
 
     ClassDef.prototype.search = function(find, options) {
@@ -96,17 +96,17 @@ function(DataStore, helpers) {
         };
       }
 
-      bookmarks.insert(createObject(seq++, 'Twitter - Erko Bridee', '@ErkoBridee', 'https://twitter.com/erkobridee'));
-      bookmarks.insert(createObject(seq++, 'GitHub - Erko Bridee', 'github/erkobridee', 'https://github.com/erkobridee'));
-      bookmarks.insert(createObject(seq++, 'Delicious - Erko Bridee', 'delicious/erko.bridee', 'http://www.delicious.com/erko.bridee'));
-      bookmarks.insert(createObject(seq++, 'Site - Erko Bridee', 'Site : Erko Bridee', 'http://about.erkobridee.com/'));
+      collection.insert( createObject(seq++, 'Twitter - Erko Bridee', '@ErkoBridee', 'https://twitter.com/erkobridee') );
+      collection.insert( createObject(seq++, 'GitHub - Erko Bridee', 'github/erkobridee', 'https://github.com/erkobridee') );
+      collection.insert( createObject(seq++, 'Delicious - Erko Bridee', 'delicious/erko.bridee', 'http://www.delicious.com/erko.bridee') );
+      collection.insert( createObject(seq++, 'Site - Erko Bridee', 'Site : Erko Bridee', 'http://about.erkobridee.com/') );
     
       function fakeUrl() {
         return 'http://google.com/#q=' + seq + '%2B' + seq;
       }
 
       for (var i = 59; i >= 0; i--) {
-        bookmarks.insert(createObject(seq++, 'fake bookmark ' + (seq+1), 'some description to fake bookmark ', fakeUrl()));      
+        collection.insert( createObject(seq++, 'fake bookmark ' + (seq+1), 'some description to fake bookmark ', fakeUrl()) );
       }
 
     })();
@@ -118,6 +118,6 @@ function(DataStore, helpers) {
 
   //---
   
-  return new BookmarksCollection();
+  return new Collection();
 
 }]);

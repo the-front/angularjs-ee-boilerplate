@@ -4,7 +4,7 @@ angular.mock.backend.addResource(
   ['BookmarksCollection', 'Helpers', '$httpBackend', 'regexpUrl', 'getParams',
 
 // mock resource definition
-function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
+function(collection, helpers, $httpBackend, regexpUrl, getParams) {
   'use strict';
 
   //--- @begin: URL interceptor
@@ -12,19 +12,19 @@ function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
     // get all
   $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\?|$)/))
     .respond(function(method, url, data) {
-      console.log(url);
+      console.debug('GET ' + url);
 
       var result,
           params = getParams(url),
           options = {page: 1, size: 10};
 
       if(params) {
-        console.log(params);
+        console.debug(params);
         options.page = params.page;
         options.size = params.size;
       }
 
-      result = bookmarks.list(options);
+      result = collection.list(options);
 
       return [200, angular.copy(result)];
     }); 
@@ -32,14 +32,15 @@ function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
     // get one
   $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
     .respond(function(method, url, data) {
-      console.log('GET ' + url);
+      console.debug('GET ' + url);
 
       var result,
           regexp = /bookmarks\//,
-          id = helpers.getIdFromURL(url, regexp);
+          id = helpers.getIdFromURL(url, regexp),
+          object = collection.getById(id);
 
-      if(id) {
-        result = [200, angular.copy(bookmarks.getById(id))];
+      if(object) {
+        result = [200, angular.copy(object)];
       } else {
         result = [404, helpers.notFound(id)];
       }
@@ -50,13 +51,12 @@ function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
     // create
   $httpBackend.when('POST', regexpUrl(/rest\/bookmarks$/))
     .respond(function(method, url, data) {
-      console.log('POST ' + url);
+      console.debug('POST ' + url);
 
       data = angular.fromJson(data);
-      //data.id = seq++;
+      data = collection.insert(data);
 
-      data = bookmarks.insert(data);
-      console.log(data);
+      console.debug(data);
 
       return [201, angular.copy(data)];
     }); 
@@ -68,8 +68,9 @@ function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
 
       data = angular.fromJson(data);
 
-      bookmarks.update(data);
-      console.log(data);
+      collection.update(data);
+
+      console.debug(data);
 
       return [202, angular.copy(data)];
     }); 
@@ -77,16 +78,16 @@ function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
     // delete
   $httpBackend.when('DELETE', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
     .respond(function(method, url, data) {
-      console.log('DELETE ' + url);
+      console.debug('DELETE ' + url);
 
       var result, 
           bookmark,
           regexp = /bookmarks\//,
-          id = helpers.getIdFromURL(url, regexp);
+          id = helpers.getIdFromURL(url, regexp),
+          object = collection.getById(id);
 
-      if(id) {
-        bookmark = bookmarks.getById(id);
-        bookmarks.remove(bookmark);
+      if(object) {
+        collection.remove(object);
         result = [202, helpers.createResultMessage(202, 'Bookmark id: ' + id + ' removed')];
       } else {
         result = [404, helpers.notFound(id)];
@@ -99,7 +100,7 @@ function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
     // search
   $httpBackend.when('GET', regexpUrl(/rest\/bookmarks\/search\/([A-z0-9]+)(\?|$)/))
     .respond(function(method, url, data) {
-      console.log('GET ' + url);
+      console.debug('GET ' + url);
 
       var result,
           regexp = /bookmarks\/search\//,
@@ -108,14 +109,14 @@ function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
           options = {page: 1, size: 10};
 
       if(params) {
-        console.log(params);
+        console.debug(params);
         options.page = params.page;
         options.size = params.size;
       }
 
-      console.log(find);
+      console.debug(find);
 
-      result = bookmarks.search(find, options);
+      result = collection.search(find, options);
 
       return [200, angular.copy(result)];
     }); 
@@ -124,8 +125,8 @@ function(bookmarks, helpers, $httpBackend, regexpUrl, getParams) {
   
 
 
-  console.log(bookmarks.getById(1));
-  console.log(bookmarks.search('erko'));
-  console.log(bookmarks.list());
+  console.debug(collection.getById(1));
+  console.debug(collection.search('erko'));
+  console.debug(collection.list());
 
 }]);
