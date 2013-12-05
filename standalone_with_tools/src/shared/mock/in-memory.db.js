@@ -6,7 +6,7 @@ angular.module('ngMockBackend').factory(
   // factory dependencies injection
   [
 
-// Factory definition
+// factory definition
 function() {
 
   // http://lokijs.org/
