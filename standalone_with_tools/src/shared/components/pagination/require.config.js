@@ -21,7 +21,7 @@ require({
 
 ['require'], function(require) {
 
-  console.log('shared/components/pagination require.js config');
+  console.debug('shared/components/pagination require.js config');
 
   // start
   require([

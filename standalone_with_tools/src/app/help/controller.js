@@ -12,7 +12,7 @@ function($scope, $http) {
   $scope.pageName = 'Help Page';
 
   $http.get('https://api.github.com/users/erkobridee').success(function(data) {
-    console.log(data);
+    console.debug(data);
   });
 
 }]);

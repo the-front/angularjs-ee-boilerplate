@@ -89,7 +89,7 @@ require({
 
 ['require'], function(require) {
 
-  console.log('project require.js config');
+  console.debug('project require.js config');
 
   // start
   require([

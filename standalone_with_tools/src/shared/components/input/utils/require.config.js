@@ -25,7 +25,7 @@ require({
 
 ['require'], function(require) {
 
-  console.log('shared/components/input/utils require.js config');
+  console.debug('shared/components/input/utils require.js config');
 
   // start
   require([

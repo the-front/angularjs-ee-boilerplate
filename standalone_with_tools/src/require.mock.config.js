@@ -83,14 +83,14 @@ require({
 
 ['require'], function(require) {
 
-  console.log('project require mock config');
+  console.debug('project require mock config');
 
-  console.log(GLOBAL.appModuleDeps);
+  console.debug(GLOBAL.appModuleDeps);
 
   // update app module dependencies array
   GLOBAL.appModuleDeps = GLOBAL.appModuleDeps.concat(['ngMockBackend']);
 
-  console.log(GLOBAL.appModuleDeps);
+  console.debug(GLOBAL.appModuleDeps);
 
   // start
   require([

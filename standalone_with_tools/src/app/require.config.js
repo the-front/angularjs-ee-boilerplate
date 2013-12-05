@@ -61,8 +61,9 @@ require({
 
 ['require'], function(require) {
 
-  console.log('app require.js config');
+  console.debug('app require.js config');
 
+  // start
   require(['app/main/start']);
 
 });

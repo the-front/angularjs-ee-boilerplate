@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  console.log('global');
+  console.debug('global');
 
   window.GLOBAL = {
     
