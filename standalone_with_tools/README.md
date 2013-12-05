@@ -23,7 +23,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
 ### tools : ferramenta de apoio ao desenvolvimento
 
-> ferramenta de suporte ao desenvolvimento, a qual é uma aplicação em node.js com o executor de tarefas : grunt.js, a qual verifica a qualidade do código javascript, levanta um servidor com o conteúdo do diretório `/project` e utiliza a funcionalidade de *livereload*, atualizando a página conforme as atualizações dos arquivos : html, css e js
+> ferramenta de suporte ao desenvolvimento, a qual é uma aplicação em node.js com o executor de tarefas : grunt.js, a qual verifica a qualidade do código javascript, levanta um servidor com o conteúdo do diretório `/src` e utiliza a funcionalidade de *livereload*, atualizando a página conforme as atualizações dos arquivos : html, css e js
 
 * necessário ter o [node.js](http://nodejs.org/) instalado no computador
 
@@ -36,7 +36,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
 ### grunt : tarefas disponíveis
 
-> dentro do diretório `/webserver` execute um dos comandos a seguir
+> dentro do diretório `/tools` execute um dos comandos a seguir
 
 * `grunt helloWorld` >> executa a tarefa customizada de exemplo, ver diretório `/helpers/grunt/tasks`
 
