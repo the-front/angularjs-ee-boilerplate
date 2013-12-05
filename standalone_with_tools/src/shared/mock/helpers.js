@@ -16,6 +16,10 @@ function() {
     var ClassDef = Helpers;
     //---
     
+    ClassDef.prototype.isObject = function(value) {
+      return ('object' == typeof value);
+    };
+
     ClassDef.prototype.getIdFromURL = function(url, regexp) {
       var arr = url.split(regexp); // ex.: /bookmarks\//
       if(arr.length > 1) return parseInt(arr[1], 10);
