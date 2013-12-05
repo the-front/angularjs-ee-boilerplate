@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">&nbsp;</div>
 
+  <!-- @begin: buttons -->
   <div class="row">  
     
     <ul class="list-inline">
@@ -31,6 +32,7 @@
     </ul> <!-- / .list-inline -->
 
   </div>
+  <!-- @end: buttons -->
 
 
   <!-- @begin: options -->
@@ -52,11 +54,11 @@
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
     <span ng-show="showPagination">
-      <span ng-show="bookmarks.pages > 1">
-        Pages: <span class="badge">{{bookmarks.pages}}</span> &nbsp;&nbsp;
+      <span ng-show="result.pages > 1">
+        Pages: <span class="badge">{{result.pages}}</span> &nbsp;&nbsp;
       </span>
-      <span ng-show="bookmarks.count > 0">
-        Total: <span class="badge">{{bookmarks.count}}</span> 
+      <span ng-show="result.count > 0">
+        Total: <span class="badge">{{result.count}}</span> 
       </span>
       <span class="visible-xs col-md-1">&nbsp;</span>
     </span>
@@ -100,4 +102,5 @@
   <!-- @end: options -->
 
   <div class="row" ng-include="'app/bookmarks/templates/table.html'"></div>
+  
 </div>

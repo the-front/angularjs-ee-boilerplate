@@ -1,3 +1,4 @@
+<!-- @begin: filter -->
 <div class="row" ng-show="!showOptions &#38;&#38; !showPagination &#38;&#38; filter.search">
   <p class="text-center">
     <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
@@ -25,7 +26,9 @@
 
   <div class="row">&nbsp;</div>
 </div>
+<!-- @end: filter -->
 
+<!-- @begin: table -->
 <div class="table-responsive">
   <table class="table table-condensed">
     <thead>
@@ -37,7 +40,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="bookmark in bookmarks.data | filter:filter.search">
+      <tr ng-repeat="bookmark in result.data | filter:filter.search">
         <td class="visible-xs">
           <a href="#bookmarks/edit/{{bookmark.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
         </td>
@@ -50,14 +53,16 @@
     </tbody>
   </table>
 </div>
+<!-- @end: table -->
 
+<!-- @begin: pagination -->
 <!-- http://getbootstrap.com/components/#pagination -->
 <div class="row" ng-show="showPagination">
-  <div class="text-center" ng-show="bookmarks.pages > 1">
+  <div class="text-center" ng-show="result.pages > 1">
     <ul class="pagination">
       <li 
-        ng-repeat="n in [] | pages_range: bookmarks.pages"
-        ng-class="{active: (n+1) == bookmarks.page}"
+        ng-repeat="n in [] | pages_range: result.pages"
+        ng-class="{active: (n+1) == result.page}"
       ><a ng-bind="n+1" ng-click="setPage()">1</a></li>
     </ul>
   </div>
@@ -68,3 +73,4 @@
     <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
   </p>
 </div>
+<!-- @end: pagination -->

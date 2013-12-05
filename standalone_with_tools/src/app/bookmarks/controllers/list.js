@@ -16,9 +16,9 @@ function ($rootScope, $scope, $location, resource, pagination, input) {
   pagination = pagination.get(ctrlName);
 
   /*  
-  console.log(ctrlName);
-  console.log(input);
-  console.log(pagination);
+  console.debug(ctrlName);
+  console.debug(input);
+  console.debug(pagination);
   */
 
   //---
@@ -29,20 +29,20 @@ function ($rootScope, $scope, $location, resource, pagination, input) {
 
   $rootScope.$on('bookmarks:add:event', function(event, value) {
     event.preventDefault(); event.stopPropagation();
-    //console.log('bookmarks:add:event - ' + value);
+    //console.debug('bookmarks:add:event - ' + value);
     pagination.addCheck();
     updateLocation();
   });
 
   $rootScope.$on('bookmarks:update:event', function(event, value) {
     event.preventDefault(); event.stopPropagation();
-    //console.log('bookmarks:add:event - ' + value);
+    //console.debug('bookmarks:add:event - ' + value);
     updateLocation();
   });
 
   $rootScope.$on('bookmarks:remove:event', function(event, value) {
     event.preventDefault(); event.stopPropagation();
-    //console.log('bookmarks:remove:event - ' + value);
+    //console.debug('bookmarks:remove:event - ' + value);
     pagination.removeCheck();
     updateLocation();
   });
@@ -97,8 +97,8 @@ function ($rootScope, $scope, $location, resource, pagination, input) {
         size: pagination.getPageSize()
       }, 
       function(result) {
-        //console.log(result);
-        $scope.bookmarks = result;        
+        //console.debug(result);
+        $scope.result = result;        
 
         pagination.updateMetainf(
           result.count,
@@ -180,7 +180,7 @@ function ($rootScope, $scope, $location, resource, pagination, input) {
   $scope.pageMaxSize = config.pageMaxSize;
 
   $scope.setPage = function() {
-    if((this.n+1) != $scope.bookmarks.page) {
+    if((this.n+1) != $scope.result.page) {
       pagination.setNextPage(this.n+1);
       loadData(pagination.getNextPage());
     }
