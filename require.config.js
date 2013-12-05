@@ -78,7 +78,7 @@ require({
     'app/require.config': {
       deps: [                
         'require.mock.config', // call require mock config
-        
+
         'global',
         'app/bookmarks/require.config'        
       ]

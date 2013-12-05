@@ -11,7 +11,11 @@ require({
         'angular_route', 
         'angular_resource',
         'toaster',
+
+        'shared/mock/module', // call mock module
+
         'shared/components/progressbar/loading/module',
+        
         'app/bookmarks/module'
       ]
     },
