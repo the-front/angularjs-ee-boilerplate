@@ -73,9 +73,22 @@ require({
 
     'app/bookmarks/mock/url-interceptors': {
       deps: ['app/bookmarks/mock/data']
-    }
+    },
 
     //--- @end: mocks
+
+    'shared/mock/module': {
+      deps: [
+        'angular-mocks-backend',
+
+        'shared/mock/allow-pass-jsonp', 
+
+        //'app/bookmarks/mock/allow-pass',
+        'app/bookmarks/mock/url-interceptors',
+
+        'app/help/mock/allow-pass-github'         
+      ]
+    }
 
   }
 
@@ -88,18 +101,14 @@ require({
   console.debug(GLOBAL.appModuleDeps);
 
   // update app module dependencies array
-  GLOBAL.appModuleDeps = GLOBAL.appModuleDeps.concat(['ngMockBackend']);
+  //GLOBAL.appModuleDeps = GLOBAL.appModuleDeps.concat(['ngMockBackend']);
+  GLOBAL.appModuleDeps = GLOBAL.appModuleDeps.concat(['fend.mock']);
 
   console.debug(GLOBAL.appModuleDeps);
 
   // start
   require([
-    'shared/mock/allow-pass-jsonp',    
-
-    //'app/bookmarks/mock/allow-pass',
-    'app/bookmarks/mock/url-interceptors',
-
-    'app/help/mock/allow-pass-github'
+    'shared/mock/module'
   ]);
 
 });
