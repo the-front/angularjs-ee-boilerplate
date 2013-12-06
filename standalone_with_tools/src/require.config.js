@@ -72,17 +72,8 @@ require({
     // require mock dependencies
     'require.mock.config': {
       deps: ['global']
-    },
-    
-    // app require config dependencies
-    'app/require.config': {
-      deps: [                
-        'require.mock.config', // call require mock config
-
-        'global',
-        'app/bookmarks/require.config'        
-      ]
     }
+
   }
 
 },
@@ -97,6 +88,9 @@ require({
     'shared/components/input/utils/require.config',
     'shared/components/pagination/require.config',
     
+    'require.mock.config', // call require mock config
+
+    'app/bookmarks/require.config',
     'app/require.config'
   ]);
 
