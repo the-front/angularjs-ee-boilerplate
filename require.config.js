@@ -72,7 +72,11 @@ require({
 
     // require mock dependencies
     'require.mock.config': {
-      deps: ['global']
+      deps: ['global', 'angular']
+    },
+
+    'app/require.config': {
+      deps: ['global', 'angular']
     }
 
     //--- @end: require config deps
