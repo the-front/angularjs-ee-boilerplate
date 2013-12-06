@@ -68,11 +68,14 @@ require({
       deps:['angular_animate']
     },
 
+    //--- @begin: require config deps
 
     // require mock dependencies
     'require.mock.config': {
       deps: ['global']
     }
+
+    //--- @end: require config deps
 
   }
 
@@ -82,7 +85,6 @@ require({
 
   console.debug('project require.js config');
 
-  // start
   require([
     'shared/components/progressbar/loading/require.config',
     'shared/components/input/utils/require.config',
