@@ -68,7 +68,35 @@ require({
       deps:['angular_animate']
     },
 
+    'global': {
+      deps: ['angular']
+    },
+
     //--- @begin: require config deps
+
+      //--- shared
+
+    'shared/components/progressbar/loading/require.config': {
+      deps: ['global']
+    },
+
+    'shared/components/input/utils/require.config': {
+      deps: ['global']
+    },
+
+    'shared/components/pagination/require.config': {
+      deps: ['global']
+    },
+
+      //--- app
+
+    'app/bookmarks/require.config': {
+      deps: ['global']
+    },
+
+    'app/require.config': {
+      deps: ['global']
+    },
 
     // require mock dependencies
     'require.mock.config': {
