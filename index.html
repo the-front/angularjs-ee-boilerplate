@@ -36,8 +36,6 @@
   <script src="vendor/respond.js/1.3.0/respond.min.js"></script> 
   <![endif]-->
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  
-  <!--  -->
 
   <!-- favicon -->
   <link rel="shortcut icon" href="shared/img/favicon.ico">
@@ -53,9 +51,9 @@
   <!-- navbar -->
   <div ng-include="'app/main/templates/navbar.html'"></div>
 
-  <div class="containter">
-  <!-- @begin: ie warning alert -->
-  <!--[if lt IE 7]><div class="row">
+  <!-- @begin: ie warning alert -->  
+  <!--[if lt IE 7]><div class="container">
+  <br><br><br><br>
   <div class="alert alert-danger">
   <p>Your browser is <em>ancient!</em>
     <a href="http://browsehappy.com/">Upgrade to a different browser</a> or
@@ -64,7 +62,8 @@
   </div></div>
   <![endif]-->
 
-  <!--[if lt IE 9]><div class="row">
+  <!--[if lt IE 9]><div class="container">
+  <br><br><br><br>
   <div class="alert alert-warning">
     You are using an old version of Internet Explorer.
     For better and safer browsing experience please <a href="http://www.microsoft.com/IE9">upgrade IE</a>
@@ -72,8 +71,7 @@
   </div></div>
   <![endif]-->
   <!-- @begin: ie warning alert -->  
-  </div>
-  
+
   <!-- app content -->
   <div class="container ng-view"></div>
 
