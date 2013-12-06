@@ -10,6 +10,11 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <!-- css -->
+  <link href="vendor/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="styles/app.css" rel="stylesheet">
+
   <!-- For IE less than 9 -->
   <!--[if lt IE 9]>
   <script type="text/javascript">
@@ -28,15 +33,9 @@
   </script>
 
   <script src="vendor/html5shiv/3.7.0/html5shiv.js"></script>  
+  <script src="vendor/respond.js/1.3.0/respond.min.js"></script> 
   <![endif]-->
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  
-  <!-- <script src="vendor/respond.js/1.3.0/respond.min.js"></script> -->
-
-  <!-- css -->
-  <link href="vendor/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="styles/app.css" rel="stylesheet">
 
   <!-- favicon -->
   <link rel="shortcut icon" href="shared/img/favicon.ico">
@@ -52,17 +51,41 @@
   <!-- navbar -->
   <div ng-include="'app/main/templates/navbar.html'"></div>
 
-  <!-- ie warning alert -->
-  <div ng-include="'app/main/templates/ie-warning-alert.html'"></div>
+  <!-- @begin: ie warning alert -->  
+  <!--[if lt IE 7]><div class="container">
+  <br><br><br><br>
+  <div class="alert alert-danger">
+  <p>Your browser is <em>ancient!</em>
+    <a href="http://browsehappy.com/">Upgrade to a different browser</a> or
+    <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
+  </p>
+  </div></div>
+  <![endif]-->
+
+  <!--[if lt IE 9]><div class="container">
+  <br><br><br><br>
+  <div class="alert alert-warning">
+    You are using an old version of Internet Explorer.
+    For better and safer browsing experience please <a href="http://www.microsoft.com/IE9">upgrade IE</a>
+    or install <a href="http://google.com/chrome">Google Chrome browser</a>.
+  </div></div>
+  <![endif]-->
+  <!-- @begin: ie warning alert -->  
+
+  <!-- loagind app -->
+  <div class="loading_app" ng-hide="appLoaded">
+    <p style="text-align:center">
+      <img src="shared/img/loading.gif"><br>Loading...
+    </p>
+  </div>
 
   <!-- app content -->
-  <div class="container ng-view"></div>
+  <div class="container ng-view"></div>  
 
 </div>
 
 <!-- footer -->
 <div ng-include="'app/main/templates/footer.html'"></div>
-
 
 
 <!-- javascript -->
