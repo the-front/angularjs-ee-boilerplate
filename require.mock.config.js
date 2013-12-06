@@ -77,7 +77,7 @@ require({
 
     //--- @end: mocks
 
-    'shared/mock/module': {
+    'shared/mock/load': {
       deps: [
         'angular-mocks-backend',
 
@@ -101,14 +101,13 @@ require({
   console.debug(GLOBAL.appModuleDeps);
 
   // update app module dependencies array
-  //GLOBAL.appModuleDeps = GLOBAL.appModuleDeps.concat(['ngMockBackend']);
-  GLOBAL.appModuleDeps = GLOBAL.appModuleDeps.concat(['fend.mock']);
+  GLOBAL.appModuleDeps = GLOBAL.appModuleDeps.concat(['ngMockBackend']);
 
   console.debug(GLOBAL.appModuleDeps);
 
   // start
   require([
-    'shared/mock/module'
+    'shared/mock/load'
   ]);
 
 });
