@@ -72,8 +72,15 @@
   <![endif]-->
   <!-- @begin: ie warning alert -->  
 
+  <!-- loagind app -->
+  <div class="loading_app" ng-hide="appLoaded">
+    <p style="text-align:center">
+      <img src="shared/img/loading.gif"><br>Loading...
+    </p>
+  </div>
+
   <!-- app content -->
-  <div class="container ng-view"></div>
+  <div class="container ng-view"></div>  
 
 </div>
 
