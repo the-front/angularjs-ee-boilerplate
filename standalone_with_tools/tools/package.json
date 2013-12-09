@@ -17,6 +17,7 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-less": "~0.8.1",
     "grunt-connect-proxy": "~0.1.6",
-    "grunt-open": "~0.2.2"
+    "grunt-open": "~0.2.2",
+    "jshint-stylish": "~0.1.4"
   }
 }

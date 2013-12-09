@@ -1,5 +1,9 @@
 module.exports = {
   
+  options: {
+    reporter: require('jshint-stylish')
+  },
+
   grunt: [
     'Gruntfile.js'
   ],
@@ -9,8 +13,8 @@ module.exports = {
   ],
 
   app: [
-    '<%= app.src %>/shared/**/*.js',
-    '<%= app.src %>/app/**/*.js'
+    '!<%= app.src %>/vendor/**/*.js',
+    '<%= app.src %>/{,shared/,app/}*.js'
   ]
 
 }; 
