@@ -5,8 +5,8 @@ module.exports = {
       port: 1337,
       base: '<%= app.src %>',
       hostname: '*',
-      livereload: true
-      //open: true
+      livereload: true,
+      open: 'http://localhost:<%= connect.dev.options.port %>'
     }     
   },
   
@@ -16,7 +16,7 @@ module.exports = {
       base: '<%= app.src %>',
       hostname: '*',
       livereload: true,
-      //open: true,
+      open: 'http://localhost:<%= connect.dev_proxy.options.port %>/',
 
       middleware: function (connect, options) {
         var config = [ 
