@@ -7,7 +7,10 @@ module.exports = {
       {
         context: '/rest',
         host: 'localhost',
-        port: 3000
+        port: 3000,
+
+        // https://github.com/drewzboto/grunt-connect-proxy#proxy-configuration
+        xforward: false
       }
     ]
   }
