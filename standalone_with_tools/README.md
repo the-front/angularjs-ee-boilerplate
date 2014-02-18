@@ -95,7 +95,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
       module.js
       routes.js
       start.js 
-    require.config.js     
+    require.config.js  # mapeamento dos javascripts e indicações da dependência entre os arquivos
     /shared
       # componentes e outros recursos compartilhados no projeto o qual podem potencialmente ser reutilizados em um novo projeto
       /components
@@ -114,7 +114,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
     /vendor
       # bibliotecas, css e outros recursos de terceiros utilizados no projeto, ex.: twitter bootstrap  
   index.html
-  require.config.js
+  require.config.js  # mapeamento dos javascripts e indicações da dependência entre os arquivos
 ```
 
 ## Licença
