@@ -1,15 +1,28 @@
-angular.module('ngMockBackend').factory(
+define(
+// require.js dependency injection
+[
+  'lokijs',
+  'shared/mock/module'
+], 
 
-  // factory name
-  'DataStore', 
+// require.js module scope
+function(loki, module) {
+  'use strict';
 
-  // factory dependencies injection
-  [
+  module.factory(
 
-// factory definition
-function() {
+    // factory name
+    'DataStore', 
 
-  // http://lokijs.org/
-  return new loki('mock.db');
+    // factory dependencies injection
+    [
 
-}]);
+  // factory definition
+  function() {
+
+    // http://lokijs.org/
+    return new loki('mock.db');
+
+  }]);
+
+});
