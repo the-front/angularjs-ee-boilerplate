@@ -59,7 +59,7 @@ require({
 
     'toaster': {
       deps:['angularAnimate']
-    },
+    }
 
   },
 
@@ -67,6 +67,6 @@ require({
     'angular'
   ],
 
-  deps: ['./bootstrap']
+  deps: ['./ng.bootstrap']
 
 });

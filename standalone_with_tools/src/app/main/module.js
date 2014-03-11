@@ -4,12 +4,12 @@ define(
   'angular',
   'angularRoute',
 
-  //'shared/fend/progressbar-loading/require.load',
+  'shared/fend/progressbar-loading/require.load',
 
   'app/home/require.load',  
   'app/about/require.load',
 
-  //'app/bookmarks/require.load',
+  'app/bookmarks/require.load',
 
   'app/help/require.load',
 ], 
@@ -33,7 +33,7 @@ function(ng) {
       'home',
       'about',
 
-      'bookmarks',
+      //'bookmarks',
 
       'help'
     ]

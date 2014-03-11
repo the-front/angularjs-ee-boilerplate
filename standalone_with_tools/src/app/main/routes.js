@@ -21,7 +21,7 @@ function(module) {
       .when(
         '/404',
         {
-          templateUrl: 'app/templates/404.html'
+          templateUrl: 'app/main/templates/404.html'
         }
       )
 
