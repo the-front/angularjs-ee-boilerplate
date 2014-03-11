@@ -2,6 +2,9 @@ define(
 // require.js dependency injection
 [
   'angular',
+
+  './require.config',
+
   'angularMocksBackend'
 ], 
 
@@ -9,8 +12,6 @@ define(
 function(ng) {
   'use strict';
 
-  var mockBackend = ng.mock.backend;  
-
-  return mockBackend;
+  return ng.mock.backend; 
 
 });
