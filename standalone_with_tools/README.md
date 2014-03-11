@@ -75,46 +75,33 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 ```
 /src
   /app
-    /404
-      tpl.html
+    /bookmarks
+      #modulo de exemplo CRUD com mock - importado no /app/main/module.js
     /about
-      tpl.html
-      controller.js
+      # modulo importado no /app/main/module.js
     /help
-      tpl.html
-      controller.js
+      # modulo importado no /app/main/module.js
     /home
-      tpl.html
-      controller.js
+      # modulo importado no /app/main/module.js
     /main
-      /layout
-        footer.tpl.html
-        ie-warning-alert.tpl.html
-        navbar.tpl.html
-      controller.js
-      module.js
-      routes.js
-      start.js 
-    require.config.js  # mapeamento dos javascripts e indicações da dependência entre os arquivos
+      # modulo principal da aplicação onde são carregado os demais
     /shared
-      # componentes e outros recursos compartilhados no projeto o qual podem potencialmente ser reutilizados em um novo projeto
-      /components
-        /progressbar/loading
-          config.interceptor.js
-          factory.progress.config.js
-          factory.progress.status.js
-          module.js
-          ngProgress.less
-          start.js
-          require.config.js
+      /fend
+        # conjunto de módulos útis/comuns para reúso em vários projetos/modulos
+      /mock
+        # módulo de suporte para simular o backend
+      /less
+        # configurações de componentes CSS   
     /styles
       /less
-        app.less
+        app.less # mapeamento dos arquivos .less que geram o app.css
       app.css
     /vendor
       # bibliotecas, css e outros recursos de terceiros utilizados no projeto, ex.: twitter bootstrap  
   index.html
-  require.config.js  # mapeamento dos javascripts e indicações da dependência entre os arquivos
+  ng.bootstrap.js # onde é iniciado a execução a aplicação Angular.js
+  require.mock.load.js # listagem dos mocks a serem carregados
+  require.config.js  # configuração principal para o carregamento dos arquivos JavaScript
 ```
 
 ## Licença
