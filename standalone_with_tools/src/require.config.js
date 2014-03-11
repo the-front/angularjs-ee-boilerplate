@@ -27,10 +27,6 @@ require({
       'vendor/angular.js/1.2.1/angular-animate.min'
     ],
 
-    ngProgress: [
-      'vendor/ngProgress/1.0.3/ngProgress.min'
-    ],
-
     toaster: [
       'vendor/toaster/0.3.0/toaster'
     ]
@@ -58,10 +54,6 @@ require({
     },
 
     'angularAnimate': {
-      deps: ['angular']
-    },
-
-    'ngProgress': {
       deps: ['angular']
     },
 

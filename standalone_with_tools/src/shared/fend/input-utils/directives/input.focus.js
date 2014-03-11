@@ -1,7 +1,7 @@
 define(
 // require.js dependency injection
 [
-  './module'
+  '../module'
 ], 
 
 // require.js module scope
