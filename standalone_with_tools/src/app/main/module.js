@@ -3,9 +3,6 @@ define(
 [
   'angular',
   'angularRoute',
-  'angularResource',
-
-  'toaster',
 
   //'shared/fend/progressbar-loading/require.load',
 
@@ -30,9 +27,6 @@ function(ng) {
     // module dependencies
     [
       'ngRoute',
-      'ngResource',
-
-      'toaster',
 
       'fend.progressbar.loading',
 
