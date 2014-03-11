@@ -1,9 +1,48 @@
-// Module definition
-angular.module(
+define(
+// require.js dependency injection
+[
+  'angular',
+  'angularRoute',
+  'angularResource',
 
-  // module name
-  'app', 
+  'toaster',
 
-  // module dependencies - see /global.js
-  GLOBAL.appModuleDeps
-);
+  //'shared/fend/progressbar-loading/require.load',
+
+  'app/home/require.load',  
+  'app/about/require.load',
+
+  //'app/bookmarks/require.load',
+
+  'app/help/require.load',
+], 
+
+// require.js module scope
+function(ng) {
+  'use strict';
+
+  // Module definition
+  return ng.module(
+
+    // module name
+    'main', 
+
+    // module dependencies
+    [
+      'ngRoute',
+      'ngResource',
+
+      'toaster',
+
+      'fend.progressbar.loading',
+
+      'home',
+      'about',
+
+      'bookmarks',
+
+      'help'
+    ]
+  );
+
+});

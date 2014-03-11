@@ -1,40 +1,54 @@
-angular.module('app').config(
+define(
+// require.js dependency injection
+[
+  './module'
+], 
 
-  // dependencies injection
-  ['$routeProvider',
+// require.js module scope
+function(module) {
+  'use strict';
 
-// routes definition
-function ($routeProvider) {
 
-  $routeProvider
-    .when(
-      '/',
-      {
-        controller: 'HomeCtrl',
-        templateUrl: 'app/home/template.html'
-      }
-    )
-    .when(
-      '/about',
-      {
-        controller: 'AboutCtrl',
-        templateUrl: 'app/about/template.html'
-      }
-    )
-    .when(
-      '/help',
-      {
-        controller: 'HelpCtrl',
-        templateUrl: 'app/help/template.html'
-      }
-    )
-    .when(
-      '/404',
-      {
-        templateUrl: 'app/404/template.html'
-      }
-    )
+  module.config(
 
-    .otherwise({redirectTo:'/404'});
+    // dependencies injection
+    ['$routeProvider',
 
-}]);
+  // routes definition
+  function ($routeProvider) {
+
+    $routeProvider
+      .when(
+        '/',
+        {
+          controller: 'HomeCtrl',
+          templateUrl: 'app/home/template.html'
+        }
+      )
+      .when(
+        '/about',
+        {
+          controller: 'AboutCtrl',
+          templateUrl: 'app/about/template.html'
+        }
+      )
+      .when(
+        '/help',
+        {
+          controller: 'HelpCtrl',
+          templateUrl: 'app/help/template.html'
+        }
+      )
+      .when(
+        '/404',
+        {
+          templateUrl: 'app/404/template.html'
+        }
+      )
+
+      .otherwise({redirectTo:'/404'});
+
+  }]);
+
+
+});
