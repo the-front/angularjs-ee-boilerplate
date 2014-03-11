@@ -1,14 +1,31 @@
-// Module definition
-angular.module(
+define(
+// require.js dependency injection
+[
+  'angular',
+  'angularRoute',
+  'angularResource',
 
-  // module name
-  'bookmarks', 
+  'shared/fend/input-utils/require.load',
+  'shared/fend/pagination/require.load'
+], 
 
-  // module dependencies
-  [
-    'fend.input.utils', 
-    'fend.pagination', 
-    'ngRoute', 
-    'ngResource'
-  ]
-);
+// require.js module scope
+function(ng) {
+  'use strict';
+
+  // module definition
+  return ng.module(
+    // module name
+    'bookmarks', 
+
+    // module dependencies
+    [
+      'ngRoute', 
+      'ngResource',
+
+      'fend.input.utils', 
+      'fend.pagination'      
+    ]
+  );
+
+});

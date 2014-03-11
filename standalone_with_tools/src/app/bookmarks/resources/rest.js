@@ -1,24 +1,38 @@
-angular.module('bookmarks').factory(
+define(
+// require.js dependency injection
+[
+  '../module'
+], 
 
-  // resource name
-  'BookmarksResource', 
+// require.js module scope
+function(module) {
+  'use strict';
 
-  // dependency injection
-  ['$resource', 
+  
+  module.factory(
 
-function($resource) {
+    // resource name
+    'BookmarksResource', 
 
-  // http://code.angularjs.org/1.2.1/docs/api/ngResource.$resource
-  var rest = $resource(
-    'rest/bookmarks/:id',
-    {
-      'id': ''
-    }, 
-    {
-      'update': { 'method': 'PUT' }
-    }
-  );
+    // dependency injection
+    ['$resource', 
 
-  return rest;
+  function($resource) {
 
-}]);
+    // http://code.angularjs.org/1.2.1/docs/api/ngResource.$resource
+    var rest = $resource(
+      'rest/bookmarks/:id',
+      {
+        'id': ''
+      }, 
+      {
+        'update': { 'method': 'PUT' }
+      }
+    );
+
+    return rest;
+
+  }]);
+
+
+});
