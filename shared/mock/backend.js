@@ -9,9 +9,8 @@ define(
 function(ng) {
   'use strict';
 
-  // get mock module
-  var mockModule = ng.module('ngMockBackend');
+  var mockBackend = ng.mock.backend;  
 
-  return mockModule;
+  return mockBackend;
 
 });

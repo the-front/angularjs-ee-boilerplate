@@ -15,20 +15,16 @@ require({
       'vendor/angular.js/1.2.1/angular.min'
     ],
 
-    angular_route: [
+    angularRoute: [
       'vendor/angular.js/1.2.1/angular-route.min'
     ],
 
-    angular_resource: [
+    angularResource: [
       'vendor/angular.js/1.2.1/angular-resource.min'
     ],
 
-    angular_animate: [
+    angularAnimate: [
       'vendor/angular.js/1.2.1/angular-animate.min'
-    ],
-
-    ngProgress: [
-      'vendor/ngProgress/1.0.3/ngProgress.min'
     ],
 
     toaster: [
@@ -45,83 +41,32 @@ require({
     },
 
     'angular': {
-      deps: ['bootstrap']
+      deps: ['bootstrap'],
+      exports: 'angular'
     },
 
-    'angular_route': {
+    'angularRoute': {
       deps: ['angular']
     },
 
-    'angular_resource': {
+    'angularResource': {
       deps: ['angular']
     },
 
-    'angular_animate': {
-      deps: ['angular']
-    },
-
-    'ngProgress': {
+    'angularAnimate': {
       deps: ['angular']
     },
 
     'toaster': {
-      deps:['angular_animate']
-    },
-
-    'global': {
-      deps: ['angular']
-    },
-
-    //--- @begin: require config deps
-
-      //--- shared
-
-    'shared/components/progressbar/loading/require.config': {
-      deps: ['global']
-    },
-
-    'shared/components/input/utils/require.config': {
-      deps: ['global']
-    },
-
-    'shared/components/pagination/require.config': {
-      deps: ['global']
-    },
-
-      //--- app
-
-    'app/bookmarks/require.config': {
-      deps: ['global']
-    },
-
-    'app/require.config': {
-      deps: ['global']
-    },
-
-    // require mock dependencies
-    'require.mock.config': {
-      deps: ['global']
+      deps:['angularAnimate']
     }
 
-    //--- @end: require config deps
+  },
 
-  }
+  priority: [
+    'angular'
+  ],
 
-},
-
-['require'], function(require) {
-
-  console.debug('project require.js config');
-
-  require([
-    'shared/components/progressbar/loading/require.config',
-    'shared/components/input/utils/require.config',
-    'shared/components/pagination/require.config',
-    
-    'require.mock.config', // call require mock config
-
-    'app/bookmarks/require.config',
-    'app/require.config'
-  ]);
+  deps: ['./ng.bootstrap']
 
 });

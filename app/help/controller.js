@@ -1,18 +1,32 @@
-angular.module('app').controller(
+define(
+// require.js dependency injection
+[
+  './module'
+], 
 
-  // controller name
-  'HelpCtrl',
+// require.js module scope
+function(module) {
+  'use strict';
 
-  // dependencies injection
-  ['$scope', '$http',
 
-// controller definition
-function($scope, $http) {
+  module.controller(
 
-  $scope.pageName = 'Help Page';
+    // controller name
+    'HelpCtrl',
 
-  $http.get('https://api.github.com/users/erkobridee').success(function(data) {
-    console.debug(data);
-  });
+    // dependencies injection
+    ['$scope', '$http',
 
-}]);
+  // controller definition
+  function($scope, $http) {
+
+    $scope.pageName = 'Help Page';
+
+    $http.get('https://api.github.com/users/erkobridee').success(function(data) {
+      console.debug(data);
+    });
+
+  }]);
+
+
+});

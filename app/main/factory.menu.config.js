@@ -1,80 +1,94 @@
-angular.module('app').factory(
+define(
+// require.js dependency injection
+[
+  './module'
+], 
 
-  // factory name
-  'MenuConfig', 
+// require.js module scope
+function(module) {
+  'use strict';
 
-// dependencies injection
-['$rootScope', '$location', 
 
-// factory definition
-function($scope, $location) {
+  module.factory(
 
-  var menuItemFn, 
-      addMenuItemFn,
-      selectMenuItemFn,
-      checkLocationFn,
-      menuItemSelected = null,
-      locationsMap = {},
-      menuItems = [];
+    // factory name
+    'MenuConfig', 
 
-  //--- @begin: internal functions
-  menuItemFn = function(label, location, css) {
-    return {
-      label: label,
-      location: '/'+location,
-      url: '#'+location,
-      css: (css || '') // 'active'
+  // dependencies injection
+  ['$rootScope', '$location', 
+
+  // factory definition
+  function($scope, $location) {
+
+    var menuItemFn, 
+        addMenuItemFn,
+        selectMenuItemFn,
+        checkLocationFn,
+        menuItemSelected = null,
+        locationsMap = {},
+        menuItems = [];
+
+    //--- @begin: internal functions
+    menuItemFn = function(label, location, css) {
+      return {
+        label: label,
+        location: '/'+location,
+        url: '#'+location,
+        css: (css || '') // 'active'
+      };
     };
-  };
 
-  addMenuItemFn = function(label, location) {
-    var menuItem = menuItemFn(label, location);
-    locationsMap[menuItem.location] = menuItem;
-    menuItems.push(menuItem);
-  };
+    addMenuItemFn = function(label, location) {
+      var menuItem = menuItemFn(label, location);
+      locationsMap[menuItem.location] = menuItem;
+      menuItems.push(menuItem);
+    };
 
-  selectMenuItemFn = function(item) {
-    if(item !== menuItemSelected) {
-      if(menuItemSelected !== null) menuItemSelected.css = '';
-      item.css = 'active';
-      menuItemSelected = item;
-    }        
-  };
+    selectMenuItemFn = function(item) {
+      if(item !== menuItemSelected) {
+        if(menuItemSelected !== null) menuItemSelected.css = '';
+        item.css = 'active';
+        menuItemSelected = item;
+      }        
+    };
 
-  checkLocationFn = function() {
-    var path, splitArr, location; 
+    checkLocationFn = function() {
+      var path, splitArr, location; 
 
-    path = $location.path(); 
-    splitArr = path.split('/');
-    if(splitArr.length > 2) {
-      path = '/'+splitArr[1];
-      splitArr = null;
-    }  
-    
-    location = locationsMap[path];
-    if(location) {
-      selectMenuItemFn(location);
-    } else {
-      if(menuItemSelected !== null) { 
-        menuItemSelected.css = ''; 
-        menuItemSelected = null;
+      path = $location.path(); 
+      splitArr = path.split('/');
+      if(splitArr.length > 2) {
+        path = '/'+splitArr[1];
+        splitArr = null;
+      }  
+      
+      location = locationsMap[path];
+      if(location) {
+        selectMenuItemFn(location);
+      } else {
+        if(menuItemSelected !== null) { 
+          menuItemSelected.css = ''; 
+          menuItemSelected = null;
+        }
       }
-    }
-  };
-  //--- @end: internal functions
+    };
+    //--- @end: internal functions
 
-  //--- @begin: $scope config
-  $scope.menuItems = menuItems;
+    //--- @begin: $scope config
+    $scope.menuItems = menuItems;
 
-  $scope.location = $location;
-  $scope.$watch("location.path()", checkLocationFn, true);
-  //--- @end: $scope config
+    $scope.location = $location;
+    $scope.$watch("location.path()", checkLocationFn, true);
+    //--- @end: $scope config
 
 
-  //--- @begin: public functions
-  return {
-    addMenuItem: addMenuItemFn
-  };
-  //--- @end: public functions
+    //--- @begin: public functions
+    return {
+      addMenuItem: addMenuItemFn
+    };
+    //--- @end: public functions
 
-}]);
+  }]);
+
+
+});

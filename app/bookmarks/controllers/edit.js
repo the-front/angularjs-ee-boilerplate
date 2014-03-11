@@ -1,57 +1,72 @@
-angular.module('bookmarks').controller(
+define(
+// require.js dependency injection
+[
+  '../module',
+  '../resources/rest'
+], 
 
-  // controller name
-  'BookmarksEditCtrl',
+// require.js module scope
+function(module) {
+  'use strict';
 
-  // dependencies injection
-  ['$rootScope', '$scope', 'BookmarksResource', '$routeParams', 'InputFocusFactory',
 
-// controller definition
-function ($rootScope, $scope, resource, $routeParams, input) {
+  module.controller(
 
-  //---
-  var ctrlName = 'BookmarksEditCtrl';
-  input = input.get(ctrlName);
+    // controller name
+    'BookmarksEditCtrl',
 
-  input.config(
-    $scope,
-    [
-      'focusBookmarkNameInput'
-    ]);
-  
-  //console.debug(input);
-  //---
+    // dependencies injection
+    ['$rootScope', '$scope', 'BookmarksResource', '$routeParams', 'InputFocusFactory',
 
-  $scope.title = 'Edit Bookmark : ' + $routeParams.id;
+  // controller definition
+  function ($rootScope, $scope, resource, $routeParams, input) {
 
-  resource.get({id: $routeParams.id}, function(result) {
-    $scope.bookmark = result;
-    input.setFocus('focusBookmarkNameInput', 200);
-  });
+    //---
+    var ctrlName = 'BookmarksEditCtrl';
+    input = input.get(ctrlName);
 
-  $scope.save = function() {
-    $scope.bookmark.$update({id: $routeParams.id}, function(res) {
-      $rootScope.$emit('bookmarks:update:event', 'updated');
+    input.config(
+      $scope,
+      [
+        'focusBookmarkNameInput'
+      ]);
+    
+    //console.debug(input);
+    //---
+
+    $scope.title = 'Edit Bookmark : ' + $routeParams.id;
+
+    resource.get({id: $routeParams.id}, function(result) {
+      $scope.bookmark = result;
+      input.setFocus('focusBookmarkNameInput', 200);
     });
-  };
-  
-  $scope.showConfirm = false;
-  
-  $scope.remove = function() {
-    $scope.showConfirm = true;
-  };
 
-  $scope.cancelRemove = function() {
+    $scope.save = function() {
+      $scope.bookmark.$update({id: $routeParams.id}, function(res) {
+        $rootScope.$emit('bookmarks:update:event', 'updated');
+      });
+    };
+    
     $scope.showConfirm = false;
-    input.focusReset();
-    input.setFocus('focusBookmarkNameInput');
-  };
+    
+    $scope.remove = function() {
+      $scope.showConfirm = true;
+    };
 
-  $scope.destroy = function() {
-    $scope.bookmark.$delete({id: $routeParams.id}, function(res) {
+    $scope.cancelRemove = function() {
       $scope.showConfirm = false;
-      $rootScope.$emit('bookmarks:remove:event', 'removed');
-    });
-  };
+      input.focusReset();
+      input.setFocus('focusBookmarkNameInput');
+    };
 
-}]);
+    $scope.destroy = function() {
+      $scope.bookmark.$delete({id: $routeParams.id}, function(res) {
+        $scope.showConfirm = false;
+        $rootScope.$emit('bookmarks:remove:event', 'removed');
+      });
+    };
+
+  }]);
+
+
+});

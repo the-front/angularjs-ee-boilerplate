@@ -1,36 +1,55 @@
-angular.mock.backend.addResource(function($httpBackend, regexpUrl) {
+define(
+// require.js dependency injection
+[
+  'shared/mock/backend'
+], 
+
+// require.js module scope
+function(backend) {
   'use strict';
-  //--- @begin: Allow pass to server
 
-    // get all
-  $httpBackend
-    .when('GET', regexpUrl(/rest\/bookmarks(\?|$)/))
-    .passThrough(); 
+  
+  backend.addResource(
+    // mock resource dependencies injection
+    ['$httpBackend', 'regexpUrl',
 
-    // get one
-  $httpBackend
-    .when('GET', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
-    .passThrough(); 
+  // mock resource definition
+  function($httpBackend, regexpUrl) {
+    'use strict';
+    //--- @begin: Allow pass to server
 
-    // create
-  $httpBackend
-    .when('POST', regexpUrl(/rest\/bookmarks$/))
-    .passThrough(); 
+      // get all
+    $httpBackend
+      .when('GET', regexpUrl(/rest\/bookmarks(\?|$)/))
+      .passThrough(); 
 
-    // update
-  $httpBackend
-    .when('PUT', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
-    .passThrough(); 
+      // get one
+    $httpBackend
+      .when('GET', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
+      .passThrough(); 
 
-    // delete
-  $httpBackend
-    .when('DELETE', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
-    .passThrough(); 
+      // create
+    $httpBackend
+      .when('POST', regexpUrl(/rest\/bookmarks$/))
+      .passThrough(); 
 
-    // search
-  $httpBackend
-    .when('GET', regexpUrl(/rest\/bookmarks\/search\/([A-z0-9]+)(\?|$)/))
-    .passThrough();
+      // update
+    $httpBackend
+      .when('PUT', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
+      .passThrough(); 
 
-  //--- @end: Allow pass to server  
+      // delete
+    $httpBackend
+      .when('DELETE', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
+      .passThrough(); 
+
+      // search
+    $httpBackend
+      .when('GET', regexpUrl(/rest\/bookmarks\/search\/([A-z0-9]+)(\?|$)/))
+      .passThrough();
+
+    //--- @end: Allow pass to server  
+  }]);
+
+
 });

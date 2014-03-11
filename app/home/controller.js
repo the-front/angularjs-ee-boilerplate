@@ -1,18 +1,32 @@
-angular.module('app').controller(
+define(
+// require.js dependency injection
+[
+  './module'
+], 
 
-  // controller name
-  'HomeCtrl',
+// require.js module scope
+function(module) {
+  'use strict';
 
-  // dependencies injection
-  ['$scope', 'toaster',
 
-// controller definition
-function ($scope, $toaster) {
+  module.controller(
 
-  $scope.pageName = 'Home Page';
+    // controller name
+    'HomeCtrl',
 
-  $scope.popup = function(type) {
-    $toaster.pop(type, 'Title', 'Short description text...');
-  };
+    // dependencies injection
+    ['$scope', 'toaster',
 
-}]);
+  // controller definition
+  function ($scope, $toaster) {
+
+    $scope.pageName = 'Home Page';
+
+    $scope.popup = function(type) {
+      $toaster.pop(type, 'Title', 'Short description text...');
+    };
+
+  }]);
+
+
+});

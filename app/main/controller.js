@@ -1,25 +1,39 @@
-angular.module('app').controller(
+define(
+// require.js dependency injection
+[
+  './module'
+], 
 
-  // controller name
-  'MainCtrl', 
+// require.js module scope
+function(module) {
+  'use strict';
 
-  // dependencies injection
-  ['ProgressConfig', 'MenuConfig', '$scope',
 
-// controller definition
-function(progressConfig, menu, $scope) {
+  module.controller(
 
-  $scope.appLoaded = 'ok';
+    // controller name
+    'MainCtrl', 
 
-  //--- @begin: loading progressbar config
-  progressConfig.eventListeners();
-  progressConfig.color('#428bca');
-  //--- @end: loading progressbar config  
+    // dependencies injection
+    ['ProgressConfig', 'MenuConfig', '$scope',
 
-  //--- @begin: menu items 
-  menu.addMenuItem('Home', '');  
-  menu.addMenuItem('Boorkmars', 'bookmarks');
-  menu.addMenuItem('About', 'about');  
-  //--- @end: menu items   
+  // controller definition
+  function(progressConfig, menu, $scope) {
 
-}]);
+    $scope.appLoaded = 'ok';
+
+    //--- @begin: loading progressbar config
+    progressConfig.eventListeners();
+    progressConfig.color('#428bca');
+    //--- @end: loading progressbar config  
+
+    //--- @begin: menu items 
+    menu.addMenuItem('Home', '');  
+    menu.addMenuItem('Boorkmars', 'bookmarks');
+    menu.addMenuItem('About', 'about');  
+    //--- @end: menu items   
+
+  }]);
+
+
+});

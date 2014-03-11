@@ -3,10 +3,8 @@ define(
 [
   'angular',
   'angularRoute',
-  'angularResource',
 
-  'shared/fend/input-utils/require.load',
-  'shared/fend/pagination/require.load'
+  'toaster'
 ], 
 
 // require.js module scope
@@ -16,15 +14,13 @@ function(ng) {
   // module definition
   return ng.module(
     // module name
-    'bookmarks', 
+    'home',
 
     // module dependencies
     [
-      'ngRoute', 
-      'ngResource',
-
-      'fend.input.utils', 
-      'fend.pagination'      
+      'ngRoute',
+      
+      'toaster'
     ]
   );
 

@@ -1,42 +1,57 @@
-angular.module('bookmarks').controller(
+define(
+// require.js dependency injection
+[
+  '../module',
+  '../resources/rest'
+], 
 
-  // controller name
-  'BookmarksNewCtrl',
+// require.js module scope
+function(module) {
+  'use strict';
 
-  // dependencies injection
-  ['$rootScope', '$scope', 'BookmarksResource', 'InputFocusFactory',
 
-// controller definition
-function ($rootScope, $scope, resource, input) {
+  module.controller(
 
-  //---
-  var ctrlName = 'BookmarksNewCtrl';
-  input = input.get(ctrlName);
+    // controller name
+    'BookmarksNewCtrl',
 
-  input.config(
-    $scope,
-    [
-      'focusBookmarkNameInput'
-    ]);
-  
-  input.setFocus('focusBookmarkNameInput', 200);
+    // dependencies injection
+    ['$rootScope', '$scope', 'BookmarksResource', 'InputFocusFactory',
 
-  //console.debug(input);
-  //---
+  // controller definition
+  function ($rootScope, $scope, resource, input) {
 
-  $scope.title = 'New Bookmark';
+    //---
+    var ctrlName = 'BookmarksNewCtrl';
+    input = input.get(ctrlName);
 
-  $scope.bookmark = new resource({
-    'id':0, 
-    'name':'', 
-    'description':'', 
-    'url':''
-  });
+    input.config(
+      $scope,
+      [
+        'focusBookmarkNameInput'
+      ]);
+    
+    input.setFocus('focusBookmarkNameInput', 200);
 
-  $scope.save = function() {
-    $scope.bookmark.$save(function(res) {
-      $rootScope.$emit('bookmarks:add:event', 'added');
+    //console.debug(input);
+    //---
+
+    $scope.title = 'New Bookmark';
+
+    $scope.bookmark = new resource({
+      'id':0, 
+      'name':'', 
+      'description':'', 
+      'url':''
     });
-  };
 
-}]);
+    $scope.save = function() {
+      $scope.bookmark.$save(function(res) {
+        $rootScope.$emit('bookmarks:add:event', 'added');
+      });
+    };
+
+  }]);
+
+
+});

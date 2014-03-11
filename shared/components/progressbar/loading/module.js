@@ -1,1 +1,0 @@
-angular.module('fend.progressbar.loading', ['ngProgress']);

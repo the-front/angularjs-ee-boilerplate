@@ -19,13 +19,12 @@ function(module) {
 
     $routeProvider
       .when(
-        '/404',
+        '/help',
         {
-          templateUrl: 'app/main/templates/404.html'
+          controller: 'HelpCtrl',
+          templateUrl: 'app/help/template.html'
         }
-      )
-
-      .otherwise({redirectTo:'/404'});
+      );
 
   }]);
 
