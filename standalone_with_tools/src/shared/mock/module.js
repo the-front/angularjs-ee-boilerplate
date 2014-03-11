@@ -2,6 +2,9 @@ define(
 // require.js dependency injection
 [
   'angular',
+
+  './require.config',
+
   'angularMocksBackend'
 ], 
 

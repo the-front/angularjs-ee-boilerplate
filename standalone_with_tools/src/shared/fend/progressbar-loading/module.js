@@ -3,6 +3,8 @@ define(
 [
   'angular',
   
+  './require.config',
+  
   'ngProgress'
 ], 
 
