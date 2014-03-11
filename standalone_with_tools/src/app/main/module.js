@@ -33,7 +33,7 @@ function(ng) {
       'home',
       'about',
 
-      //'bookmarks',
+      'bookmarks',
 
       'help'
     ]

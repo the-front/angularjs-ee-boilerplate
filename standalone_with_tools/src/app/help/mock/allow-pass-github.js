@@ -1,7 +1,26 @@
-angular.mock.backend.addResource(function($httpBackend, regexpUrl) {
+define(
+// require.js dependency injection
+[
+  'shared/mock/backend'
+], 
+
+// require.js module scope
+function(backend) {
   'use strict';
 
-  // Allow GET users from GitHub API
-  $httpBackend.when('GET', regexpUrl(/api\.github\.com\/users(\/)?([A-z0-9]+)?$/)).passThrough();
+
+  backend.addResource(
+    // mock resource dependencies injection
+    ['$httpBackend', 'regexpUrl',
+
+  // mock resource definition
+  function($httpBackend, regexpUrl) {
+    'use strict';
+
+    // Allow GET users from GitHub API
+    $httpBackend.when('GET', regexpUrl(/api\.github\.com\/users(\/)?([A-z0-9]+)?$/)).passThrough();
+
+  }]);
+
 
 });

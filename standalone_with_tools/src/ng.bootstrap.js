@@ -3,7 +3,8 @@ define(
 [
   'angular',
 
-  //'shared/mock/require.load',
+  './require.mock.load',
+
   'app/main/require.load'
 ], 
 
@@ -20,7 +21,8 @@ function(ng) {
 
     // module dependencies
     [
-      //'ngMockBackend',
+      'ngMockBackend',
+      
       'main'      
     ]
   );

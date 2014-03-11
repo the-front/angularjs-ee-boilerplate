@@ -1,12 +1,12 @@
 define(
 // require.js dependency injection
 [
-  'lokijs',
-  'shared/mock/module'
+  'shared/mock/module',
+  'lokijs'
 ], 
 
 // require.js module scope
-function(loki, module) {
+function(module) {
   'use strict';
 
   module.factory(
