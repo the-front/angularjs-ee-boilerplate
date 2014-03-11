@@ -3,15 +3,15 @@ define(
 [
   'angular',
 
-  './shared/mock/require.load',
-  './app/main/require.load'
+  //'shared/mock/require.load',
+  'app/main/require.load'
 ], 
 
 // require.js module scope
 function(ng) {
   'use strict';
 
-  console.log('bootstrap application');
+  console.log('bootstrap angular application');
 
   // define run module to bootstrap application
   ng.module(
@@ -20,7 +20,7 @@ function(ng) {
 
     // module dependencies
     [
-      'ngMockBackend',
+      //'ngMockBackend',
       'main'      
     ]
   );
