@@ -1,14 +1,28 @@
-angular.module('app').controller(
+define(
+// require.js dependency injection
+[
+  './module'
+], 
 
-  // controller name
-  'AboutCtrl',
+// require.js module scope
+function(module) {
+  'use strict';
 
-  // dependencies injection
-  ['$scope',
 
-// controller definition
-function($scope) {
+  module.controller(
 
-  $scope.pageName = 'About Page';
+    // controller name
+    'AboutCtrl',
 
-}]);
+    // dependencies injection
+    ['$scope',
+
+  // controller definition
+  function($scope) {
+
+    $scope.pageName = 'About Page';
+
+  }]);
+
+
+});
