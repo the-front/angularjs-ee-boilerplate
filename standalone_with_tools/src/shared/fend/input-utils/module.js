@@ -11,7 +11,7 @@ function(ng) {
   // module definition
   return ng.module(
     // module name
-    'end.input.utils',
+    'fend.input.utils',
 
     // module dependencies
     []
