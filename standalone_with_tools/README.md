@@ -76,32 +76,32 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 /src
   /app
     /bookmarks
-      #modulo de exemplo CRUD com mock - importado no /app/main/module.js
+      >> modulo de exemplo CRUD com mock - importado no /app/main/module.js
     /about
-      # modulo importado no /app/main/module.js
+      >> modulo importado no /app/main/module.js
     /help
-      # modulo importado no /app/main/module.js
+      >> modulo importado no /app/main/module.js
     /home
-      # modulo importado no /app/main/module.js
+      >> modulo importado no /app/main/module.js
     /main
-      # modulo principal da aplicação onde são carregado os demais
+      >> modulo principal da aplicação onde são carregado os demais
     /shared
       /fend
-        # conjunto de módulos útis/comuns para reúso em vários projetos/modulos
+        >> conjunto de módulos útis/comuns para reúso em vários projetos/modulos
       /mock
-        # módulo de suporte para simular o backend
+        >> módulo de suporte para simular o backend
       /less
-        # configurações de componentes CSS   
+        >> configurações de componentes CSS   
     /styles
       /less
-        app.less # mapeamento dos arquivos .less que geram o app.css
+        app.less >> mapeamento dos arquivos .less que geram o app.css
       app.css
     /vendor
-      # bibliotecas, css e outros recursos de terceiros utilizados no projeto, ex.: twitter bootstrap  
+      >> bibliotecas, css e outros recursos de terceiros utilizados no projeto, ex.: twitter bootstrap  
   index.html
-  ng.bootstrap.js # onde é iniciado a execução a aplicação Angular.js
-  require.mock.load.js # listagem dos mocks a serem carregados
-  require.config.js  # configuração principal para o carregamento dos arquivos JavaScript
+  ng.bootstrap.js >> onde é iniciado a execução a aplicação Angular.js
+  require.mock.load.js >> listagem dos mocks a serem carregados
+  require.config.js  >> configuração principal para o carregamento dos arquivos JavaScript
 ```
 
 ## Licença
