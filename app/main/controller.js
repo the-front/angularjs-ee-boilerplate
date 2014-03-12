@@ -29,7 +29,7 @@ function(module) {
 
     //--- @begin: menu items 
     menu.addMenuItem('Home', '');  
-    menu.addMenuItem('Boorkmars', 'bookmarks');
+    menu.addMenuItem('Bookmarks', 'bookmarks');
     menu.addMenuItem('About', 'about');  
     //--- @end: menu items   
 
