@@ -75,16 +75,27 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 ```
 /src
   /app
-    /bookmarks
-      >> modulo de exemplo CRUD com mock - importado no /app/main/module.js
+
+    /bookmarks >> modulo de exemplo CRUD com mock      
+      >> require.load.js mapeia os arquivos .js do diretório
+         este é referenciado como dependência no /app/main/module.js
+      /mock
+        >> require.load.js mapeia os arquivos .js do diretório
+           este é referenciado como dependência no /require.mock.load.js
+
     /about
-      >> modulo importado no /app/main/module.js
+      >> modulo referenciado como dependência no /app/main/module.js
+
     /help
-      >> modulo importado no /app/main/module.js
+      >> modulo referenciado como dependência no /app/main/module.js
+
     /home
-      >> modulo importado no /app/main/module.js
+      >> modulo referenciado como dependência no /app/main/module.js
+
     /main
       >> modulo principal da aplicação onde são carregado os demais
+         este é referenciado como dependência no /ng.bootstrap.js
+
     /shared
       /fend
         >> conjunto de módulos útis/comuns para reúso em vários projetos/modulos
@@ -92,16 +103,20 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
         >> módulo de suporte para simular o backend
       /less
         >> configurações de componentes CSS   
+
     /styles
       /less
         app.less >> mapeamento dos arquivos .less que geram o app.css
       app.css
+
     /vendor
       >> bibliotecas, css e outros recursos de terceiros utilizados no projeto, ex.: twitter bootstrap  
-  index.html
+
   ng.bootstrap.js >> onde é iniciado a execução a aplicação Angular.js
   require.mock.load.js >> listagem dos mocks a serem carregados
   require.config.js  >> configuração principal para o carregamento dos arquivos JavaScript
+
+  index.html
 ```
 
 ## Licença
