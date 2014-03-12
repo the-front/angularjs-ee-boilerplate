@@ -1,7 +1,7 @@
 define(
 // require.js dependency injection
 [
-  './require.config',
+  //'./require.config',
 
   './module',
   './config.interceptor',

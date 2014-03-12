@@ -2,10 +2,7 @@ define(
 // require.js dependency injection
 [
   'angular',
-
-  './require.config',
-
-  'angularMocksBackend'
+  'shared/mock/module'
 ], 
 
 // require.js module scope
