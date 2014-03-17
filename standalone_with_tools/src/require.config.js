@@ -62,7 +62,7 @@ require({
     },
 
     'angular': {
-      //deps: ['bootstrap'],
+      deps: ['bootstrap'],
       exports: 'angular'
     },
 
