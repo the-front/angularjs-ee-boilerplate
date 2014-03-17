@@ -1,8 +1,16 @@
 module.exports = {
 
-  src: '../src',
+  paths: {
+    src: '../src',
+    build: './temp',
+    dist: '../dist'
+  },
 
-  dev_server: {
+  frontend: {
+    port: 1337
+  },
+
+  backend: {
     proxies: [
       {
         context: '/rest',

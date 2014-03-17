@@ -12,9 +12,10 @@ module.exports = {
     'helpers/grunt/**/*.js'
   ],
 
-  app: [
-    '!<%= app.src %>/vendor/**/*.js',
-    '<%= app.src %>/{,shared/,app/}*.js'
+  project: [
+    '!<%= project.paths.src %>/vendor/**/*.js',
+    '!<%= project.paths.src %>/{,shared/,app/}*.min.js',
+    '<%= project.paths.src %>/{,shared/,app/}*.js'
   ]
 
 }; 
