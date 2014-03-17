@@ -23,7 +23,7 @@ function(ng) {
     [
       'ngMockBackend',
       
-      'main'      
+      'main'
     ]
   );
 
