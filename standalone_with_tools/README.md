@@ -66,6 +66,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
   Gruntfile.js  >> configurações para o grunt.js
   package.json  >> definição das dependências
 ```
+
 > Para facilitar a configuração do ferramental, foi criado o arquivo `/tools/helpers/grunt/config/project.js` para centralizar as configurações
 
 ### Projeto
