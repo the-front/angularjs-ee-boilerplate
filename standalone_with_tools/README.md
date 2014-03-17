@@ -38,7 +38,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
 > dentro do diretório `/tools` execute um dos comandos a seguir
 
-* `grunt helloWorld` >> executa a tarefa customizada de exemplo, ver diretório `/helpers/grunt/tasks`
+* `grunt helloworld` >> executa a tarefa customizada de exemplo, ver diretório `/helpers/grunt/tasks`
 
 * `grunt` >> irá o jshint nos arquivos .js para verificar a qualidade de código
 
