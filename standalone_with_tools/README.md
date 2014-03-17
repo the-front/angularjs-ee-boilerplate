@@ -44,9 +44,9 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
 * `grunt dev` >> irá executar o jshint, iniciar o servidor com suporte ao livereload e irá verificar se houve alterações nos arquivos *.html, .css, ou .js* para atualizar a página automaticamente
 
-* `grunt dev_proxy` >> além das tarefas do `grunt dev`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor. 
+* `grunt dev:proxy` >> além das tarefas do `grunt dev`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor. 
 
-  * Para configurar o roteamento do proxy, altere o arquivo: `/tools/helpers/grunt/config/app.js`, a configuração: `dev_server.proxies` 
+  * Para configurar o roteamento do proxy, altere o arquivo: `/tools/helpers/grunt/config/project.js`, a configuração: `backend.proxies` 
 
   * O suporte do proxy utiliza o plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 
@@ -66,7 +66,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
   Gruntfile.js  >> configurações para o grunt.js
   package.json  >> definição das dependências
 ```
-
+> Para facilitar a configuração do ferramental, foi criado o arquivo `/tools/helpers/grunt/config/project.js` para centralizar as configurações
 
 ### Projeto
 
