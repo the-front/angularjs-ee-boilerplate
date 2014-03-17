@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   'use strict';
 
   grunt.log.writeln('\nloading grunt plugins and configs...');
-  require('load-grunt-config')(grunt, {configPath: __dirname+'/helpers/grunt/config'});
+  require('load-grunt-config')(grunt, {configPath: 'helpers/grunt/config'});
   grunt.log.writeln('...done\n');
 
   // load custom tasks
