@@ -112,7 +112,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
     /vendor
       >> bibliotecas, css e outros recursos de terceiros utilizados no projeto, ex.: twitter bootstrap  
 
-  ng.bootstrap.js >> onde é iniciado a execução a aplicação Angular.js
+  ng.app.js >> onde é iniciado a execução a aplicação Angular.js
   require.mock.load.js >> listagem dos mocks a serem carregados
   require.config.js  >> configuração principal para o carregamento dos arquivos JavaScript
 
