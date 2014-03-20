@@ -20,11 +20,11 @@ function(ng) {
 
     // module dependencies
     [
-      'ngRoute', 
+      'ngRoute',
       'ngResource',
 
-      'fend.input.utils', 
-      'fend.pagination'      
+      'fend.input.utils',
+      'fend.pagination'
     ]
   );
 
