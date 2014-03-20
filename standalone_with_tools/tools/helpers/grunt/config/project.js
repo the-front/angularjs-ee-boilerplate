@@ -7,9 +7,10 @@ module.exports = {
   },
 
   frontend: {
-    port: 1337
-
-    // TODO: add livereload port
+    port: {
+      connect: 1337,
+      livereload: 35729
+    }
   },
 
   backend: {

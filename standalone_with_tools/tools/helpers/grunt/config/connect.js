@@ -19,21 +19,21 @@ module.exports = {
 
   dev: {
     options: {
-      port: '<%= project.frontend.port %>',
+      port: '<%= project.frontend.port.connect %>',
       base: '<%= project.paths.src %>',
       hostname: '*',
       livereload: true,
-      open: 'http://localhost:<%= project.frontend.port %>'
+      open: 'http://localhost:<%= project.frontend.port.connect %>'
     }
   },
   
   devProxy: {
     options: {
-      port: '<%= project.frontend.port %>',
+      port: '<%= project.frontend.port.connect %>',
       base: '<%= project.paths.src %>',
       hostname: '*',
       livereload: true,
-      open: 'http://localhost:<%= project.frontend.port %>',
+      open: 'http://localhost:<%= project.frontend.port.connect %>',
 
       middleware: '<%= connect.middleware %>'
     }
@@ -43,21 +43,21 @@ module.exports = {
 
   dist: {
     options: {
-      port: '<%= project.frontend.port %>',
+      port: '<%= project.frontend.port.connect %>',
       base: '<%= project.paths.dist %>',
       hostname: '*',
       keepalive: true,
-      open: 'http://localhost:<%= project.frontend.port %>'
+      open: 'http://localhost:<%= project.frontend.port.connect %>'
     }
   },
   
   distProxy: {
     options: {
-      port: '<%= project.frontend.port %>',
+      port: '<%= project.frontend.port.connect %>',
       base: '<%= project.paths.dist %>',
       hostname: '*',
       keepalive: true,
-      open: 'http://localhost:<%= project.frontend.port %>',
+      open: 'http://localhost:<%= project.frontend.port.connect %>',
       
       middleware: '<%= connect.middleware %>'
     }

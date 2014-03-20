@@ -5,7 +5,7 @@ module.exports = {
       '<%= project.paths.src %>/**/*.{html,css,js}'
     ],
     options: {
-      livereload: true
+      livereload: '<%= project.frontend.port.livereload %>'
     }    
   },
 
