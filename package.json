@@ -1,6 +1,6 @@
 {
   "name": "angularjs-ee-boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "angularjs enterprise edition boilerplate",
   "main": "Gruntfile.js",
   "repository": {
@@ -18,7 +18,7 @@
     "url": "https://github.com/erkobridee/angularjs-ee-boilerplate/issues"
   },
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
