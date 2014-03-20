@@ -1,10 +1,20 @@
 module.exports = function(grunt) {
   'use strict';
 
-  require('load-grunt-config')(grunt, {configPath: __dirname+'/helpers/grunt/config'});
+  var path = require('path');
 
-  // custom tasks
-  grunt.loadTasks('helpers/grunt/tasks'); // grunt helloWorld
+  grunt.log.writeln('\nloading grunt plugins and configs...');
+  require('load-grunt-config')(
+    grunt, {
+      configPath: path.join(process.cwd(), 'helpers/grunt/config')
+    }
+  );
+  grunt.log.writeln('...done\n');
+
+  // load custom tasks
+  grunt.loadTasks('helpers/grunt/tasks'); // grunt helloworld
+  //grunt.task.run('helloworld');
+
 
   //--- grunt tasks
 
@@ -15,16 +25,6 @@ module.exports = function(grunt) {
     'clean:gh_pages_dir',
     'gitclone:gh_pages'
   ]);
-
-  /*
-  grunt.registerTask('publish', [
-    'jshint',
-    'clean:gh_pages_content',
-    'copy:gitignore',
-    'copy:project',
-    'githubPages:gh_pages'
-  ]);
-  */
 
   grunt.registerTask('publish',  function(target) { // default: prod workflow
     var message = 'publish ',
