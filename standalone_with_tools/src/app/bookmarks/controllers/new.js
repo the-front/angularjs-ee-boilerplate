@@ -19,7 +19,7 @@ function(module) {
     ['$rootScope', '$scope', 'BookmarksResource', 'InputFocusFactory',
 
   // controller definition
-  function ($rootScope, $scope, resource, input) {
+  function ($rootScope, $scope, Resource, input) {
 
     //---
     var ctrlName = 'BookmarksNewCtrl';
@@ -38,7 +38,7 @@ function(module) {
 
     $scope.title = 'New Bookmark';
 
-    $scope.bookmark = new resource({
+    $scope.bookmark = new Resource({
       'id':0, 
       'name':'', 
       'description':'', 

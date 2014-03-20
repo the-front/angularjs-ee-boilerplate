@@ -22,7 +22,6 @@ function(ng, backend) {
 
   // mock resource definition
   function(collection, helpers, $httpBackend, regexpUrl, getParams, console) {
-    'use strict';
 
     //--- @begin: URL interceptor
     

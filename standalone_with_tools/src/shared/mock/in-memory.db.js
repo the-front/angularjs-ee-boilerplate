@@ -1,3 +1,5 @@
+// http://jshint.com/docs/options/
+/* jshint newcap:false */
 define(
 // require.js dependency injection
 [

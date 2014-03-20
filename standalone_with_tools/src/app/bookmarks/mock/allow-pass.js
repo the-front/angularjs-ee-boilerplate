@@ -15,7 +15,7 @@ function(backend) {
 
   // mock resource definition
   function($httpBackend, regexpUrl) {
-    'use strict';
+
     //--- @begin: Allow pass to server
 
       // get all
