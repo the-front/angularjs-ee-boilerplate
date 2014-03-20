@@ -8,24 +8,24 @@ require({
     ],
 
     bootstrap: [
-      'vendor/bootstrap/3.0.2/js/bootstrap.min'
+      'vendor/bootstrap/3.1.1/js/bootstrap.min'
     ],
 
 
     angular: [
-      'vendor/angular.js/1.2.1/angular.min'
+      'vendor/angular.js/1.2.14/angular.min'
     ],
 
     angularRoute: [
-      'vendor/angular.js/1.2.1/angular-route.min'
+      'vendor/angular.js/1.2.14/angular-route.min'
     ],
 
     angularResource: [
-      'vendor/angular.js/1.2.1/angular-resource.min'
+      'vendor/angular.js/1.2.14/angular-resource.min'
     ],
 
     angularAnimate: [
-      'vendor/angular.js/1.2.1/angular-animate.min'
+      'vendor/angular.js/1.2.14/angular-animate.min'
     ],
 
     toaster: [
