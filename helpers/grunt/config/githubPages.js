@@ -1,14 +1,25 @@
 module.exports = {
-  
-  gh_pages: {
+
+  devCode: {
     
     options: {
       // The default commit message for the gh-pages branch
-      commitMessage: 'gh-pages auto commit <%= grunt.template.today("isoUtcDateTime") %>'
+      commitMessage: 'dev code : gh-pages auto commit <%= project.isoUtcDateTime %>'
     },
 
     // The folder where your gh-pages repo is
-    src: '<%= app.paths.gh_pages %>'
+    src: '<%= project.paths.gh_pages %>'
+  },
+
+  prodCode: {
+    
+    options: {
+      // The default commit message for the gh-pages branch
+      commitMessage: 'prod code : gh-pages auto commit <%= project.isoUtcDateTime %>'
+    },
+
+    // The folder where your gh-pages repo is
+    src: '<%= project.paths.gh_pages %>'
   }
 
 };

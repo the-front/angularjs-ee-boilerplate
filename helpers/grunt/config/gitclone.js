@@ -3,7 +3,7 @@ module.exports = {
     options: {
       repository: '<%= package.repository.url %>',
       branch: 'gh-pages',
-      directory: '<%= app.paths.gh_pages %>'
+      directory: '<%= project.paths.gh_pages %>'
     }
   }
 };

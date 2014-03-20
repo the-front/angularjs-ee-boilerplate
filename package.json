@@ -2,7 +2,6 @@
   "name": "angularjs-ee-boilerplate",
   "version": "0.0.2",
   "description": "angularjs enterprise edition boilerplate",
-  "main": "Gruntfile.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/erkobridee/angularjs-ee-boilerplate.git"
@@ -21,13 +20,13 @@
     "node": ">= 0.10.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "load-grunt-config": "~0.7.0",
-    "grunt-git": "~0.2.2",
-    "grunt-contrib-copy": "~0.4.1",
+    "load-grunt-config": "^0.7.0",
+    "grunt-git": "^0.2.2",
+    "grunt-contrib-copy": "^0.4.1",
     "grunt-github-pages": "0.0.4",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-jshint": "~0.7.0",
-    "jshint-stylish": "~0.1.4"
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-jshint": "^0.7.0",
+    "jshint-stylish": "^0.1.4",
+    "grunt-shell": "^0.6.4"
   }
 }

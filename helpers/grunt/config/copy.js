@@ -5,17 +5,28 @@ module.exports = {
       {
         cwd: './',
         src: ['.gitignore'],
-        dest: '<%= app.paths.gh_pages %>/'
+        dest: '<%= project.paths.gh_pages %>/'
       }
     ]
   },
 
-  project: {
+  projectDev: {
     files: [
       {
-        cwd: '<%= app.paths.project %>/',
+        cwd: '<%= project.paths.project.dev %>/',
         src: ['**'],
-        dest: '<%= app.paths.gh_pages %>/',
+        dest: '<%= project.paths.gh_pages %>/',
+        expand: true
+      }
+    ]
+  },
+
+  projectProd: {
+    files: [
+      {
+        cwd: '<%= project.paths.project.prod %>/',
+        src: ['**'],
+        dest: '<%= project.paths.gh_pages %>/',
         expand: true
       }
     ]
