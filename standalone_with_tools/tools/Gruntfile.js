@@ -18,9 +18,10 @@ module.exports = function(grunt) {
 
   //--- grunt tasks
 
-  // TODO: define cleanup
+  grunt.registerTask('cleanup', ['clean:dist', 'clean:build']); 
 
-  grunt.registerTask('default', ['jshint']); 
+  grunt.registerTask('default', ['jshint', 'cleanup']); 
+
 
   grunt.registerTask('build', function(target) {
     if(target === 'dev') {
@@ -31,11 +32,23 @@ module.exports = function(grunt) {
 
     } else if(target === 'prod') {
       return  grunt.task.run([
-        'default'//, TODO: define tasks
+        'default',
+        'copy:jstobuild',
+        'html2js:prod',
+        'rewriterequireconfig',
+        'requirejs',
+        'clean:build',
+        'copy:todist',
+        'cleanempty',
+        'less:prod',
+        'htmlmin',
+        'imagemin',
+        'uglify'
       ]);
 
     }
   });
+
 
   grunt.registerTask('dev', function(target) {
     if(target === 'proxy') {
@@ -54,7 +67,7 @@ module.exports = function(grunt) {
     ]);
   });
 
-  /*
+
   grunt.registerTask('dist', function(target) {
     if(target === 'proxy') {
       return grunt.task.run([
@@ -69,6 +82,6 @@ module.exports = function(grunt) {
       'connect:dist'
     ]);
   });
-  */
+  
 
 };
