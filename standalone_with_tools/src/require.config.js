@@ -4,7 +4,7 @@ require({
   paths: {
 
     jquery: [
-      'vendor/jquery/1.10.2/jquery.min'
+      'vendor/jquery/1.11.0/jquery.min'
     ],
 
     bootstrap: [
