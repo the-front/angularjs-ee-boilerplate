@@ -4,6 +4,8 @@ define(
   'angular',
   'angularRoute',
 
+  './templates/cache',
+
   'shared/fend/progressbar-loading/require.load',
 
   'app/home/require.load',  
@@ -27,6 +29,8 @@ function(ng) {
     // module dependencies
     [
       'ngRoute',
+
+      'templatesCache',
 
       'fend.progressbar.loading',
 
