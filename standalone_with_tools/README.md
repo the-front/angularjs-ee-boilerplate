@@ -130,7 +130,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
     /main
       >> modulo principal da aplicação onde são carregado os demais
-         este é referenciado como dependência no /ng.bootstrap.js
+         este é referenciado como dependência no /ng.app.js
 
     /shared
       /fallback   >> scripts para Internet Explorer
