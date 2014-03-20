@@ -12,22 +12,26 @@ define(
 function(ng) {
   'use strict';
 
-  console.log('bootstrap angular application');
+  ng.element(document).ready(function() {
 
-  // define run module to bootstrap application
-  ng.module(
-    // module name
-    'run',
+    console.log('bootstrap angular application');
 
-    // module dependencies
-    [
-      'ngMockBackend',
-      
-      'main'
-    ]
-  );
+    // define run module to bootstrap application
+    ng.module(
+      // module name
+      'run',
 
-  // start angular app
-  ng.bootstrap(document, ['run']);
+      // module dependencies
+      [
+        'ngMockBackend',
+        
+        'main'
+      ]
+    );
+
+    // start angular app
+    ng.bootstrap(document, ['run']);
+
+  });
 
 });
