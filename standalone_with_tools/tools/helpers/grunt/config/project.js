@@ -15,7 +15,7 @@ module.exports = {
   frontend: {
     port: {
       connect: 1337,
-      livereload: 35729
+      livereload: 9999 // default: 35729
     }
   },
 
