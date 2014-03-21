@@ -3,7 +3,6 @@
 
 <!-- toc -->
 * [Visão Geral](#visão-geral)
-* [TODO](#todo)
 * [Guia de Instalação](#guia-de-instalação)
   * [Clone](#clone)
 * [Guia de Uso](#guia-de-uso)
@@ -13,6 +12,7 @@
   * [Ferramentas](#ferramentas)
   * [Projeto](#projeto)
 * [Licença](#licença)
+* [TODO](#todo)
 
 <!-- toc stop -->
 
@@ -22,11 +22,6 @@
 Projeto Standalone, com ferramental de suporte para o desenvolvimento
 
 * **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](https://gist.github.com/erkobridee/3868035)
-
-
-## TODO
-
-* definir e/ou usar um componente para o NavBar
 
 
 ## Guia de Instalação
@@ -156,6 +151,16 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
   index.html
 ```
 
+
 ## Licença
 
 MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org)
+
+
+## TODO
+
+* criar trechos de código para auxiliar os desenvolvedores
+
+* definir e/ou usar um componente para o NavBar
+ 
+
