@@ -6,7 +6,7 @@ define(
   './require.mock.load',
 
   'app/main/require.load'
-], 
+],
 
 // require.js module scope
 function(ng) {
@@ -24,7 +24,7 @@ function(ng) {
       // module dependencies
       [
         'ngMockBackend',
-        
+
         'main'
       ]
     );

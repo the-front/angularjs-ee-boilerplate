@@ -6,7 +6,7 @@ module.exports = {
     ],
     options: {
       livereload: '<%= project.frontend.port.livereload %>'
-    }    
+    }
   },
 
   js: {

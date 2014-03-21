@@ -5,10 +5,10 @@
   <div class="row">
 
     <div class="col-md-3">
-      
+
       <ul class="list-inline">
         <li>
-          
+
           <a href="#bookmarks">
             <i class="glyphicon glyphicon-chevron-left"></i>
             All Boorkmarks
@@ -16,9 +16,9 @@
 
         </li>
         <li>
-            
-          <button 
-            type="button" 
+
+          <button
+            type="button"
             title="{{optionsBtnLabel}}"
             ng-click="showOptionsBtnClick()"
             class="btn btn-sm btn-default"
@@ -32,25 +32,25 @@
     </div> <!-- / .col-md-2 -->
 
     <div class="col-md-6 col-md-offset-3">
-      
+
       <!-- @begin: searchForm -->
       <form role="form" name="searchForm" ng-submit="doSearch()">
         <div class="input-group" ng-class="{'has-error': searchForm.searchInput.$invalid}">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-search"></i>
           </span>
-          
-          <input             
-            type="text" class="form-control" 
+
+          <input
+            type="text" class="form-control"
             placeholder="Bookmark"
             name="searchInput"
-            ng-model="searchName" 
+            ng-model="searchName"
             fend-focus="focusSearchInput"
             required>
 
           <span class="input-group-btn">
-            <button 
-              class="btn btn-default" 
+            <button
+              class="btn btn-default"
               ng-click="doSearch()"
               ng-disabled="isClean() || searchForm.$invalid"
               type="button">Search</button>
@@ -61,10 +61,10 @@
 
     </div>
 
-  </div> 
+  </div>
   <!-- @end: search option -->
 
-  <!-- @begin: options --> 
+  <!-- @begin: options -->
   <div class="visible-xs">
     <span ng-show="showOptions &#38;&#38; (showFilterBtn || bookmarks.count > 0)">&nbsp;</span>
   </div>
@@ -77,17 +77,17 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
       </span>
 
-      <button         
-        type="button" 
+      <button
+        type="button"
         title="{{filterBtnLabel}}"
         ng-click="showFilterBtnClick()"
         class="btn btn-sm btn-default"
         ng-class="{'active': showFilterBtnActive}">
         <i class="glyphicon glyphicon-filter"></i> {{filterBtnLabel}}
       </button>
-      
+
     </span>
-  
+
     <span ng-show="showPagination">
 
       <span ng-show="bookmarks.count > 0">
@@ -99,35 +99,35 @@
         Pages: <span class="badge">{{bookmarks.pages}}</span> &nbsp;&nbsp;
       </span>
       <span ng-show="bookmarks.count > 0">
-        Total: <span class="badge">{{bookmarks.count}}</span> 
+        Total: <span class="badge">{{bookmarks.count}}</span>
       </span>
       <span class="visible-xs col-md-1">&nbsp;</span>
     </span>
 
     <div class="col-md-3 pull-right" ng-show="showPagination">
-      <form 
-        name="updateSizeForm" 
+      <form
+        name="updateSizeForm"
         ng-submit="updatePageSizeFormSubmit()"
-        role="form" novalidate> 
-        <div class="input-group input-group-sm">      
+        role="form" novalidate>
+        <div class="input-group input-group-sm">
           <span class="input-group-addon">Page Size</span>
-          <input 
+          <input
             class="form-control"
             type="number"
             name="pageSize"
-            ng-model="pageSize" 
+            ng-model="pageSize"
             fend-focus="focusPageSizeInput"
             min="{{pageMinSize}}" max="{{pageMaxSize}}"
             placeholder="min value 2">
           <span class="input-group-btn">
-            <button 
+            <button
               ng-click="updatePageSize()"
-              ng-disabled="updatePageSizeInvalid(pageSize)" 
+              ng-disabled="updatePageSizeInvalid(pageSize)"
               class="btn btn-default" type="button">Update</button>
-          </span>          
+          </span>
         </div>
         <div>
-          <p ng-show="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max" 
+          <p ng-show="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
             class="text-center">
             The value must be in range {{pageMinSize}} to {{pageMaxSize}}!
           </p>
@@ -143,5 +143,5 @@
   <!-- @end: options -->
 
   <div class="row" ng-include="'app/bookmarks/templates/table.html'"></div>
-  
+
 </div>

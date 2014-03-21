@@ -2,13 +2,13 @@ define(
 // require.js dependency injection
 [
   'shared/mock/backend'
-], 
+],
 
 // require.js module scope
 function(backend) {
   'use strict';
 
-  
+
   backend.addResource(
     // mock resource dependencies injection
     ['$httpBackend', 'regexpUrl',
@@ -21,34 +21,34 @@ function(backend) {
       // get all
     $httpBackend
       .when('GET', regexpUrl(/rest\/bookmarks(\?|$)/))
-      .passThrough(); 
+      .passThrough();
 
       // get one
     $httpBackend
       .when('GET', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
-      .passThrough(); 
+      .passThrough();
 
       // create
     $httpBackend
       .when('POST', regexpUrl(/rest\/bookmarks$/))
-      .passThrough(); 
+      .passThrough();
 
       // update
     $httpBackend
       .when('PUT', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
-      .passThrough(); 
+      .passThrough();
 
       // delete
     $httpBackend
       .when('DELETE', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
-      .passThrough(); 
+      .passThrough();
 
       // search
     $httpBackend
       .when('GET', regexpUrl(/rest\/bookmarks\/search\/([A-z0-9]+)(\?|$)/))
       .passThrough();
 
-    //--- @end: Allow pass to server  
+    //--- @end: Allow pass to server
   }]);
 
 

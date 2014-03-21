@@ -18,15 +18,15 @@ module.exports = function(grunt) {
 
   //--- grunt tasks
 
-  grunt.registerTask('cleanup', ['clean:dist', 'clean:build']); 
+  grunt.registerTask('cleanup', ['clean:dist', 'clean:build']);
 
-  grunt.registerTask('default', ['jshint', 'cleanup']); 
+  grunt.registerTask('default', ['jshint', 'cleanup']);
 
 
   grunt.registerTask('build', function(target) {
     if(target === 'dev') {
       return grunt.task.run([
-        'default', 
+        'default',
         'less:dev'
       ]);
 
@@ -61,8 +61,8 @@ module.exports = function(grunt) {
     }
 
     return grunt.task.run([
-      'build:dev', 
-      'connect:dev', 
+      'build:dev',
+      'connect:dev',
       'watch'
     ]);
   });
@@ -82,6 +82,6 @@ module.exports = function(grunt) {
       'connect:dist'
     ]);
   });
-  
+
 
 };

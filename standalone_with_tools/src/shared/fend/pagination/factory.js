@@ -2,17 +2,17 @@ define(
 // require.js dependency injection
 [
   './module'
-], 
+],
 
 // require.js module scope
 function(module) {
   'use strict';
 
-  
+
   module.factory(
 
     // factory name
-    'PaginationFactory', 
+    'PaginationFactory',
 
   // dependencies injection
   [ //'$rootScope',
@@ -22,8 +22,8 @@ function(module) {
 
     var Pagination = (function() {
 
-      // private 
-      
+      // private
+
       // private functions
       function defaultMetainf(_pageSize) {
         return {
@@ -42,7 +42,7 @@ function(module) {
       var Pagination = function(paginationFor) {
         if(paginationFor) this.classInfo = 'Pagination for: ' + paginationFor;
       };
-      var ClassDef = Pagination; 
+      var ClassDef = Pagination;
       //---
 
       // public attributes
@@ -56,7 +56,7 @@ function(module) {
       //---
 
       ClassDef.prototype.getPageSize = function() {
-        return this.metainf.pageSize;      
+        return this.metainf.pageSize;
       };
 
       //---
@@ -66,7 +66,7 @@ function(module) {
       };
 
       ClassDef.prototype.getNextPage = function() {
-        return this.metainf.nextPage; 
+        return this.metainf.nextPage;
       };
 
       //---
@@ -78,7 +78,7 @@ function(module) {
         this.metainf.totalPages = totalPages;
       };
 
-      //--- 
+      //---
 
       ClassDef.prototype.addCheck = function() {
         var modFlag = ((this.metainf.count % this.getPageSize()) === 0);
@@ -111,7 +111,7 @@ function(module) {
     //---
 
     var instanceCache = {};
-    
+
     function getInstance(name) {
       var instance = instanceCache[name];
       if(instance) {

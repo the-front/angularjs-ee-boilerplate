@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   'shared/mock/backend'
-], 
+],
 
 // require.js module scope
 function(backend) {
@@ -17,8 +17,8 @@ function(backend) {
 
   // mock resource definition
   function(httpBackend, regexpUrl) {
-    
-    // Allow JSONP to pass to external services (ie Solr) 
+
+    // Allow JSONP to pass to external services (ie Solr)
     httpBackend.when('JSONP', regexpUrl(/http:\/\/.*/)).passThrough();
 
   }]);

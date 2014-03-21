@@ -5,7 +5,7 @@ define(
 [
   'shared/mock/module',
   'lokijs'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -14,7 +14,7 @@ function(module) {
   module.factory(
 
     // factory name
-    'DataStore', 
+    'DataStore',
 
     // factory dependencies injection
     [

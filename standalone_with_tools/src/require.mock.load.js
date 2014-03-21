@@ -6,7 +6,7 @@ define(
   'app/help/mock/allow-pass-github',
 
   'app/bookmarks/mock/require.load'
-], 
+],
 
 // require.js module scope
 function() {});

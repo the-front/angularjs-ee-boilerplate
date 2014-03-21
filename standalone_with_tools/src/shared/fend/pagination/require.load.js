@@ -4,7 +4,7 @@ define(
   './module',
   './factory',
   './filter.pages.range'
-], 
+],
 
 // require.js module scope
 function() {});

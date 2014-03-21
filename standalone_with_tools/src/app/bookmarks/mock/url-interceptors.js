@@ -5,30 +5,30 @@ define(
   'shared/mock/backend',
 
   './data'
-], 
+],
 
 // require.js module scope
 function(ng, backend) {
   'use strict';
 
-  
+
   backend.addResource(
-    
+
     // mock resource dependencies injection
     [
-      'BookmarksCollection', 'Helpers', 
-      '$httpBackend', 'regexpUrl', 'getParams', 
+      'BookmarksCollection', 'Helpers',
+      '$httpBackend', 'regexpUrl', 'getParams',
       '$log',
 
   // mock resource definition
   function(collection, helpers, $httpBackend, regexpUrl, getParams, console) {
 
     //--- @begin: URL interceptor
-    
+
       // get all
     $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\?|$)/))
       .respond(function(method, url, data) {
-        
+
         console.debug('GET ' + url);
 
         var result,
@@ -44,7 +44,7 @@ function(ng, backend) {
         result = collection.list(options);
 
         return [200, angular.copy(result)];
-      }); 
+      });
 
       // get one
     $httpBackend.when('GET', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
@@ -63,7 +63,7 @@ function(ng, backend) {
         }
 
         return result;
-      }); 
+      });
 
       // create
     $httpBackend.when('POST', regexpUrl(/rest\/bookmarks$/))
@@ -76,7 +76,7 @@ function(ng, backend) {
         console.debug(data);
 
         return [201, angular.copy(data)];
-      }); 
+      });
 
       // update
     $httpBackend.when('PUT', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
@@ -90,14 +90,14 @@ function(ng, backend) {
         console.debug(data);
 
         return [202, angular.copy(data)];
-      }); 
+      });
 
       // delete
     $httpBackend.when('DELETE', regexpUrl(/rest\/bookmarks(\/)?([A-z0-9]+)?$/))
       .respond(function(method, url, data) {
         console.debug('DELETE ' + url);
 
-        var result, 
+        var result,
             bookmark,
             regexp = /bookmarks\//,
             id = helpers.getIdFromURL(url, regexp),
@@ -112,7 +112,7 @@ function(ng, backend) {
 
         return result;
 
-      }); 
+      });
 
       // search
     $httpBackend.when('GET', regexpUrl(/rest\/bookmarks\/search\/([A-z0-9]+)(\?|$)/))
@@ -136,10 +136,10 @@ function(ng, backend) {
         result = collection.search(find, options);
 
         return [200, angular.copy(result)];
-      }); 
+      });
 
     //--- @end: URL interceptor
-    
+
 
 
     console.debug(collection.getById(1));

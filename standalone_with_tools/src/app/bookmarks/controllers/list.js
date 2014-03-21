@@ -3,7 +3,7 @@ define(
 [
   '../module',
   '../resources/rest'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -17,7 +17,7 @@ function(module) {
 
     // dependencies injection
     [
-      '$rootScope', '$scope', '$location', 
+      '$rootScope', '$scope', '$location',
       'BookmarksResource', 'PaginationFactory', 'InputFocusFactory',
       '$log',
 
@@ -42,7 +42,7 @@ function(module) {
 
     $rootScope.$on('bookmarks:add:event', function(event, value) {
       event.preventDefault(); event.stopPropagation();
-      
+
       console.debug('bookmarks:add:event - ' + value);
 
       pagination.addCheck();
@@ -51,17 +51,17 @@ function(module) {
 
     $rootScope.$on('bookmarks:update:event', function(event, value) {
       event.preventDefault(); event.stopPropagation();
-      
+
       console.debug('bookmarks:add:event - ' + value);
-      
+
       updateLocation();
     });
 
     $rootScope.$on('bookmarks:remove:event', function(event, value) {
       event.preventDefault(); event.stopPropagation();
-      
+
       console.debug('bookmarks:remove:event - ' + value);
-      
+
       pagination.removeCheck();
       updateLocation();
     });
@@ -98,7 +98,7 @@ function(module) {
       // check if filter is visible
       if($scope.showOptions) $scope.showOptionsBtnClick();
       if($scope.showFilter || $scope.showFilterBtnActive) $scope.showFilterBtnClick();
-      
+
       // check if filter is needed
       $scope.showFilterBtn = checkShowfilterBtn();
 
@@ -114,10 +114,10 @@ function(module) {
         {
           page: page,
           size: pagination.getPageSize()
-        }, 
+        },
         function(result) {
           //console.debug(result);
-          $scope.result = result;        
+          $scope.result = result;
 
           pagination.updateMetainf(
             result.count,
@@ -127,11 +127,11 @@ function(module) {
           );
 
           updateInterface();
-        }      
+        }
       );
     }
 
-    //--- 
+    //---
     // @begin: options
 
     $scope.showOptions = false;
@@ -144,13 +144,13 @@ function(module) {
 
       if($scope.showOptions) {
         $scope.showFilter = $scope.showFilterBtnActive;
-        
+
         if($scope.showFilter) input.setFocus('focusFilterSearchInput');
         else input.setFocus('focusPageSizeInput');
       } else {
         if($scope.showFilter && stringEmpty($scope.filter.search)) $scope.showFilterBtnClick();
         $scope.showFilter = false;
-        
+
         input.focusReset();
       }
     };
@@ -164,7 +164,7 @@ function(module) {
 
     function checkShowfilterBtn() {
       return (
-        (pagination.getPageSize() >= config.showFilterBtnMinlength) && 
+        (pagination.getPageSize() >= config.showFilterBtnMinlength) &&
         (pagination.metainf.lastPageSize >= config.showFilterBtnMinlength)
       );
     }
@@ -192,7 +192,7 @@ function(module) {
     // @end: filter
     //---
     // @begin: pagination
-    
+
     $scope.showPagination = true;
     $scope.pageSize = pagination.getPageSize();
     $scope.pageMinSize = config.pageMinSize;
@@ -209,8 +209,8 @@ function(module) {
       var flag = false;
 
       flag = (
-        pageSize === undefined || 
-        pageSize === null || 
+        pageSize === undefined ||
+        pageSize === null ||
         pageSize === pagination.getPageSize() ||
         pageSize < $scope.pageMinSize ||
         pageSize > $scope.pageMaxSize

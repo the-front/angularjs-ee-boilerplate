@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   './module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -10,9 +10,9 @@ function(module) {
 
 
   module.filter(
-    
+
     // filter name
-    'pages_range', 
+    'pages_range',
 
   // filter definition
   function() {

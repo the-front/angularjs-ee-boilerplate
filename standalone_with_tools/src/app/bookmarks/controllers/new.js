@@ -3,7 +3,7 @@ define(
 [
   '../module',
   '../resources/rest'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -30,7 +30,7 @@ function(module) {
       [
         'focusBookmarkNameInput'
       ]);
-    
+
     input.setFocus('focusBookmarkNameInput', 200);
 
     //console.debug(input);
@@ -39,9 +39,9 @@ function(module) {
     $scope.title = 'New Bookmark';
 
     $scope.bookmark = new Resource({
-      'id':0, 
-      'name':'', 
-      'description':'', 
+      'id':0,
+      'name':'',
+      'description':'',
       'url':''
     });
 

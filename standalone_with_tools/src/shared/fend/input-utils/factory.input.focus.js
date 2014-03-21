@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   './module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -12,10 +12,10 @@ function(module) {
   module.factory(
 
     // factory name
-    'InputFocusFactory', 
+    'InputFocusFactory',
 
   // dependencies injection
-  ['$timeout', 
+  ['$timeout',
 
   // factory definition
   function($timeout) {
@@ -23,8 +23,8 @@ function(module) {
     var InputFocus = (function() {
 
       // private
-      var $scope, 
-          $timeout, 
+      var $scope,
+          $timeout,
           focusFieldNameArray,
           lastFocusInput = null,
           toSelect = null;
@@ -48,7 +48,7 @@ function(module) {
           if(toSelect) {
             $scope[toSelect] = true;
             lastFocusInput = toSelect;
-          } 
+          }
         }
       }
 
@@ -59,14 +59,14 @@ function(module) {
         $timeout = timeout;
         if(paginationFor) this.classInfo = 'InputFocus for: ' + paginationFor;
       };
-      var ClassDef = InputFocus; 
+      var ClassDef = InputFocus;
       //---
 
       // public
-      
+
       ClassDef.prototype.config = function(scope, _focusFieldNameArray) {
         $scope = scope;
-        focusFieldNameArray = _focusFieldNameArray; 
+        focusFieldNameArray = _focusFieldNameArray;
         resetAll();
       };
 

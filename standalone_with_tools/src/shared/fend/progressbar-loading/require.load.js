@@ -7,7 +7,7 @@ define(
   './config.interceptor',
   './factories/progress.config',
   './factories/progress.status'
-], 
+],
 
 // require.js module scope
 function() {});

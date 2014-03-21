@@ -12,8 +12,8 @@ function checkTargetNode(node) {
   if(
     node.type === 'Property' &&
     node.key.type === 'Identifier' &&
-    ( 
-      node.key.name === 'paths' || 
+    (
+      node.key.name === 'paths' ||
       node.key.name === 'deps'
     )
   ) {
@@ -33,7 +33,7 @@ function newNodeValue() {
 //---
 
 function generateAST(codeStr) {
-  
+
   return esprima.parse(codeStr);
 
 }
@@ -49,12 +49,12 @@ function editAST(ast) {
 
   // get only what is needed
   oldProperties.forEach(function(node) {
-    
+
     if(checkTargetNode(node)) {
       newProperties.push(node);
       if(node.key.name === 'paths') paths = node;
     }
-    
+
   });
 
   // define new value
@@ -84,7 +84,7 @@ function editAST(ast) {
 //---
 
 module.exports = function(inputSrc) {
-  
+
   return editAST(
     generateAST( inputSrc )
   );

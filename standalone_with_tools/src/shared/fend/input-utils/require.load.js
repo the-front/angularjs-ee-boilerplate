@@ -7,7 +7,7 @@ define(
 
   './directives/input.focus',
   './directives/input.blur'
-], 
+],
 
 // require.js module scope
 function() {});

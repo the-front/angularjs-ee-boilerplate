@@ -7,7 +7,7 @@ define(
 
   'shared/fend/input-utils/require.load',
   'shared/fend/pagination/require.load'
-], 
+],
 
 // require.js module scope
 function(ng) {
@@ -16,7 +16,7 @@ function(ng) {
   // module definition
   return ng.module(
     // module name
-    'bookmarks', 
+    'bookmarks',
 
     // module dependencies
     [

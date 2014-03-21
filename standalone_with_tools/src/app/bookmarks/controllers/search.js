@@ -3,7 +3,7 @@ define(
 [
   '../module',
   '../resources/search'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -17,7 +17,7 @@ function(module) {
 
     // dependencies injection
     [
-      '$scope', 'BookmarksSearchResource', 
+      '$scope', 'BookmarksSearchResource',
       'PaginationFactory', 'InputFocusFactory',
       '$log',
 
@@ -28,11 +28,11 @@ function(module) {
     input = input.get(ctrlName);
     pagination = pagination.get(ctrlName);
 
-    
+
     console.debug(ctrlName);
     console.debug(input);
     console.debug(pagination);
-    
+
 
     //---
     input.config(
@@ -42,7 +42,7 @@ function(module) {
         'focusPageSizeInput',
         'focusFilterSearchInput'
       ]);
-    
+
     input.setFocus('focusSearchInput', 200);
     //---
 
@@ -67,7 +67,7 @@ function(module) {
       // check if filter is visible
       if($scope.showOptions) $scope.showOptionsBtnClick();
       if($scope.showFilter || $scope.showFilterBtnActive) $scope.showFilterBtnClick();
-      
+
       // check if filter is needed
       $scope.showFilterBtn = checkShowfilterBtn();
 
@@ -89,9 +89,9 @@ function(module) {
             size: pagination.getPageSize()
           },
           function(result) {
-            
+
             console.debug(result);
-            
+
             $scope.result = result;
 
             pagination.updateMetainf(
@@ -107,7 +107,7 @@ function(module) {
       }
     }
 
-    //--- 
+    //---
     // @begin: options
 
     $scope.showOptions = false;
@@ -118,15 +118,15 @@ function(module) {
       $scope.showOptions = !$scope.showOptions;
       $scope.optionsBtnLabel = ($scope.showOptions ? 'Hide' : 'Show') + ' Option';
 
-      if($scope.showOptions) {      
+      if($scope.showOptions) {
         $scope.showFilter = $scope.showFilterBtnActive;
 
         if($scope.showFilter) input.setFocus('focusFilterSearchInput');
         else input.setFocus('focusPageSizeInput');
-      } else {      
+      } else {
         if($scope.showFilter && stringEmpty($scope.filter.search)) $scope.showFilterBtnClick();
         $scope.showFilter = false;
-        
+
         input.setFocus('focusSearchInput');
       }
     };
@@ -140,7 +140,7 @@ function(module) {
 
     function checkShowfilterBtn() {
       return (
-        (pagination.getPageSize() >= config.showFilterBtnMinlength) && 
+        (pagination.getPageSize() >= config.showFilterBtnMinlength) &&
         (pagination.metainf.lastPageSize >= config.showFilterBtnMinlength)
       );
     }
@@ -168,7 +168,7 @@ function(module) {
     // @end: filter
     //---
     // @begin: pagination
-    
+
     $scope.showPagination = true;
     $scope.pageSize = pagination.getPageSize();
     $scope.pageMinSize = config.pageMinSize;
@@ -185,8 +185,8 @@ function(module) {
       var flag = false;
 
       flag = (
-        pageSize === undefined || 
-        pageSize === null || 
+        pageSize === undefined ||
+        pageSize === null ||
         pageSize === pagination.getPageSize() ||
         pageSize < $scope.pageMinSize ||
         pageSize > $scope.pageMaxSize
@@ -204,7 +204,7 @@ function(module) {
       loadData(pagination.getNextPage());
     };
 
-    $scope.updatePageSizeFormSubmit = function() { 
+    $scope.updatePageSizeFormSubmit = function() {
       if(!$scope.updatePageSizeInvalid($scope.pageSize))
         $scope.updatePageSize();
     };
@@ -214,7 +214,7 @@ function(module) {
 
     $scope.doSearch = function() {
       pagination.resetPageSize($scope.pageSize);
-      
+
       loadData(pagination.getNextPage());
     };
 

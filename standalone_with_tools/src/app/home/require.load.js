@@ -4,7 +4,7 @@ define(
   './module',
   './controller',
   './routes'
-], 
+],
 
 // require.js module scope
 function() {});

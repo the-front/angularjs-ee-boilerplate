@@ -11,17 +11,17 @@
     <span class="input-group-addon">
       <i class="glyphicon glyphicon-filter"></i>
     </span>
-    <input 
-      type="text" 
-      class="form-control" 
-      placeholder="Text" 
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Text"
       ng-model="filter.search"
       fend-focus="focusFilterSearchInput">
     <span class="input-group-btn">
-      <button 
+      <button
         ng-click="clearFilter()"
         class="btn btn-default" type="button">Clear</button>
-    </span> 
+    </span>
   </div>
 
   <div class="row">&nbsp;</div>
@@ -60,7 +60,7 @@
 <div class="row" ng-show="showPagination">
   <div class="text-center" ng-show="result.pages > 1">
     <ul class="pagination">
-      <li 
+      <li
         ng-repeat="n in [] | pages_range: result.pages"
         ng-class="{active: (n+1) == result.page}"
       ><a ng-bind="n+1" ng-click="setPage()">1</a></li>

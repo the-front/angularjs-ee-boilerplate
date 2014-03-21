@@ -9,7 +9,7 @@ define(
   './resources/rest',
   './resources/search',
   './routes'
-], 
+],
 
 // require.js module scope
 function() {});

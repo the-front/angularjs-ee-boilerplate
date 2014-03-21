@@ -1,4 +1,4 @@
-define(['angular'], function() { 
+define(['angular'], function() {
 
   /*
     Do not change this file, it will be updated from html2js

@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   './module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -12,15 +12,15 @@ function(module) {
   module.factory(
 
     // factory name
-    'MenuConfig', 
+    'MenuConfig',
 
   // dependencies injection
-  ['$rootScope', '$location', 
+  ['$rootScope', '$location',
 
   // factory definition
   function($scope, $location) {
 
-    var menuItemFn, 
+    var menuItemFn,
         addMenuItemFn,
         selectMenuItemFn,
         checkLocationFn,
@@ -49,25 +49,25 @@ function(module) {
         if(menuItemSelected !== null) menuItemSelected.css = '';
         item.css = 'active';
         menuItemSelected = item;
-      }        
+      }
     };
 
     checkLocationFn = function() {
-      var path, splitArr, location; 
+      var path, splitArr, location;
 
-      path = $location.path(); 
+      path = $location.path();
       splitArr = path.split('/');
       if(splitArr.length > 2) {
         path = '/'+splitArr[1];
         splitArr = null;
-      }  
-      
+      }
+
       location = locationsMap[path];
       if(location) {
         selectMenuItemFn(location);
       } else {
-        if(menuItemSelected !== null) { 
-          menuItemSelected.css = ''; 
+        if(menuItemSelected !== null) {
+          menuItemSelected.css = '';
           menuItemSelected = null;
         }
       }

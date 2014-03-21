@@ -20,5 +20,5 @@ module.exports = {
       '<%= project.paths.dist %>/styles/app.css': '<%= project.paths.src %>/styles/less/app.less'
     }
   }
-  
+
 };

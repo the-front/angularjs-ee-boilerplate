@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   'shared/mock/backend'
-], 
+],
 
 // require.js module scope
 function(backend) {

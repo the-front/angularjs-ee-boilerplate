@@ -1,5 +1,5 @@
 module.exports = {
-  
+
   options: {
     reporter: require('jshint-stylish')
   },
@@ -18,4 +18,4 @@ module.exports = {
     '!<%= project.paths.src %>/{,shared/**/,app/**/}*.min.js'
   ]
 
-}; 
+};

@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   'shared/mock/module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -11,7 +11,7 @@ function(module) {
   module.factory(
 
     // factory name
-    'Helpers', 
+    'Helpers',
 
     // factory dependencies injection
     [
@@ -25,7 +25,7 @@ function(module) {
       var Helpers = function() {};
       var ClassDef = Helpers;
       //---
-      
+
       ClassDef.prototype.isObject = function(value) {
         return ('object' == typeof value);
       };
@@ -36,7 +36,7 @@ function(module) {
         return null;
       };
 
-      ClassDef.prototype.getValueFromURL = function(url, regexp) { 
+      ClassDef.prototype.getValueFromURL = function(url, regexp) {
         var find = null,
             arr = url.split(regexp); // ex.: /bookmarks\/search\//
         if(arr.length > 1) {
@@ -61,7 +61,7 @@ function(module) {
       };
 
       ClassDef.prototype.paginate = function(data, options) {
-        
+
         if(!options || 'object' !== typeof options) {
           options = {
             page: 1,
@@ -86,7 +86,7 @@ function(module) {
         //---
 
         var page = [];
-        var i, count, length, limit, flag;      
+        var i, count, length, limit, flag;
 
         count = 0;
         length = data.length;
@@ -111,11 +111,11 @@ function(module) {
             flag = false;
           }
         }
-        
+
         result.count = length;
         result.data = page;
         result.page = options.page;
-        result.pages = Math.ceil(length / options.size);    
+        result.pages = Math.ceil(length / options.size);
 
         return result;
       };

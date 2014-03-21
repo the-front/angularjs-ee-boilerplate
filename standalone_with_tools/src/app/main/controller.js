@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   './module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -12,7 +12,7 @@ function(module) {
   module.controller(
 
     // controller name
-    'MainCtrl', 
+    'MainCtrl',
 
     // dependencies injection
     ['ProgressConfig', 'MenuConfig', '$scope',
@@ -25,13 +25,13 @@ function(module) {
     //--- @begin: loading progressbar config
     progressConfig.eventListeners();
     progressConfig.color('#428bca');
-    //--- @end: loading progressbar config  
+    //--- @end: loading progressbar config
 
-    //--- @begin: menu items 
-    menu.addMenuItem('Home', '');  
+    //--- @begin: menu items
+    menu.addMenuItem('Home', '');
     menu.addMenuItem('Bookmarks', 'bookmarks');
-    menu.addMenuItem('About', 'about');  
-    //--- @end: menu items   
+    menu.addMenuItem('About', 'about');
+    //--- @end: menu items
 
   }]);
 

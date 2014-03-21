@@ -2,20 +2,20 @@ define(
 // require.js dependency injection
 [
   '../module'
-], 
+],
 
 // require.js module scope
 function(module) {
   'use strict';
 
-  
+
   module.factory(
 
     // resource name
-    'BookmarksResource', 
+    'BookmarksResource',
 
     // dependency injection
-    ['$resource', 
+    ['$resource',
 
   function($resource) {
 
@@ -24,7 +24,7 @@ function(module) {
       'rest/bookmarks/:id',
       {
         'id': ''
-      }, 
+      },
       {
         'update': { 'method': 'PUT' }
       }

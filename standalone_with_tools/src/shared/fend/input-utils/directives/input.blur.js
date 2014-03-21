@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   '../module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -10,9 +10,9 @@ function(module) {
 
 
   module.directive(
-    
+
     // component name
-    'fendBlur', 
+    'fendBlur',
 
   // component definition
   function(){

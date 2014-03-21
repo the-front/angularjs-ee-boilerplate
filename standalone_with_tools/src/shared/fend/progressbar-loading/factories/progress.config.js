@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   '../module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -33,7 +33,7 @@ function(module) {
         $rootScope.$on('loadingbar:complete', function(event) {
           ngProgress.complete();
           ngProgress.stop();
-        });      
+        });
       },
 
       color: function(new_color) {

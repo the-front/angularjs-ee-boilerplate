@@ -3,7 +3,7 @@ define(
 [
   'angular',
   'ngProgress'
-], 
+],
 
 // require.js module scope
 function(ng) {

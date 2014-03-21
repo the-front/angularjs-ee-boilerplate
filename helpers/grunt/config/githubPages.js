@@ -1,7 +1,7 @@
 module.exports = {
 
   devCode: {
-    
+
     options: {
       // The default commit message for the gh-pages branch
       commitMessage: 'dev code : gh-pages auto commit <%= project.isoUtcDateTime %>'
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   prodCode: {
-    
+
     options: {
       // The default commit message for the gh-pages branch
       commitMessage: 'prod code : gh-pages auto commit <%= project.isoUtcDateTime %>'

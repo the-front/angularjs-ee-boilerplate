@@ -5,7 +5,7 @@ define(
   './controller',
   './factory.menu.config',
   './routes'
-], 
+],
 
 // require.js module scope
 function() {});

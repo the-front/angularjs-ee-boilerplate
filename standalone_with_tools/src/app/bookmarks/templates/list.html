@@ -2,8 +2,8 @@
   <div class="row">&nbsp;</div>
 
   <!-- @begin: buttons -->
-  <div class="row">  
-    
+  <div class="row">
+
     <ul class="list-inline">
       <li>
         <a href="#bookmarks/search">
@@ -18,9 +18,9 @@
       </li>
       <li>&nbsp;</li>
       <li>
-        
-        <button 
-          type="button" 
+
+        <button
+          type="button"
           title="{{optionsBtnLabel}}"
           ng-click="showOptionsBtnClick()"
           class="btn btn-sm btn-default"
@@ -41,8 +41,8 @@
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
     <span ng-show="showFilterBtn">
-      <button         
-        type="button" 
+      <button
+        type="button"
         title="{{filterBtnLabel}}"
         ng-click="showFilterBtnClick()"
         class="btn btn-sm btn-default"
@@ -58,35 +58,35 @@
         Pages: <span class="badge">{{result.pages}}</span> &nbsp;&nbsp;
       </span>
       <span ng-show="result.count > 0">
-        Total: <span class="badge">{{result.count}}</span> 
+        Total: <span class="badge">{{result.count}}</span>
       </span>
       <span class="visible-xs col-md-1">&nbsp;</span>
     </span>
 
     <div class="col-md-3 pull-right" ng-show="showPagination">
-      <form 
-        name="updateSizeForm" 
+      <form
+        name="updateSizeForm"
         ng-submit="updatePageSizeFormSubmit()"
-        role="form" novalidate> 
-        <div class="input-group input-group-sm">      
+        role="form" novalidate>
+        <div class="input-group input-group-sm">
           <span class="input-group-addon">Page Size</span>
-          <input 
+          <input
             class="form-control"
             type="number"
             name="pageSize"
-            ng-model="pageSize" 
+            ng-model="pageSize"
             fend-focus="focusPageSizeInput"
             min="{{pageMinSize}}" max="{{pageMaxSize}}"
             placeholder="min value 2">
           <span class="input-group-btn">
-            <button 
+            <button
               ng-click="updatePageSize()"
-              ng-disabled="updatePageSizeInvalid(pageSize)" 
+              ng-disabled="updatePageSizeInvalid(pageSize)"
               class="btn btn-default" type="button">Update</button>
-          </span>          
+          </span>
         </div>
         <div>
-          <p ng-show="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max" 
+          <p ng-show="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
             class="text-center">
             The value must be in range {{pageMinSize}} to {{pageMaxSize}}!
           </p>
@@ -102,5 +102,5 @@
   <!-- @end: options -->
 
   <div class="row" ng-include="'app/bookmarks/templates/table.html'"></div>
-  
+
 </div>

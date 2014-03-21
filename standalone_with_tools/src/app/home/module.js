@@ -5,7 +5,7 @@ define(
   'angularRoute',
 
   'toaster'
-], 
+],
 
 // require.js module scope
 function(ng) {
@@ -19,7 +19,7 @@ function(ng) {
     // module dependencies
     [
       'ngRoute',
-      
+
       'toaster'
     ]
   );

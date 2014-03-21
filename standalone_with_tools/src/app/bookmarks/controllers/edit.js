@@ -3,7 +3,7 @@ define(
 [
   '../module',
   '../resources/rest'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -30,7 +30,7 @@ function(module) {
       [
         'focusBookmarkNameInput'
       ]);
-    
+
     //console.debug(input);
     //---
 
@@ -46,9 +46,9 @@ function(module) {
         $rootScope.$emit('bookmarks:update:event', 'updated');
       });
     };
-    
+
     $scope.showConfirm = false;
-    
+
     $scope.remove = function() {
       $scope.showConfirm = true;
     };

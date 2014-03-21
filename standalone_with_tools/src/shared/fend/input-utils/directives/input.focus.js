@@ -2,17 +2,17 @@ define(
 // require.js dependency injection
 [
   '../module'
-], 
+],
 
 // require.js module scope
 function(module) {
   'use strict';
 
-  
+
   module.directive(
-    
+
     // component name
-    'fendFocus', 
+    'fendFocus',
 
   // component definition
   function() {

@@ -6,7 +6,7 @@ define(
   './helpers',
   './in-memory.db',
   './allow-pass-jsonp'
-], 
+],
 
 // require.js module scope
 function() {});

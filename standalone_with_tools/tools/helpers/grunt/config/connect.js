@@ -3,7 +3,7 @@ module.exports = {
   proxies: '<%= project.backend.proxies %>',
 
   middleware: function (connect, options) {
-    var config = [ 
+    var config = [
       // Serve static files.
       connect.static(options.base),
       // Make empty directories browsable.
@@ -21,12 +21,12 @@ module.exports = {
     options: {
       port: '<%= project.frontend.port.connect %>',
       base: '<%= project.paths.src %>',
-      hostname: '*', 
+      hostname: '*',
       livereload: '<%= project.frontend.port.livereload %>',
       open: 'http://localhost:<%= project.frontend.port.connect %>'
     }
   },
-  
+
   devProxy: {
     options: {
       port: '<%= project.frontend.port.connect %>',
@@ -50,7 +50,7 @@ module.exports = {
       open: 'http://localhost:<%= project.frontend.port.connect %>'
     }
   },
-  
+
   distProxy: {
     options: {
       port: '<%= project.frontend.port.connect %>',
@@ -58,7 +58,7 @@ module.exports = {
       hostname: '*',
       keepalive: true,
       open: 'http://localhost:<%= project.frontend.port.connect %>',
-      
+
       middleware: '<%= connect.middleware %>'
     }
   }

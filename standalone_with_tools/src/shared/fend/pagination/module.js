@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   'angular'
-], 
+],
 
 // require.js module scope
 function(ng) {

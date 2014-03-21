@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   '../module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -12,10 +12,10 @@ function(module) {
   module.factory(
 
     // resource name
-    'BookmarksSearchResource', 
+    'BookmarksSearchResource',
 
     // dependency injection
-    ['$resource', 
+    ['$resource',
 
   function($resource) {
 

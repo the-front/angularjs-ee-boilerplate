@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   './module'
-], 
+],
 
 // require.js module scope
 function(module) {
@@ -11,7 +11,7 @@ function(module) {
 
   module.config(
 
-    ['$httpProvider', 
+    ['$httpProvider',
 
   function ($httpProvider) {
 

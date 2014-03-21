@@ -104,5 +104,5 @@ require({
   ],
 
   deps: ['./ng.app']
-  
+
 });

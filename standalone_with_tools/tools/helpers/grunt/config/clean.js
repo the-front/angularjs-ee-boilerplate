@@ -6,5 +6,5 @@ module.exports = {
     options: { force: true },
     src: ['<%= project.paths.dist %>/']
   }
-  
+
 };

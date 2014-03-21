@@ -2,17 +2,17 @@ define(
 // require.js dependency injection
 [
   'shared/mock/module'
-], 
+],
 
 // require.js module scope
 function(module) {
   'use strict';
 
-  
+
   module.factory(
 
     // factory name
-    'BookmarksCollection', 
+    'BookmarksCollection',
 
     // factory dependencies injection
     ['DataStore', 'Helpers', '$log',
@@ -61,7 +61,7 @@ function(module) {
 
       ClassDef.prototype.getById = function(id) {
         var r = collection.find({'id': id});
-        if(r.length > 0) return r[0]; 
+        if(r.length > 0) return r[0];
         return null;
       };
 
@@ -74,12 +74,12 @@ function(module) {
       };
 
       ClassDef.prototype.update = function(object) {
-        if(helpers.isObject(object)) 
+        if(helpers.isObject(object))
           collection.update(object);
       };
 
       ClassDef.prototype.remove = function(object) {
-        if(helpers.isObject(object)) 
+        if(helpers.isObject(object))
           collection.remove(object);
       };
 
@@ -111,7 +111,7 @@ function(module) {
         collection.insert( createObject(seq++, 'GitHub - Erko Bridee', 'github/erkobridee', 'https://github.com/erkobridee') );
         collection.insert( createObject(seq++, 'Delicious - Erko Bridee', 'delicious/erko.bridee', 'http://www.delicious.com/erko.bridee') );
         collection.insert( createObject(seq++, 'Site - Erko Bridee', 'Site : Erko Bridee', 'http://about.erkobridee.com/') );
-      
+
         function fakeUrl() {
           return 'http://google.com/#q=' + seq + '%2B' + seq;
         }
@@ -128,7 +128,7 @@ function(module) {
     })();
 
     //---
-    
+
     return new Collection();
 
   }]);

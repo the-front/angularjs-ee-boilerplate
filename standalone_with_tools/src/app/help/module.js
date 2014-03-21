@@ -3,7 +3,7 @@ define(
 [
   'angular',
   'angularRoute',
-], 
+],
 
 // require.js module scope
 function(ng) {

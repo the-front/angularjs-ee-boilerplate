@@ -7,7 +7,7 @@ define(
   './data',
   './url-interceptors'
   /**/
-], 
+],
 
 // require.js module scope
 function() {});
