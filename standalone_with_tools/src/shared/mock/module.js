@@ -3,7 +3,7 @@ define(
 [
   'angular',
   'angularMocksBackend'
-], 
+],
 
 // require.js module scope
 function(ng) {

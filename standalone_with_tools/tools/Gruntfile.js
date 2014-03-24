@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('cleanup', ['clean:dist', 'clean:build']);
 
-  grunt.registerTask('default', ['jshint', 'cleanup']);
+  grunt.registerTask('default', ['lintspaces', 'jshint', 'cleanup']);
 
 
   grunt.registerTask('build', function(target) {

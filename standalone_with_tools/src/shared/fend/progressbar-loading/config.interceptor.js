@@ -20,13 +20,13 @@ function(module) {
       function ($q, $cacheFactory, status) {
 
       /**
-       * The total number of requests made
-       */
+        * The total number of requests made
+        */
       var reqsTotal = 0;
 
       /**
-       * The number of requests completed (either successfully or not)
-       */
+        * The number of requests completed (either successfully or not)
+        */
       var reqsCompleted = 0;
 
 
@@ -46,10 +46,10 @@ function(module) {
       }
 
       /**
-       * Determine if the response has already been cached
-       * @param  {Object}  config the config option from the request
-       * @return {Boolean} retrns true if cached, otherwise false
-       */
+        * Determine if the response has already been cached
+        * @param  {Object}  config the config option from the request
+        * @return {Boolean} retrns true if cached, otherwise false
+        */
       function isCached(config) {
         var cache;
         var defaults = $httpProvider.defaults;
