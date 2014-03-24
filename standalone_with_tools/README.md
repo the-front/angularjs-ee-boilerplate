@@ -53,7 +53,10 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 > dentro do diretório `/tools` execute um dos comandos a seguir
 
 
-* `grunt` >> (tarefa padrão) irá o jshint nos arquivos .js para verificar a qualidade de código e limpar diretórios de construção e distribuição
+* `grunt` >> (tarefa padrão) irá executar o lintspaces, jshint nos arquivos .js para verificar a qualidade de código e limpar diretórios de construção e distribuição
+
+  > **Atenção:** a tarefa ***lintspaces*** para verificar a padronização dos arquivos, esta depende do arquivo na raíz do repositório : `.editorconfig`
+
 
 --
 
