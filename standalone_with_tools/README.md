@@ -166,4 +166,6 @@ MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org)
 
 * definir e/ou usar um componente para o NavBar
  
+* Testar sincronização de web browsers
 
+  * [[GitHub] shakyShane / grunt-browser-sync](https://github.com/shakyShane/grunt-browser-sync) - Grunt Task for keeping multiple browsers & devices in sync when building websites.
