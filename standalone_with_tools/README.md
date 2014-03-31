@@ -162,8 +162,6 @@ MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org)
 
 ## TODO
 
-* criar trechos de código para auxiliar os desenvolvedores
-
 * definir e/ou usar um componente para o NavBar
  
 * Testar sincronização de web browsers
