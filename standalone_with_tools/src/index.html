@@ -25,8 +25,9 @@
 
 </head>
 <body>
-<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
 
+<!-- toaster-config -->
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
 
 <!-- Wrap all page content here -->
 <div id="wrap">
@@ -55,13 +56,6 @@
   <![endif]-->
   <!-- @begin: ie warning alert -->
 
-  <!-- loagind app -->
-  <div class="loading_app" ng-hide="appLoaded">
-    <p style="text-align:center">
-      <img src="shared/img/loading.gif"><br>Loading...
-    </p>
-  </div>
-
   <!-- app content -->
   <div class="container ng-view"></div>
 
@@ -69,6 +63,14 @@
 
 <!-- footer -->
 <div ng-include="'app/main/templates/footer.html'"></div>
+
+
+<!-- loagind app -->
+<div class="loading_app" ng-hide="appLoaded">
+  <p style="text-align:center">
+    <img src="shared/img/loading.gif"><br>Loading...
+  </p>
+</div>
 
 
 <!-- javascript -->
