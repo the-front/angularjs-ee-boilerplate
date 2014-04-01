@@ -6,8 +6,8 @@
 * [Guia de Instalação](#guia-de-instalação)
   * [Clone](#clone)
 * [Guia de Uso](#guia-de-uso)
-  * [tools - ferramenta de apoio ao desenvolvimento](#tools-ferramenta-de-apoio-ao-desenvolvimento)
-  * [Grunt.js - tarefas disponíveis](#gruntjs-tarefas-disponíveis)
+  * [Ferramenta de Apoio ao Desenvolvimento](#ferramenta-de-apoio-ao-desenvolvimento)
+  * [Grunt.js: Tarefas Disponíveis](#gruntjs-tarefas-disponíveis)
 * [Estrutura de diretórios](#estrutura-de-diretórios)
   * [Ferramentas](#ferramentas)
   * [Projeto](#projeto)
@@ -21,7 +21,7 @@
 
 Projeto Standalone, com ferramental de suporte para o desenvolvimento
 
-* **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](https://gist.github.com/erkobridee/3868035)
+* **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](https://github.com/soudev/knowledge.mine/blob/master/stuff/backend.rest.url_design.md)
 
 
 ## Guia de Instalação
@@ -35,9 +35,9 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
 ## Guia de Uso
 
-### tools - ferramenta de apoio ao desenvolvimento
+### Ferramenta de Apoio ao Desenvolvimento
 
-> ferramenta de suporte ao desenvolvimento, a qual é uma aplicação em node.js com o executor de tarefas : grunt.js, a qual verifica a qualidade do código javascript, levanta um servidor com o conteúdo do diretório `/src` e utiliza a funcionalidade de *livereload*, atualizando a página conforme as atualizações dos arquivos : html, css e js
+> ferramenta de suporte ao desenvolvimento (presente no diretório `/tools`), a qual é uma aplicação em node.js com o executor de tarefas : grunt.js, a qual verifica a qualidade do código javascript, levanta um servidor com o conteúdo do diretório `/src` e utiliza a funcionalidade de *livereload*, atualizando a página conforme as atualizações dos arquivos : html, css e js
 
 * necessário ter o [node.js](http://nodejs.org/) instalado no computador
 
@@ -48,7 +48,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 * dentro do diretório `/tools`, execute o comando :  `npm install` para instalar as dependências necessárias
 
 
-### Grunt.js - tarefas disponíveis
+### Grunt.js: Tarefas Disponíveis
 
 > dentro do diretório `/tools` execute um dos comandos a seguir
 
@@ -139,9 +139,12 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
       /less
         >> configurações de componentes CSS   
 
+    /less
+      /bootstrap
+        default.less >> configuração e tema padrão do Bootstrap, importado no app.less
+      app.less >> mapeamento dos arquivos .less que geram o /styles/app.css
+
     /styles
-      /less
-        app.less >> mapeamento dos arquivos .less que geram o app.css
       app.css
 
     /vendor
