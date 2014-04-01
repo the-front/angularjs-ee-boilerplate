@@ -6,7 +6,7 @@ module.exports = {
       paths: ['<%= project.paths.src %>']
     },
     files: {
-      '<%= project.paths.src %>/styles/app.css': '<%= project.paths.src %>/styles/less/app.less'
+      '<%= project.paths.src %>/styles/app.css': '<%= project.paths.src %>/less/app.less'
     }
   },
 
@@ -17,7 +17,7 @@ module.exports = {
       compress: true
     },
     files: {
-      '<%= project.paths.dist %>/styles/app.css': '<%= project.paths.src %>/styles/less/app.less'
+      '<%= project.paths.dist %>/styles/app.css': '<%= project.paths.src %>/less/app.less'
     }
   }
 
