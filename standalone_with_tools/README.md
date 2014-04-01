@@ -45,7 +45,7 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
 * necessário ter o [grunt.js](http://gruntjs.com/) instalado globalmente no computador, outras instruções : [Getting Started](http://gruntjs.com/getting-started)
 
-> caso seu sistema for UNIX (linux, mac os x), provavelmente terá que executar o comando como super usuário `sudo` antes do camando 
+> caso seu sistema for UNIX (ex.: linux, mac os x, etc), provavelmente terá que executar o comando como super usuário `sudo` antes do camando 
 
 ```bash
 $ [sudo] npm install -g grunt-cli
