@@ -1,4 +1,4 @@
-# Angular.js Boilerplate
+# Angular.js Enterprise Edition Boilerplate
 
 
 <!-- toc -->
@@ -43,9 +43,20 @@ $ cd angularjs-ee-boilerplate/standalone_with_tools/
 
   * caso esteja em um ambiente corporativo, utilizando o windows atrás de um proxy NTLM, siga estas intruções : [Utilizando o Node.js em um Windows XP sem Administrador | Javascript Brasil](http://javascriptbrasil.com/2012/11/19/utilizando-o-node-js-em-um-windows-xp-sem-administrador/)
 
-* necessário ter o [grunt.js](http://gruntjs.com/) instalado globalmente no computador `npm install -g grunt-cli`, outras instruções : [Getting Started](http://gruntjs.com/getting-started)
+* necessário ter o [grunt.js](http://gruntjs.com/) instalado globalmente no computador, outras instruções : [Getting Started](http://gruntjs.com/getting-started)
 
-* dentro do diretório `/tools`, execute o comando :  `npm install` para instalar as dependências necessárias
+> caso seu sistema for UNIX (linux, mac os x), provavelmente terá que executar o comando como super usuário `sudo` antes do camando 
+
+```bash
+$ [sudo] npm install -g grunt-cli
+```
+
+* dentro do diretório `/tools`, execute o comando abaixo para instalar as dependências necessárias
+
+```bash
+$ cd tools/
+$ npm install
+```
 
 
 ### Grunt.js: Tarefas Disponíveis
