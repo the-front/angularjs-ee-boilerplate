@@ -1,4 +1,5 @@
 /* -------------------------------------------------- */
+/* @begin: bootstrap css */
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -5773,43 +5774,6 @@ button.close {
     display: none !important;
   }
 }
-/* -------------------------------------------------- */
-/* Sticky footer styles
--------------------------------------------------- */
-html,
-body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
-}
-/* Wrapper for page content to push down footer */
-#wrap {
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -35px;
-  /* Pad bottom by footer height */
-  padding: 0 0 45px;
-}
-/* Set the fixed height of the footer here */
-#footer {
-  height: 35px;
-  padding-top: 7px;
-  background-color: #f5f5f5;
-}
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-#wrap > .container {
-  padding: 60px 15px 0;
-}
-.container .credit {
-  margin: 20px 0;
-}
-#footer > .container {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-/* -------------------------------------------------- */
 /*  source: twitter bootstrap
     https://github.com/twbs/bootstrap/blob/master/docs-assets/css/docs.css
 */
@@ -5854,7 +5818,44 @@ body {
 .bs-callout-info h4 {
   color: #3a87ad;
 }
+/* @end: bootstrap css */
 /* -------------------------------------------------- */
+/* @begin: vendor/shared components css */
+/* Sticky footer styles
+-------------------------------------------------- */
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -35px;
+  /* Pad bottom by footer height */
+  padding: 0 0 45px;
+}
+/* Set the fixed height of the footer here */
+#footer {
+  height: 35px;
+  padding-top: 7px;
+  background-color: #f5f5f5;
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+.container .credit {
+  margin: 20px 0;
+}
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 /* Styling for the ngProgress itself */
 #ngProgress {
   margin: 0;
@@ -5882,7 +5883,6 @@ body {
   right: 0;
   z-index: 99999;
 }
-/* -------------------------------------------------- */
 /*
  * Toastr
  * Version 2.0.1
@@ -6083,9 +6083,13 @@ button.toast-close-button {
 #toast-container > div.ng-enter {
   opacity: 0;
 }
+/* @end: vendor/shared components css */
 /* -------------------------------------------------- */
+/* @begin: application css */
 .loading_app {
   position: fixed;
   top: 47%;
   left: 47%;
 }
+/* @end: application css */
+/* -------------------------------------------------- */
