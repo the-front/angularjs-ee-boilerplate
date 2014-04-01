@@ -14,7 +14,10 @@ module.exports = {
     files: [
       {
         cwd: '<%= project.paths.project.dev %>/',
-        src: ['**'],
+        src: [
+          '**',
+          '!**/*.less'
+        ],
         dest: '<%= project.paths.gh_pages %>/',
         expand: true
       }

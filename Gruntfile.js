@@ -43,9 +43,9 @@ module.exports = function(grunt) {
     } else { // prod
       message += 'prod code';
       tasks = tasks.concat([
-        'shell:swtBuild',
+        'shell:projectBuild',
         'copy:projectProd',
-        'shell:swtClean',
+        'shell:projectClean',
         'githubPages:prodCode'
       ]);
     }

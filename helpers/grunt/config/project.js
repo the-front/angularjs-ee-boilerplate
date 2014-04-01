@@ -7,6 +7,7 @@ module.exports = {
     project: {
       dev: 'standalone_with_tools/src',
       prod: 'standalone_with_tools/dist',
+      tools: 'standalone_with_tools/tools'
     }
   }
 

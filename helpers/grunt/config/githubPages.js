@@ -4,7 +4,7 @@ module.exports = {
 
     options: {
       // The default commit message for the gh-pages branch
-      commitMessage: 'dev code : gh-pages auto commit <%= project.isoUtcDateTime %>'
+      commitMessage: 'dev code : gh-pages auto commit <%= project.isoUtcDateTime %> (UTC)'
     },
 
     // The folder where your gh-pages repo is
@@ -15,7 +15,7 @@ module.exports = {
 
     options: {
       // The default commit message for the gh-pages branch
-      commitMessage: 'prod code : gh-pages auto commit <%= project.isoUtcDateTime %>'
+      commitMessage: 'prod code : gh-pages auto commit <%= project.isoUtcDateTime %> (UTC)'
     },
 
     // The folder where your gh-pages repo is

@@ -1,22 +1,22 @@
 // https://github.com/sindresorhus/grunt-shell
 module.exports = {
 
-  swtBuild: {
+  projectBuild: {
     command: 'grunt build:prod',
     options: {
       stdout: true,
       execOptions: {
-        cwd: 'standalone_with_tools/tools'
+        cwd: '<%= project.paths.project.tools %>'
       }
     }
   },
 
-  swtClean: {
+  projectClean: {
     command: 'grunt cleanup',
     options: {
       stdout: true,
       execOptions: {
-        cwd: 'standalone_with_tools/tools'
+        cwd: '<%= project.paths.project.tools %>'
       }
     }
   }
