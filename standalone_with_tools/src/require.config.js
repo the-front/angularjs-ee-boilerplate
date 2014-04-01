@@ -13,19 +13,19 @@ require({
 
 
     angular: [
-      'vendor/angular.js/1.2.14/angular.min'
+      'vendor/angular.js/1.2.15/angular.min'
     ],
 
     angularRoute: [
-      'vendor/angular.js/1.2.14/angular-route.min'
+      'vendor/angular.js/1.2.15/angular-route.min'
     ],
 
     angularResource: [
-      'vendor/angular.js/1.2.14/angular-resource.min'
+      'vendor/angular.js/1.2.15/angular-resource.min'
     ],
 
     angularAnimate: [
-      'vendor/angular.js/1.2.14/angular-animate.min'
+      'vendor/angular.js/1.2.15/angular-animate.min'
     ],
 
     toaster: [
@@ -39,11 +39,11 @@ require({
 
     // @begin: mock libs
     angularMocks: [
-      'vendor/angular.js/1.2.1/angular-mocks'
+      'vendor/angular.js/1.2.15/angular-mocks'
     ],
 
     angularMocksBackend: [
-      'vendor/angular-mocks-backend/0.1.3/angular-mocks-backend'
+      'vendor/angular-mocks-backend/0.1.4/angular-mocks-backend'
     ],
     // @end: mock libs
 
