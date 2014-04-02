@@ -154,25 +154,25 @@ $ npm install
       >> modulo principal da aplicação onde são carregado os demais
          este é referenciado como dependência no /ng.app.js
 
-    /shared
-      /fallback   >> scripts para Internet Explorer
-      /fend
-        >> conjunto de módulos útis/comuns para reúso em vários projetos/modulos
-      /mock
-        >> módulo de suporte para simular o backend
-      /less
-        >> configurações de componentes CSS   
-
+  /shared
+    /fallback   >> scripts para Internet Explorer
+    /fend
+      >> conjunto de módulos útis/comuns para reúso em vários projetos/modulos
+    /mock
+      >> módulo de suporte para simular o backend
     /less
       /bootstrap
-        default.less >> configuração e tema padrão do Bootstrap, importado no app.less
-      app.less >> mapeamento dos arquivos .less que geram o /styles/app.css
+          default.less >> configuração e tema padrão do Bootstrap, importado no /less/app.less
+      >> configurações de componentes CSS   
 
-    /styles
-      app.css
+  /less
+    app.less >> mapeamento dos arquivos .less que geram o /styles/app.css
 
-    /vendor
-      >> bibliotecas, css e outros recursos de terceiros utilizados no projeto, ex.: twitter bootstrap  
+  /styles
+    app.css
+
+  /vendor
+    >> bibliotecas, css e outros recursos de terceiros utilizados no projeto, ex.: twitter bootstrap  
 
   ng.app.js             >> onde é iniciado a execução a aplicação Angular.js
   require.mock.load.js  >> listagem dos mocks a serem carregados
