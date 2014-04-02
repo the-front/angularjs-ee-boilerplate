@@ -25,6 +25,7 @@ function(module) {
     //--- @begin: loading progressbar config
     progressConfig.eventListeners();
     progressConfig.color('#428bca');
+    progressConfig.height('3px');
     //--- @end: loading progressbar config
 
     //--- @begin: menu items

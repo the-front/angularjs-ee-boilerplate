@@ -38,6 +38,10 @@ function(module) {
 
       color: function(new_color) {
         ngProgress.color(new_color);
+      },
+
+      height: function(new_height) {
+        ngProgress.height(new_height);
       }
     };
 
