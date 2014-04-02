@@ -1,6 +1,8 @@
 # Angular.js Enterprise Edition Boilerplate
 
-for now see: `/standalone_with_tools` 
+* [README (pt-Br)](README_pt-Br.md)
+
+* **TODO:** create and write `README_en.md`
 
 ## License
 
