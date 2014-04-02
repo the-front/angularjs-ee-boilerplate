@@ -6,9 +6,9 @@
 * [Guia de Instalação](#guia-de-instalação)
   * [Clone](#clone)
 * [Guia de Uso](#guia-de-uso)
-  * [Ferramenta de Publicação do GitHub gh-pages](#ferramenta-de-publicação-do-github-gh-pages)
   * [Ferramenta de Apoio ao Desenvolvimento](#ferramenta-de-apoio-ao-desenvolvimento)
     * [Grunt.js: Tarefas Disponíveis](#gruntjs-tarefas-disponíveis)
+  * [Ferramenta de Publicação do GitHub gh-pages](#ferramenta-de-publicação-do-github-gh-pages)
 * [Estrutura de diretórios](#estrutura-de-diretórios)
   * [Ferramentas](#ferramentas)
   * [Projeto](#projeto)
@@ -34,19 +34,6 @@ $ git clone https://github.com/erkobridee/angularjs-ee-boilerplate.git
 ```
 
 ## Guia de Uso
-
-### Ferramenta de Publicação do GitHub gh-pages
-
-> Ferramenta para auxiliar/automatizar a publicação/atualizar da página (gh-pages) do projeto no GitHub (presente no diretório `/publisher`)
-
-* Tarefas do Grunt.js
-
-  * `grunt init` -  prepara um diretário `./local/gh_pages` com o clone do projeto e o branch `gh-pages` selecionado, necessário para os comandos a seguir
-
-  * `grunt publish` - irá gerar e publicar no `gh-pages` a versão de produção do projeto
-
-  * `grunt publish:dev` - irá publicar no `gh-pages` a versão de desenvolvimento do projeto
-
 
 ### Ferramenta de Apoio ao Desenvolvimento
 
@@ -106,6 +93,20 @@ $ npm install
 * Para facilitar o gerenciamento das taferas que serão executadas pelo Grunt.js foi definido o arquivo `/tools/helpers/grunt/config/project.js`, para centralizar as principais configurações do ferramental, dentre elas a configuração de roteamento do proxy (ver: `backend.proxies`).
 
   * O suporte do proxy utiliza o plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
+
+
+### Ferramenta de Publicação do GitHub gh-pages
+
+> Ferramenta para auxiliar/automatizar a publicação/atualizar da página (gh-pages) do projeto no GitHub (presente no diretório `/publisher`)
+
+* Tarefas do Grunt.js
+
+  * `grunt init` -  prepara um diretário `./local/gh_pages` com o clone do projeto e o branch `gh-pages` selecionado, necessário para os comandos a seguir
+
+  * `grunt publish` - irá gerar e publicar no `gh-pages` a versão de produção do projeto
+
+  * `grunt publish:dev` - irá publicar no `gh-pages` a versão de desenvolvimento do projeto
+
 
 
 ## Estrutura de diretórios
