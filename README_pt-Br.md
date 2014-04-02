@@ -6,8 +6,9 @@
 * [Guia de Instalação](#guia-de-instalação)
   * [Clone](#clone)
 * [Guia de Uso](#guia-de-uso)
+  * [Ferramenta de Publicação do GitHub gh-pages](#ferramenta-de-publicação-do-github-gh-pages)
   * [Ferramenta de Apoio ao Desenvolvimento](#ferramenta-de-apoio-ao-desenvolvimento)
-  * [Grunt.js: Tarefas Disponíveis](#gruntjs-tarefas-disponíveis)
+    * [Grunt.js: Tarefas Disponíveis](#gruntjs-tarefas-disponíveis)
 * [Estrutura de diretórios](#estrutura-de-diretórios)
   * [Ferramentas](#ferramentas)
   * [Projeto](#projeto)
@@ -34,9 +35,22 @@ $ git clone https://github.com/erkobridee/angularjs-ee-boilerplate.git
 
 ## Guia de Uso
 
+### Ferramenta de Publicação do GitHub gh-pages
+
+> Ferramenta para auxiliar/automatizar a publicação/atualizar da página (gh-pages) do projeto no GitHub (presente no diretório `/publisher`)
+
+* Tarefas do Grunt.js
+
+  * `grunt init` -  prepara um diretário `./local/gh_pages` com o clone do projeto e o branch `gh-pages` selecionado, necessário para os comandos a seguir
+
+  * `grunt publish` - irá gerar e publicar no `gh-pages` a versão de produção do projeto
+
+  * `grunt publish:dev` - irá publicar no `gh-pages` a versão de desenvolvimento do projeto
+
+
 ### Ferramenta de Apoio ao Desenvolvimento
 
-> ferramenta de suporte ao desenvolvimento (presente no diretório `/tools`), a qual é uma aplicação em node.js com o executor de tarefas : grunt.js, a qual verifica a qualidade do código javascript, levanta um servidor com o conteúdo do diretório `/src` e utiliza a funcionalidade de *livereload*, atualizando a página conforme as atualizações dos arquivos : html, css e js
+> Ferramenta de suporte ao desenvolvimento (presente no diretório `/tools`), a qual é uma aplicação em node.js com o executor de tarefas : grunt.js, a qual verifica a qualidade do código javascript, levanta um servidor com o conteúdo do diretório `/src` e utiliza a funcionalidade de *livereload*, atualizando a página conforme as atualizações dos arquivos : html, css e js
 
 * necessário ter o [node.js](http://nodejs.org/) instalado no computador
 
@@ -58,7 +72,7 @@ $ npm install
 ```
 
 
-### Grunt.js: Tarefas Disponíveis
+#### Grunt.js: Tarefas Disponíveis
 
 > dentro do diretório `/tools` execute um dos comandos a seguir
 
