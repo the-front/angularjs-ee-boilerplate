@@ -1,8 +1,11 @@
 {
-  "name": "webserver",
-  "version": "0.2.0",
-  "description": "dev tool webserver support",
+  "name": "tools",
+  "private": true,
+  "version": "0.3.0",
+  "description": "frontend dev tool support",
   "keywords": [
+    "frontend",
+    "tools",
     "server",
     "web",
     "gruntjs",
