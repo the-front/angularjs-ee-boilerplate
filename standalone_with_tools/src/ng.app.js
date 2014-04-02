@@ -32,6 +32,9 @@ function(ng) {
     // start angular app
     ng.bootstrap(document, ['run']);
 
+    // global att : boilerplate current version
+    window.ng_ee_boilerplate = '0.4.0';
+
   });
 
 });
