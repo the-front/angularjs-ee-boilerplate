@@ -4,6 +4,7 @@ module.exports = {
     src: '../src',
     build: './temp',
     dist: '../dist',
+    editorconfig: '../.editorconfig'
   },
 
   require: {

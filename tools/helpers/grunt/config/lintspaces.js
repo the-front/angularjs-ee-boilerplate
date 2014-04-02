@@ -8,7 +8,7 @@ module.exports = {
       '<%= project.paths.src %>/helpers/**/*.js'
     ],
     options: {
-      editorconfig: '../../.editorconfig'
+      editorconfig: '<%= project.paths.editorconfig %>'
     }
   }
 
