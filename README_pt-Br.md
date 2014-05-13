@@ -190,8 +190,16 @@ MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org)
 
 ## TODO
 
-* definir e/ou usar um componente para o NavBar
+- [ ] definir e/ou usar um componente para o NavBar
  
-* Testar sincronização de web browsers
+- [ ] Testar sincronização de web browsers
 
   * [[GitHub] shakyShane / grunt-browser-sync](https://github.com/shakyShane/grunt-browser-sync) - Grunt Task for keeping multiple browsers & devices in sync when building websites.
+
+- [ ] estudar e verificar a inclusão de geração de código a partir de templates
+
+  * [[GitHub] Grunt-generate / grunt-generate](https://github.com/grunt-generate/grunt-generate) - Grunt task that generates files from user-defined templates
+
+- [ ] estudar e verificar a inclusão e gerenciamento de arquivos Offline (AppCache)
+
+  * [Desenvolvimento Offline](https://github.com/soudev/knowledge.mine/blob/master/stuff/frontend.html5.md#offline)
