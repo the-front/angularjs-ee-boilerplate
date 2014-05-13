@@ -200,6 +200,8 @@ MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org)
 
   * [[GitHub] Grunt-generate / grunt-generate](https://github.com/grunt-generate/grunt-generate) - Grunt task that generates files from user-defined templates
 
+- [ ] estudar e incluir suporte para testes
+
 - [ ] estudar e verificar a inclusão e gerenciamento de arquivos Offline (AppCache)
 
   * [Desenvolvimento Offline](https://github.com/soudev/knowledge.mine/blob/master/stuff/frontend.html5.md#offline)
