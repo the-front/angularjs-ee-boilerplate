@@ -15,8 +15,12 @@ module.exports = {
 
   frontend: {
     port: {
+      browserSync: {
+        min: 4000,
+        max: 4100
+      }, // default min: 3000 and max: 3100
       connect: 1337,
-      livereload: 9999 // default: 35729
+      livereload: 9999 // default: 35729,
     }
   },
 
