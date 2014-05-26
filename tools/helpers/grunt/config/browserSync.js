@@ -13,6 +13,8 @@ module.exports = {
 
     options: {
 
+      ports: '<%= project.frontend.port.browserSync %>',
+
       server: {
         baseDir: '<%= project.paths.src %>',
         directory: true
@@ -34,6 +36,8 @@ module.exports = {
 
     options: {
 
+      ports: '<%= project.frontend.port.browserSync %>',
+
       server: {
         baseDir: '<%= project.paths.src %>',
         directory: true,
@@ -53,6 +57,8 @@ module.exports = {
 
     options: {
 
+      ports: '<%= project.frontend.port.browserSync %>',
+
       server: {
         baseDir: '<%= project.paths.dist %>',
         directory: true
@@ -65,6 +71,8 @@ module.exports = {
   distProxy: {
 
     options: {
+
+      ports: '<%= project.frontend.port.browserSync %>',
 
       server: {
         baseDir: '<%= project.paths.dist %>',
