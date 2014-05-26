@@ -20,7 +20,7 @@
 
 ## Visão Geral
 
-Projeto Standalone, com ferramental de suporte para o desenvolvimento
+Projeto Boilerplate, com ferramental de suporte para o desenvolvimento
 
 * **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](https://github.com/soudev/knowledge.mine/blob/master/stuff/backend.rest.url_design.md)
 
@@ -79,7 +79,11 @@ $ npm install
 
 * `grunt dev` >> executa inicialmente a tarefa `build:dev`, iniciar o servidor com suporte ao livereload e irá verificar se houve alterações nos arquivos *.html, .css, ou .js* para atualizar a página automaticamente
 
-* `grunt dev:proxy` >> além das tarefas do `grunt dev`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor. 
+* `grunt dev:proxy` >> além das tarefas do `grunt dev`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
+
+* `grunt dev:sync` >> executa inicialmente a tarefa `build:dev`, iniciar o servidor com suporte ao browser-sync e irá verificar se houve alterações nos arquivos *.html, .css, ou .js* para atualizar a página automaticamente, além de sincronizar a navegação e dados
+
+* `grunt dev:syncProxy` >> além das tarefas do `grunt dev:sync`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
 --
 
@@ -87,6 +91,9 @@ $ npm install
 
 * `grunt dist:proxy` >> executa inicialmente a tarefa `build:prod` e então inicia um servidor + proxy, para visualizar e testar os arquivos gerados
 
+* `grunt dist:sync` >>  executa inicialmente a tarefa `build:prod` e então inicia um servidor para visualizar e testar os arquivos gerados com suporte ao browser-sync
+
+* `grunt dist:syncProxy` >> executa inicialmente a tarefa `build:prod` e então inicia um servidor + proxy, para visualizar e testar os arquivos gerados com suporte ao browser-sync
 
 --
 
@@ -192,7 +199,7 @@ MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org)
 
 - [ ] definir e/ou usar um componente para o NavBar
  
-- [ ] Testar sincronização de web browsers
+- [x] Testar sincronização de web browsers
 
   * [[GitHub] shakyShane / grunt-browser-sync](https://github.com/shakyShane/grunt-browser-sync) - Grunt Task for keeping multiple browsers & devices in sync when building websites.
 
