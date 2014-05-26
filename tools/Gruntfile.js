@@ -49,15 +49,33 @@ module.exports = function(grunt) {
     }
   });
 
-
   grunt.registerTask('dev', function(target) {
-    if(target === 'proxy') {
+    if(target === 'sync') {
+
+      return grunt.task.run([
+        'build:dev',
+        'browserSync:dev',
+        'watch'
+      ]);
+
+    } else if(target === 'syncProxy') {
+
+      return grunt.task.run([
+        'build:dev',
+        'configureProxies',
+        'browserSync:devProxy',
+        'watch'
+      ]);
+
+    } else if(target === 'proxy') {
+
       return grunt.task.run([
         'build:dev',
         'configureProxies',
         'connect:devProxy',
         'watch'
       ]);
+
     }
 
     return grunt.task.run([
@@ -69,12 +87,29 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('dist', function(target) {
-    if(target === 'proxy') {
+    if(target === 'sync') {
+
+      return grunt.task.run([
+        'build:prod',
+        'browserSync:dist'
+      ]);
+
+    } else if(target === 'syncProxy') {
+
+      return grunt.task.run([
+        'build:prod',
+        'configureProxies',
+        'browserSync:distProxy'
+      ]);
+
+    } else if(target === 'proxy') {
+
       return grunt.task.run([
         'build:prod',
         'configureProxies',
         'connect:distProxy'
       ]);
+
     }
 
     return grunt.task.run([
