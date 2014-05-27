@@ -1,8 +1,12 @@
 # Angular.js Enterprise Edition Boilerplate
 
+* [README (en)](README_en.md)
+
 * [README (pt-Br)](README_pt-Br.md)
 
-* **TODO:** create and write `README_en.md`
+--
+
+* [TODO list](TODO.md)
 
 ## License
 
