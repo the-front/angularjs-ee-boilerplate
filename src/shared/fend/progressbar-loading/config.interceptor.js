@@ -89,6 +89,12 @@ function(module) {
         },
 
         'response': function(response) {
+          if (!angular.isDefined(response)) {
+            console.error('No response defined. Aborting operation.');
+            setComplete();
+            return $q.reject(response);
+          }
+
           if (!isCached(response.config)) {
             reqsCompleted++;
             if (reqsCompleted >= reqsTotal) {
