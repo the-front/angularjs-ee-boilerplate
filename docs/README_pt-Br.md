@@ -19,7 +19,7 @@
 
 Projeto Boilerplate, com ferramental de suporte para o desenvolvimento e publicação no gh-pages do GitHub
 
-* **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](rest_url_design-pr-Br.md)
+* **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](rest_url_design-pt-Br.md)
 
 ## Guia de Instalação
 
