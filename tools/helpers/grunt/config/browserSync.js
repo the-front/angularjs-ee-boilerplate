@@ -6,8 +6,8 @@ module.exports = {
 
     bsFiles: {
       src: [
-        '<%= project.paths.src %>/styles/*.css',
-        '<%= project.paths.src %>/{,app/**/,shared/**/}*.{html,js}'
+        '<%= project.paths.build %>/styles/*.css',
+        '<%= project.paths.build %>/{,app/**/,shared/**/}*.{html,js}'
       ]
     },
 
@@ -16,7 +16,7 @@ module.exports = {
       ports: '<%= project.frontend.port.browserSync %>',
 
       server: {
-        baseDir: '<%= project.paths.src %>',
+        baseDir: '<%= project.paths.build %>',
         directory: true
       },
 
@@ -29,8 +29,8 @@ module.exports = {
 
     bsFiles: {
       src: [
-        '<%= project.paths.src %>/styles/*.css',
-        '<%= project.paths.src %>/{,app/**/,shared/**/}*.{html,js}'
+        '<%= project.paths.build %>/styles/*.css',
+        '<%= project.paths.build %>/{,app/**/,shared/**/}*.{html,js}'
       ]
     },
 
@@ -39,7 +39,7 @@ module.exports = {
       ports: '<%= project.frontend.port.browserSync %>',
 
       server: {
-        baseDir: '<%= project.paths.src %>',
+        baseDir: '<%= project.paths.build %>',
         directory: true,
         middleware: [
           require('grunt-connect-proxy/lib/utils').proxyRequest

@@ -1,6 +1,9 @@
 module.exports = {
 
-  build: ['<%= project.paths.build %>/'],
+  build: {
+    options: { force: true },
+    src: ['<%= project.paths.build %>/']
+  },
 
   dist: {
     options: { force: true },

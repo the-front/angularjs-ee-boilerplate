@@ -1,15 +1,37 @@
 module.exports = {
 
+  options: {
+    editorconfig: '<%= project.paths.editorconfig %>'
+  },
+
   all: {
     src: [
-      '<%= project.paths.src %>/*.{html,css,js,coffee}',
-      '<%= project.paths.src %>/{app/,shared/}**/*.{html,css,js,coffee,less}',
-      '<%= project.paths.src %>/styles/less/*.less',
-      '<%= project.paths.src %>/helpers/**/*.js'
-    ],
-    options: {
-      editorconfig: '<%= project.paths.editorconfig %>'
-    }
+      'helpers/**/*.js',
+      '<%= project.paths.src %>/{,app/,shared/}**/*.{html,css,js,coffee,less}',
+      '<%= project.paths.src %>/less/**/*.less',
+      '!<%= project.paths.src %>/vendor/**/*'
+    ]
+  },
+
+  js: {
+    src: [
+      '<%= project.paths.src %>/**/*.js',
+      '!<%= project.paths.src %>/vendor/**/*'
+    ]
+  },
+
+  less: {
+    src: [
+      '<%= project.paths.src %>/**/*.less',
+      '!<%= project.paths.src %>/vendor/**/*'
+    ]
+  },
+
+  html: {
+    src: [
+      '<%= project.paths.src %>/**/*.html',
+      '!<%= project.paths.src %>/vendor/**/*'
+    ]
   }
 
 };

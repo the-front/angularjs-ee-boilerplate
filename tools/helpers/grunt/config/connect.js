@@ -20,7 +20,7 @@ module.exports = {
   dev: {
     options: {
       port: '<%= project.frontend.port.connect %>',
-      base: '<%= project.paths.src %>',
+      base: '<%= project.paths.build %>',
       hostname: '*',
       livereload: '<%= project.frontend.port.livereload %>',
       open: 'http://localhost:<%= project.frontend.port.connect %>'
@@ -30,7 +30,7 @@ module.exports = {
   devProxy: {
     options: {
       port: '<%= project.frontend.port.connect %>',
-      base: '<%= project.paths.src %>',
+      base: '<%= project.paths.build %>',
       hostname: '*',
       livereload: '<%= project.frontend.port.livereload %>',
       open: 'http://localhost:<%= project.frontend.port.connect %>',

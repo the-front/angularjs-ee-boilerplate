@@ -1,7 +1,53 @@
 module.exports = {
 
-  // @begin: build tasks
-  jstobuild: {
+  // @begin: dev build tasks
+  dev_jstobuild: {
+    files: [
+      {
+        expand: true,
+        cwd: '<%= project.paths.src %>/',
+        src: [
+          '**/*.js',
+          '!vendor/**/*'
+        ],
+        dest: '<%= project.paths.build %>/'
+      }
+    ]
+  },
+
+  dev_tobuild: {
+    files: [
+      {
+        expand: true,
+        cwd: '<%= project.paths.src %>/',
+        src: [
+          '**',
+          '!{,app/**/,shared/**/}*.js',
+          '!**/*.{less,css}',
+          '!vendor/**/*'
+        ],
+        dest: '<%= project.paths.build %>/'
+      }
+    ]
+  },
+
+  dev_vendortobuild: {
+    files: [
+      {
+        expand: true,
+        cwd: '<%= project.paths.src %>/',
+        src: [
+        'vendor/**/*',
+        '!vendor/**/*.{less,html}',
+        ],
+        dest: '<%= project.paths.build %>/'
+      }
+    ]
+  },
+  // @end: dev build tasks
+
+  // @begin: prod build tasks
+  prod_jstobuild: {
     files: [
       {
         expand: true,
@@ -14,13 +60,16 @@ module.exports = {
     ]
   },
 
-  todist: {
+  prod_todist: {
     files: [
       {
         expand: true,
         cwd: '<%= project.paths.src %>/',
         src: [
-          '**', '!{,app/**/,shared/**/}*.js', '!**/*.{less,html}', '!styles/**/*.*'
+          '**',
+          '!{,app/**/,shared/**/}*.js',
+          '!**/*.{less,html}',
+          '!styles/**/*.*'
         ],
         dest: '<%= project.paths.dist %>/'
       },
@@ -50,6 +99,6 @@ module.exports = {
       }
     ]
   }
-  // @end: build tasks
+  // @end: prod build tasks
 
 };

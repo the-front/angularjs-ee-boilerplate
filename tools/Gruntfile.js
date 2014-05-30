@@ -1,12 +1,13 @@
 module.exports = function(grunt) {
   'use strict';
 
-  var path = require('path');
+  var path = require('path'),
+      cwd =  process.cwd();
 
   grunt.log.writeln('\nloading grunt plugins and configs...');
   require('load-grunt-config')(
     grunt, {
-      configPath: path.join(process.cwd(), 'helpers/grunt/config')
+      configPath: path.join(cwd, 'helpers/grunt/config')
     }
   );
   grunt.log.writeln('...done\n');
@@ -18,28 +19,30 @@ module.exports = function(grunt) {
 
   //--- grunt tasks
 
-  grunt.registerTask('cleanup', ['clean:dist', 'clean:build']);
-
-  grunt.registerTask('default', ['lintspaces', 'jshint', 'cleanup']);
+  grunt.registerTask('default', ['clean', 'lintspaces:all', 'newer:jshint']);
 
 
   grunt.registerTask('build', function(target) {
     if(target === 'dev') {
       return grunt.task.run([
         'default',
+        'copy:dev_tobuild',
+        'copy:dev_jstobuild',
+        'copy:dev_vendortobuild',
+        'cleanempty:build',
         'less:dev'
       ]);
 
     } else if(target === 'prod') {
       return  grunt.task.run([
         'default',
-        'copy:jstobuild',
+        'copy:prod_jstobuild',
         'html2js:prod',
         'rewriterequireconfig',
         'requirejs',
         'clean:build',
-        'copy:todist',
-        'cleanempty',
+        'copy:prod_todist',
+        'cleanempty:dist',
         'less:prod',
         'htmlmin',
         'imagemin',
