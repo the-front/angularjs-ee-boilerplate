@@ -54,7 +54,7 @@ http://:app-name/:rest/:version/:resource
 
 ## GET
 
-Respectivos parâmetros que podem ser enviados 
+Respectivos parâmetros que podem ser enviados.
 
 ### Paginação
 
@@ -108,11 +108,9 @@ A idéia dessa proposta de URL é ter um recurso flexível para disponibilizar f
 
 **:option** - opção de ação solicitada. Implementações sugeridas:
 
-* **count** - retorna a quantidade/contagem de recursos disponíveis. Esta funcionalidade/informação irá ser útil para implementação de paginação
-
-* **template** - retorna o recurso associado a URL com os parâmetros vazios, serve para conhecer a estrutura do recurso
+* **template** - retorna uma amostra do recurso com seus respectivos atributos (é interessante também informar os tipos dos atributos)
 
 
 ## Desnormalização
 
-Além das definições de URLs recomendandas acima, não é impeditivo definir outras URLs para atender necessidades específicas do seu projeto.
+Além das URLs acima, outras URLs podem ser implementadas para adicionar mais funcionalidades.

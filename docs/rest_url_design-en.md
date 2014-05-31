@@ -54,7 +54,7 @@ http://:app-name/:rest/:version/:resource
 
 ## GET
 
-HTTP GET request with parameters
+HTTP GET request with parameters.
 
 ### Pagination
 
@@ -99,23 +99,17 @@ _**Note:**_ need some specific implementation method on backend to execute this 
 
 ### Utilities
 
-> TODO: translate
-
 ```
 http://:app-name/:rest/:version/:resource?action=:option
 ```
 
-A idéia dessa proposta de URL é ter um recurso flexível para disponibilizar funcionalidades
+Proposal URL to provide more resource functionalities.
 
-**:option** - opção de ação solicitada. Implementações sugeridas:
+**:option** - label to executa an action. Some suggestions:
 
-* **count** - retorna a quantidade/contagem de recursos disponíveis. Esta funcionalidade/informação irá ser útil para implementação de paginação
-
-* **template** - retorna o recurso associado a URL com os parâmetros vazios, serve para conhecer a estrutura do recurso
+* **template** - return resource sample with respectives attributes (it's interesting too show attributes types)
 
 
 ## Denormalization
 
-> TODO: translate
-
-Além das definições de URLs recomendandas acima, não é impeditivo definir outras URLs para atender necessidades específicas do seu projeto.
+Beyond URL's above, other URL's can be implemented to provide more features.
