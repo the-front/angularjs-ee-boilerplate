@@ -1,16 +1,17 @@
 module.exports = function(grunt) {
   'use strict';
 
+  // require it at the top and pass in the grunt instance
+  require('time-grunt')(grunt);
+
   var path = require('path'),
       cwd =  process.cwd();
 
-  grunt.log.writeln('\nloading grunt plugins and configs...');
   require('load-grunt-config')(
     grunt, {
       configPath: path.join(cwd, 'helpers/grunt/config')
     }
   );
-  grunt.log.writeln('...done\n');
 
   // load custom tasks
   grunt.loadTasks('helpers/grunt/tasks'); // grunt helloworld
