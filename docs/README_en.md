@@ -19,6 +19,8 @@
 
 FrontEnd Boilerplate project with development and publishing tools (for GitHub gh-pages)
 
+* **Important**: to define a better communication between frontend and backend (server), please consider follow the given proposal [REST URL Design](rest_url_design-en.md)
+
 ## Installation Guide
 
 Enter the following commands in the terminal
