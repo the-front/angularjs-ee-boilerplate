@@ -201,7 +201,3 @@ $ npm install
 
   index.html
 ```
-
-## License
-
-MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org)
