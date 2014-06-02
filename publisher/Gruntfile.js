@@ -1,10 +1,11 @@
 module.exports = function(grunt) {
   'use strict';
 
+  require('time-grunt')(grunt);
+
   var path = require('path'),
       cwd =  process.cwd();
 
-  grunt.log.writeln('\nloading grunt plugins and configs...');
   require('load-grunt-config')(
     grunt, {
       configPath: path.join(cwd, 'helpers/grunt/config'),
@@ -13,7 +14,6 @@ module.exports = function(grunt) {
       }
     }
   );
-  grunt.log.writeln('...done\n');
 
   // load custom tasks
   grunt.loadTasks('helpers/grunt/tasks'); // grunt helloworld
