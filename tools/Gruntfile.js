@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
   'use strict';
 
-  // require it at the top and pass in the grunt instance
   require('time-grunt')(grunt);
 
   var path = require('path'),
