@@ -8,7 +8,7 @@ module.exports = {
     },
 
     // The folder where your gh-pages repo is
-    src: '<%= project.paths.gh_pages %>'
+    src: '<%= project.gitclone.directory %>'
   },
 
   prodCode: {
@@ -19,7 +19,7 @@ module.exports = {
     },
 
     // The folder where your gh-pages repo is
-    src: '<%= project.paths.gh_pages %>'
+    src: '<%= project.gitclone.directory %>'
   }
 
 };

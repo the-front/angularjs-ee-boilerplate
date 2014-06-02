@@ -5,7 +5,7 @@ module.exports = {
       {
         cwd: './',
         src: ['.gitignore'],
-        dest: '<%= project.paths.gh_pages %>/'
+        dest: '<%= project.gitclone.directory %>/'
       }
     ]
   },
@@ -18,7 +18,7 @@ module.exports = {
           '**',
           '!**/*.less'
         ],
-        dest: '<%= project.paths.gh_pages %>/',
+        dest: '<%= project.gitclone.directory %>/',
         expand: true
       }
     ]
@@ -29,7 +29,7 @@ module.exports = {
       {
         cwd: '<%= project.paths.project.prod %>/',
         src: ['**'],
-        dest: '<%= project.paths.gh_pages %>/',
+        dest: '<%= project.gitclone.directory %>/',
         expand: true
       }
     ]

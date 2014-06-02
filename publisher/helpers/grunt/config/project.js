@@ -3,12 +3,17 @@ module.exports = {
   isoUtcDateTime: '<%= grunt.template.today("isoUtcDateTime") %>',
 
   paths: {
-    gh_pages: '.local/gh_pages',
     project: {
-      dev: '../src',
-      prod: '../dist',
-      tools: '../tools'
+      tools: '../tools',
+      dev: '<%= project.paths.project.tools %>/.temp',
+      prod: '../dist'
     }
+  },
+
+  gitclone: {
+    branch: 'gh-pages',
+    directory: '.local/<%= project.gitclone.branch %>',
+    repository: '<%= mainPkg.repository.url %>'
   }
 
 };

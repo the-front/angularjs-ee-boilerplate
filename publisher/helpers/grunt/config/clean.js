@@ -1,11 +1,11 @@
 module.exports = {
 
   gh_pages_dir: [
-    '<%= project.paths.gh_pages %>/'
+    '<%= project.gitclone.directory %>/'
   ],
 
   gh_pages_content: [
-    '<%= project.paths.gh_pages %>/**/*'
+    '<%= project.gitclone.directory %>/**/*'
   ]
 
 };

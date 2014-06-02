@@ -1,7 +1,17 @@
 // https://github.com/sindresorhus/grunt-shell
 module.exports = {
 
-  projectBuild: {
+  projectBuildDev: {
+    command: 'grunt build:dev',
+    options: {
+      stdout: true,
+      execOptions: {
+        cwd: '<%= project.paths.project.tools %>'
+      }
+    }
+  },
+
+  projectBuildProd: {
     command: 'grunt build:prod',
     options: {
       stdout: true,
@@ -12,7 +22,7 @@ module.exports = {
   },
 
   projectClean: {
-    command: 'grunt cleanup',
+    command: 'grunt clean',
     options: {
       stdout: true,
       execOptions: {

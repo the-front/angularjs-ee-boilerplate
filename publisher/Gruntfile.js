@@ -27,7 +27,7 @@ module.exports = function(grunt) {
   grunt.registerTask('init', [
     'jshint',
     'clean:gh_pages_dir',
-    'gitclone:gh_pages'
+    'gitclone:target'
   ]);
 
   grunt.registerTask('publish',  function(target) { // default: prod workflow
@@ -41,13 +41,15 @@ module.exports = function(grunt) {
     if(target === 'dev') {
       message += 'dev code';
       tasks = tasks.concat([
+        'shell:projectBuildDev',
         'copy:projectDev',
+        'shell:projectClean',
         'githubPages:devCode'
       ]);
     } else { // prod
       message += 'prod code';
       tasks = tasks.concat([
-        'shell:projectBuild',
+        'shell:projectBuildProd',
         'copy:projectProd',
         'shell:projectClean',
         'githubPages:prodCode'
