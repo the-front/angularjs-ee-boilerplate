@@ -2,7 +2,7 @@ module.exports = {
 
   paths: {
     src: '../src',
-    build: '../temp',
+    build: '.temp',
     dist: '../dist',
     editorconfig: '../.editorconfig'
   },
