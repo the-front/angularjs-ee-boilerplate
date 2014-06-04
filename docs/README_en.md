@@ -57,7 +57,7 @@ $ npm install
 
 --
 
-* `grunt build:dev` >> prepare files for development
+* `grunt build:dev` >> prepare files for development, inside `./tools/.temp` directory
 
 * `grunt build:prod` >> prepare files for distribution / production, inside `./dist` directory
 
@@ -92,15 +92,15 @@ $ npm install
 
 > Inside `./publisher` directory, available grunt.js commands
 
-* `grunt init` >> do project clone from GitHub inside `./publisher/local/gh_pages` directory and checkout `gh-pages` branch, which is used to update remote `gh-pages` branch on GitHub
+* `grunt init` >> do project clone from GitHub inside `./publisher/local/gh-pages` directory and checkout `gh-pages` branch, which is used to update remote `gh-pages` branch on GitHub
 
 > Execute this command at once, before the following commands
 
 --
 
-* `grunt publish` >> this task will invoke `grunt build:prod` command inside `./tools` directory, then copy generated files from `./dist` to `./publisher/local/gh_pages`, commit files and finally push to `gh-pages` branch on GitHub
+* `grunt publish` >> this task will invoke `grunt build:prod` command inside `./tools` directory, then copy generated files from `./dist` to `./publisher/local/gh-pages`, commit files and finally push to `gh-pages` branch on GitHub
 
-* `grunt publish:dev` - this task will copy files  from `./src` to `./publisher/local/gh_pages`, commit files and finally push to `gh-pages` branch on GitHub
+* `grunt publish:dev` - this task will copy files  from `./src` to `./publisher/local/gh-pages`, commit files and finally push to `gh-pages` branch on GitHub
 
 
 ## Directories Structure

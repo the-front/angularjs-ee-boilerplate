@@ -59,7 +59,7 @@ $ npm install
 
 --
 
-* `grunt build:dev` >> prepara os arquivos para desenvolvimento
+* `grunt build:dev` >> prepara os arquivos para desenvolvimento, dentro do diretório `./tools/.temp`
 
 * `grunt build:prod` >> prepara os arquivos para distribuição / produção, dentro do diretório `./dist`
 
@@ -93,15 +93,15 @@ $ npm install
 
 > Dentro do diretório `./publisher`, comandos disponíveis do grunt.js
 
-* `grunt init` >> realiza o clone do projeto a partir do GitHub no diretório `./publisher/local/gh_pages` e seleciona o branch `gh-pages`, o que é utilizado para atualizar o branch `gh-pages` no GitHub
+* `grunt init` >> realiza o clone do projeto a partir do GitHub no diretório `./publisher/local/gh-pages` e seleciona o branch `gh-pages`, o que é utilizado para atualizar o branch `gh-pages` no GitHub
 
 > Execute este comando uma vez, antes dos comandos a seguir
 
 --
 
-* `grunt publish` >> esta tarefa irá executar o comando `grunt build:prod` dentro do diretório `./tools`, então irá copiar os arquivo gerados no diretório `./dist` para `./publisher/local/gh_pages`, efetuar o commit dos arquivos e então enviar para o branch `gh-pages` no Github
+* `grunt publish` >> esta tarefa irá executar o comando `grunt build:prod` dentro do diretório `./tools`, então irá copiar os arquivo gerados no diretório `./dist` para `./publisher/local/gh-pages`, efetuar o commit dos arquivos e então enviar para o branch `gh-pages` no Github
 
-* `grunt publish:dev` - esta tarefa irá copiar os arquivo do diretório `./src` para `./publisher/local/gh_pages`, efetuar o commit dos arquivos e então enviar para o branch `gh-pages` no Github
+* `grunt publish:dev` - esta tarefa irá copiar os arquivo do diretório `./src` para `./publisher/local/gh-pages`, efetuar o commit dos arquivos e então enviar para o branch `gh-pages` no Github
 
 ## Estrutura de Diretórios
 
