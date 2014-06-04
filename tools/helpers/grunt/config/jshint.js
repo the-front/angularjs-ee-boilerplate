@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('jshint', {
 
   options: {
     reporter: require('jshint-stylish')
@@ -17,5 +19,9 @@ module.exports = {
     '!<%= project.paths.src %>/vendor/**/*.js',
     '!<%= project.paths.src %>/{,shared/**/,app/**/}*.min.js'
   ]
+
+});
+
+grunt.loadNpmTasks('grunt-contrib-jshint');
 
 };

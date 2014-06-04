@@ -3,14 +3,13 @@ module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
 
-  var path = require('path'),
-      cwd =  process.cwd();
+  // Initialize config
+  grunt.initConfig({
+    pkg: require('./package.json'),
+  });
 
-  require('load-grunt-config')(
-    grunt, {
-      configPath: path.join(cwd, 'helpers/grunt/config')
-    }
-  );
+  // load tasks config per file
+  grunt.loadTasks('helpers/grunt/config');
 
   // load custom tasks
   grunt.loadTasks('helpers/grunt/tasks'); // grunt helloworld

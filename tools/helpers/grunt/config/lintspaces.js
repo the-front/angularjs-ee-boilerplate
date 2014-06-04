@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('lintspaces', {
 
   options: {
     editorconfig: '<%= project.paths.editorconfig %>'
@@ -33,5 +35,9 @@ module.exports = {
       '!<%= project.paths.src %>/vendor/**/*'
     ]
   }
+
+});
+
+grunt.loadNpmTasks('grunt-lintspaces');
 
 };

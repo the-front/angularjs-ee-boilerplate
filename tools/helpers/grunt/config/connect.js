@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('connect', {
 
   proxies: '<%= project.backend.proxies %>',
 
@@ -62,5 +64,10 @@ module.exports = {
       middleware: '<%= connect.middleware %>'
     }
   }
+
+});
+
+grunt.loadNpmTasks('grunt-contrib-connect');
+grunt.loadNpmTasks('grunt-connect-proxy');
 
 };

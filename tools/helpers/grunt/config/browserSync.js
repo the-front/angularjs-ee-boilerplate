@@ -1,6 +1,8 @@
 // https://github.com/shakyShane/browser-sync/wiki/options
 
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('browserSync', {
 
   dev: {
 
@@ -86,5 +88,9 @@ module.exports = {
 
   },
 
+
+});
+
+grunt.loadNpmTasks('grunt-browser-sync');
 
 };

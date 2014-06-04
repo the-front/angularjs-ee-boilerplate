@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('requirejs', {
 
   /*
     http://tech.pro/blog/1639/using-rjs-to-optimize-your-requirejs-project
@@ -28,5 +30,9 @@ module.exports = {
       }
     }
   }
+
+});
+
+grunt.loadNpmTasks('grunt-contrib-requirejs');
 
 };

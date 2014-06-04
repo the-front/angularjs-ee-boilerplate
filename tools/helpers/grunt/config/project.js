@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('project', {
 
   paths: {
     src: '../src',
@@ -36,5 +38,7 @@ module.exports = {
       }
     ]
   }
+
+});
 
 };

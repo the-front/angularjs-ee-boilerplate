@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('copy', {
 
   // @begin: dev build tasks
   dev_jstobuild: {
@@ -100,5 +102,9 @@ module.exports = {
     ]
   }
   // @end: prod build tasks
+
+});
+
+grunt.loadNpmTasks('grunt-contrib-copy');
 
 };

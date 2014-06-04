@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('uglify', {
 
   dist: {
     files: {
@@ -6,5 +8,9 @@ module.exports = {
       '<%= project.paths.dist %>/shared/fallback/ie.js': ['<%= project.paths.dist %>/shared/fallback/ie.js']
     }
   }
+
+});
+
+grunt.loadNpmTasks('grunt-contrib-uglify');
 
 };

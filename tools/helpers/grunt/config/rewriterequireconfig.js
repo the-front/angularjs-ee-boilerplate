@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('rewriterequireconfig', {
 
   tocompile: {
 
@@ -7,5 +9,7 @@ module.exports = {
     output: '<%= project.require.build %>'
 
   }
+
+});
 
 };

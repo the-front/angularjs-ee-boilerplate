@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('clean', {
 
   build: {
     options: { force: true },
@@ -9,5 +11,9 @@ module.exports = {
     options: { force: true },
     src: ['<%= project.paths.dist %>/']
   }
+
+});
+
+grunt.loadNpmTasks('grunt-contrib-clean');
 
 };

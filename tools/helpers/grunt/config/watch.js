@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('watch', {
 
   reload: {
     files : [
@@ -49,5 +51,10 @@ module.exports = {
     ],
     tasks : [ 'newer:copy:dev_vendortobuild' ]
   }
+
+});
+
+grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-newer');
 
 };
