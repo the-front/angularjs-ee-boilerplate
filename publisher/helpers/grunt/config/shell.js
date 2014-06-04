@@ -1,5 +1,8 @@
 // https://github.com/sindresorhus/grunt-shell
-module.exports = {
+
+module.exports = function(grunt) {
+
+grunt.config('shell', {
 
   projectBuildDev: {
     command: 'grunt build:dev',
@@ -30,5 +33,9 @@ module.exports = {
       }
     }
   }
+
+});
+
+grunt.loadNpmTasks('grunt-shell');
 
 };

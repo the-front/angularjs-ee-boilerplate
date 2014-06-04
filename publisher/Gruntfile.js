@@ -6,14 +6,14 @@ module.exports = function(grunt) {
   var path = require('path'),
       cwd =  process.cwd();
 
-  require('load-grunt-config')(
-    grunt, {
-      configPath: path.join(cwd, 'helpers/grunt/config'),
-      config: {
-        mainPkg: grunt.file.readJSON(path.join(cwd, '../package.json'))
-      }
-    }
-  );
+  // Initialize config
+  grunt.initConfig({
+    pkg: require('./package.json'),
+    mainPkg: grunt.file.readJSON(path.join(cwd, '../package.json'))
+  });
+
+  // load tasks config per file
+  grunt.loadTasks('helpers/grunt/config');
 
   // load custom tasks
   grunt.loadTasks('helpers/grunt/tasks'); // grunt helloworld

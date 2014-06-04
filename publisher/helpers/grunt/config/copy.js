@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('copy', {
 
   gitignore: {
     files: [
@@ -34,5 +36,9 @@ module.exports = {
       }
     ]
   }
+
+});
+
+grunt.loadNpmTasks('grunt-contrib-copy');
 
 };

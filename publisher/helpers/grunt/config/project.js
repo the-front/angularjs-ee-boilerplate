@@ -1,4 +1,6 @@
-module.exports = {
+module.exports = function(grunt) {
+
+grunt.config('project', {
 
   isoUtcDateTime: '<%= grunt.template.today("isoUtcDateTime") %>',
 
@@ -15,5 +17,7 @@ module.exports = {
     directory: '.local/<%= project.gitclone.branch %>',
     repository: '<%= mainPkg.repository.url %>'
   }
+
+});
 
 };
