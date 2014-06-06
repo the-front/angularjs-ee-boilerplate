@@ -16,6 +16,4 @@ grunt.config('jshint', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-jshint');
-
 };

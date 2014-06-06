@@ -36,6 +36,4 @@ grunt.config('shell', {
 
 });
 
-grunt.loadNpmTasks('grunt-shell');
-
 };

@@ -26,6 +26,4 @@ grunt.config('githubPages', {
 
 });
 
-grunt.loadNpmTasks('grunt-github-pages');
-
 };

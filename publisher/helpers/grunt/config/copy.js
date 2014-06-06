@@ -39,6 +39,4 @@ grunt.config('copy', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-copy');
-
 };

@@ -12,6 +12,4 @@ grunt.config('clean', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-clean');
-
 };

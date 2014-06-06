@@ -8,6 +8,4 @@ grunt.config('gitclone', {
 
 });
 
-grunt.loadNpmTasks('grunt-git');
-
 };
