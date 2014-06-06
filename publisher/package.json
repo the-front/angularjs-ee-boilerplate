@@ -24,6 +24,7 @@
     "grunt-contrib-jshint": "^0.7.2",
     "jshint-stylish": "^0.1.5",
     "grunt-shell": "^0.6.4",
-    "time-grunt": "^0.3.1"
+    "time-grunt": "^0.3.1",
+    "jit-grunt": "^0.7.0"
   }
 }

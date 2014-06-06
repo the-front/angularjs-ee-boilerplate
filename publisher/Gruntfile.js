@@ -2,6 +2,7 @@ module.exports = function(grunt) {
   'use strict';
 
   require('time-grunt')(grunt);
+  require('jit-grunt')(grunt);
 
   var path = require('path'),
       cwd =  process.cwd();
