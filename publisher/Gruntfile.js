@@ -2,7 +2,9 @@ module.exports = function(grunt) {
   'use strict';
 
   require('time-grunt')(grunt);
-  require('jit-grunt')(grunt)({
+  require('jit-grunt')(grunt, {
+    gitclone: 'grunt-git'
+  })({
     customTasksDir: 'helpers/grunt/tasks'
   });
 
@@ -11,7 +13,7 @@ module.exports = function(grunt) {
 
   // Initialize config
   grunt.initConfig({
-    pkg: require('./package.json'),
+    pkg: grunt.file.readJSON('package.json'),
     mainPkg: grunt.file.readJSON(path.join(cwd, '../package.json'))
   });
 
