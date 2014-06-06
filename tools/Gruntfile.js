@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 
   // Initialize config
   grunt.initConfig({
-    pkg: require('./package.json'),
+    pkg: require('./package.json')
   });
 
   // load tasks config per file

@@ -13,8 +13,8 @@ module.exports = function(grunt) {
 
   // Initialize config
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    mainPkg: grunt.file.readJSON(path.join(cwd, '../package.json'))
+    pkg: require('./package.json'),
+    mainPkg: require(path.join(cwd, '../package.json'))
   });
 
   // load tasks config per file
