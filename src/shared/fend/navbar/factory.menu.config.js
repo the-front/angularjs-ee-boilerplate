@@ -26,7 +26,10 @@ function(module) {
         checkLocationFn,
         menuItemSelected = null,
         locationsMap = {},
-        menuItems = [];
+        menuItems = {
+          left: [],
+          right: []
+        };
 
     //--- @begin: internal functions
     menuItemFn = function(label, location, css) {
@@ -38,10 +41,17 @@ function(module) {
       };
     };
 
-    addMenuItemFn = function(label, location) {
+    addMenuItemFn = function(label, location, position) {
+      position = position || 'left';
       var menuItem = menuItemFn(label, location);
       locationsMap[menuItem.location] = menuItem;
-      menuItems.push(menuItem);
+
+      if(position === 'left') {
+        menuItems.left.push(menuItem);
+      } else if(position === 'right') {
+        menuItems.right.push(menuItem);
+      }
+
     };
 
     selectMenuItemFn = function(item) {
