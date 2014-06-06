@@ -32,6 +32,7 @@ function(module) {
     menu.addMenuItem('Home', '');
     menu.addMenuItem('Bookmarks', 'bookmarks');
     menu.addMenuItem('About', 'about');
+    menu.addMenuItem('Help', 'help', 'right');
     //--- @end: menu items
 
   }]);

@@ -7,6 +7,7 @@ define(
   './templates/cache',
 
   'shared/fend/progressbar-loading/require.load',
+  'shared/fend/navbar/require.load',
 
   'app/home/require.load',
   'app/about/require.load',
@@ -33,6 +34,7 @@ function(ng) {
       'templatesCache',
 
       'fend.progressbar.loading',
+      'fend.navbar',
 
       'home',
       'about',

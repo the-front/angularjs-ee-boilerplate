@@ -3,7 +3,6 @@ define(
 [
   './module',
   './controller',
-  './factory.menu.config',
   './routes'
 ],
 
