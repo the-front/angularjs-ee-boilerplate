@@ -39,6 +39,4 @@ grunt.config('html2js', {
 
 });
 
-grunt.loadNpmTasks('grunt-html2js');
-
 };

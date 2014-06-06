@@ -91,6 +91,4 @@ grunt.config('browserSync', {
 
 });
 
-grunt.loadNpmTasks('grunt-browser-sync');
-
 };

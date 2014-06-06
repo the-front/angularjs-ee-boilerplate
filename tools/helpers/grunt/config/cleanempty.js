@@ -14,6 +14,4 @@ grunt.config('cleanempty', {
 
 });
 
-grunt.loadNpmTasks('grunt-cleanempty');
-
 };

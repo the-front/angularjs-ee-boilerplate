@@ -18,6 +18,4 @@ grunt.config('imagemin', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-imagemin');
-
 };

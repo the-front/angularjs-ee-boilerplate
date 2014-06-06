@@ -17,6 +17,4 @@ grunt.config('htmlmin', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-htmlmin');
-
 };

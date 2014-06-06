@@ -54,7 +54,4 @@ grunt.config('watch', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-watch');
-grunt.loadNpmTasks('grunt-newer');
-
 };

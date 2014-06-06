@@ -11,6 +11,4 @@ grunt.config('uglify', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-uglify');
-
 };

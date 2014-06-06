@@ -38,6 +38,4 @@ grunt.config('lintspaces', {
 
 });
 
-grunt.loadNpmTasks('grunt-lintspaces');
-
 };

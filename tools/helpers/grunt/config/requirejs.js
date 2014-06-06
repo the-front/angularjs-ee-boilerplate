@@ -33,6 +33,4 @@ grunt.config('requirejs', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-requirejs');
-
 };

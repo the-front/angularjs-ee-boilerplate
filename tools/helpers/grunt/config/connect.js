@@ -67,7 +67,4 @@ grunt.config('connect', {
 
 });
 
-grunt.loadNpmTasks('grunt-contrib-connect');
-grunt.loadNpmTasks('grunt-connect-proxy');
-
 };
