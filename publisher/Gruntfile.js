@@ -2,7 +2,9 @@ module.exports = function(grunt) {
   'use strict';
 
   require('time-grunt')(grunt);
-  require('jit-grunt')(grunt);
+  require('jit-grunt')(grunt)({
+    customTasksDir: 'helpers/grunt/tasks'
+  });
 
   var path = require('path'),
       cwd =  process.cwd();
@@ -15,11 +17,6 @@ module.exports = function(grunt) {
 
   // load tasks config per file
   grunt.loadTasks('helpers/grunt/config');
-
-  // load custom tasks
-  grunt.loadTasks('helpers/grunt/tasks'); // grunt helloworld
-  //grunt.task.run('helloworld');
-
 
   //--- grunt tasks
 
