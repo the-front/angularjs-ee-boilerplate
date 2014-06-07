@@ -2,11 +2,11 @@ module.exports = function(grunt) {
 
 grunt.config('clean', {
 
-  gh_pages_dir: [
+  branch_dir: [
     '<%= project.gitclone.directory %>/'
   ],
 
-  gh_pages_content: [
+  branch_dir_content: [
     '<%= project.gitclone.directory %>/**/*'
   ]
 

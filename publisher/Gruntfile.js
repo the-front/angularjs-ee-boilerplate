@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('init', [
     'jshint',
-    'clean:gh_pages_dir',
+    'clean:branch_dir',
     'gitclone:target'
   ]);
 
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     var message = 'publish ',
         tasks = [
           'jshint',
-          'clean:gh_pages_content',
+          'clean:branch_dir_content',
           'copy:gitignore'
         ];
 
