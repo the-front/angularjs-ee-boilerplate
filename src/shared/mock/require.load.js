@@ -4,7 +4,8 @@ define(
   './module',
   './backend',
   './helpers',
-  './in-memory.db',
+  //'./in-memory.db',
+  './datastore',
   './allow-pass-jsonp'
 ],
 
