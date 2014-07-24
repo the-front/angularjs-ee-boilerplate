@@ -151,8 +151,6 @@ function(module) {
 
         // @begin: public functions
 
-      Collection.prototype.name = objectName;
-
       Collection.prototype.getById = function(id) {
         var r = objectPrivate[this.name].collection.find({'id': id});
         if(r.length > 0) return r[0];
