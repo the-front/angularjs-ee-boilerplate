@@ -146,6 +146,7 @@ function(module) {
 
       // @begin: Collection "Class" definition
       function Collection() {
+        //console.log( 'Creating ' + objectName + ' Collection "Class"' );
         this.name = objectName;
       }
 
