@@ -27,7 +27,7 @@ function(module) {
       //---
 
       ClassDef.prototype.isObject = function( obj ) {
-        return obj === Object(obj);
+        return ( obj === Object( obj ) && ( 'object' === typeof obj ) );
       };
 
       ClassDef.prototype.isFunction = function( object ) {
