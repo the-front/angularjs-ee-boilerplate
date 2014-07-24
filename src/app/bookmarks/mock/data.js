@@ -59,7 +59,7 @@ function(module) {
 
         init: function( collection ) {
 
-          console.log( 'init bookmarks' );
+          console.log( 'init BookmarksCollection' );
 
           var seq = 0;
 
@@ -91,15 +91,21 @@ function(module) {
 
 
     function BookmarksCollection() {}
-    var ClassDef = BookmarksCollection;
 
+    /*
+    var ClassDef = BookmarksCollection;
     ClassDef.prototype = collection; // extends
     ClassDef.prototype.constructor = BookmarksCollection;
+    */
+
+    var ClassDef = helpers.extendsFn( BookmarksCollection, collection );
+
     ClassDef.prototype.sayMyName = function() {
-      return 'Angular.js Mock BookmarksCollection';
+      return 'Angular.js : BookmarksCollection Mock';
     };
 
     var instance = new BookmarksCollection();
+
     console.log( instance );
 
     console.log( instance.list() );
