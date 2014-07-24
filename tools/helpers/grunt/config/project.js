@@ -27,9 +27,11 @@ grunt.config('project', {
   },
 
   backend: {
+    context: 'rest',
+
     proxies: [
       {
-        context: '/rest',
+        context: '/<%= project.backend.context %>',
         host: 'localhost',
         port: 9000,
 
