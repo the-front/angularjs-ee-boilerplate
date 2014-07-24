@@ -26,9 +26,31 @@ function(module) {
       var ClassDef = Helpers;
       //---
 
-      ClassDef.prototype.isObject = function(value) {
-        return ('object' == typeof value);
+      ClassDef.prototype.isObject = function( obj ) {
+        return obj === Object(obj);
       };
+
+      ClassDef.prototype.isFunction = function( object ) {
+        return !!(object && object.constructor && object.call && object.apply);
+      };
+
+      ClassDef.prototype.extendsFn = function(fn, Extend) {
+        if( this.isFunction( fn ) ) {
+          var instance = null;
+          if( this.isObject( Extend ) ) {
+            instance = Extend;
+          } else if( this.isFunction( Extend ) ) {
+            instance = new Extend();
+          }
+          if( instance ) {
+            fn.prototype = instance; // extends
+            fn.prototype.constructor = fn; // redefine old constructor
+          }
+        }
+        return fn;
+      };
+
+      //---
 
       ClassDef.prototype.getIdFromURL = function(url, regexp) {
         var arr = url.split(regexp); // ex.: /bookmarks\//
