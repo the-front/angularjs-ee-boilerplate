@@ -1,25 +1,18 @@
 /*
 
+[Gist] AngularJS Lesson Learned #2: Enabling HTTP Credentials | Mário Junior
+       https://gist.github.com/mariojunior/6175849
+
+
 TODO:
 
-- add config to keep http credentials
-
-  [Gist] AngularJS Lesson Learned #2: Enabling HTTP Credentials | Mário Junior
-  https://gist.github.com/mariojunior/6175849
-
-    $httpProvider.defaults.withCredentials = true;
-
-  - check invalid session
+  - create code to check invalid session?
 
     [Gist] AngularJS Lesson Learned #1: Getting Invalid Session State | Mário Junior
     https://gist.github.com/mariojunior/6175736
 
-- add config to allow access cross domain resource
-
-    // allow to access cross domain resource
-    $httpProvider.defaults.useXDomain = true;
-
 */
+
 define(
 // require.js dependency injection
 [
@@ -34,10 +27,24 @@ function(module) {
   module.config(
 
     // dependencies injection
-    ['$routeProvider',
+    ['$routeProvider', '$httpProvider',
 
   // routes definition
-  function ($routeProvider) {
+  function ($routeProvider, $httpProvider) {
+
+
+    //------------------------------------------------
+    // @begin: angular.js $httpProvider useful configs
+
+    // Enabling HTTP Credentials such as backend sessions
+    //$httpProvider.defaults.withCredentials = true;
+
+    // allow access to cross domain resource
+    //$httpProvider.defaults.useXDomain = true;
+
+    // @end: angular.js $httpProvider useful configs
+    //------------------------------------------------
+
 
     $routeProvider
       .when(
