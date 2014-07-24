@@ -110,6 +110,19 @@ function(module) {
 
     console.log( instance.list() );
 
+
+    function Animal() {}
+    Animal.prototype.def = function() { return 'Animal base'; };
+
+    function Dog() {}
+    var dogClassDef = helpers.extendsFn( Dog, Animal );
+    dogClassDef.prototype.bark = function() { return 'au au'; };
+
+    var dogInstance = new Dog();
+    console.log( dogInstance );
+    console.log( dogInstance.def() );
+    console.log( dogInstance.bark() );
+
     return instance;
 
   }]);
