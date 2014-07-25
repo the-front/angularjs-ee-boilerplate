@@ -1,0 +1,84 @@
+<div class="container">
+
+  <div class="row"><h4>{{title}}</h4></div>
+
+  <div class="row"><hr></div>
+
+  <div class="row">
+
+<div class="container">
+
+  <!-- @begin: <%= name %>Form -->
+  <form role="form" name="<%= name %>Form">
+
+    <!-- @begin: name -->
+    <div class="row" ng-class="{'has-error': <%= name %>Form.name.$invalid}">
+      <div class="col-md-1">
+        <i ng-show="<%= name %>Form.name.$error.required"
+          class="glyphicon glyphicon-pencil"></i>
+        <label for="nameInput">Name</label>
+      </div>
+      <div class="col-md-4">
+        <input
+          type="text"
+          class="form-control error" id="nameInput"
+          name="name"
+          ng-model="<%= name %>.name"
+          fend-focus="focus<%= helpers.capitalize( name ) %>NameInput"
+          required>
+      </div>
+    </div>
+    <!-- @end: name -->
+
+    <div class="row">&nbsp;</div>
+
+    <!-- @begin: description -->
+    <div class="row">
+      <label class="col-md-5" for="descriptionArea">Description</label>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <textarea
+          class="form-control" id="descriptionArea"
+          name="description" ng-model="<%= name %>.description"></textarea>
+      </div>
+    </div>
+    <!-- @end: description -->
+
+    <!-- @begin: buttons -->
+    <div class="row" ng-hide="showConfirm">&nbsp;</div>
+
+    <div class="row" ng-hide="showConfirm">
+      <div class="col-md-5">
+        <a href="#<%= route %>" class="btn">Cancel</a>
+        <button
+          ng-click="save()"
+          ng-disabled="isClean() || <%= name %>Form.$invalid"
+          class="btn btn-primary">Save</button>
+        <button
+          ng-click="remove()"
+          ng-show="<%= name %>.id"
+          class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+    <!-- @end: buttons -->
+
+    <!-- @begin: confirm -->
+    <div class="bs-callout bs-callout-danger" ng-show="showConfirm">
+      <h4>Confirm</h4>
+      <p>Delete <code>{{<%= name %>.name}}</code> ?</p>
+      <button ng-click="destroy()"
+        class="btn btn-danger">Delete</button>
+      <button ng-click="cancelRemove()"
+        class="btn btn-default">Cancel</button>
+    </div>
+    <!-- @end: confirm -->
+
+  </form>
+  <!-- @end: <%= name %>Form -->
+
+</div>
+
+  </div>
+
+</div>
