@@ -6,6 +6,7 @@ grunt.config('project', {
     src: '../src',
     build: '.temp',
     dist: '../dist',
+    templates: 'templates',
     editorconfig: '../.editorconfig'
   },
 
