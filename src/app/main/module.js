@@ -14,7 +14,7 @@ define(
 
   'app/bookmarks/require.load',
 
-  'app/help/require.load',
+  'app/help/require.load'
 ],
 
 // require.js module scope
