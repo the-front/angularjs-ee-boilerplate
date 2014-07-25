@@ -1,7 +1,7 @@
 {
   "name": "tools",
   "private": true,
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "frontend dev tool support",
   "keywords": [
     "frontend",
@@ -38,6 +38,12 @@
     "grunt-browser-sync": "^0.9.1",
     "grunt-newer": "^0.7.0",
     "time-grunt": "^0.3.1",
-    "jit-grunt": "^0.7.0"
+    "jit-grunt": "^0.7.0",
+    "q": "^1.0.1",
+    "underscore.string": "^2.3.3",
+    "lodash-node": "^2.4.1",
+    "moment": "^2.7.0",
+    "q-io": "^1.11.3",
+    "inquirer": "^0.5.1"
   }
 }
