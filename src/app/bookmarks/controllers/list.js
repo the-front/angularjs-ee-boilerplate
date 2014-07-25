@@ -52,7 +52,7 @@ function(module) {
     $rootScope.$on('bookmarks:update:event', function(event, value) {
       event.preventDefault(); event.stopPropagation();
 
-      console.debug('bookmarks:add:event - ' + value);
+      console.debug('bookmarks:update:event - ' + value);
 
       updateLocation();
     });
