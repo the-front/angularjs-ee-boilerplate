@@ -42,8 +42,7 @@ var templates = {
     source: '/gruntjs/config.js',
     destination: {
       // overwrite output destination
-      // dirname: 'helpers/grunt/config'
-      dirname: 'dist/grunt/helpers/grunt/config'
+      dirname: 'helpers/grunt/config'
     }
   },
 
