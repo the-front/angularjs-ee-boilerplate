@@ -59,7 +59,7 @@ function(module) {
 
         init: function( collection ) {
 
-          console.log( 'init BookmarksCollection' );
+          console.debug( 'init BookmarksCollection' );
 
           var seq = 0;
 
@@ -81,8 +81,9 @@ function(module) {
             return 'http://google.com/#q=' + seq + '%2B' + seq;
           }
 
-          for (var i = 59; i >= 0; i--) {
-            collection.insert( createObject(seq++, 'fake bookmark ' + (seq+1), 'some description to fake bookmark ', fakeUrl()) );
+          for (var i = 42; i > 0; i--) {
+            collection.insert( createObject(seq, 'fake bookmark ' + (seq+1), 'some description to fake bookmark ', fakeUrl()) );
+            seq++;
           }
 
         }
@@ -99,8 +100,9 @@ function(module) {
 
     var instance = new BookmarksCollection();
 
-    console.log( instance );
-    console.log( instance.list() );
+    console.debug( instance.sayMyName() );
+    console.debug( instance );
+    console.debug( instance.list() );
 
     return instance;
 
