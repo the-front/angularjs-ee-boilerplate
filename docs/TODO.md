@@ -8,9 +8,11 @@
 
   * [[GitHub] shakyShane / grunt-browser-sync](https://github.com/shakyShane/grunt-browser-sync) - Grunt Task for keeping multiple browsers & devices in sync when building websites.
 
-- [ ] study and include code generation from templates 
+- [x] add support to code generation from templates 
 
-  * [[GitHub] Grunt-generate / grunt-generate](https://github.com/grunt-generate/grunt-generate) - Grunt task that generates files from user-defined templates
+  - [[GitHub] erkobridee / lab-nodejs](https://github.com/erkobridee/lab-nodejs)
+
+    - [javascript / grunt / templates / lodash-template](https://github.com/erkobridee/lab-nodejs/tree/master/javascript/grunt/templates/lodash-template)
 
 - [ ] study and add Offline (Application Cache) support
 
