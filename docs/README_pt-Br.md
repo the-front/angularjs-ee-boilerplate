@@ -65,6 +65,10 @@ $ npm install
 
 --
 
+* `grunt generate` >> pergunta qual opção de geração de código você deseja, os respectivos valores para a opção escolhida e finalmente o destino de criação dos arquivos
+
+--
+
 * `grunt dev` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao livereload, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browser e dispositivos conectados no servidor
 
 * `grunt dev:proxy` >> além das tarefas do `grunt dev`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
@@ -121,6 +125,7 @@ $ npm install
       /lib        >> processamentos auxiliares para /tasks
       /config     >> arquivos de configurações para as tarefas do grunt.js
       /tasks      >> tarefas customizadas para o grunt.js
+  /templates      >> arquivos de templates para a tarefa generate do grunt.js
   Gruntfile.js    >> arquivo principal de configuração do grunt.js
   package.json    >> arquivo de configuração e dependências do projeto 'tools' em node.js
 ```
