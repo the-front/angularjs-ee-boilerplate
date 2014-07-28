@@ -8,18 +8,13 @@ define(
 function(module) {
   'use strict';
 
-/*
+/* Tips:
 
 [Gist] AngularJS Lesson Learned #2: Enabling HTTP Credentials | Mário Junior
-      https://gist.github.com/mariojunior/6175849
+https://gist.github.com/mariojunior/6175849
 
-
-TODO:
-
-  - create code to check invalid session?
-
-    [Gist] AngularJS Lesson Learned #1: Getting Invalid Session State | Mário Junior
-    https://gist.github.com/mariojunior/6175736
+[Gist] AngularJS Lesson Learned #1: Getting Invalid Session State | Mário Junior
+https://gist.github.com/mariojunior/6175736
 
 */
 
