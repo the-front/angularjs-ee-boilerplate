@@ -86,12 +86,12 @@ var questions = {
       message: 'Select Template',
       choices: [
         {
-          name: 'Grunt.js Config Task File',
-          value: { type: 'template', key: 'gruntjs_config'}
-        },
-        {
           name: 'Angular.js',
           value: { type: 'question', key: 'angularjs' }
+        },
+        {
+          name: 'Grunt.js Config Task File',
+          value: { type: 'template', key: 'gruntjs_config'}
         }
       ]
     },
@@ -102,12 +102,12 @@ var questions = {
       message: 'Select Angular.js Template',
       choices: [
         {
-          name: 'Page',
-          value: { type: 'template', key: 'angularjs_page' }
-        },
-        {
           name: 'Use Case (CRUD)',
           value: { type: 'template', key: 'angularjs_crud' }
+        },
+        {
+          name: 'Page',
+          value: { type: 'template', key: 'angularjs_page' }
         }
       ]
     }
