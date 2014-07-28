@@ -60,6 +60,8 @@ module.exports = function(grunt) {
 
     } else if(target === 'syncProxy') {
 
+      grunt.loadNpmTasks('grunt-connect-proxy');
+
       return grunt.task.run([
         'build:dev',
         'configureProxies',
@@ -68,6 +70,8 @@ module.exports = function(grunt) {
       ]);
 
     } else if(target === 'proxy') {
+
+      grunt.loadNpmTasks('grunt-connect-proxy');
 
       return grunt.task.run([
         'build:dev',
@@ -96,6 +100,8 @@ module.exports = function(grunt) {
 
     } else if(target === 'syncProxy') {
 
+      grunt.loadNpmTasks('grunt-connect-proxy');
+
       return grunt.task.run([
         'build:prod',
         'configureProxies',
@@ -103,6 +109,8 @@ module.exports = function(grunt) {
       ]);
 
     } else if(target === 'proxy') {
+
+      grunt.loadNpmTasks('grunt-connect-proxy');
 
       return grunt.task.run([
         'build:prod',
