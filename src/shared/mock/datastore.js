@@ -176,6 +176,10 @@ function(module) {
           objectPrivate[this.name].collection.remove(object);
       };
 
+      Collection.prototype.all = function() {
+        return objectPrivate[this.name].collection.find();
+      };
+
       Collection.prototype.list = function(options) {
         options = options || {page: 1, size: 10};
         return helpers.paginate(
