@@ -54,23 +54,3 @@
   </table>
 </div>
 <!-- @end: table -->
-
-<!-- @begin: pagination -->
-<!-- http://getbootstrap.com/components/#pagination -->
-<div class="row" ng-show="showPagination">
-  <div class="text-center" ng-show="result.pages > 1">
-    <ul class="pagination">
-      <li
-        ng-repeat="n in [] | pages_range: result.pages"
-        ng-class="{active: (n+1) == result.page}"
-      ><a ng-bind="n+1" ng-click="setPage()">1</a></li>
-    </ul>
-  </div>
-</div>
-
-<div class="row" ng-hide="showPagination">
-  <p class="text-center" ng-show="filter.search">
-    <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
-  </p>
-</div>
-<!-- @end: pagination -->

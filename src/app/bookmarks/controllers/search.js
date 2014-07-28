@@ -174,9 +174,12 @@ function(module) {
     $scope.pageMinSize = config.pageMinSize;
     $scope.pageMaxSize = config.pageMaxSize;
 
-    $scope.setPage = function() {
-      if((this.n+1) != $scope.result.page) {
-        pagination.setNextPage(this.n+1);
+
+    $scope.paginationItemsSize = 5;
+
+    $scope.pageChanged = function() {
+      if(this.currentPage != $scope.result.page) {
+        pagination.setNextPage(this.currentPage);
         loadData(pagination.getNextPage());
       }
     };

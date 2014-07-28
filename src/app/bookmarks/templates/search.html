@@ -144,4 +144,30 @@
 
   <div class="row" ng-include="'app/bookmarks/templates/table.html'"></div>
 
+
+  <!-- @begin: pagination -->
+
+  <!-- https://angular-ui.github.io/bootstrap/#/pagination -->
+  <div class="row" ng-show="showPagination">
+    <div class="text-center" ng-show="result.pages > 1">
+      <pagination
+        ng-model="currentPage"
+        max-size="paginationItemsSize"
+        total-items="result.count"
+        num-pages="result.pages"
+        ng-change="pageChanged()"
+        class="pagination-sm"
+        boundary-links="true"
+        rotate="false"></pagination>
+      </div>
+  </div>
+
+  <div class="row" ng-hide="showPagination">
+    <p class="text-center" ng-show="filter.search">
+      <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
+    </p>
+  </div>
+  <!-- @end: pagination -->
+
+
 </div>
