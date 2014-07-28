@@ -81,7 +81,7 @@ function(module) {
             return 'http://google.com/#q=' + seq + '%2B' + seq;
           }
 
-          for (var i = 42; i > 0; i--) {
+          for (var i = 142; i > 0; i--) {
             collection.insert( createObject(seq, 'fake bookmark ' + (seq+1), 'some description to fake bookmark ', fakeUrl()) );
             seq++;
           }
