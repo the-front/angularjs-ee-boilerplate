@@ -28,11 +28,11 @@ function(module) {
     input = input.get(ctrlName);
     pagination = pagination.get(ctrlName);
 
-
+    /*
     console.debug(ctrlName);
     console.debug(input);
     console.debug(pagination);
-
+    */
 
     //---
 
@@ -116,8 +116,12 @@ function(module) {
           size: pagination.getPageSize()
         },
         function(result) {
+
           //console.debug(result);
+
           $scope.result = result;
+
+          $scope.currentPage = result.page;
 
           pagination.updateMetainf(
             result.count,
@@ -198,9 +202,12 @@ function(module) {
     $scope.pageMinSize = config.pageMinSize;
     $scope.pageMaxSize = config.pageMaxSize;
 
-    $scope.setPage = function() {
-      if((this.n+1) != $scope.result.page) {
-        pagination.setNextPage(this.n+1);
+
+    $scope.paginationItemsSize = 5;
+
+    $scope.pageChanged = function() {
+      if(this.currentPage != $scope.result.page) {
+        pagination.setNextPage(this.currentPage);
         loadData(pagination.getNextPage());
       }
     };
