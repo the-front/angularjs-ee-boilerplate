@@ -26,11 +26,20 @@ var outputAnswers = {
 
 //---
 
-// To assign on outputAnswers.values.helpers
-var commonHelpers = {
+var helpersSet = {
   capitalize: function(value) {
     return _s.capitalize(value);
+  },
+
+  stringRegExpEscape: function(string) {
+    return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
   }
+};
+
+
+// To assign on outputAnswers.values.helpers
+var commonHelpers = {
+  capitalize: helpersSet.capitalize
 };
 
 //---
@@ -57,9 +66,16 @@ var templates = {
     source: '/angularjs/crud',
     destination: 'app', // concat with output destination
     helpers: {
-      stringRegExpEscape: function(string) {
-        return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-      }
+      stringRegExpEscape: helpersSet.stringRegExpEscape
+    }
+  },
+
+  'angularjs_resource': {
+    type: 'directory',
+    source: '/angularjs/resource',
+    destination: 'app', // concat with output destination
+    helpers: {
+      stringRegExpEscape: helpersSet.stringRegExpEscape
     }
   }
 
@@ -104,6 +120,10 @@ var questions = {
         {
           name: 'Use Case (CRUD)',
           value: { type: 'template', key: 'angularjs_crud' }
+        },
+        {
+          name: 'Resource',
+          value: { type: 'template', key: 'angularjs_resource' }
         },
         {
           name: 'Page',
@@ -305,6 +325,32 @@ var askFor = {
 
     angularjs_crud: function() {
       return askFor.values.angularjs_page()
+        .then(function(output) {
+
+          return ask(inputQuestion(
+            'input',
+            'Define resource url:',
+            outputAnswers.restContext + '/' + output.name
+          ))
+          .then(function(answer) {
+            output.endpoint = answer.input;
+          })
+          .then(function() {
+            return output;
+          });
+
+        });
+    },
+
+    angularjs_resource: function() {
+      return askFor.name()
+        .then(function(answer) {
+          var output = {};
+
+          output.name = answer.input;
+
+          return output;
+        })
         .then(function(output) {
 
           return ask(inputQuestion(
