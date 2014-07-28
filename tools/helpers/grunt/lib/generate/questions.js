@@ -310,7 +310,7 @@ var askFor = {
           return ask(inputQuestion(
             'input',
             'Define resource url:',
-            path.join(outputAnswers.restContext, output.name)
+            outputAnswers.restContext + '/' + output.name
           ))
           .then(function(answer) {
             output.endpoint = answer.input;
