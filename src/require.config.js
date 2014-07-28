@@ -28,6 +28,12 @@ require({
       'vendor/angular.js/1.2.15/angular-animate.min'
     ],
 
+
+    angularUiBootstrap: [
+      'vendor/angular-ui/bootstrap/0.11.0/ui-bootstrap-tpls.min'
+    ],
+
+
     toaster: [
       'vendor/toaster/0.3.0/toaster'
     ],
@@ -64,6 +70,10 @@ require({
     'angular': {
       deps: ['bootstrap'],
       exports: 'angular'
+    },
+
+    'angularUiBootstrap': {
+      deps: ['bootstrap',  'angular']
     },
 
     'angularRoute': {
