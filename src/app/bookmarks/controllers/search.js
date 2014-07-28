@@ -28,11 +28,11 @@ function(module) {
     input = input.get(ctrlName);
     pagination = pagination.get(ctrlName);
 
-
+    /*
     console.debug(ctrlName);
     console.debug(input);
     console.debug(pagination);
-
+    */
 
     //---
     input.config(
@@ -90,7 +90,7 @@ function(module) {
           },
           function(result) {
 
-            console.debug(result);
+            //console.debug(result);
 
             $scope.result = result;
 
