@@ -26,14 +26,19 @@ function(module) {
 
       // private functions
       function defaultMetainf(_pageSize) {
-        return {
-          pageSize: _pageSize || 10,
-          count: 0,
-          nextPage: 1,
-          lastPage: 0,
-          lastPageSize: 0,
-          totalPages: 0
-        };
+
+        function PaginationMetaInfo() {
+          this.pageSize = _pageSize || 10;
+          this.count = 0;
+          this.nextPage = 1;
+          this.lastPage = 0;
+          this.lastPageSize = 0;
+          this.totalPages = 0;
+
+          this.ts = new Date().getTime();
+        }
+
+        return new PaginationMetaInfo();
       }
 
 
@@ -41,12 +46,12 @@ function(module) {
       // inject dependencies when instantiate new object
       var Pagination = function(paginationFor) {
         if(paginationFor) this.classInfo = 'Pagination for: ' + paginationFor;
+        this.metainf = defaultMetainf();
       };
       var ClassDef = Pagination;
       //---
 
       // public attributes
-      ClassDef.prototype.metainf = defaultMetainf();
 
       // public functions
       ClassDef.prototype.resetPageSize = function(value) {
@@ -62,7 +67,7 @@ function(module) {
       //---
 
       ClassDef.prototype.setNextPage = function(value) {
-        this.metainf.nextPage = value;
+        this.metainf.nextPage = parseInt(value);
       };
 
       ClassDef.prototype.getNextPage = function() {
@@ -72,10 +77,10 @@ function(module) {
       //---
 
       ClassDef.prototype.updateMetainf = function(count, lastPageSize, lastPage, totalPages) {
-        this.metainf.count = count;
-        this.metainf.lastPageSize = lastPageSize;
-        this.metainf.lastPage = lastPage;
-        this.metainf.totalPages = totalPages;
+        this.metainf.count = parseInt(count);
+        this.metainf.lastPageSize = parseInt(lastPageSize);
+        this.metainf.lastPage = parseInt(lastPage);
+        this.metainf.totalPages = parseInt(totalPages);
       };
 
       //---
