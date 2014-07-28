@@ -31,6 +31,9 @@ function(module) {
     //--- @begin: menu items
     menu.addMenuItem('Home', '');
     menu.addMenuItem('Bookmarks', 'bookmarks');
+
+    // TODO: add here new item
+
     menu.addMenuItem('About', 'about');
     menu.addMenuItem('Help', 'help', 'right');
     //--- @end: menu items
