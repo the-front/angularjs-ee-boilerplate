@@ -1,6 +1,7 @@
 define(
 // require.js dependency injection
 [
+  // allow request pass through angular.js mock url interceptor
   //'./allow-pass'
 
   /**/
