@@ -94,6 +94,8 @@ function(module) {
 
             $scope.result = result;
 
+            $scope.currentPage = result.page;
+
             pagination.updateMetainf(
               result.count,
               result.data.length,

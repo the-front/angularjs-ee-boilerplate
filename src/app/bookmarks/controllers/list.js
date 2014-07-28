@@ -116,8 +116,12 @@ function(module) {
           size: pagination.getPageSize()
         },
         function(result) {
+
           //console.debug(result);
+
           $scope.result = result;
+
+          $scope.currentPage = result.page;
 
           pagination.updateMetainf(
             result.count,
