@@ -141,7 +141,7 @@ function(ng, backend) {
     //--- @end: URL interceptor
 
 
-
+    console.debug('Bookmarks Mock URL Interceptors');
     console.debug(collection.getById(1));
     console.debug(collection.search('erko'));
     console.debug(collection.list());
