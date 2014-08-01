@@ -82,9 +82,9 @@ function(module) {
 
 
       // @begin: check options
-      if( !options ) throw new Error('options not defined');
+      if( !options ) throw new Error( 'options not defined' );
 
-      if( !options.name ) throw new Error('options.name not defined');
+      if( !options.name ) throw new Error( 'options.name not defined' );
       objectName = options.name;
 
       if( options.objType ) objType = options.objType;
@@ -101,6 +101,7 @@ function(module) {
       // @begin: define private attributes
       objectPrivate[objectName] = {};
       objectPrivate[objectName].seq = 0;
+      objectPrivate[objectName].checkOwnId = true;
       objectPrivate[objectName].hasOwnId = false;
       objectPrivate[objectName].collection = DataStore.addCollection(
         objectName,
@@ -112,8 +113,8 @@ function(module) {
       // if objects has own id, update objects id
       objectPrivate[objectName].updateObjects = function(objectsArray) {
         if( this.hasOwnId ) {
-          for(var i=0, len=objectsArray.length; i < len; i++) {
-            var obj = JSON.parse(JSON.stringify(objectsArray[i]));
+          for( var i=0, len=objectsArray.length; i < len; i++ ) {
+            var obj = JSON.parse( JSON.stringify( objectsArray[i] ) );
             obj.id = obj._id;
             delete obj._id;
             objectsArray[i] = obj;
@@ -128,15 +129,15 @@ function(module) {
         if(!find) return [];
 
         var r = [], obj,
-            regexp = new RegExp(find, 'i'),
+            regexp = new RegExp( find, 'i' ),
             len = data.length;
 
         if( len > 0 && data[0].name ) {
           for (var i = 0; i < len; i++) {
             obj = data[i];
 
-            if(obj.name.match(regexp))
-              r.push(obj);
+            if( obj.name.match( regexp ) )
+              r.push( obj );
           }
         }
 
@@ -168,18 +169,30 @@ function(module) {
 
         // @begin: public functions
 
-      ClassDef.prototype.__insert = objectPrivate[objectName].collection.insert;
-      ClassDef.prototype.insert = function(doc) {
-        if(helpers.isObject(doc)) {
+      ClassDef.prototype._ifHasOwnId = function( doc ) {
+        if( objectPrivate[this.name].checkOwnId ) {
 
           if(
             !objectPrivate[this.name].hasOwnId &&
             doc.hasOwnProperty('id') &&
-            !helpers.isNumber( doc.id )
+            (
+              ( helpers.isNumber( doc.id ) && doc.id > 2 ) ||
+              !helpers.isNumber( doc.id )
+            )
           ) {
             this.ensureIndex('_id');
             objectPrivate[this.name].hasOwnId = true;
           }
+
+          objectPrivate[this.name].checkOwnId = false;
+        }
+      };
+
+      ClassDef.prototype.__insert = objectPrivate[objectName].collection.insert;
+      ClassDef.prototype.insert = function( doc ) {
+        if( helpers.isObject( doc ) ) {
+
+          this._ifHasOwnId( doc );
 
           if( objectPrivate[this.name].hasOwnId ) {
             if( helpers.isNumber( doc.id ) && doc.id === 0 ) {
@@ -189,7 +202,7 @@ function(module) {
           }
 
           objectPrivate[this.name].seq++;
-          return this.__insert(doc);
+          return this.__insert( doc );
         }
         return null;
       };
@@ -205,15 +218,15 @@ function(module) {
 
       ClassDef.prototype.__update = objectPrivate[objectName].collection.update;
       ClassDef.prototype.update = function( doc ) {
-        if(helpers.isObject(doc)) {
+        if( helpers.isObject( doc ) ) {
           this._ifHasOwnIdFindAndUpdate( doc );
-          this.__update(doc);
+          this.__update( doc );
         }
       };
 
       ClassDef.prototype.__remove = objectPrivate[objectName].collection.remove;
       ClassDef.prototype.remove = function( doc ) {
-        if(helpers.isObject( doc )) {
+        if( helpers.isObject( doc ) ) {
           this._ifHasOwnIdFindAndUpdate( doc );
           this.__remove( doc );
         }
@@ -227,9 +240,9 @@ function(module) {
         var query = {};
         query[key] = id;
 
-        var r = objectPrivate[this.name].collection.find(query);
-        r = objectPrivate[this.name].updateObjects(r);
-        if(r.length > 0) return r[0];
+        var r = objectPrivate[this.name].collection.find( query );
+        r = objectPrivate[this.name].updateObjects( r );
+        if( r.length > 0 ) return r[0];
         return null;
       };
 
@@ -248,7 +261,7 @@ function(module) {
           options
         );
 
-        objectPrivate[this.name].updateObjects(r.data);
+        objectPrivate[this.name].updateObjects( r.data );
 
         return r;
       };
@@ -263,7 +276,7 @@ function(module) {
           options
         );
 
-        objectPrivate[this.name].updateObjects(r.data);
+        objectPrivate[this.name].updateObjects( r.data );
 
         return r;
       };
