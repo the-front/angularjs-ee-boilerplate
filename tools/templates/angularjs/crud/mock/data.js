@@ -26,6 +26,7 @@ function(module) {
       options = {
         name: '',
         objType: '',
+        hasOwnId: false, // save and use this 'id 'as '_id' inside collection?
         indicesArray: ['id'],
         fn: {
           searchValue: function(data, find) {},
@@ -36,6 +37,7 @@ function(module) {
     var collection = DataStore.create({
       name: '<%= name %>',
       objType: '<%= helpers.capitalize( name ) %>',
+      //hasOwnId: true,
       indicesArray: ['id', 'name'],
       fn: {
         searchValue: function(data, find) {
