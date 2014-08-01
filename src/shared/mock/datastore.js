@@ -101,11 +101,26 @@ function(module) {
       // @begin: define private attributes
       objectPrivate[objectName] = {};
       objectPrivate[objectName].seq = 0;
+      objectPrivate[objectName].hasOwnId = false;
       objectPrivate[objectName].collection = DataStore.addCollection(
         objectName,
         objType,
         indicesArray
       );
+
+
+      // if objects has own id, update objects id
+      objectPrivate[objectName].updateObjects = function(objectsArray) {
+        if( this.hasOwnId ) {
+          for(var i=0, len=objectsArray.length; i < len; i++) {
+            var obj = JSON.parse(JSON.stringify(objectsArray[i]));
+            obj.id = obj._id;
+            delete obj._id;
+            objectsArray[i] = obj;
+          }
+        }
+        return objectsArray;
+      };
 
 
       // @begin: default fn functions
@@ -149,54 +164,108 @@ function(module) {
         //console.log( 'Creating ' + objectName + ' Collection "Class"' );
         this.name = objectName;
       }
+      var ClassDef = helpers.extendsFn( Collection, objectPrivate[objectName].collection );
 
         // @begin: public functions
 
-      Collection.prototype.getById = function(id) {
-        var r = objectPrivate[this.name].collection.find({'id': id});
-        if(r.length > 0) return r[0];
-        return null;
-      };
+      ClassDef.prototype.__insert = objectPrivate[objectName].collection.insert;
+      ClassDef.prototype.insert = function(doc) {
+        if(helpers.isObject(doc)) {
 
-      Collection.prototype.insert = function(object) {
-        if(helpers.isObject(object)) {
-          object.id = objectPrivate[this.name].seq++;
-          return objectPrivate[this.name].collection.insert(object);
+          if(
+            !objectPrivate[this.name].hasOwnId &&
+            doc.hasOwnProperty('id') &&
+            !helpers.isNumber( doc.id )
+          ) {
+            this.ensureIndex('_id');
+            objectPrivate[this.name].hasOwnId = true;
+          }
+
+          if( objectPrivate[this.name].hasOwnId ) {
+            if( helpers.isNumber( doc.id ) && doc.id === 0 ) {
+              doc.id = objectPrivate[this.name].seq;
+            }
+            doc._id = doc.id;
+          }
+
+          objectPrivate[this.name].seq++;
+          return this.__insert(doc);
         }
         return null;
       };
 
-      Collection.prototype.update = function(object) {
-        if(helpers.isObject(object))
-          objectPrivate[this.name].collection.update(object);
+      ClassDef.prototype._ifHasOwnIdFindAndUpdate = function( doc ) {
+        if( objectPrivate[this.name].hasOwnId ) {
+          var one = this.find({'_id': doc.id});
+          doc._id = doc.id;
+          doc.id = one[0].id;
+        }
+        return doc;
       };
 
-      Collection.prototype.remove = function(object) {
-        if(helpers.isObject(object))
-          objectPrivate[this.name].collection.remove(object);
+      ClassDef.prototype.__update = objectPrivate[objectName].collection.update;
+      ClassDef.prototype.update = function( doc ) {
+        if(helpers.isObject(doc)) {
+          this._ifHasOwnIdFindAndUpdate( doc );
+          this.__update(doc);
+        }
       };
 
-      Collection.prototype.all = function() {
-        return objectPrivate[this.name].collection.find();
+      ClassDef.prototype.__remove = objectPrivate[objectName].collection.remove;
+      ClassDef.prototype.remove = function( doc ) {
+        if(helpers.isObject( doc )) {
+          this._ifHasOwnIdFindAndUpdate( doc );
+          this.__remove( doc );
+        }
       };
 
-      Collection.prototype.list = function(options) {
-        options = options || {page: 1, size: 10};
-        return helpers.paginate(
-          objectPrivate[this.name].collection.find(),
-          options
+
+      //---
+
+      ClassDef.prototype.getById = function(id) {
+        var key = objectPrivate[this.name].hasOwnId ? '_id' : 'id';
+        var query = {};
+        query[key] = id;
+
+        var r = objectPrivate[this.name].collection.find(query);
+        r = objectPrivate[this.name].updateObjects(r);
+        if(r.length > 0) return r[0];
+        return null;
+      };
+
+      //---
+
+      ClassDef.prototype.all = function() {
+        return objectPrivate[this.name].updateObjects(
+          objectPrivate[this.name].collection.find()
         );
       };
 
-      Collection.prototype.search = function(find, options) {
+      ClassDef.prototype.list = function(options) {
         options = options || {page: 1, size: 10};
-        return helpers.paginate(
+        var r = helpers.paginate(
+          objectPrivate[this.name].collection.find(),
+          options
+        );
+
+        objectPrivate[this.name].updateObjects(r.data);
+
+        return r;
+      };
+
+      ClassDef.prototype.search = function(find, options) {
+        options = options || {page: 1, size: 10};
+        var r = helpers.paginate(
           objectPrivate[this.name].searchValue(
             objectPrivate[this.name].collection.find(),
             find
           ),
           options
         );
+
+        objectPrivate[this.name].updateObjects(r.data);
+
+        return r;
       };
 
         // @end: public functions
@@ -204,7 +273,7 @@ function(module) {
       // @end: Collection "Class" definition
 
 
-      var instance = new Collection();
+      var instance = new Collection(); console.log( instance );
       objectCache[objectName] = instance;
       objectPrivate[objectName].init( instance );
       return instance;

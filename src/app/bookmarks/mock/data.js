@@ -65,7 +65,8 @@ function(module) {
 
           function createObject(_id, _name, _description, _url) {
             return {
-              id: _id,
+              id: 'num_' + _id,
+              //id: _id,
               name: _name,
               description: _description,
               url: _url
