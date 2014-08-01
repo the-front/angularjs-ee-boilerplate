@@ -26,6 +26,12 @@ function(module) {
       var ClassDef = Helpers;
       //---
 
+      ClassDef.prototype.isNumber = function( value ) {
+        return /^[0-9]+$/.test( value );
+      };
+
+      //---
+
       ClassDef.prototype.isObject = function( obj ) {
         return ( obj === Object( obj ) && ( 'object' === typeof obj ) );
       };
@@ -33,6 +39,8 @@ function(module) {
       ClassDef.prototype.isFunction = function( object ) {
         return !!(object && object.constructor && object.call && object.apply);
       };
+
+      //---
 
       ClassDef.prototype.extendsFn = function(fn, Extend) {
         if( this.isFunction( fn ) ) {
@@ -50,11 +58,20 @@ function(module) {
         return fn;
       };
 
+      ClassDef.prototype.extendsObj = function(destination, source) {
+        for (var property in source) destination[property] = source[property];
+        return destination;
+      };
+
       //---
 
       ClassDef.prototype.getIdFromURL = function(url, regexp) {
         var arr = url.split(regexp); // ex.: /bookmarks\//
-        if(arr.length > 1) return parseInt(arr[1], 10);
+        if(arr.length > 1) {
+          var value = arr[1];
+          if( this.isNumber(value) ) value = parseInt(value, 10);
+          return value;
+        }
         return null;
       };
 
