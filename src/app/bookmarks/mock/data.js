@@ -62,6 +62,7 @@ function(module) {
           console.debug( 'init BookmarksCollection' );
 
           var seq = 0;
+          //var seq = 20;
 
           function createObject(_id, _name, _description, _url) {
             return {
