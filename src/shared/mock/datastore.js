@@ -68,6 +68,7 @@ function(module) {
       options = {
         name: '',
         objType: '',
+        hasOwnId: false, // save and use this 'id 'as '_id' inside collection?
         indicesArray: ['id'],
         fn: {
           searchValue: function(data, find) {},
@@ -108,6 +109,13 @@ function(module) {
         objType,
         indicesArray
       );
+
+
+      if( options.hasOwnId ) {
+          objectPrivate[objectName].checkOwnId = false;
+          objectPrivate[objectName].hasOwnId = true;
+          objectPrivate[objectName].collection.ensureIndex('_id');
+      }
 
 
       // if objects has own id, update objects id
