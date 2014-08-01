@@ -26,6 +26,7 @@ function(module) {
       options = {
         name: '',
         objType: '',
+        hasOwnId: false, // save and use this 'id 'as '_id' inside collection?
         indicesArray: ['id'],
         fn: {
           searchValue: function(data, find) {},
@@ -36,6 +37,7 @@ function(module) {
     var collection = DataStore.create({
       name: 'bookmarks',
       objType: 'Bookmark',
+      //hasOwnId: true,
       indicesArray: ['id', 'name'],
       fn: {
         searchValue: function(data, find) {
@@ -61,11 +63,12 @@ function(module) {
 
           console.debug( 'init BookmarksCollection' );
 
-          var seq = 0;
-          //var seq = 20;
+          //var seq = 0;
+          var seq = 20;
 
           function createObject(_id, _name, _description, _url) {
             return {
+              // if id is string, save and use this 'id 'as '_id' inside collection
               id: 'num_' + _id,
               //id: _id,
               name: _name,
