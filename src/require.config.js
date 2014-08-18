@@ -4,28 +4,28 @@ require({
   paths: {
 
     jquery: [
-      'vendor/jquery/1.11.0/jquery.min'
+      'vendor/jquery/1.11.1/jquery.min'
     ],
 
     bootstrap: [
-      'vendor/bootstrap/3.1.1/js/bootstrap.min'
+      'vendor/bootstrap/3.2.0/js/bootstrap.min'
     ],
 
 
     angular: [
-      'vendor/angular.js/1.2.15/angular.min'
+      'vendor/angular.js/1.2.22/angular.min'
     ],
 
     angularRoute: [
-      'vendor/angular.js/1.2.15/angular-route.min'
+      'vendor/angular.js/1.2.22/angular-route.min'
     ],
 
     angularResource: [
-      'vendor/angular.js/1.2.15/angular-resource.min'
+      'vendor/angular.js/1.2.22/angular-resource.min'
     ],
 
     angularAnimate: [
-      'vendor/angular.js/1.2.15/angular-animate.min'
+      'vendor/angular.js/1.2.22/angular-animate.min'
     ],
 
 
@@ -45,7 +45,7 @@ require({
 
     // @begin: mock libs
     angularMocks: [
-      'vendor/angular.js/1.2.15/angular-mocks'
+      'vendor/angular.js/1.2.22/angular-mocks'
     ],
 
     angularMocksBackend: [
