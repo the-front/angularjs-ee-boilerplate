@@ -1,9 +1,9 @@
 # Angular.js Enterprise Edition Boilerplate
 
 
-* [README (en)](docs/README_en.md)
+* [README (en)](docs/en/README.md)
 
-* [README (pt-Br)](docs/README_pt-Br.md)
+* [README (pt-Br)](docs/pt-Br/README.md)
 
 --
 
