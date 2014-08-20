@@ -128,6 +128,7 @@ $ npm install
       /config     >> arquivos de configurações para as tarefas do grunt.js
       /tasks      >> tarefas customizadas para o grunt.js
   /templates      >> arquivos de templates para a tarefa generate do grunt.js
+  config.js       >> configurações globais para as tarefas do grunt.js
   Gruntfile.js    >> arquivo principal de configuração do grunt.js
   package.json    >> arquivo de configuração e dependências do projeto 'tools' em node.js
 ```
