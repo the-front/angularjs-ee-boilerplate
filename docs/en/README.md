@@ -32,7 +32,7 @@ $ cd publicher
 $ npm install
 $ cd ..
 $ cd tools
-$ npm install
+$ npm run setup
 ```
 
 ### Prerequisites
