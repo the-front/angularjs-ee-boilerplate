@@ -89,7 +89,9 @@ $ npm install
 
 --
 
-* Para centralizar e tornar mais fácil o gerenciado das configurações das tarefas do Grunt.js, foi definido o arquivo `./tools/helpers/grunt/config/project.js`, dentre as configurações a do roteamento do proxy (ver: `backend.proxies`)
+* Configurações globais do ferramental: `./tools/config.js`, as quais são utilizadas no `./tools/helpers/grunt/config/project.js`
+
+  * Para centralizar e tornar mais fácil o gerenciado das configurações das tarefas do Grunt.js, foi definido o arquivo `./tools/helpers/grunt/config/project.js`, dentre as configurações a do roteamento do proxy (ver: `backend.proxies`)
 
   * Plugin do Grunt.js para proxy : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 

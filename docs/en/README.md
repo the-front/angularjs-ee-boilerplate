@@ -53,7 +53,7 @@ $ npm install
 
 * `grunt` >> (default task) that will execute lintspaces, jshint to verify and ensure js code quality and cleanup build and dist directories
 
-  > **Atention:** the following task **lintspaces** will verify the patterns insides files according rules inside `.editorconfig` in the root directory
+  > **Attention:** the following task **lintspaces** will verify the patterns insides files according rules inside `.editorconfig` in the root directory
 
 --
 
@@ -87,7 +87,9 @@ $ npm install
 
 --
 
-* To center and make more easy manage Grunt.js tasks configurations was defined the file `./tools/helpers/grunt/config/project.js`, among them the proxy routing configuration (see: `backend.proxies`)
+* Tools global configs: `./tools/config.js` which is used on `./tools/helpers/grunt/config/project.js`
+
+  * To center and make more easy to manage Grunt.js tasks configurations was defined the file `./tools/helpers/grunt/config/project.js`, among them the proxy routing configuration (see: `backend.proxies`)
 
   * Proxy Grunt.js Plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 

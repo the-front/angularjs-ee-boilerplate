@@ -15,11 +15,10 @@ grunt.config('browserSync', {
 
     options: {
 
-      ports: '<%= project.frontend.port.browserSync %>',
+      port: '<%= project.frontend.port.webserver %>',
 
       server: {
         baseDir: '<%= project.paths.build %>',
-        directory: true
       },
 
       watchTask: true
@@ -38,11 +37,10 @@ grunt.config('browserSync', {
 
     options: {
 
-      ports: '<%= project.frontend.port.browserSync %>',
+      port: '<%= project.frontend.port.webserver %>',
 
       server: {
         baseDir: '<%= project.paths.build %>',
-        directory: true,
         middleware: [
           require('grunt-connect-proxy/lib/utils').proxyRequest
         ]
@@ -59,11 +57,10 @@ grunt.config('browserSync', {
 
     options: {
 
-      ports: '<%= project.frontend.port.browserSync %>',
+      port: '<%= project.frontend.port.webserver %>',
 
       server: {
         baseDir: '<%= project.paths.dist %>',
-        directory: true
       }
 
     }
@@ -74,11 +71,10 @@ grunt.config('browserSync', {
 
     options: {
 
-      ports: '<%= project.frontend.port.browserSync %>',
+      port: '<%= project.frontend.port.webserver %>',
 
       server: {
         baseDir: '<%= project.paths.dist %>',
-        directory: true,
         middleware: [
           require('grunt-connect-proxy/lib/utils').proxyRequest
         ]
