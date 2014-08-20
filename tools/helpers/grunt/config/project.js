@@ -4,6 +4,8 @@ var config = require('../../../config')();
 
 grunt.config('project', {
 
+  karma: config.karma,
+
   paths: config.paths,
 
   require: {
