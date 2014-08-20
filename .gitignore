@@ -20,6 +20,7 @@ temp
 cache
 build
 dist
+tests_out
 
 #-----------
 # Windows
