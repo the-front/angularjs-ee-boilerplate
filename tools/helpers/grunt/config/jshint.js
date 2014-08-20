@@ -7,6 +7,7 @@ grunt.config('jshint', {
   },
 
   grunt: [
+    'config.js',
     'Gruntfile.js'
   ],
 
