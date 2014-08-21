@@ -23,7 +23,7 @@ describe('Angular.js \'main\' Module', function() {
     });
 
     var mainDeps = [
-     'ngRoute',
+      'ngRoute',
 
       'ui.bootstrap',
 
