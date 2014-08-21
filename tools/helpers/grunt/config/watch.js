@@ -18,6 +18,33 @@ module.exports = function(grunt) {
 
 grunt.config('watch', {
 
+  //--- @begin: karma test's and coverage
+
+  unit: {
+    files: [
+      'tests/**/*.js', // ./tools/tests
+      '<%= project.paths.src %>/**/*.js',
+      '!<%= project.paths.src %>/shared/{fallback/,mock/}**/*',
+      '!<%= project.paths.src %>/vendor/**/*',
+    ],
+    tasks : [
+      'newer:lintspaces:js',
+      'newer:jshint:project',
+      'karma:unit:run'
+    ]
+  },
+
+  coverage: {
+    files : [
+      '<%= project.paths.reports %>/coverage/html/index.html'
+    ],
+    options: {
+      livereload: '<%= project.coverage.port.livereload %>'
+    }
+  },
+
+  //--- @end: karma test's and coverage
+
   reload: {
     files : [
       '<%= project.paths.build %>/**/*.{html,css,js}'

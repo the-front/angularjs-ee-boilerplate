@@ -14,6 +14,13 @@ grunt.config('project', {
     build: '<%= project.paths.build %>/require.build.config.js'
   },
 
+  coverage: {
+    port: {
+      webserver: (config.frontend.webserver + 1),
+      livereload: (config.frontend.livereload + 1) // default: 35729
+    }
+  },
+
   frontend: {
     port: {
       webserver: config.frontend.webserver,

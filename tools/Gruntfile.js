@@ -18,13 +18,15 @@ module.exports = function(grunt) {
 
   // TODO: review and update tasks workflow
 
-  grunt.registerTask('default', ['clean', 'lintspaces:all', 'newer:jshint']);
+  grunt.registerTask('start', ['clean', 'lintspaces:all', 'newer:jshint']);
+
+  grunt.registerTask('default', ['start']); // TODO: check grunt-prompt
 
 
   grunt.registerTask('build', function(target) {
     if(target === 'dev') {
       return grunt.task.run([
-        'default',
+        'start',
         'copy:dev_tobuild',
         'copy:dev_jstobuild',
         'copy:dev_vendortobuild',
@@ -34,7 +36,7 @@ module.exports = function(grunt) {
 
     } else if(target === 'prod') {
       return  grunt.task.run([
-        'default',
+        'start',
         'copy:prod_jstobuild',
         'html2js:prod',
         'rewriterequireconfig',
@@ -130,6 +132,23 @@ module.exports = function(grunt) {
 
   //---
 
-  grunt.registerTask('coverage', ['karma:coverage', 'open:coverage'])
+
+  //--- @begin: spec's tasks
+
+  grunt.registerTask('specs:run:unit', ['karma:unit:start', 'watch:unit']);
+  grunt.registerTask('specs:run:coverage', ['connect:coverage', 'watch:coverage']);
+
+  grunt.config('concurrent', {
+    specs: {
+      tasks: ['specs:run:coverage', 'specs:run:unit'],
+      options: {
+        logConcurrentOutput: true
+      }
+    }
+  });
+
+  grunt.registerTask('specs', ['start', 'karma:coverage', 'concurrent:specs']);
+
+  //--- @end: spec's tasks
 
 };

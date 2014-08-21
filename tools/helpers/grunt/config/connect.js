@@ -23,6 +23,20 @@ grunt.config('connect', {
   },
 
   //---
+  // @begin: coverage report server
+
+  coverage: {
+    options: {
+      port: '<%= project.coverage.port.webserver %>',
+      base: '<%= project.paths.reports %>/coverage/html',
+      hostname: '*',
+      livereload: '<%= project.coverage.port.livereload %>',
+      open: 'http://localhost:<%= project.coverage.port.webserver %>'
+    }
+  },
+
+  // @end: coverage report server
+  //---
 
   dev: {
     options: {
