@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['start']); // TODO: check grunt-prompt
 
-
+  // @begin: build tasks
   grunt.registerTask('build', function(target) {
     if(target === 'dev') {
       return grunt.task.run([
@@ -52,6 +52,7 @@ module.exports = function(grunt) {
 
     }
   });
+  // @end: build tasks
 
   grunt.registerTask('dev', function(target) {
     if(target === 'sync') {
@@ -137,15 +138,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('specs:run:unit', ['karma:unit:start', 'watch:unit']);
   grunt.registerTask('specs:run:coverage', ['connect:coverage', 'watch:coverage']);
-
-  grunt.config('concurrent', {
-    specs: {
-      tasks: ['specs:run:coverage', 'specs:run:unit'],
-      options: {
-        logConcurrentOutput: true
-      }
-    }
-  });
 
   grunt.registerTask('specs', ['start', 'karma:coverage', 'concurrent:specs']);
 
