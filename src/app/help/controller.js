@@ -23,7 +23,7 @@ function(module) {
     $scope.pageName = 'Help Page';
 
     $http.get('https://api.github.com/users/erkobridee').success(function(data) {
-      console.debug(data);
+      $scope.githubUser = data;
     });
 
   }]);
