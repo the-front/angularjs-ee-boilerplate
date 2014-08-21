@@ -24,6 +24,8 @@
     baseUrl: '/base/src',
 
 
+    //--------------------------------------------------------------------------
+    // @begin: same code on /src/require.config.js
 
     // libraries dependencies (fallback support)
     paths: {
@@ -134,11 +136,13 @@
 
     },
 
-
-
     priority: [
       'angular'
     ],
+
+    // @end: same code on /src/require.config.js
+    //--------------------------------------------------------------------------
+
 
     deps: [
       'app/main/require.load',
