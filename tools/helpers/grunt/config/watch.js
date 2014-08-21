@@ -30,7 +30,7 @@ grunt.config('watch', {
     tasks : [
       'newer:lintspaces:js',
       'newer:jshint:project',
-      'karma:unit:run'
+      'karma:background:run'
     ]
   },
 

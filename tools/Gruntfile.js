@@ -136,7 +136,7 @@ module.exports = function(grunt) {
 
   //--- @begin: spec's tasks
 
-  grunt.registerTask('specs:run:unit', ['karma:unit:start', 'watch:unit']);
+  grunt.registerTask('specs:run:unit', ['karma:background:start', 'watch:unit']); // TODO: review :: needed?
   grunt.registerTask('specs:run:coverage', ['connect:coverage', 'watch:coverage']);
 
   grunt.registerTask('specs', ['start', 'karma:coverage', 'concurrent:specs']);
