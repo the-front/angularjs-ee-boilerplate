@@ -19,22 +19,20 @@ module.exports = function() {
 
       // list of files / patterns to load in the browser
       files: [
-        {pattern: 'src/vendor/angular.js/**/angular.{min.js, map, css}', included: true, served: true, watched:false},
-        {pattern: 'src/vendor/**/*.{js, map, css}', included: false, served: true, watched:false},
+        {pattern: 'src/vendor/**/*.{js,map,css}', included: false, served: true, watched:false},
 
         // load app source and test's specs
-        //'tools/tests/require.config.js',
+        'tools/tests/require.config.js',
 
-        // app source and tests specs
-        {pattern: 'src/**/*.{js,css}', included: false, served: true},
-
-        // cache templates
-        'src/**/*.html'
+        // app source, tests specs and html for cache templates
+        {pattern: 'src/**/*.{js,css,html}', included: false, served: true}
       ],
 
       // list of files to exclude
       exclude: [
-        'src/require.config.js'
+        'src/require.config.js',
+        'src/require.mock.load.js',
+        'src/**/mock/**/*'
       ],
 
       // preprocess matching files before serving them to the browser
