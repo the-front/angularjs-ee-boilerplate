@@ -16,6 +16,8 @@ module.exports = function(grunt) {
 
   //--- grunt tasks
 
+  // TODO: review and update tasks workflow
+
   grunt.registerTask('default', ['clean', 'lintspaces:all', 'newer:jshint']);
 
 
@@ -126,5 +128,8 @@ module.exports = function(grunt) {
     ]);
   });
 
+  //---
+
+  grunt.registerTask('coverage', ['karma:coverage', 'open:coverage'])
 
 };
