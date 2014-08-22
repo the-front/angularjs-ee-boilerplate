@@ -10,6 +10,26 @@ grunt.config('concurrent', {
     options: {
       logConcurrentOutput: true
     }
+  },
+
+  dev: {
+    tasks: [
+      'server:dev', // task defined on /tools/Gruntfile.js
+      'watch:project'
+    ],
+    options: {
+      logConcurrentOutput: true
+    }
+  },
+
+  devProxy: {
+    tasks: [
+      'server:dev:proxy', // task defined on /tools/Gruntfile.js
+      'watch:project'
+    ],
+    options: {
+      logConcurrentOutput: true
+    }
   }
 
 });
