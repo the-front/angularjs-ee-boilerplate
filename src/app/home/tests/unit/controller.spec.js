@@ -24,4 +24,8 @@ describe('Testing Home Controller', function() {
     expect(scope.pageName).toEqual('Home Page');
   });
 
+  it("should call success toaster...", function() {
+    expect(scope.popup('success')).toEqual('toaster success');
+  });
+
 });
