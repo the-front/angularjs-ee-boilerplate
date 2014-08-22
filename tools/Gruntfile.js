@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
   //--- grunt tasks
 
-  // TODO: review and update tasks workflow
+    // TODO: review and update tasks workflow
 
   grunt.registerTask('start', ['clean', 'lintspaces:all', 'newer:jshint']);
 
@@ -54,47 +54,40 @@ module.exports = function(grunt) {
   });
   // @end: build tasks
 
-  grunt.registerTask('dev', function(target) {
-    if(target === 'sync') {
 
-      return grunt.task.run([
-        'build:dev',
-        'browserSync:dev',
-        'watch'
-      ]);
+  //---
 
-    } else if(target === 'syncProxy') {
-
-      grunt.loadNpmTasks('grunt-connect-proxy');
-
-      return grunt.task.run([
-        'build:dev',
-        'configureProxies',
-        'browserSync:devProxy',
-        'watch'
-      ]);
-
-    } else if(target === 'proxy') {
-
-      grunt.loadNpmTasks('grunt-connect-proxy');
-
-      return grunt.task.run([
-        'build:dev',
-        'configureProxies',
-        'connect:devProxy',
-        'watch'
-      ]);
-
-    }
-
+  // @begin: dev tasks
+  grunt.registerTask('server:dev', ['connect:dev', 'watch:livereload']);
+  grunt.registerTask('server:dev:proxy', function() {
+    grunt.loadNpmTasks('grunt-connect-proxy');
     return grunt.task.run([
-      'build:dev',
-      'connect:dev',
-      'watch'
+      'configureProxies',
+      'connect:devProxy',
+      'watch:livereload'
     ]);
   });
 
+  grunt.registerTask('dev', ['build:dev','concurrent:dev']);
+  grunt.registerTask('dev:proxy', ['build:dev', 'concurrent:devProxy']);
 
+  grunt.registerTask('dev:sync', ['build:dev', 'browserSync:dev', 'watch:project']);
+  grunt.registerTask('dev:sync:proxy', function() {
+    grunt.loadNpmTasks('grunt-connect-proxy');
+    return grunt.task.run([
+      'build:dev',
+      'configureProxies',
+      'browserSync:devProxy',
+      'watch:project'
+    ]);
+  });
+  // @end: dev tasks
+
+
+  //---
+
+
+  // @begin: distribution preview tasks
   grunt.registerTask('dist', function(target) {
     if(target === 'sync') {
 
@@ -130,13 +123,15 @@ module.exports = function(grunt) {
       'connect:dist'
     ]);
   });
+  // @end: distribution preview tasks
+
 
   //---
 
 
   //--- @begin: spec's tasks
 
-  grunt.registerTask('specs:run:unit', ['karma:background:start', 'watch:unit']); // TODO: review :: needed?
+  //grunt.registerTask('specs:run:unit', ['karma:background:start', 'watch:unit']); // TODO: review :: needed?
   grunt.registerTask('specs:run:coverage', ['connect:coverage', 'watch:coverage']);
 
   grunt.registerTask('specs', ['start', 'karma:coverage', 'concurrent:specs']);
