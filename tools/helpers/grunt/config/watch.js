@@ -16,84 +16,96 @@
 
 module.exports = function(grunt) {
 
-grunt.config('watch', {
+// https://github.com/gruntjs/grunt-contrib-watch/issues/71#issuecomment-26152333
 
-  //--- @begin: karma test's and coverage
+grunt.registerTask('watch:coverage', function() {
 
-  unit: {
-    files: [
-      'tests/**/*.js', // ./tools/tests
-      '<%= project.paths.src %>/**/*.js',
-      '!<%= project.paths.src %>/shared/{fallback/,mock/}**/*',
-      '!<%= project.paths.src %>/vendor/**/*',
-    ],
-    tasks : [
-      'newer:lintspaces:js',
-      'newer:jshint:project',
-      'karma:background:run'
-    ]
-  },
+  grunt.config('watch', {
 
-  coverage: {
-    files : [
-      '<%= project.paths.reports %>/coverage/html/index.html'
-    ],
-    options: {
-      livereload: '<%= project.coverage.port.livereload %>'
+    coverage: {
+      files : [
+        '<%= project.paths.reports %>/coverage/html/index.html'
+      ],
+      options: {
+        livereload: '<%= project.coverage.port.livereload %>'
+      }
     }
-  },
 
-  //--- @end: karma test's and coverage
+  });
+  return grunt.task.run('watch');
 
-  reload: {
-    files : [
-      '<%= project.paths.build %>/**/*.{html,css,js}'
-    ],
-    options: {
-      livereload: '<%= project.frontend.port.livereload %>'
+});
+
+
+//---
+
+grunt.registerTask('watch:livereload', function() {
+
+  grunt.config('watch', {
+
+    reload: {
+      files : [
+        '<%= project.paths.build %>/**/*.{html,css,js}'
+      ],
+      options: {
+        livereload: '<%= project.frontend.port.livereload %>'
+      }
     }
-  },
 
-  js: {
-    files: [
-      '<%= project.paths.src %>/**/*.js'
-    ],
-    tasks : [
-      'newer:lintspaces:js',
-      'newer:jshint:project',
-      'newer:copy:dev_jstobuild'
-    ]
-  },
+  });
+  return grunt.task.run('watch');
 
-  less: {
-    files: [
-      '<%= project.paths.src %>/**/*.less'
-    ],
-    tasks : [
-      'newer:lintspaces:less',
-      'less:dev'
-    ]
-  },
+});
 
-  otherfiles: { // html, images, ...
-    files: [
-      '<%= project.paths.src %>/**/*',
-      '!<%= project.paths.src %>/**/*.{js,less}',
-      '!<%= project.paths.src %>/vendor/**/*',
-    ],
-    tasks : [
-      'newer:lintspaces:html',
-      'newer:copy:dev_tobuild'
-    ]
-  },
+//---
 
-  vendor: {
-    files: [
-      '<%= project.paths.src %>/vendor/**/*',
-      '!<%= project.paths.src %>/vendor/**/*.less'
-    ],
-    tasks : [ 'newer:copy:dev_vendortobuild' ]
-  }
+grunt.registerTask('watch:project', function() {
+
+  grunt.config('watch', {
+
+    js: {
+      files: [
+        '<%= project.paths.src %>/**/*.js'
+      ],
+      tasks : [
+        'newer:lintspaces:js',
+        'newer:jshint:project',
+        'newer:copy:dev_jstobuild'
+      ]
+    },
+
+    less: {
+      files: [
+        '<%= project.paths.src %>/**/*.less'
+      ],
+      tasks : [
+        'newer:lintspaces:less',
+        'less:dev'
+      ]
+    },
+
+    otherfiles: { // html, images, ...
+      files: [
+        '<%= project.paths.src %>/**/*',
+        '!<%= project.paths.src %>/**/*.{js,less}',
+        '!<%= project.paths.src %>/vendor/**/*',
+      ],
+      tasks : [
+        'newer:lintspaces:html',
+        'newer:copy:dev_tobuild'
+      ]
+    },
+
+    vendor: {
+      files: [
+        '<%= project.paths.src %>/vendor/**/*',
+        '!<%= project.paths.src %>/vendor/**/*.less'
+      ],
+      tasks : [ 'newer:copy:dev_vendortobuild' ]
+    }
+
+  });
+  return grunt.task.run('watch');
 
 });
 
