@@ -130,13 +130,15 @@ $ npm run setup
 /tools
   /helpers
     /grunt
-      /lib        >> auxiliary processing to /tasks
-      /config     >> configuration files to grunt.js tasks
-      /tasks      >> custom grunt.js tasks
-  /templates      >> templates files for grunt.js generate task
-  config.js       >> global configs to grunt.js tasks
-  Gruntfile.js    >> main grunt.js configuration file
-  package.json    >> node.js 'tools' project and dependencies configuration
+      /lib               >> auxiliary processing to /tasks
+      /config            >> configuration files to grunt.js tasks
+      /tasks             >> custom grunt.js tasks
+  /templates             >> templates files for grunt.js generate task
+  /tests
+    require.config.js    >> load application files and test's specs to Karma Runner
+  config.js              >> global configs to grunt.js tasks
+  Gruntfile.js           >> main grunt.js configuration file
+  package.json           >> node.js 'tools' project and dependencies configuration
 ```
 
 > If you use Sublime Text, check this out: 
