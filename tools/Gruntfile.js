@@ -14,13 +14,17 @@ module.exports = function(grunt) {
   // load tasks config per file
   grunt.loadTasks('helpers/grunt/config');
 
+
   //--- grunt tasks
 
-    // TODO: review and update tasks workflow
 
   grunt.registerTask('start', ['clean', 'lintspaces:all', 'newer:jshint']);
 
   grunt.registerTask('default', ['start']); // TODO: check grunt-prompt
+
+
+  //---
+
 
   // @begin: build tasks
   grunt.registerTask('build', function(target) {
@@ -56,6 +60,7 @@ module.exports = function(grunt) {
 
 
   //---
+
 
   // @begin: dev tasks
     // @begin: dev with livereload
@@ -97,41 +102,28 @@ module.exports = function(grunt) {
 
 
   // @begin: distribution preview tasks
-  grunt.registerTask('dist', function(target) {
-    if(target === 'sync') {
-
-      return grunt.task.run([
-        'build:prod',
-        'browserSync:dist'
-      ]);
-
-    } else if(target === 'syncProxy') {
-
-      grunt.loadNpmTasks('grunt-connect-proxy');
-
-      return grunt.task.run([
-        'build:prod',
-        'configureProxies',
-        'browserSync:distProxy'
-      ]);
-
-    } else if(target === 'proxy') {
-
-      grunt.loadNpmTasks('grunt-connect-proxy');
-
-      return grunt.task.run([
-        'build:prod',
-        'configureProxies',
-        'connect:distProxy'
-      ]);
-
-    }
-
+  grunt.registerTask('dist', ['build:prod', 'connect:dist']);
+  grunt.registerTask('dist:proxy', function() {
+    grunt.loadNpmTasks('grunt-connect-proxy');
     return grunt.task.run([
       'build:prod',
-      'connect:dist'
+      'configureProxies',
+      'connect:distProxy'
     ]);
   });
+
+    // @begin: preview with browser sync support
+  grunt.registerTask('dist:sync', ['build:prod', 'browserSync:dist']);
+  grunt.registerTask('dist:sync:proxy', function() {
+    grunt.loadNpmTasks('grunt-connect-proxy');
+    return grunt.task.run([
+      'build:prod',
+      'configureProxies',
+      'browserSync:distProxy'
+    ]);
+  });
+    // @end: preview with browser sync support
+
   // @end: distribution preview tasks
 
 
