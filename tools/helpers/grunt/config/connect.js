@@ -38,7 +38,7 @@ grunt.config('connect', {
   // @end: coverage report server
   //---
 
-  dev: {
+  livereload: {
     options: {
       port: '<%= project.frontend.port.webserver %>',
       base: '<%= project.paths.build %>',
@@ -48,7 +48,7 @@ grunt.config('connect', {
     }
   },
 
-  devProxy: {
+  livereloadProxy: {
     options: {
       port: '<%= project.frontend.port.webserver %>',
       base: '<%= project.paths.build %>',

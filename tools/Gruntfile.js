@@ -58,19 +58,22 @@ module.exports = function(grunt) {
   //---
 
   // @begin: dev tasks
-  grunt.registerTask('server:dev', ['connect:dev', 'watch:livereload']);
-  grunt.registerTask('server:dev:proxy', function() {
+    // @begin: dev with livereload
+  grunt.registerTask('server:livereload', ['connect:livereload', 'watch:livereload']);
+  grunt.registerTask('server:livereload:proxy', function() {
     grunt.loadNpmTasks('grunt-connect-proxy');
     return grunt.task.run([
       'configureProxies',
-      'connect:devProxy',
+      'connect:livereloadProxy',
       'watch:livereload'
     ]);
   });
 
-  grunt.registerTask('dev', ['build:dev','concurrent:dev']);
-  grunt.registerTask('dev:proxy', ['build:dev', 'concurrent:devProxy']);
+  grunt.registerTask('dev:livereload', ['build:dev','concurrent:livereload']);
+  grunt.registerTask('dev:livereload:proxy', ['build:dev', 'concurrent:livereloadProxy']);
+    // @end: dev with livereload
 
+    // @begin: dev with browser sync
   grunt.registerTask('dev:sync', ['build:dev', 'browserSync:dev', 'watch:project']);
   grunt.registerTask('dev:sync:proxy', function() {
     grunt.loadNpmTasks('grunt-connect-proxy');
@@ -81,6 +84,12 @@ module.exports = function(grunt) {
       'watch:project'
     ]);
   });
+    // @end: dev with browser sync
+
+    // @begin: dev alias
+  grunt.registerTask('dev', ['dev:livereload']);
+  grunt.registerTask('dev:proxy', ['dev:livereload:proxy']);
+    // @end: dev alias
   // @end: dev tasks
 
 

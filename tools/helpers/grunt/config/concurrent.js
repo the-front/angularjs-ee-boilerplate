@@ -12,9 +12,9 @@ grunt.config('concurrent', {
     }
   },
 
-  dev: {
+  livereload: {
     tasks: [
-      'server:dev', // task defined on /tools/Gruntfile.js
+      'server:livereload', // task defined on /tools/Gruntfile.js
       'watch:project'
     ],
     options: {
@@ -22,9 +22,9 @@ grunt.config('concurrent', {
     }
   },
 
-  devProxy: {
+  livereloadProxy: {
     tasks: [
-      'server:dev:proxy', // task defined on /tools/Gruntfile.js
+      'server:livereload:proxy', // task defined on /tools/Gruntfile.js
       'watch:project'
     ],
     options: {
