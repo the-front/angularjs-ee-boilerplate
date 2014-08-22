@@ -73,7 +73,7 @@ $ npm run setup
 
 * `grunt dev:sync` >> first will execute `build:dev` task, after that start web server with browser-sync support and watch changes on files *.html, .css and .js*, that will update all browsers and devices connect to server and sync data and navigation 
 
-* `grunt dev:syncProxy` >> beyond the `grunt dev:sync` tasks, this task create a proxy to route requests to other server based on given context, for example `/rest`
+* `grunt dev:sync:proxy` >> beyond the `grunt dev:sync` tasks, this task create a proxy to route requests to other server based on given context, for example `/rest`
 
 --
 
