@@ -7,7 +7,7 @@ define(
   './app/home/tests/unit/require.load',
   './app/about/tests/unit/require.load',
   './app/help/tests/unit/require.load',
-  //'./app/bookmarks/tests/unit/require.load',
+  './app/bookmarks/tests/unit/require.load'
 ],
 
 // require.js module scope
