@@ -1,5 +1,35 @@
 describe('Testing Bookmarks List Controller', function() {
 
+  function backendList(page, pageSize) {
+    page = page || 1;
+    pageSize = pageSize || 10;
+
+    var objs = [];
+    for(var i = 0, len = pageSize; i < len; i++) {
+      objs.push({
+        id: i,
+        name: 'bookmark ' + (i+1),
+        description: 'bookmark description ' + (i+1),
+        url: 'http://google.com'
+      });
+    }
+
+    httpBackend.when('GET', 'rest/bookmarks?page='+ page +'&size=' + pageSize)
+        .respond(function(method, url, data) {
+
+          data = {
+            data: objs,
+            count: objs.length,
+            page: 1,
+            pages: 1
+          };
+
+          return [200, angular.copy(data)];
+        });
+  }
+
+  //----------------------------------------------------------------------------
+
   var location, ctrl, scope, rootScope, httpBackend;
 
   // excuted before each "it" is run
@@ -28,6 +58,7 @@ describe('Testing Bookmarks List Controller', function() {
   });
 
 
+  /*
   it("should change location to '/new/path'", function() {
     // arrange
     spyOn(location, 'path');
@@ -38,6 +69,7 @@ describe('Testing Bookmarks List Controller', function() {
     //  assertions
     expect(location.path).toHaveBeenCalledWith('/new/path');
   });
+  */
 
 
   describe("event handlers", function() {
@@ -47,16 +79,7 @@ describe('Testing Bookmarks List Controller', function() {
       // arrange
       spyOn(location, 'path');
 
-      httpBackend.when('GET', 'rest/bookmarks?page=1&size=10')
-        .respond(function(method, url, data) {
-          data = {
-            data: [],
-            count: 0,
-            page: 1,
-            pages: 1
-          };
-          return [200, angular.copy(data)];
-        });
+      backendList();
 
     });
 
@@ -94,34 +117,212 @@ describe('Testing Bookmarks List Controller', function() {
 
   });
 
-  it("should get first page", function() {
 
-    // arrange
-    var page = 1;
+  describe("options", function() {
 
-    httpBackend.when('GET', 'rest/bookmarks?page='+page+'&size=10')
-        .respond(function(method, url, data) {
-          data = {
-            data: [{
-              id: 1,
-              name: 'bookmark 1',
-              description: 'bookmark description 1',
-              url: 'http://google.com'
-            }],
-            count: 1,
-            page: 1,
-            pages: 1
-          };
-          return [200, angular.copy(data)];
-        });
+    it("should show", function() {
 
-    // act
-    httpBackend.flush();
+      // act
+      scope.showOptionsBtnClick();
 
-    // assertions
-    expect(scope.currentPage).toEqual(1);
+      // assertions
+      expect(scope.showOptions).toBeTruthy();
+      expect(scope.optionsBtnLabel).toEqual('Hide Options');
+
+    });
+
+    it("should show options and filter", function() {
+
+      // act
+      scope.showFilterBtnActive = true;
+      scope.showOptionsBtnClick();
+
+      // assertions
+      expect(scope.showOptions).toBeTruthy();
+      expect(scope.optionsBtnLabel).toEqual('Hide Options');
+
+    });
+
+    it("should hide", function() {
+
+      // act
+      scope.showOptions = true;
+      scope.showOptionsBtnClick();
+
+      // assertions
+      expect(scope.showOptions).toBeFalsy();
+      expect(scope.optionsBtnLabel).toEqual('Show Options');
+
+    });
+
+    it("should hide options and filter", function() {
+
+      // act
+      scope.filter = { search: '' };
+      scope.showFilter = true;
+      scope.showOptions = true;
+      scope.showOptionsBtnClick();
+
+      // assertions
+      expect(scope.showOptions).toBeFalsy();
+      expect(scope.optionsBtnLabel).toEqual('Show Options');
+
+    });
 
   });
+
+
+  describe("filter", function() {
+
+    it("should show", function() {
+
+      // act
+      scope.showFilterBtnClick();
+
+      // assertions
+      expect(scope.showFilter).toBeTruthy();
+      expect(scope.filterBtnLabel).toEqual('Hide filter');
+
+    });
+
+    it("should hide", function() {
+
+      // act
+      scope.showFilter = true;
+      scope.showFilterBtnClick();
+
+      // assertions
+      expect(scope.showFilter).toBeFalsy();
+      expect(scope.filterBtnLabel).toEqual('Show filter');
+
+    });
+
+  });
+
+
+  describe("update page size", function() {
+
+    it("should be valid", function() {
+      // arrange
+      scope.pageMinSize = 5;
+      scope.pageMaxSize = 100;
+
+      // act and assertions
+      expect(scope.updatePageSizeInvalid( 11 )).toBeFalsy();
+      expect(scope.updatePageSizeInvalid( 6 )).toBeFalsy();
+      expect(scope.updatePageSizeInvalid( 99 )).toBeFalsy();
+
+    });
+
+    it("should be invalid", function() {
+      // arrange
+      scope.pageMinSize = 5;
+      scope.pageMaxSize = 100;
+
+      // act and assertions
+      expect(scope.updatePageSizeInvalid( undefined )).toBeTruthy();
+      expect(scope.updatePageSizeInvalid( null )).toBeTruthy();
+      expect(scope.updatePageSizeInvalid( 10 )).toBeTruthy();
+      expect(scope.updatePageSizeInvalid( 2 )).toBeTruthy();
+      expect(scope.updatePageSizeInvalid( 200 )).toBeTruthy();
+
+    });
+
+    it("should submit updatePageSize form", function() {
+
+      // arrange
+      backendList();
+      backendList(1, 11);
+      scope.pageMinSize = 5;
+      scope.pageMaxSize = 100;
+
+      // act
+      scope.pageSize = 11;
+      scope.updatePageSizeFormSubmit();
+      httpBackend.flush();
+
+      // assertions
+      expect(scope.currentPage).toEqual(1);
+      expect(scope.result.data.length).toEqual(11);
+
+    });
+
+    it("should not submit updatePageSize form", function() {
+
+      // arrange
+      scope.showFilter = true;
+      scope.pageMinSize = 5;
+      scope.pageMaxSize = 100;
+
+      // act
+      scope.pageSize = 200;
+      scope.updatePageSizeFormSubmit();
+
+      // assertions
+      expect(scope.showFilter).toBeTruthy();
+
+    });
+
+  });
+
+
+  describe("load data", function() {
+
+    it("should current page equals to 1", function() {
+
+      // arrange
+      backendList();
+
+      // act
+      httpBackend.flush();
+
+      // assertions
+      expect(scope.currentPage).toEqual(1);
+      expect(scope.result.data.length).toEqual(10);
+
+    });
+
+
+    it("should update page size to 11", function() {
+
+      // arrange
+      backendList();
+      backendList(1, 11);
+
+      // act
+      scope.pageSize = 11;
+      scope.updatePageSize();
+      httpBackend.flush();
+
+      // assertions
+      expect(scope.currentPage).toEqual(1);
+      expect(scope.result.data.length).toEqual(11);
+
+    });
+
+
+    it("should update page size to 12 and hide filter", function() {
+
+      // arrange
+      backendList();
+      backendList(1, 12);
+      scope.showFilterBtnActive = true;
+      scope.showOptions = true;
+
+      // act
+      scope.pageSize = 12;
+      scope.updatePageSize();
+      httpBackend.flush();
+
+      // assertions
+      expect(scope.currentPage).toEqual(1);
+      expect(scope.result.data.length).toEqual(12);
+      expect(scope.showFilter).toBeFalsy();
+
+    });
+
+  });
+
 
   // TODO: define test's
 
