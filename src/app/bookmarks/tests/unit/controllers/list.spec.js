@@ -94,7 +94,34 @@ describe('Testing Bookmarks List Controller', function() {
 
   });
 
+  it("should get first page", function() {
 
+    // arrange
+    var page = 1;
+
+    httpBackend.when('GET', 'rest/bookmarks?page='+page+'&size=10')
+        .respond(function(method, url, data) {
+          data = {
+            data: [{
+              id: 1,
+              name: 'bookmark 1',
+              description: 'bookmark description 1',
+              url: 'http://google.com'
+            }],
+            count: 1,
+            page: 1,
+            pages: 1
+          };
+          return [200, angular.copy(data)];
+        });
+
+    // act
+    httpBackend.flush();
+
+    // assertions
+    expect(scope.currentPage).toEqual(1);
+
+  });
 
   // TODO: define test's
 
