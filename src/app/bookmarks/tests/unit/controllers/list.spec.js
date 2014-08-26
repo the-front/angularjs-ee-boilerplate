@@ -30,28 +30,35 @@ describe('Testing Bookmarks List Controller', function() {
 
   //----------------------------------------------------------------------------
 
-  var location, ctrl, scope, rootScope, httpBackend;
+  var location, ctrl, scope, rootScope, httpBackend, pagination;
 
   // excuted before each "it" is run
   beforeEach(function() {
+    var ctrlName = 'BookmarksListCtrl';
 
     // load the module
     module('bookmarks');
 
     // inject dependencies
-    inject(function($location, $controller, $rootScope, $httpBackend) {
+    inject(function(
+      $location, $controller,
+      $rootScope, $httpBackend,
+      PaginationFactory
+    ) {
       scope = $rootScope.$new();
 
-      ctrl = $controller('BookmarksListCtrl', {
+      ctrl = $controller(ctrlName, {
         $scope: scope
       });
 
       location = $location;
       rootScope = $rootScope;
       httpBackend = $httpBackend;
+      pagination = PaginationFactory.get(ctrlName);
     });
 
   });
+
 
   it('should be defined', function() {
     expect(ctrl).toBeDefined(true);
@@ -282,7 +289,6 @@ describe('Testing Bookmarks List Controller', function() {
 
     });
 
-
     it("should update page size to 11", function() {
 
       // arrange
@@ -300,14 +306,12 @@ describe('Testing Bookmarks List Controller', function() {
 
     });
 
-
     it("should update page size to 12 and hide filter", function() {
 
       // arrange
       backendList();
       backendList(1, 12);
-      scope.showFilterBtnActive = true;
-      scope.showOptions = true;
+      scope.showFilter = true;
 
       // act
       scope.pageSize = 12;
@@ -321,9 +325,64 @@ describe('Testing Bookmarks List Controller', function() {
 
     });
 
+    it("should update page size to 13 and hide options", function() {
+
+      // arrange
+      backendList();
+      backendList(1, 13);
+      scope.showFilterBtnActive = true;
+      scope.showOptions = true;
+
+      // act
+      scope.pageSize = 13;
+      scope.updatePageSize();
+      httpBackend.flush();
+
+      // assertions
+      expect(scope.currentPage).toEqual(1);
+      expect(scope.result.data.length).toEqual(13);
+      expect(scope.showFilter).toBeFalsy();
+
+    });
+
+    it("should pagination change page", function() {
+
+      // arrange
+      scope.result = {
+        page: 1
+      };
+
+      var objParams = {
+        currentPage: 2
+      };
+
+      // act
+      scope.pageChanged.call(objParams);
+
+      // assertions
+      expect(pagination.getNextPage()).toEqual(2);
+
+    });
+
+    it("should pagination not change page", function() {
+      // arrange
+      scope.result = {
+        page: 1
+      };
+
+      var objParams = {
+        currentPage: 1
+      };
+
+      // act
+      scope.pageChanged.call(objParams);
+
+      // assertions
+      expect(pagination.getNextPage()).toEqual(1);
+
+    });
+
   });
 
-
-  // TODO: define test's
 
 });
