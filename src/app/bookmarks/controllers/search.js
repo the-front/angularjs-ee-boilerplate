@@ -118,7 +118,7 @@ function(module) {
 
     $scope.showOptionsBtnClick = function() {
       $scope.showOptions = !$scope.showOptions;
-      $scope.optionsBtnLabel = ($scope.showOptions ? 'Hide' : 'Show') + ' Option';
+      $scope.optionsBtnLabel = ($scope.showOptions ? 'Hide' : 'Show') + ' Options';
 
       if($scope.showOptions) {
         $scope.showFilter = $scope.showFilterBtnActive;
