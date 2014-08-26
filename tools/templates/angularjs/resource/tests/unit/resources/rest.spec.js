@@ -1,4 +1,4 @@
-describe("Testing Bookmarks Rest Resource", function() {
+describe("Testing <%= helpers.capitalize( name ) %> Rest Resource", function() {
 
   var resource;
 
