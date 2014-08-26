@@ -75,7 +75,7 @@ describe('Angular.js \'bookmarks\' Routes', function() {
 
     });
 
-    describe('location \'/bookmarks/edit/:id\' - add new booksmark', function() {
+    describe('location \'/bookmarks/edit/:id\' - edit booksmark', function() {
 
       it('should be defined', function() {
         expect(route.routes['/bookmarks/edit/:id']).toBeDefined();
