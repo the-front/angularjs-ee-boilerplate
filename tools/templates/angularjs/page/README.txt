@@ -1,7 +1,23 @@
 
 TODO:
 
-1 - update /src/app/main/module.js
+1 - update /src/require.unit.load.js
+
+  define(
+  // require.js dependency injection
+  [
+
+    ...
+
+    // ↓↓↓ ADD ↓↓↓
+    '<%= location %>/tests/unit/require.load'
+  ],
+
+  // require.js module scope
+  function() {});
+
+
+2 - update /src/app/main/module.js
 
   define(
   // require.js dependency injection
@@ -39,7 +55,7 @@ TODO:
   });
 
 
-2 - add menu item :: update /src/app/main/controller.js
+3 - add menu item :: update /src/app/main/controller.js
 
     //--- @begin: menu items
     menu.addMenuItem('Home', '');
@@ -54,7 +70,7 @@ TODO:
     //--- @end: menu items
 
 
-3 - delete this file : README.txt
+4 - delete this file : README.txt
 
 
 -------------------------------------------------------------------------------
