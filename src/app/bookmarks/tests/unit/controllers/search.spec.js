@@ -184,7 +184,6 @@ describe('Testing Bookmarks Search Controller', function() {
 
       // arrange
       var search = 'something';
-      //backendList(search);
       backendList(search, 1, 11);
       scope.pageMinSize = 5;
       scope.pageMaxSize = 100;
@@ -259,7 +258,6 @@ describe('Testing Bookmarks Search Controller', function() {
 
       // arrange
       var search = 'something';
-      //backendList(search);
       backendList(search, 1, 11);
 
       // act
@@ -278,7 +276,6 @@ describe('Testing Bookmarks Search Controller', function() {
 
       // arrange
       var search = 'something';
-      //backendList(search);
       backendList(search, 1, 12);
       scope.showFilter = true;
 
@@ -299,7 +296,6 @@ describe('Testing Bookmarks Search Controller', function() {
 
       // arrange
       var search = 'something';
-      //backendList(search);
       backendList(search, 1, 13);
       scope.showFilterBtnActive = true;
       scope.showOptions = true;
