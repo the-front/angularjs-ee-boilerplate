@@ -256,59 +256,65 @@ describe('Testing Bookmarks Search Controller', function() {
 
     it("should update page size to 11", function() {
 
+      var _pageSize = 11;
+
       // arrange
       var search = 'something';
-      backendList(search, 1, 11);
+      backendList(search, 1, _pageSize);
 
       // act
       scope.searchName = search;
-      scope.pageSize = 11;
+      scope.pageSize = _pageSize;
       scope.updatePageSize();
       httpBackend.flush();
 
       // assertions
       expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(11);
+      expect(scope.result.data.length).toEqual(_pageSize);
 
     });
 
     it("should update page size to 12 and hide filter", function() {
 
+      var _pageSize = 12;
+
       // arrange
       var search = 'something';
-      backendList(search, 1, 12);
+      backendList(search, 1, _pageSize);
       scope.showFilter = true;
 
       // act
       scope.searchName = search;
-      scope.pageSize = 12;
+      scope.pageSize = _pageSize;
       scope.updatePageSize();
       httpBackend.flush();
 
       // assertions
       expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(12);
+      expect(scope.result.data.length).toEqual(_pageSize);
       expect(scope.showFilter).toBeFalsy();
 
     });
 
     it("should update page size to 13 and hide options", function() {
 
+      var _pageSize = 13;
+
       // arrange
       var search = 'something';
-      backendList(search, 1, 13);
+      backendList(search, 1, _pageSize);
       scope.showFilterBtnActive = true;
       scope.showOptions = true;
 
       // act
       scope.searchName = search;
-      scope.pageSize = 13;
+      scope.pageSize = _pageSize;
       scope.updatePageSize();
       httpBackend.flush();
 
       // assertions
       expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(13);
+      expect(scope.result.data.length).toEqual(_pageSize);
       expect(scope.showFilter).toBeFalsy();
 
     });
