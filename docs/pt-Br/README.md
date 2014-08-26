@@ -89,7 +89,7 @@ $ npm run setup
 
 * `grunt dist:proxy` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
-* `grunt dist:sync` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + browser-sync para sincronizar os dados e navegação 
+* `grunt dist:sync` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + browser-sync para sincronizar os dados e navegação
 
 * `grunt dist:sync:proxy` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + browser-sync para sincronizar os dados e navegação + proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
@@ -141,8 +141,8 @@ $ npm run setup
   package.json           >> arquivo de configuração e dependências do projeto 'tools' em node.js
 ```
 
-> Caso você use o Sublime Text, veja isso: 
-> 
+> Caso você use o Sublime Text, veja isso:
+>
 > * [[GitHub] erkobridee / sublime-angularjs-ee-snippets](https://github.com/erkobridee/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js and Require.js (focused to the angularjs-ee-boilerplate code)
 >
 > * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
@@ -174,6 +174,9 @@ $ npm run setup
       /mock
         >> require.load.js mapeia todos os arquivos js do diretório
            este arquivo é referenciado como dependência no /require.mock.load.js
+      /tests/unit
+        >> require.load.js mapeia todos os arquivos js do diretório
+           este arquivo é referenciado como dependência no /require.unit.load.js
 
     /about
       >> módulo referenciado como denpendência no /app/main/module.js
@@ -190,14 +193,16 @@ $ npm run setup
          este arquivo é referenciado como dependência no /ng.app.js
 
   /shared
-    /fallback   >> scripts para Internet Explorer
+    /fallback
+      >> scripts para Internet Explorer
     /fend
       >> conjunto de módulos úteis reutilizáveis entre projetos e outros módulos
     /mock
       >> módulo que possibilita emular o backend
     /less
       /bootstrap
-          default.less >> thema e configuração padrão para o Bootstrap, que é importado no /less/app.less
+          default.less >> thema e configuração padrão para o Bootstrap,
+                          que é importado no /less/app.less
       >> outros componentes e configurações
 
   /less
@@ -209,13 +214,19 @@ $ npm run setup
   /vendor
     >> bibliotecas de terceiros (ex.: twitter bootstrap, jquery, angular.js, ...)
 
-  
+
   require.mock.load.js  >> lista e referencia todos os mocks a serem carregados
-                        >> este arquivo é referenciado como dependência no /ng.app.js
-  
+                           este arquivo é referenciado como dependência no /ng.app.js
+
+  require.unit.load.js  >> lista e referencia todos os tests a serem carregados
+                           este arquivo é referenciado como dependencia no
+                           ./tools/tests/require.config.js
+
   ng.app.js             >> onde inicializa a aplicação Angular.js
 
-  require.config.js     >> arquivo principal de configuração do projeto onde são carregados todos os arquivos JavaScript necessários para executar /ng.app.js
+  require.config.js     >> arquivo principal de configuração do projeto
+                           onde são carregados todos os arquivos JavaScript
+                           necessários para executar /ng.app.js
 
   index.html
 ```

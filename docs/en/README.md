@@ -71,7 +71,7 @@ $ npm run setup
 
 * `grunt dev:livereload:proxy` >> beyond the `grunt dev` tasks, this task create a proxy to route requests to other server based on given context, for example `/rest`
 
-* `grunt dev:sync` >> first will execute `build:dev` task, after that start web server with browser-sync support and watch changes on files *.html, .css and .js*, that will update all browsers and devices connect to server and sync data and navigation 
+* `grunt dev:sync` >> first will execute `build:dev` task, after that start web server with browser-sync support and watch changes on files *.html, .css and .js*, that will update all browsers and devices connect to server and sync data and navigation
 
 * `grunt dev:sync:proxy` >> beyond the `grunt dev:sync` tasks, this task create a proxy to route requests to other server based on given context, for example `/rest`
 
@@ -141,8 +141,8 @@ $ npm run setup
   package.json           >> node.js 'tools' project and dependencies configuration
 ```
 
-> If you use Sublime Text, check this out: 
-> 
+> If you use Sublime Text, check this out:
+>
 > * [[GitHub] erkobridee / sublime-angularjs-ee-snippets](https://github.com/erkobridee/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js and Require.js (focused to the angularjs-ee-boilerplate code)
 >
 > * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
@@ -174,6 +174,9 @@ $ npm run setup
       /mock
         >> require.load.js map all js files in the directory
            this file is referenced as a dependency on /require.mock.load.js
+      /tests/unit
+        >> require.load.js map all js files in the directory
+           this file is referenced as a dependency on /require.unit.load.js
 
     /about
       >> module referenced as a dependency on /app/main/module.js
@@ -190,14 +193,16 @@ $ npm run setup
          this file is referenced as a dependency on /ng.app.js
 
   /shared
-    /fallback   >> scripts for Internet Explorer
+    /fallback
+      >> scripts for Internet Explorer
     /fend
       >> set of commons and useful reusable modules across projects and other modules
     /mock
       >> module that enables emulate the backend
     /less
       /bootstrap
-          default.less >> default theme and configuration for Bootstrap, which is imported in /less/app.less
+          default.less >> default theme and configuration for Bootstrap,
+                          which is imported in /less/app.less
       >> other configurations and components
 
   /less
@@ -209,13 +214,18 @@ $ npm run setup
   /vendor
     >> third party libraries (ex.: twitter bootstrap, jquery, angular.js, ...)
 
-  
+
   require.mock.load.js  >> list and reference all mocks to be loaded
-                        >> this file is referenced as a dependency on /ng.app.js
-  
+                           this file is referenced as a dependency on /ng.app.js
+
+  require.unit.load.js  >> list and reference all tests unit to be loaded
+                           this file is referenced as dependency on
+                           ./tools/tests/require.config.js
+
   ng.app.js             >> where start Angular.js application
 
-  require.config.js     >> main configuration file to load all needed JavaScripts files to execute /ng.app.js
+  require.config.js     >> main configuration file to load all needed JavaScripts
+                           files to execute /ng.app.js
 
   index.html
 ```
