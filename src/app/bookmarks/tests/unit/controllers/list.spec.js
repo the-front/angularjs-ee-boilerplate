@@ -235,7 +235,12 @@ describe('Testing Bookmarks List Controller', function() {
 
     });
 
-    it("should submit updatePageSize form", function() {
+  });
+
+
+  describe("updatePageSize form", function() {
+
+    it("should submit", function() {
 
       // arrange
       backendList();
@@ -254,7 +259,7 @@ describe('Testing Bookmarks List Controller', function() {
 
     });
 
-    it("should not submit updatePageSize form", function() {
+    it("should not submit", function() {
 
       // arrange
       scope.showFilter = true;
@@ -275,13 +280,17 @@ describe('Testing Bookmarks List Controller', function() {
 
   describe("load data", function() {
 
-    it("should current page equals to 1", function() {
+    beforeEach(function() {
 
       // arrange
       backendList();
 
       // act
       httpBackend.flush();
+
+    });
+
+    it("should load first default page", function() {
 
       // assertions
       expect(scope.currentPage).toEqual(1);
@@ -289,63 +298,74 @@ describe('Testing Bookmarks List Controller', function() {
 
     });
 
+
     it("should update page size to 11", function() {
 
+      var _pageSize = 11;
+
       // arrange
-      backendList();
-      backendList(1, 11);
+      backendList(1, _pageSize);
 
       // act
-      scope.pageSize = 11;
+      scope.pageSize = _pageSize;
       scope.updatePageSize();
       httpBackend.flush();
 
       // assertions
       expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(11);
+      expect(scope.result.data.length).toEqual(_pageSize);
 
     });
 
+
     it("should update page size to 12 and hide filter", function() {
 
+      var _pageSize = 12;
+
       // arrange
-      backendList();
-      backendList(1, 12);
+      backendList(1, _pageSize);
       scope.showFilter = true;
 
       // act
-      scope.pageSize = 12;
+      scope.pageSize = _pageSize;
       scope.updatePageSize();
       httpBackend.flush();
 
       // assertions
       expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(12);
+      expect(scope.result.data.length).toEqual(_pageSize);
       expect(scope.showFilter).toBeFalsy();
 
     });
 
+
     it("should update page size to 13 and hide options", function() {
 
+      var _pageSize = 13;
+
       // arrange
-      backendList();
-      backendList(1, 13);
+      backendList(1, _pageSize);
       scope.showFilterBtnActive = true;
       scope.showOptions = true;
 
       // act
-      scope.pageSize = 13;
+      scope.pageSize = _pageSize;
       scope.updatePageSize();
       httpBackend.flush();
 
       // assertions
       expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(13);
+      expect(scope.result.data.length).toEqual(_pageSize);
       expect(scope.showFilter).toBeFalsy();
 
     });
 
-    it("should pagination change page", function() {
+  });
+
+
+  describe("pagination", function() {
+
+    it("should change page", function() {
 
       // arrange
       scope.result = {
@@ -364,7 +384,8 @@ describe('Testing Bookmarks List Controller', function() {
 
     });
 
-    it("should pagination not change page", function() {
+    it("should not change page", function() {
+
       // arrange
       scope.result = {
         page: 1
