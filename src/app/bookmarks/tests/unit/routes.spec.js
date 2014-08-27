@@ -10,20 +10,12 @@ describe('Angular.js \'bookmarks\' Routes', function() {
     });
   });
 
-  /* only to check if injection work fine
-  it('$route should be defined', function() {
+  /* only to check if injection work fine */
+  it('should be defined', function() {
     expect(route).not.toEqual(null);
   });
-  */
 
   describe('Routes Map', function() {
-
-    /* only to check if injection work fine
-    it('$route should be present', function() {
-      expect(route).not.toEqual(null);
-    });
-    */
-
 
     describe('location \'/bookmarks\' - list booksmarks', function() {
 
