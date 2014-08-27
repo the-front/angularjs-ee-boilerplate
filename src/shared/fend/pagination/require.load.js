@@ -2,8 +2,7 @@ define(
 // require.js dependency injection
 [
   './module',
-  './factory',
-  './filter.pages.range'
+  './factory'
 ],
 
 // require.js module scope
