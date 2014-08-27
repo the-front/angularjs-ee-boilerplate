@@ -35,8 +35,8 @@ describe('Angular.js \'about\' Routes', function() {
         expect(route.routes['/about'].controller).toBe('AboutCtrl');
       });
 
-      it('should map to templateUrl app/about/template.html', function() {
-        expect(route.routes['/about'].templateUrl).toEqual('app/about/template.html');
+      it('should map to templateUrl app/about/templates/page.html', function() {
+        expect(route.routes['/about'].templateUrl).toEqual('app/about/templates/page.html');
       });
 
     });

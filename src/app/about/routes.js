@@ -22,7 +22,7 @@ function(module) {
         '/about',
         {
           controller: 'AboutCtrl',
-          templateUrl: 'app/about/template.html'
+          templateUrl: 'app/about/templates/page.html'
         }
       );
 
