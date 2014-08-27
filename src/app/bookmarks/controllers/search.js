@@ -178,6 +178,8 @@ function(module) {
 
 
     $scope.paginationItemsSize = 5;
+    $scope.paginationPageSize = pagination.getPageSize();
+
 
     $scope.pageChanged = function() {
       if(this.currentPage != $scope.result.page) {
@@ -205,6 +207,7 @@ function(module) {
       if($scope.showFilter) $scope.showFilterBtnClick();
 
       pagination.resetPageSize($scope.pageSize);
+      $scope.paginationPageSize = pagination.getPageSize();
 
       loadData(pagination.getNextPage());
     };
