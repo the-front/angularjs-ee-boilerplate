@@ -45,7 +45,7 @@ function(module) {
       // constructor
       // inject dependencies when instantiate new object
       var Pagination = function(paginationFor) {
-        if(paginationFor) this.classInfo = 'Pagination for: ' + paginationFor;
+        this.classInfo = 'Pagination for: ' + paginationFor;
         this.metainf = defaultMetainf();
       };
       var ClassDef = Pagination;
@@ -96,10 +96,7 @@ function(module) {
       };
 
       ClassDef.prototype.removeCheck = function() {
-        if(
-          (this.metainf.page == this.metainf.pages) &&
-          (this.metainf.lastPageSize == 1)
-        ) {
+        if( this.metainf.lastPageSize == 1 ) {
           var nextPage = this.metainf.totalPages-1;
           if(nextPage <= 0) nextPage = 0;
           this.setNextPage(nextPage);
