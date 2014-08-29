@@ -41,7 +41,8 @@ function(ng, backend) {
           options.size = params.size;
         }
 
-        result = collection.list(options);
+        result = collection.list(options); // with pagination support
+        // result = collection.all(); // without pagination support
 
         return [200, angular.copy(result)];
       });

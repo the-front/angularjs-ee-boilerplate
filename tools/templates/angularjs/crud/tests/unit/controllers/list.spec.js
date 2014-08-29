@@ -15,17 +15,17 @@ describe('Testing <%= helpers.capitalize( name ) %> List Controller', function()
     }
 
     httpBackend.when('GET', '<%= endpoint %>?page='+ page +'&size=' + pageSize)
-        .respond(function(method, url, data) {
+      .respond(function(method, url, data) {
 
-          data = {
-            data: objs,
-            count: objs.length,
-            page: 1,
-            pages: 1
-          };
+        data = {
+          data: objs,
+          count: objs.length,
+          page: 1,
+          pages: 1
+        };
 
-          return [200, angular.copy(data)];
-        });
+        return [200, angular.copy(data)];
+      });
   }
 
   //----------------------------------------------------------------------------

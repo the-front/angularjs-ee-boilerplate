@@ -35,6 +35,7 @@ TODO:
 
 
 3 - update /src/app/main/module.js
+    or in some specific application module
 
   define(
   // require.js dependency injection
