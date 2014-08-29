@@ -42,9 +42,17 @@ grunt.registerTask('watch:reports', function() {
 
   grunt.config('watch', {
 
+    jarmine_report: {
+      files : [
+        '<%= project.paths.reports %>/__jasmine/Phantom*/index.html'
+      ],
+      tasks: ['copy:karma_report_jasmine']
+    },
+
     reports: {
       files : [
-        '<%= project.paths.reports %>/**/Phantom*/index.html'
+        //'<%= project.paths.reports %>/coverage/index.html',
+        '<%= project.paths.reports %>/jasmine/index.html'
       ],
       options: {
         livereload: '<%= project.reports.port.livereload %>'
