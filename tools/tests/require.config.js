@@ -1,27 +1,17 @@
 (function() {
   'use strict';
 
-  //---
+  var isKarma = (window.__karma__) ? true : false;
+  var _baseUrl = isKarma ? '/base/src' : '../src';
 
-  var allTemplateCacheFiles = [];
-  var TEMPLATE_CACHE_REGEXP = /html\.js$/i;
-
-  var pathToTemplateCache = function(path) {
-    return path.replace(/^\/base\/src\//, '').replace(/\.js$/, '');
-  };
-
-  Object.keys(window.__karma__.files).forEach(function(file) {
-    if (TEMPLATE_CACHE_REGEXP.test(file)) {
-      // Normalize paths to RequireJS module names.
-      allTemplateCacheFiles.push(pathToTemplateCache(file));
-    }
-  });
+  console.log( 'isKarma: ' + isKarma );
+  console.log( 'baseUrl: ' + _baseUrl );
 
   //---
 
   require.config({
 
-    baseUrl: '/base/src',
+    baseUrl: _baseUrl,
 
 
     //--------------------------------------------------------------------------
@@ -156,24 +146,46 @@
 
   });
 
-  function onRequireReadyHandler() {
-    console.log( 'onRequireReadyHandler' );
+  function bootstrapAngularApp(cb) {
+    angular.element(document).ready(function() {
+      console.log('bootstrap angular application');
+      // start angular app
+      angular.bootstrap(document, ['main']);
+
+      if(cb) cb();
+    });
+  }
+
+  function karmaFlow() {
+    var allTemplateCacheFiles = [];
+    var TEMPLATE_CACHE_REGEXP = /html\.js$/i;
+
+    var pathToTemplateCache = function(path) {
+      return path.replace(/^\/base\/src\//, '').replace(/\.js$/, '');
+    };
+
+    Object.keys(window.__karma__.files).forEach(function(file) {
+      if (TEMPLATE_CACHE_REGEXP.test(file)) {
+        // Normalize paths to RequireJS module names.
+        allTemplateCacheFiles.push(pathToTemplateCache(file));
+      }
+    });
 
     require(allTemplateCacheFiles, function() {
       console.log( 'ng-html2js files loaded' );
 
-      angular.element(document).ready(function() {
-
-        console.log('bootstrap angular application');
-
-        // start angular app
-        angular.bootstrap(document, ['main']);
-
+      bootstrapAngularApp(function() {
         window.__karma__.start();
-
       });
 
     });
+  }
+
+
+  function onRequireReadyHandler() {
+    console.log( 'onRequireReadyHandler' );
+
+    if(isKarma) karmaFlow();
 
   }
 
