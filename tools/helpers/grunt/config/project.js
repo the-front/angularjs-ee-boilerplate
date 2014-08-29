@@ -21,6 +21,13 @@ grunt.config('project', {
     }
   },
 
+  reports: {
+    port: {
+      webserver: (config.frontend.webserver + 2),
+      livereload: (config.frontend.livereload + 2) // default: 35729
+    }
+  },
+
   frontend: {
     port: {
       webserver: config.frontend.webserver,

@@ -36,6 +36,25 @@ grunt.registerTask('watch:coverage', function() {
 
 });
 
+//---
+
+grunt.registerTask('watch:reports', function() {
+
+  grunt.config('watch', {
+
+    reports: {
+      files : [
+        '<%= project.paths.reports %>/**/Phantom*/index.html'
+      ],
+      options: {
+        livereload: '<%= project.reports.port.livereload %>'
+      }
+    }
+
+  });
+  return grunt.task.run('watch');
+
+});
 
 //---
 

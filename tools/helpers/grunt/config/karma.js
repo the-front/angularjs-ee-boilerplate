@@ -5,25 +5,29 @@ grunt.config('karma', {
   options: '<%= project.karma.options %>',
 
   specs: {
-    reporters: ['html', 'progress']
+    reporters: ['progress']
   },
 
   coverage: {
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'html'],
     browsers: ['PhantomJS'],
     singleRun: true,
     logLevel: 'ERROR',
     coverageReporter: {
       type : 'html',
-      dir : '<%= project.karma.reportsDir %>/coverage/',
-      subdir: 'html'
+      dir : '<%= project.karma.reportsDir %>/coverage/' // , subdir: 'html'
+    },
+    htmlReporter: {
+      outputDir: '../<%= project.karma.reportsDir %>/jasmine'
     }
   },
 
   unit: {
     reporters: ['html', 'progress', 'coverage'],
-    browsers: ['Chrome'],
-    coverageReporter: '<%= karma.coverage.coverageReporter %>'
+    //browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
+    coverageReporter: '<%= karma.coverage.coverageReporter %>',
+    htmlReporter: '<%= karma.coverage.htmlReporter %>'
   },
 
   background: {
@@ -31,7 +35,8 @@ grunt.config('karma', {
     browsers: '<%= karma.unit.browsers %>',
     autoWatch: false,
     background: true,
-    coverageReporter: '<%= karma.coverage.coverageReporter %>'
+    coverageReporter: '<%= karma.coverage.coverageReporter %>',
+    htmlReporter: '<%= karma.coverage.htmlReporter %>'
   },
 
   ci: {
