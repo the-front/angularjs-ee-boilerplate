@@ -6,7 +6,7 @@ async_exec('npm install shelljs --save-dev', function (err, stdout, stderr) {
 
   echo('Testing OS environment');
 
-  var os = require('./lib/oscheck');
+  var os = require('../lib/oscheck');
 
   /*
     What platform you're running on: 'darwin', 'freebsd', 'linux', 'sunos' or 'win32'

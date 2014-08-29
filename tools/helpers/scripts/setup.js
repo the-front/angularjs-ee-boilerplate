@@ -4,7 +4,7 @@ var async_exec = require('child_process').exec
 async_exec('npm install shelljs --save-dev', function (err, stdout, stderr) {
   require('shelljs/global');
 
-  var oscheck = require('./lib/oscheck');
+  var oscheck = require('../lib/oscheck');
 
   var sudoStr =  (oscheck.isLinux || oscheck.isMac) ? 'sudo ' : '';
   var cmd = '';
