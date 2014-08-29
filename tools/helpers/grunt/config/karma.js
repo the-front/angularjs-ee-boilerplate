@@ -15,16 +15,17 @@ grunt.config('karma', {
     logLevel: 'ERROR',
     coverageReporter: {
       type : 'html',
-      dir : '<%= project.karma.reportsDir %>/coverage/' // , subdir: 'html'
+      dir : '<%= project.karma.reportsDir %>',
+      subdir: 'coverage'
     },
     htmlReporter: {
-      outputDir: '../<%= project.karma.reportsDir %>/jasmine'
+      outputDir: '../<%= project.karma.reportsDir %>/__jasmine',
+      templatePath: 'helpers/html_report_template/jasmine.html'
     }
   },
 
   unit: {
     reporters: ['html', 'progress', 'coverage'],
-    //browsers: ['Chrome'],
     browsers: ['PhantomJS'],
     coverageReporter: '<%= karma.coverage.coverageReporter %>',
     htmlReporter: '<%= karma.coverage.htmlReporter %>'
