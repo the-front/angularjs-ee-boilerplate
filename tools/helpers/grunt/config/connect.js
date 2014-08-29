@@ -29,8 +29,7 @@ grunt.config('connect', {
       port: '<%= project.reports.port.webserver %>',
       base: '<%= project.paths.reports %>',
       hostname: '*',
-      livereload: '<%= project.reports.port.livereload %>',
-      open: 'http://localhost:<%= project.reports.port.webserver %>'
+      livereload: '<%= project.reports.port.livereload %>'
     }
   },
 
