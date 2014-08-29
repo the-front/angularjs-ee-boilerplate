@@ -2,6 +2,24 @@ module.exports = function(grunt) {
 
 grunt.config('copy', {
 
+  // @begin: karma reports
+  karma_report_jasmine: {
+    files: [
+      {
+        expand: true,
+        flatten: true,
+        cwd: '<%= project.paths.reports %>/__jasmine',
+        src: [
+          'Phantom*/index.html'
+        ],
+        dest: '<%= project.paths.reports %>/jasmine',
+      }
+    ]
+  },
+  // @end: karma reports
+
+  //----------------------------------------------------------------------------
+
   // @begin: dev build tasks
   dev_jstobuild: {
     files: [
