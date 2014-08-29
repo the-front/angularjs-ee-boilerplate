@@ -22,7 +22,7 @@ module.exports = function() {
         {pattern: 'src/vendor/**/*.{js,map,css}', included: false, served: true, watched:false},
 
         // load app source and test's specs
-        'tools/tests/require.config.js',
+        'tools/helpers/tests/require.config.js',
 
         // app source, tests specs and html for cache templates
         {pattern: 'src/**/*.{js,css,html}', included: false, served: true}
