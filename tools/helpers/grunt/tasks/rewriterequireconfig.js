@@ -4,7 +4,7 @@
 module.exports = function(grunt) {
   'use strict';
 
-  var rewrite = require('../lib/js-ast-js/rewrite-require-config');
+  var rewrite = require('../../lib/js-ast-js/rewrite-require-config');
 
   grunt.registerMultiTask('rewriterequireconfig', 'Rewrite require.config.js to r.js', function() {
 
