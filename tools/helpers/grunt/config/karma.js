@@ -9,7 +9,7 @@ grunt.config('karma', {
   },
 
   coverage: {
-    reporters: ['coverage'],
+    reporters: ['progress', 'coverage'],
     browsers: ['PhantomJS'],
     singleRun: true,
     logLevel: 'ERROR',
