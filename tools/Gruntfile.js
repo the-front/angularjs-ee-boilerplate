@@ -15,10 +15,11 @@ module.exports = function(grunt) {
   grunt.loadTasks('helpers/grunt/config');
 
 
-  //--- grunt tasks
+  //--- grunt tasks ---
 
+  grunt.registerTask('checkfiles', ['lintspaces:all', 'newer:jshint']);
 
-  grunt.registerTask('start', ['clean', 'lintspaces:all', 'newer:jshint']);
+  grunt.registerTask('start', ['clean', 'checkfiles']);
 
   grunt.registerTask('default', ['start']); // TODO: check grunt-prompt
 
@@ -41,6 +42,7 @@ module.exports = function(grunt) {
     } else if(target === 'prod') {
       return  grunt.task.run([
         'start',
+        'karma:ci',
         'copy:prod_jstobuild',
         'html2js:prod',
         'rewriterequireconfig',
@@ -152,8 +154,13 @@ module.exports = function(grunt) {
     'open:reports'    // open reports ouput directory
   ]);
 
+  grunt.registerTask('ci', [
+    'start',
+    'karma:ci'
+  ]);
+
   grunt.registerTask('specs', [
-    'lintspaces:all', 'newer:jshint',
+    'checkfiles',
     'forceon',
     'karma:reports',  // generate reports
     'forceoff',

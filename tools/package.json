@@ -19,6 +19,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
+    "test": "grunt ci",
     "setup": "node helpers/scripts/setup",
     "testos": "node helpers/scripts/testos"
   },
