@@ -8,7 +8,7 @@ grunt.config('karma', {
     reporters: ['progress']
   },
 
-  coverage: {
+  reports: {
     reporters: ['progress', 'coverage', 'html'],
     browsers: ['PhantomJS'],
     singleRun: true,
@@ -27,8 +27,8 @@ grunt.config('karma', {
   unit: {
     reporters: ['html', 'progress', 'coverage'],
     browsers: ['PhantomJS'],
-    coverageReporter: '<%= karma.coverage.coverageReporter %>',
-    htmlReporter: '<%= karma.coverage.htmlReporter %>'
+    coverageReporter: '<%= karma.reports.coverageReporter %>',
+    htmlReporter: '<%= karma.reports.htmlReporter %>'
   },
 
   background: {
@@ -36,8 +36,8 @@ grunt.config('karma', {
     browsers: '<%= karma.unit.browsers %>',
     autoWatch: false,
     background: true,
-    coverageReporter: '<%= karma.coverage.coverageReporter %>',
-    htmlReporter: '<%= karma.coverage.htmlReporter %>'
+    coverageReporter: '<%= karma.reports.coverageReporter %>',
+    htmlReporter: '<%= karma.reports.htmlReporter %>'
   },
 
   ci: {

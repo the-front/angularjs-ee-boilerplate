@@ -1,11 +1,17 @@
 module.exports = function(grunt) {
 
+grunt.registerTask('reports::conect:open:watch', [
+  'connect:reports',
+  'open:karma_report_coverage',
+  'open:karma_report_jasmine',
+  'watch:reports'
+]);
+
 grunt.config('concurrent', {
 
   specs: {
     tasks: [
-      //'specs:run:coverage', // task defined on /tools/Gruntfile.js
-      'specs:run:reports', // task defined on /tools/Gruntfile.js
+      'reports::conect:open:watch',
       'karma:unit'
     ],
     options: {

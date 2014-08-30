@@ -15,7 +15,12 @@ grunt.config('clean', {
   reports: {
     options: { force: true },
     src: ['<%= project.paths.reports %>/']
-  }
+  },
+
+  karma_report_jasmine: {
+    options: { force: true },
+    src: ['<%= project.paths.reports %>/__jasmine']
+  },
 
 });
 

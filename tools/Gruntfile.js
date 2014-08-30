@@ -127,25 +127,36 @@ module.exports = function(grunt) {
   // @end: distribution preview tasks
 
 
-  //---
+  //--- @begin: grunt --force
+
+  grunt.registerTask('forceon', 'Forces the force flag on', function() {
+      grunt.option('force', true);
+  });
+
+  grunt.registerTask('forceoff', 'Forces the force flag off', function() {
+      grunt.option('force', false);
+  });
+
+  //--- @end: grunt --force
 
 
   //--- @begin: spec's tasks
 
-  grunt.registerTask('coverage', ['karma:coverage', 'open:coverage']);
-
-  //grunt.registerTask('specs:run:unit', ['karma:background:start', 'watch:unit']); // TODO: review :: needed?
-  grunt.registerTask('specs:run:coverage', ['connect:coverage', 'watch:coverage']);
-  grunt.registerTask('specs:run:reports', [
-    'connect:reports',
-    'open:karma_report_coverage',
-    'open:karma_report_jasmine',
-    'watch:reports'
+  grunt.registerTask('reports', [
+    'start',
+    'forceon',
+    'karma:reports',  // generate reports
+    'forceoff',
+    'copy:karma_report_jasmine',
+    'clean:karma_report_jasmine',
+    'open:reports'    // open reports ouput directory
   ]);
 
   grunt.registerTask('specs', [
     'lintspaces:all', 'newer:jshint',
-    'karma:coverage',
+    'forceon',
+    'karma:reports',  // generate reports
+    'forceoff',
     'copy:karma_report_jasmine',
     'concurrent:specs'
   ]);

@@ -24,6 +24,7 @@ grunt.config('connect', {
 
   //---
 
+  // @begin: karma reports server
   reports: {
     options: {
       port: '<%= project.reports.port.webserver %>',
@@ -32,20 +33,8 @@ grunt.config('connect', {
       livereload: '<%= project.reports.port.livereload %>'
     }
   },
+  // @end: karma reports server
 
-  // @begin: coverage report server
-
-  coverage: {
-    options: {
-      port: '<%= project.coverage.port.webserver %>',
-      base: '<%= project.paths.reports %>/coverage/html',
-      hostname: '*',
-      livereload: '<%= project.coverage.port.livereload %>',
-      open: 'http://localhost:<%= project.coverage.port.webserver %>'
-    }
-  },
-
-  // @end: coverage report server
   //---
 
   livereload: {

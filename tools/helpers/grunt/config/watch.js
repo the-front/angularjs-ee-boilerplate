@@ -18,26 +18,6 @@ module.exports = function(grunt) {
 
 // https://github.com/gruntjs/grunt-contrib-watch/issues/71#issuecomment-26152333
 
-grunt.registerTask('watch:coverage', function() {
-
-  grunt.config('watch', {
-
-    coverage: {
-      files : [
-        '<%= project.paths.reports %>/coverage/html/index.html'
-      ],
-      options: {
-        livereload: '<%= project.coverage.port.livereload %>'
-      }
-    }
-
-  });
-  return grunt.task.run('watch');
-
-});
-
-//---
-
 grunt.registerTask('watch:reports', function() {
 
   grunt.config('watch', {
