@@ -27,6 +27,48 @@ module.exports = function(grunt) {
   //---
 
 
+  //--- @begin: grunt --force
+
+  grunt.registerTask('forceon', 'Forces the force flag on', function() {
+      grunt.option('force', true);
+  });
+
+  grunt.registerTask('forceoff', 'Forces the force flag off', function() {
+      grunt.option('force', false);
+  });
+
+  //--- @end: grunt --force
+
+
+  //--- @begin: spec's tasks
+
+  grunt.registerTask('reports', [
+    'start',
+    'forceon',
+    'karma:reports',  // generate reports
+    'forceoff',
+    'copy:karma_report_jasmine',
+    'clean:karma_report_jasmine',
+    'open:reports'    // open reports ouput directory
+  ]);
+
+  grunt.registerTask('ci', [
+    'start',
+    'karma:ci'
+  ]);
+
+  grunt.registerTask('specs', [
+    'checkfiles',
+    'forceon',
+    'karma:reports',  // generate reports
+    'forceoff',
+    'copy:karma_report_jasmine',
+    'concurrent:specs'
+  ]);
+
+  //--- @end: spec's tasks
+
+
   // @begin: build tasks
   grunt.registerTask('build', function(target) {
     if(target === 'dev') {
@@ -127,47 +169,5 @@ module.exports = function(grunt) {
     // @end: preview with browser sync support
 
   // @end: distribution preview tasks
-
-
-  //--- @begin: grunt --force
-
-  grunt.registerTask('forceon', 'Forces the force flag on', function() {
-      grunt.option('force', true);
-  });
-
-  grunt.registerTask('forceoff', 'Forces the force flag off', function() {
-      grunt.option('force', false);
-  });
-
-  //--- @end: grunt --force
-
-
-  //--- @begin: spec's tasks
-
-  grunt.registerTask('reports', [
-    'start',
-    'forceon',
-    'karma:reports',  // generate reports
-    'forceoff',
-    'copy:karma_report_jasmine',
-    'clean:karma_report_jasmine',
-    'open:reports'    // open reports ouput directory
-  ]);
-
-  grunt.registerTask('ci', [
-    'start',
-    'karma:ci'
-  ]);
-
-  grunt.registerTask('specs', [
-    'checkfiles',
-    'forceon',
-    'karma:reports',  // generate reports
-    'forceoff',
-    'copy:karma_report_jasmine',
-    'concurrent:specs'
-  ]);
-
-  //--- @end: spec's tasks
 
 };
