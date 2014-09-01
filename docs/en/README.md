@@ -41,7 +41,7 @@ $ npm run setup
 
 * Must have [node.js (at least v0.10.0)](http://nodejs.org/) installed with npm (Node Package Manager)
 
-* Must have [Grunt](https://github.com/gruntjs/grunt) node package installed globally `[sudo] npm install -g grunt-cli`
+* Must have [Grunt](https://github.com/gruntjs/grunt) node package installed globally
 
 ## Use Guide
 
@@ -59,7 +59,7 @@ $ npm run setup
 
 * `grunt build:dev` >> prepare files for development, inside `./tools/.temp` directory
 
-* `grunt build:prod` >> prepare files for distribution / production, inside `./dist` directory
+* `grunt build:prod` >> cleanup build directories, execute test's and then prepare files for distribution / production, inside `./dist` directory
 
 --
 
@@ -90,6 +90,16 @@ $ npm run setup
 * `grunt dist:sync` >> first will execute `build:prod` task, after that start web server with generated files + browser-sync to synchronize data and navigation
 
 * `grunt dist:sync:proxy` >> first will execute `build:prod` task, after that start web server with generated files + browser-sync to synchronize data and navigation + proxy to route requests to other server based on given context, for example `/rest`
+
+--
+
+* `grunt ci` - cleanup build directories and then execute `karma:ci` grunt task that run test's
+
+* `grunt reports` - cleanup build directories, execute `karma:reports` grunt task that generate coverage and jasmine html reports and then open reports output directory
+
+* `grunt specs` - first generate coverage and jasmine html reports, start karma with watch process and webserver with livereload watching reports html's
+
+> **Attention:** if you want to run with dev flow, run first dev task (ex.: `grunt dev`) in one terminal and in other terminal run `grunt specs`
 
 --
 
@@ -129,13 +139,16 @@ $ npm run setup
 ```
 /tools
   /helpers
+    /lib                 >> auxiliary processing
+    /scripts             >> automation processing
+    /html_report_template
+      jasmine.html       >> jasmine html report template
     /grunt
-      /lib               >> auxiliary processing to /tasks
       /config            >> configuration files to grunt.js tasks
       /tasks             >> custom grunt.js tasks
+    /tests
+      require.config.js  >> load application files and test's specs to Karma Runner
   /templates             >> templates files for grunt.js generate task
-  /tests
-    require.config.js    >> load application files and test's specs to Karma Runner
   config.js              >> global configs to grunt.js tasks
   Gruntfile.js           >> main grunt.js configuration file
   package.json           >> node.js 'tools' project and dependencies configuration
@@ -220,7 +233,7 @@ $ npm run setup
 
   require.unit.load.js  >> list and reference all tests unit to be loaded
                            this file is referenced as dependency on
-                           ./tools/tests/require.config.js
+                           ./tools/helpers/tests/require.config.js
 
   ng.app.js             >> where start Angular.js application
 

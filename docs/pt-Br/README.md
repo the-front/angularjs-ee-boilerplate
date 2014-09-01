@@ -43,7 +43,7 @@ $ npm run setup
 
   * caso esteja em um ambiente corporativo, utilizando o windows atrás de um proxy NTLM, siga estas intruções : [Utilizando o Node.js em um Windows XP sem Administrador | Javascript Brasil](http://javascriptbrasil.com/2012/11/19/utilizando-o-node-js-em-um-windows-xp-sem-administrador/)
 
-* Necessário ter o [Grunt](https://github.com/gruntjs/grunt) instalado como um pacote global `[sudo] npm install -g grunt-cli`
+* Necessário ter o [Grunt](https://github.com/gruntjs/grunt) instalado como um pacote global
 
 ## Guia de Uso
 
@@ -61,7 +61,7 @@ $ npm run setup
 
 * `grunt build:dev` >> prepara os arquivos para desenvolvimento, dentro do diretório `./tools/.temp`
 
-* `grunt build:prod` >> prepara os arquivos para distribuição / produção, dentro do diretório `./dist`
+* `grunt build:prod` >> limpa os diretórios de build, executa os testes e então prepara os arquivos para distribuição / produção, dentro do diretório `./dist`
 
 --
 
@@ -92,6 +92,16 @@ $ npm run setup
 * `grunt dist:sync` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + browser-sync para sincronizar os dados e navegação
 
 * `grunt dist:sync:proxy` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + browser-sync para sincronizar os dados e navegação + proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
+
+--
+
+* `grunt ci` - limpa os diretórios de build, executa a tarefa `karma:ci` do grunt que executa os testes
+
+* `grunt reports` - limpa os diretórios de build, executa a tarefa `karma:reports` do grunt que gera os relatórios html de cobertura e teste, então abre o diretório onde os relatórios foram gerados
+
+* `grunt specs` - primeiro gera os relatórios html de cobertura e teste, inicia o karma com watch e um webserver com livereload observando os arquivos html dos relatórios, que são regerados a cada execução do karma
+
+> **Atenção:** caso queira executar com o fluxo de desenvolvimento, execute primeiro a tarefa de desenvolvimento (ex.: `grunt dev`) em um terminal e em outro terminal execute `grunt specs`
 
 --
 
@@ -129,13 +139,16 @@ $ npm run setup
 ```
 /tools
   /helpers
+    /lib                 >> processamentos auxiliares
+    /scripts             >> processamentos de automação
+    /html_report_template
+      jasmine.html       >> template de relatório html do jasmine
     /grunt
-      /lib               >> processamentos auxiliares para /tasks
       /config            >> arquivos de configurações para as tarefas do grunt.js
       /tasks             >> tarefas customizadas para o grunt.js
+    /tests
+      require.config.js  >> carrega os arquivos e testes da aplicação para o Karma Runner
   /templates             >> arquivos de templates para a tarefa generate do grunt.js
-  /tests
-    require.config.js    >> carrega os arquivos e testes da aplicação para o Karma Runner
   config.js              >> configurações globais para as tarefas do grunt.js
   Gruntfile.js           >> arquivo principal de configuração do grunt.js
   package.json           >> arquivo de configuração e dependências do projeto 'tools' em node.js
@@ -220,7 +233,7 @@ $ npm run setup
 
   require.unit.load.js  >> lista e referencia todos os tests a serem carregados
                            este arquivo é referenciado como dependencia no
-                           ./tools/tests/require.config.js
+                           ./tools/helpers/tests/require.config.js
 
   ng.app.js             >> onde inicializa a aplicação Angular.js
 
