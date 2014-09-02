@@ -2,11 +2,8 @@ define(
 // require.js dependency injection
 [
   './module',
-
   './factories/input.focus',
-
-  './directives/input.focus',
-  './directives/input.blur'
+  './directives/input.focus'
 ],
 
 // require.js module scope
