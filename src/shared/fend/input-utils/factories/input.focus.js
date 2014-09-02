@@ -1,7 +1,7 @@
 define(
 // require.js dependency injection
 [
-  './module'
+  '../module'
 ],
 
 // require.js module scope
@@ -24,10 +24,13 @@ function(module) {
 
       // private
       var $scope,
-          $timeout,
           focusFieldNameArray,
           lastFocusInput = null,
           toSelect = null;
+
+      function isStr(s){
+        return typeof s === "string" || s instanceof String;
+      }
 
       function resetAll() {
         lastFocusInput = null;
@@ -42,22 +45,17 @@ function(module) {
       }
 
       function selectFocusField() {
-        if(lastFocusInput !== toSelect) {
-          resetFocusFields();
+        resetFocusFields();
 
-          if(toSelect) {
-            $scope[toSelect] = true;
-            lastFocusInput = toSelect;
-          }
-        }
+        $scope[toSelect] = true;
+        lastFocusInput = toSelect;
       }
 
       //--- === ---
 
       // class constructr
-      var InputFocus = function(timeout, paginationFor) {
-        $timeout = timeout;
-        if(paginationFor) this.classInfo = 'InputFocus for: ' + paginationFor;
+      var InputFocus = function(paginationFor) {
+        this.classInfo = 'InputFocus for: ' + paginationFor;
       };
       var ClassDef = InputFocus;
       //---
@@ -71,9 +69,13 @@ function(module) {
       };
 
       ClassDef.prototype.setFocus = function(focusFieldName, wait) {
-        wait = wait || 100; // ms
-        toSelect = focusFieldName;
-        $timeout(selectFocusField, wait);
+        if( isStr( focusFieldName ) ) {
+          wait = wait || 100; // ms
+          if(lastFocusInput !== focusFieldName) {
+            toSelect = focusFieldName;
+            $timeout(selectFocusField, wait);
+          }
+        }
       };
 
       ClassDef.prototype.focusReset = function() {
@@ -95,7 +97,7 @@ function(module) {
       if(instance) {
         return instance;
       } else {
-        instance = new InputFocus($timeout, name);
+        instance = new InputFocus(name);
         instanceCache[name] = instance;
         return instance;
       }

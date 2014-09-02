@@ -3,7 +3,7 @@ define(
 [
   './module',
 
-  './factory.input.focus',
+  './factories/input.focus',
 
   './directives/input.focus',
   './directives/input.blur'
