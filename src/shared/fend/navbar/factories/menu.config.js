@@ -1,7 +1,7 @@
 define(
 // require.js dependency injection
 [
-  './module'
+  '../module'
 ],
 
 // require.js module scope
@@ -46,10 +46,13 @@ function(module) {
       var menuItem = menuItemFn(label, location);
       locationsMap[menuItem.location] = menuItem;
 
-      if(position === 'left') {
-        menuItems.left.push(menuItem);
-      } else if(position === 'right') {
-        menuItems.right.push(menuItem);
+      switch(position){
+        case 'left':
+          menuItems.left.push(menuItem);
+          break;
+        case 'right':
+          menuItems.right.push(menuItem);
+          break;
       }
 
     };

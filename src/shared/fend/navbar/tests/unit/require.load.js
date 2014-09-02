@@ -1,8 +1,8 @@
 define(
 // require.js dependency injection
 [
-  './module',
-  './factories/menu.config'
+  './module.spec',
+  './factories/menu.config.spec'
 ],
 
 // require.js module scope

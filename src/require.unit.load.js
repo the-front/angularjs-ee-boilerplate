@@ -4,6 +4,7 @@ define(
   // TODO: define and load /shared tests unit
 
   'shared/fend/input-utils/tests/unit/require.load',
+  'shared/fend/navbar/tests/unit/require.load',
   'shared/fend/pagination/tests/unit/require.load',
 
   'app/main/tests/unit/require.load',
