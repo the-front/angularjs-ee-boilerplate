@@ -1,8 +1,7 @@
 define(
 // require.js dependency injection
 [
-  // TODO: define and load /shared tests unit
-
+  'shared/fend/progressbar-loading/tests/unit/require.load',
   'shared/fend/input-utils/tests/unit/require.load',
   'shared/fend/navbar/tests/unit/require.load',
   'shared/fend/pagination/tests/unit/require.load',

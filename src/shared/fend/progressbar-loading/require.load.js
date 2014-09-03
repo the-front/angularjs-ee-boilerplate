@@ -1,12 +1,11 @@
 define(
 // require.js dependency injection
 [
-  //'./require.config',
-
   './module',
-  './config.interceptor',
   './factories/progress.config',
-  './factories/progress.status'
+  './factories/progress.status',
+  './factories/progress.interceptor',
+  './interceptors/http.config'
 ],
 
 // require.js module scope
