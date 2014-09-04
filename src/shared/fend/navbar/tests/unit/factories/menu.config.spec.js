@@ -2,7 +2,7 @@ describe("Testing fend.navbar MenuConfig Factory", function() {
 
   var rootScope, location, menu;
 
-    // excuted before each "it" is run
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
