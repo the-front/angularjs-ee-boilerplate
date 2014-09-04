@@ -18,7 +18,7 @@ describe('Angular.js \'about\' Routes', function() {
   /* only to check if injection work fine */
   it('should be defined', function() {
 
-    expect(route).not.toEqual(null);
+    expect(route).toBeDefined();
 
   });
 

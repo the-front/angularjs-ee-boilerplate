@@ -12,7 +12,7 @@ describe('Angular.js \'about\' Module', function() {
 
   it("should be registered", function() {
 
-    expect(module).not.toEqual(null);
+    expect(module).toBeDefined();
 
   });
 
