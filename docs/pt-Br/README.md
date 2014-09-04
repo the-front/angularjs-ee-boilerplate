@@ -1,6 +1,7 @@
 # Angular.js Enterprise Edition Boilerplate
 
 <!-- toc -->
+
 * [Visão Geral](#visão-geral)
 * [Guia de Instalação](#guia-de-instalação)
   * [Pré-Requisitos](#pré-requisitos)
@@ -9,9 +10,9 @@
   * [Ferramenta para Publicação no GitHub gh-pages](#ferramenta-para-publicação-no-github-gh-pages)
 * [Estrutura de Diretórios](#estrutura-de-diretórios)
   * [Desenvolvimento](#desenvolvimento)
+    * [Problemas Conhecidos](#problemas-conhecidos)
   * [Publicação](#publicação)
   * [Projeto](#projeto)
-* [License](#license)
 
 <!-- toc stop -->
 
@@ -160,6 +161,31 @@ $ npm run setup
 >
 > * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
 >
+
+#### Problemas Conhecidos
+
+##### Mac OSX
+
+* [Como eu conserto o erro EMFILE: Muitos arquivos abertos? | grunt-contrib-watch - GitHub](https://github.com/gruntjs/grunt-contrib-watch#how-do-i-fix-the-error-emfile-too-many-opened-files)
+
+  * [[SuperUser] How to change default ulimit values in Mac OS X 10.6?](https://superuser.com/questions/261023/how-to-change-default-ulimit-values-in-mac-os-x-10-6)
+
+  Isto porque o sistema limita a quantidade máxima de arquivos abertos.
+  Para o OSX o valor padrão é muito baixo (256).
+  Para aumentar temporariamente este limite use o comando `ulimit -n 10480`,
+  este número será o novo limite máximo.
+
+  Em algumas versões do OSX a solução acima não funciona.
+  Neste caso tente `launchctl limit maxfiles 10480 10480` e reinicie
+  o terminal.
+
+
+##### Windows
+
+* Atrás de um proxy NTLM
+
+  * execute duas vezes o comando `npm install`, para instalar todas as dependências
+
 
 ### Publicação
 
