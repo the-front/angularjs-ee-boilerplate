@@ -27,6 +27,7 @@ describe('Testing Bookmarks Edit Controller', function() {
 
   it('should be defined', function() {
 
+    // assertions
     expect(ctrl).toBeDefined();
 
   });
@@ -34,6 +35,7 @@ describe('Testing Bookmarks Edit Controller', function() {
 
   it("should have a title equals to 'Edit Bookmark : 1'", function() {
 
+    // assertions
     expect(scope.title).toEqual('Edit Bookmark : 1');
 
   });

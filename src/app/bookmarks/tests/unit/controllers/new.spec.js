@@ -25,18 +25,21 @@ describe('Testing Bookmarks New Controller', function() {
 
   it('should be defined', function() {
 
+    // assertions
     expect(ctrl).toBeDefined();
 
   });
 
   it("should have a title equals to 'New Bookmark'", function() {
 
+    // assertions
     expect(scope.title).toEqual('New Bookmark');
 
   });
 
   it("should have empty bookmark object", function() {
 
+    // assertions
     expect(scope.bookmark.id).toEqual(0);
     expect(scope.bookmark.name).toEqual('');
 

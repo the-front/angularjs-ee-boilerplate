@@ -63,6 +63,7 @@ describe('Testing Bookmarks Search Controller', function() {
 
   it('should be defined', function() {
 
+    // assertions
     expect(ctrl).toBeDefined();
 
   });

@@ -18,6 +18,7 @@ describe("Testing Bookmarks Rest Resource", function() {
 
   it('should be defined', function() {
 
+    // assertions
     expect(resource).toBeDefined();
 
   });

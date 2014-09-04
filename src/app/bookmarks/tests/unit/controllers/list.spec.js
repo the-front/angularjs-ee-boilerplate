@@ -63,6 +63,7 @@ describe('Testing Bookmarks List Controller', function() {
 
   it('should be defined', function() {
 
+    // assertions
     expect(ctrl).toBeDefined();
 
   });
@@ -70,6 +71,7 @@ describe('Testing Bookmarks List Controller', function() {
 
   /*
   it("should change location to '/new/path'", function() {
+
     // arrange
     spyOn(location, 'path');
 
@@ -78,6 +80,7 @@ describe('Testing Bookmarks List Controller', function() {
 
     // assertions
     expect(location.path).toHaveBeenCalledWith('/new/path');
+
   });
   */
 
