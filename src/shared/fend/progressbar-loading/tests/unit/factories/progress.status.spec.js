@@ -2,7 +2,7 @@ describe("Testing fend.progressbar.loading Progress Status Factory", function() 
 
   var rootScope, status;
 
-    // excuted before each "it" is run
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
@@ -24,7 +24,10 @@ describe("Testing fend.progressbar.loading Progress Status Factory", function() 
 
 
   it("should be registered", function() {
-    expect(status).not.toEqual(null);
+
+    // assertions
+    expect(status).toBeDefined();
+
   });
 
   it("should start progress", function() {

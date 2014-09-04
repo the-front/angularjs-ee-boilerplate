@@ -7,7 +7,7 @@ describe("Testing fend.progressbar.loading Progress Interceptor Factory", functi
 
   var rootScope, interceptor, httpProviderIt, http, httpBackend;
 
-    // excuted before each "it" is run
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
@@ -33,13 +33,19 @@ describe("Testing fend.progressbar.loading Progress Interceptor Factory", functi
 
 
   it("should be registered", function() {
+
+    // assertions
     expect(interceptor).toBeDefined();
+
   });
 
   describe("HTTP tests", function() {
 
     it('should have the ProgressInterceptorDefined as an interceptor', function () {
+
+      // assertions
       expect(httpProviderIt.interceptors).toContain('ProgressInterceptorDefined');
+
     });
 
     it("should send POST request", function() {
@@ -58,6 +64,7 @@ describe("Testing fend.progressbar.loading Progress Interceptor Factory", functi
           return [200, angular.copy(data)];
         });
 
+      // act
       http.post(url, {msg: 'hello world'})
         .success(function(data, status) {
 

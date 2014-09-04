@@ -39,7 +39,7 @@ describe("Testing fend.progressbar.loading Progress Config Factory", function() 
 
   var rootScope, config;
 
-    // excuted before each "it" is run
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
@@ -60,7 +60,10 @@ describe("Testing fend.progressbar.loading Progress Config Factory", function() 
 
 
   it("should be registered", function() {
-    expect(config).not.toEqual(null);
+
+    // assertions
+    expect(config).toBeDefined();
+
   });
 
   it("should set color #00FF00", function() {
@@ -104,6 +107,7 @@ describe("Testing fend.progressbar.loading Progress Config Factory", function() 
       rootScope.$emit('loadingbar:start:event');
       rootScope.$digest();
 
+      // assertions
       expect(mockNgProgress.start).toHaveBeenCalled();
 
     });
@@ -118,6 +122,7 @@ describe("Testing fend.progressbar.loading Progress Config Factory", function() 
       rootScope.$emit('loadingbar:progress:event', value);
       rootScope.$digest();
 
+      // assertions
       expect(mockNgProgress.set).toHaveBeenCalledWith(value);
 
     });
@@ -132,6 +137,7 @@ describe("Testing fend.progressbar.loading Progress Config Factory", function() 
       rootScope.$emit('loadingbar:complete:event');
       rootScope.$digest();
 
+      // assertions
       expect(mockNgProgress.complete).toHaveBeenCalled();
       expect(mockNgProgress.stop).toHaveBeenCalled();
 

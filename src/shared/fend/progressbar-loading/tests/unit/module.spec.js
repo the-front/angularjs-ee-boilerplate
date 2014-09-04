@@ -2,12 +2,19 @@ describe('Angular.js \'fend.progressbar.loading\' Module', function() {
 
   var module;
 
+  // excuted before each "it" is run
   beforeEach(function() {
+
+    // load the module
     module = angular.module('fend.progressbar.loading');
+
   });
 
   it("should be registered", function() {
-    expect(module).not.toEqual(null);
+
+    // assertions
+    expect(module).toBeDefined();
+
   });
 
 
@@ -28,9 +35,14 @@ describe('Angular.js \'fend.progressbar.loading\' Module', function() {
     ];
 
     mainDeps.forEach(function( depName ) {
+
       it('should have ' + depName +  ' as a dependency', function() {
+
+        // assertions
         expect(hasModule( depName )).toEqual(true);
+
       });
+
     });
 
   });
