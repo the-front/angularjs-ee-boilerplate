@@ -22,15 +22,15 @@ function(module) {
 
     return {
       eventListeners: function() {
-        $rootScope.$on('loadingbar:start', function(event) {
+        $rootScope.$on('loadingbar:start:event', function(event) {
           ngProgress.start();
         });
 
-        $rootScope.$on('loadingbar:progress', function(event, value) {
+        $rootScope.$on('loadingbar:progress:event', function(event, value) {
           ngProgress.set(value);
         });
 
-        $rootScope.$on('loadingbar:complete', function(event) {
+        $rootScope.$on('loadingbar:complete:event', function(event) {
           ngProgress.complete();
           ngProgress.stop();
         });

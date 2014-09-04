@@ -17,6 +17,9 @@ describe("Testing fend.progressbar.loading Progress Status Factory", function() 
 
     });
 
+    // arrange
+    spyOn(rootScope, '$emit');
+
   });
 
 
@@ -24,6 +27,38 @@ describe("Testing fend.progressbar.loading Progress Status Factory", function() 
     expect(status).not.toEqual(null);
   });
 
-  // TODO: define tests
+  it("should start progress", function() {
+
+    // act
+    status.start();
+
+    // assertions
+    expect(rootScope.$emit).toHaveBeenCalledWith('loadingbar:start:event');
+
+
+  });
+
+  it("should set progress value", function() {
+
+    // arrange
+    var value = 42;
+
+    // act
+    status.progress(value);
+
+    // assertions
+    expect(rootScope.$emit).toHaveBeenCalledWith('loadingbar:progress:event', value*100);
+
+  });
+
+  it("should complete progress", function() {
+
+    // act
+    status.complete();
+
+    // assertions
+    expect(rootScope.$emit).toHaveBeenCalledWith('loadingbar:complete:event');
+
+  });
 
 });

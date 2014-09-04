@@ -20,15 +20,15 @@ function(module) {
 
     return {
       start: function() {
-        $rootScope.$emit('loadingbar:start');
+        $rootScope.$emit('loadingbar:start:event');
       },
 
       progress: function(value) {
-        $rootScope.$emit('loadingbar:progress', value*100);
+        $rootScope.$emit('loadingbar:progress:event', value*100);
       },
 
       complete: function() {
-        $rootScope.$emit('loadingbar:complete');
+        $rootScope.$emit('loadingbar:complete:event');
       }
     };
 
