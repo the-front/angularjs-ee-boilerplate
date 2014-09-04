@@ -3,11 +3,16 @@ describe('Angular.js \'about\' Module', function() {
   var module;
 
   beforeEach(function() {
+
+    // load the module
     module = angular.module('about');
+
   });
 
   it("should be registered", function() {
+
     expect(module).not.toEqual(null);
+
   });
 
   describe("Dependencies:", function() {

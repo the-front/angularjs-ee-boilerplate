@@ -21,7 +21,9 @@ describe('Testing About Controller', function() {
 
 
   it('should have a pageName equals to \'About Page\'', function() {
+
     expect(scope.pageName).toEqual('About Page');
+
   });
 
 });

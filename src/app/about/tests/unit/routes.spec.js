@@ -3,16 +3,22 @@ describe('Angular.js \'about\' Routes', function() {
   var route;
 
   beforeEach(function() {
+
+    // load the module
     module('about');
 
+    // inject dependencies
     inject(function($route) {
       route = $route;
     });
+
   });
 
   /* only to check if injection work fine */
   it('should be defined', function() {
+
     expect(route).not.toEqual(null);
+
   });
 
   describe('Routes Map', function() {
