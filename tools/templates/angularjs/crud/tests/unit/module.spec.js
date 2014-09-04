@@ -2,12 +2,19 @@ describe('Angular.js \'<%= name %>\' Module', function() {
 
   var module;
 
+  // excuted before each "it" is run
   beforeEach(function() {
+
+    // load the module
     module = angular.module('<%= name %>');
+
   });
 
   it("should be registered", function() {
-    expect(module).not.toEqual(null);
+
+    // assertions
+    expect(module).toBeDefined();
+
   });
 
   describe("Dependencies:", function() {
@@ -33,9 +40,14 @@ describe('Angular.js \'<%= name %>\' Module', function() {
     ];
 
     mainDeps.forEach(function( depName ) {
+
       it('should have ' + depName +  ' as a dependency', function() {
+
+        // assertions
         expect(hasModule( depName )).toEqual(true);
+
       });
+
     });
 
   });

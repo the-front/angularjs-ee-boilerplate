@@ -26,12 +26,18 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
 
 
   it('should be defined', function() {
-    expect(ctrl).toBeDefined(true);
+
+    // assertions
+    expect(ctrl).toBeDefined();
+
   });
 
 
   it("should have a title equals to 'Edit <%= helpers.capitalize( name ) %> : 1'", function() {
+
+    // assertions
     expect(scope.title).toEqual('Edit <%= helpers.capitalize( name ) %> : 1');
+
   });
 
 
@@ -40,19 +46,21 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
     // act
     scope.remove();
 
-    //  assertions
+    // assertions
     expect(scope.showConfirm).toBeTruthy();
 
   });
 
 
   it("should hide delete confirm", function() {
+
     // act
     scope.showConfirm = true;
     scope.cancelRemove();
 
-    //  assertions
+    // assertions
     expect(scope.showConfirm).toBeFalsy();
+
   });
 
 
@@ -76,7 +84,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
 
     it("should get <%= helpers.capitalize( name ) %> id : 1", function() {
 
-      //  assertions
+      // assertions
       expect(scope.<%= name %>.id).toEqual(1);
 
     });
@@ -98,7 +106,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
       scope.save();
       httpBackend.flush();
 
-      //  assertions
+      // assertions
       expect(rootScope.$emit).toHaveBeenCalledWith('<%= name %>:update:event', 'updated');
 
     });
@@ -121,7 +129,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
       scope.destroy();
       httpBackend.flush();
 
-      //  assertions
+      // assertions
       expect(rootScope.$emit).toHaveBeenCalledWith('<%= name %>:remove:event', 'removed');
 
     });

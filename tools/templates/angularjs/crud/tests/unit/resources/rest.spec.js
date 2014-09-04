@@ -2,11 +2,13 @@ describe("Testing <%= helpers.capitalize( name ) %> Rest Resource", function() {
 
   var resource;
 
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
     module('<%= name %>');
 
+    // inject dependencies
     inject(function(<%= helpers.capitalize( name ) %>Resource) {
       resource = <%= helpers.capitalize( name ) %>Resource;
     });
@@ -15,7 +17,10 @@ describe("Testing <%= helpers.capitalize( name ) %> Rest Resource", function() {
 
 
   it('should be defined', function() {
-    expect(resource).toBeDefined(true);
+
+    // assertions
+    expect(resource).toBeDefined();
+
   });
 
 });

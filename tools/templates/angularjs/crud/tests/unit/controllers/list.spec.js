@@ -61,7 +61,10 @@ describe('Testing <%= helpers.capitalize( name ) %> List Controller', function()
 
 
   it('should be defined', function() {
-    expect(ctrl).toBeDefined(true);
+
+    // assertions
+    expect(ctrl).toBeDefined();
+
   });
 
 
@@ -81,7 +84,7 @@ describe('Testing <%= helpers.capitalize( name ) %> List Controller', function()
       // act
       rootScope.$emit('<%= name %>:add:event', 'added');
 
-      //  assertions
+      // assertions
       expect(location.path).toHaveBeenCalledWith('/<%= route %>');
 
     });
@@ -92,7 +95,7 @@ describe('Testing <%= helpers.capitalize( name ) %> List Controller', function()
       // act
       rootScope.$emit('<%= name %>:update:event', 'updated');
 
-      //  assertions
+      // assertions
       expect(location.path).toHaveBeenCalledWith('/<%= route %>');
 
     });
@@ -103,7 +106,7 @@ describe('Testing <%= helpers.capitalize( name ) %> List Controller', function()
       // act
       rootScope.$emit('<%= name %>:remove:event', 'removed');
 
-      //  assertions
+      // assertions
       expect(location.path).toHaveBeenCalledWith('/<%= route %>');
 
     });
@@ -196,6 +199,7 @@ describe('Testing <%= helpers.capitalize( name ) %> List Controller', function()
   describe("update page size", function() {
 
     it("should be valid", function() {
+
       // arrange
       scope.pageMinSize = 5;
       scope.pageMaxSize = 100;
@@ -208,6 +212,7 @@ describe('Testing <%= helpers.capitalize( name ) %> List Controller', function()
     });
 
     it("should be invalid", function() {
+
       // arrange
       scope.pageMinSize = 5;
       scope.pageMaxSize = 100;

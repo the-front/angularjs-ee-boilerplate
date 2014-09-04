@@ -24,16 +24,25 @@ describe('Testing <%= helpers.capitalize( name ) %> New Controller', function() 
 
 
   it('should be defined', function() {
-    expect(ctrl).toBeDefined(true);
+
+    // assertions
+    expect(ctrl).toBeDefined();
+
   });
 
   it("should have a title equals to 'New <%= helpers.capitalize( name ) %>'", function() {
+
+    // assertions
     expect(scope.title).toEqual('New <%= helpers.capitalize( name ) %>');
+
   });
 
   it("should have empty <%= name %> object", function() {
+
+    // assertions
     expect(scope.<%= name %>.id).toEqual(0);
     expect(scope.<%= name %>.name).toEqual('');
+
   });
 
   it("should save", function() {
