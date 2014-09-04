@@ -21,7 +21,10 @@ describe('Testing <%= helpers.capitalize( name ) %> Controller', function() {
 
 
   it('should have a pageName equals to \'<%= helpers.capitalize( name ) %> Page\'', function() {
+
+    // assertions
     expect(scope.pageName).toEqual('<%= helpers.capitalize( name ) %> Page');
+
   });
 
 });
