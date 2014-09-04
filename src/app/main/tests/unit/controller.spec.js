@@ -22,6 +22,7 @@ describe('Testing Main Controller', function() {
 
   it('should be defined', function() {
 
+    // assertions
     expect(ctrl).toBeDefined();
 
   });

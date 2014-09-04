@@ -18,6 +18,7 @@ describe('Angular.js \'main\' Routes', function() {
   /* only to check if injection work fine */
   it('should be defined', function() {
 
+    // assertions
     expect(route).toBeDefined();
 
   });
@@ -27,11 +28,17 @@ describe('Angular.js \'main\' Routes', function() {
     describe('location \'/404\'', function() {
 
       it('should be defined', function() {
+
+        // assertions
         expect(route.routes['/404']).toBeDefined();
+
       });
 
       it('should map to templateUrl app/main/templates/404.html', function() {
+
+        // assertions
         expect(route.routes['/404'].templateUrl).toEqual('app/main/templates/404.html');
+
       });
 
     });
@@ -39,7 +46,10 @@ describe('Angular.js \'main\' Routes', function() {
     describe('otherwise is the empty string', function() {
 
       it('should redirect to location \'/404\'', function() {
+
+        // assertions
         expect(route.routes[null].redirectTo).toEqual('/404');
+
       });
 
     });
