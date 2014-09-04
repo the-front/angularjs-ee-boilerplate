@@ -10,7 +10,7 @@ var path      = require('path'),
 
 /*
   single file and other templates samples check
-  https://github.com/erkobridee/lab-nodejs/tree/master/javascript/grunt/templates/lodash-template
+  https://github.com/erkobridee/lab-nodejs/tree/master/javascript/runner/task/grunt/templates/lodash-template
 */
 
 //-----------------------------------------------------------------------------
