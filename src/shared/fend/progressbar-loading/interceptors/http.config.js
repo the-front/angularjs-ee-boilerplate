@@ -11,16 +11,18 @@ function(module) {
 
   module.config(
 
-    ['$httpProvider',
+    ['$httpProvider', '$provide',
 
-  function ($httpProvider) {
+  function ($httpProvider, $provide) {
 
-    var interceptor = ['ProgressInterceptor', function(progress) {
+    $provide.factory('ProgressInterceptorDefined',
+      ['ProgressInterceptor',
+    function(progress) {
       progress.setHttpProviderDefaults($httpProvider);
       return progress;
-    }];
+    }]);
 
-    $httpProvider.interceptors.push(interceptor);
+    $httpProvider.interceptors.push('ProgressInterceptorDefined');
 
   }]);
 
