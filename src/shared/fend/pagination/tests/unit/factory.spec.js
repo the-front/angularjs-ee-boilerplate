@@ -2,7 +2,7 @@ describe("Testing fend.pagination Pagination Factory", function() {
 
   var factory;
 
-    // excuted before each "it" is run
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
@@ -19,32 +19,50 @@ describe("Testing fend.pagination Pagination Factory", function() {
 
 
   it("should be registered", function() {
-    expect(factory).not.toEqual(null);
+
+    // assertions
+    expect(factory).toBeDefined();
+
   });
 
   describe("instance", function() {
+
     var pagination;
 
     it("should get instance", function() {
+
+      // act
       pagination = factory.get('paginationInstance');
 
+      // assertions
       expect(factory.get('paginationInstance')).toBeDefined();
       expect(pagination.classInfo).toEqual('Pagination for: paginationInstance');
+
     });
 
     it("should reset page size to 20", function() {
+
+      // act
       pagination.resetPageSize(20);
 
+      // assertions
       expect(pagination.getPageSize()).toEqual(20);
+
     });
 
     it("should set next page to 2", function() {
+
+      // act
       pagination.setNextPage(2);
 
+      // assertions
       expect(pagination.getNextPage()).toEqual(2);
+
     });
 
     it("should update metainf", function() {
+
+      // arrange
       pagination.resetPageSize(10);
 
       var count = 100,
@@ -52,12 +70,15 @@ describe("Testing fend.pagination Pagination Factory", function() {
           lastPage = 2,
           totalPages = Math.ceil(count/pagination.getPageSize());
 
+      // act
       pagination.updateMetainf(count, lastPageSize, lastPage, totalPages);
 
+      // assertions
       expect(pagination.metainf.count).toEqual(count);
       expect(pagination.metainf.lastPageSize).toEqual(lastPageSize);
       expect(pagination.metainf.lastPage).toEqual(lastPage);
       expect(pagination.metainf.totalPages).toEqual(totalPages);
+
     });
 
     describe("addCheck", function() {
