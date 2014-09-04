@@ -23,13 +23,16 @@ describe('Testing Help Controller', function() {
 
 
   it('should have a pageName equals to \'Help Page\'', function() {
+
     expect(scope.pageName).toEqual('Help Page');
+
   });
 
 
   describe("Request GitHub user", function() {
 
     it("Success", function() {
+
       // arrange
       var find = 'erkobridee';
 
@@ -43,6 +46,7 @@ describe('Testing Help Controller', function() {
 
       // assertions
       expect(scope.githubUser.login).toEqual(find);
+
     });
 
   });
