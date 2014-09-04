@@ -2,17 +2,24 @@ describe('Angular.js \'home\' Routes', function() {
 
   var route;
 
+  // excuted before each "it" is run
   beforeEach(function() {
+
+    // load the module
     module('home');
 
+    // inject dependencies
     inject(function($route) {
       route = $route;
     });
+
   });
 
   /* only to check if injection work fine */
   it('should be defined', function() {
-    expect(route).not.toEqual(null);
+
+    expect(route).toBeDefined();
+
   });
 
   describe('Routes Map', function() {

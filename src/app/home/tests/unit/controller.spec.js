@@ -21,11 +21,15 @@ describe('Testing Home Controller', function() {
 
 
   it('should have a pageName equals to \'Home Page\'', function() {
+
     expect(scope.pageName).toEqual('Home Page');
+
   });
 
   it("should call success toaster...", function() {
+
     expect(scope.popup('success')).toEqual('toaster success');
+
   });
 
 });
