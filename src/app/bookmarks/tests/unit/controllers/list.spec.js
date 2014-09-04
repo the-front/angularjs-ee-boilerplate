@@ -34,6 +34,7 @@ describe('Testing Bookmarks List Controller', function() {
 
   // excuted before each "it" is run
   beforeEach(function() {
+
     var ctrlName = 'BookmarksListCtrl';
 
     // load the module
@@ -61,7 +62,9 @@ describe('Testing Bookmarks List Controller', function() {
 
 
   it('should be defined', function() {
-    expect(ctrl).toBeDefined(true);
+
+    expect(ctrl).toBeDefined();
+
   });
 
 
@@ -73,7 +76,7 @@ describe('Testing Bookmarks List Controller', function() {
     // act
     location.path('/new/path');
 
-    //  assertions
+    // assertions
     expect(location.path).toHaveBeenCalledWith('/new/path');
   });
   */
@@ -95,7 +98,7 @@ describe('Testing Bookmarks List Controller', function() {
       // act
       rootScope.$emit('bookmarks:add:event', 'added');
 
-      //  assertions
+      // assertions
       expect(location.path).toHaveBeenCalledWith('/bookmarks');
 
     });
@@ -106,7 +109,7 @@ describe('Testing Bookmarks List Controller', function() {
       // act
       rootScope.$emit('bookmarks:update:event', 'updated');
 
-      //  assertions
+      // assertions
       expect(location.path).toHaveBeenCalledWith('/bookmarks');
 
     });
@@ -117,7 +120,7 @@ describe('Testing Bookmarks List Controller', function() {
       // act
       rootScope.$emit('bookmarks:remove:event', 'removed');
 
-      //  assertions
+      // assertions
       expect(location.path).toHaveBeenCalledWith('/bookmarks');
 
     });
@@ -210,6 +213,7 @@ describe('Testing Bookmarks List Controller', function() {
   describe("update page size", function() {
 
     it("should be valid", function() {
+
       // arrange
       scope.pageMinSize = 5;
       scope.pageMaxSize = 100;
@@ -222,6 +226,7 @@ describe('Testing Bookmarks List Controller', function() {
     });
 
     it("should be invalid", function() {
+
       // arrange
       scope.pageMinSize = 5;
       scope.pageMaxSize = 100;

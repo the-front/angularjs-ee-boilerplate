@@ -35,6 +35,7 @@ describe('Testing Bookmarks Search Controller', function() {
 
   // excuted before each "it" is run
   beforeEach(function() {
+
     var ctrlName = 'BookmarksSearchCtrl';
 
     // load the module
@@ -61,7 +62,9 @@ describe('Testing Bookmarks Search Controller', function() {
   });
 
   it('should be defined', function() {
-    expect(ctrl).toBeDefined(true);
+
+    expect(ctrl).toBeDefined();
+
   });
 
 
@@ -150,6 +153,7 @@ describe('Testing Bookmarks Search Controller', function() {
   describe("update page size", function() {
 
     it("should be valid", function() {
+
       // arrange
       scope.pageMinSize = 5;
       scope.pageMaxSize = 100;
@@ -162,6 +166,7 @@ describe('Testing Bookmarks Search Controller', function() {
     });
 
     it("should be invalid", function() {
+
       // arrange
       scope.pageMinSize = 5;
       scope.pageMaxSize = 100;
@@ -222,6 +227,7 @@ describe('Testing Bookmarks Search Controller', function() {
   describe("load data", function() {
 
     it("should not search", function() {
+
       // arrange
       scope.result = {
         message: 'nothing'
@@ -233,6 +239,7 @@ describe('Testing Bookmarks Search Controller', function() {
 
       // assertions
       expect(scope.result.message).toEqual('nothing');
+
     });
 
     it("should search google bookmarks", function() {
@@ -344,6 +351,7 @@ describe('Testing Bookmarks Search Controller', function() {
     });
 
     it("should not change page", function() {
+
       // arrange
       scope.result = {
         page: 1

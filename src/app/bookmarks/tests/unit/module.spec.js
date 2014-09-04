@@ -2,12 +2,18 @@ describe('Angular.js \'bookmarks\' Module', function() {
 
   var module;
 
+  // excuted before each "it" is run
   beforeEach(function() {
+
+    // load the module
     module = angular.module('bookmarks');
+
   });
 
   it("should be registered", function() {
-    expect(module).not.toEqual(null);
+
+    expect(module).toBeDefined();
+
   });
 
   describe("Dependencies:", function() {

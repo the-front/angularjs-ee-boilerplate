@@ -2,11 +2,13 @@ describe("Testing Bookmarks Search Resource", function() {
 
   var resource;
 
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
     module('bookmarks');
 
+    // inject dependencies
     inject(function(BookmarksSearchResource) {
       resource = BookmarksSearchResource;
     });
@@ -15,7 +17,9 @@ describe("Testing Bookmarks Search Resource", function() {
 
 
   it('should be defined', function() {
-    expect(resource).toBeDefined(true);
+
+    expect(resource).toBeDefined();
+
   });
 
 });

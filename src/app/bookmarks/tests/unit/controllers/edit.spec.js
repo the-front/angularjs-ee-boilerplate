@@ -26,12 +26,16 @@ describe('Testing Bookmarks Edit Controller', function() {
 
 
   it('should be defined', function() {
-    expect(ctrl).toBeDefined(true);
+
+    expect(ctrl).toBeDefined();
+
   });
 
 
   it("should have a title equals to 'Edit Bookmark : 1'", function() {
+
     expect(scope.title).toEqual('Edit Bookmark : 1');
+
   });
 
 
@@ -40,19 +44,21 @@ describe('Testing Bookmarks Edit Controller', function() {
     // act
     scope.remove();
 
-    //  assertions
+    // assertions
     expect(scope.showConfirm).toBeTruthy();
 
   });
 
 
   it("should hide delete confirm", function() {
+
     // act
     scope.showConfirm = true;
     scope.cancelRemove();
 
-    //  assertions
+    // assertions
     expect(scope.showConfirm).toBeFalsy();
+
   });
 
 
@@ -76,7 +82,7 @@ describe('Testing Bookmarks Edit Controller', function() {
 
     it("should get bookmark id : 1", function() {
 
-      //  assertions
+      // assertions
       expect(scope.bookmark.id).toEqual(1);
 
     });
@@ -98,7 +104,7 @@ describe('Testing Bookmarks Edit Controller', function() {
       scope.save();
       httpBackend.flush();
 
-      //  assertions
+      // assertions
       expect(rootScope.$emit).toHaveBeenCalledWith('bookmarks:update:event', 'updated');
 
     });
@@ -121,7 +127,7 @@ describe('Testing Bookmarks Edit Controller', function() {
       scope.destroy();
       httpBackend.flush();
 
-      //  assertions
+      // assertions
       expect(rootScope.$emit).toHaveBeenCalledWith('bookmarks:remove:event', 'removed');
 
     });
