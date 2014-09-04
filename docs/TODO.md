@@ -24,4 +24,6 @@
 
 --
 
+- [ ] create angular constant to event's name
+
 - [ ] define and use an Angular.js NavBar directive
