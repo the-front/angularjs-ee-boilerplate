@@ -2,6 +2,7 @@ describe('Angular.js \'about\' Routes', function() {
 
   var route;
 
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module

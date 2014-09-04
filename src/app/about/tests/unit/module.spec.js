@@ -2,6 +2,7 @@ describe('Angular.js \'about\' Module', function() {
 
   var module;
 
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
