@@ -130,7 +130,11 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 
 <body id="HTMLReporter" class="html-reporter{{#results.hasFailed}} showDetails{{/results.hasFailed}}">
 
-<div>{{browserName}}</div>
+<div>{{browserName}} - <span id="executionTime"></span></div>
+<script>(function() {
+  'use strict';
+  document.getElementById('executionTime').innerHTML = new Date().toString();
+})();</script>
 
 <div class="alert">
 {{#results}}
