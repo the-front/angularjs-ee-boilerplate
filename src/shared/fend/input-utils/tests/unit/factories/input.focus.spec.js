@@ -2,7 +2,7 @@ describe("Testing fend.input.utils Input Focus Factory", function() {
 
   var factory, scope, timeout;
 
-    // excuted before each "it" is run
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
@@ -23,22 +23,31 @@ describe("Testing fend.input.utils Input Focus Factory", function() {
 
 
   it("should be registered", function() {
-    expect(factory).not.toEqual(null);
+
+    // assertions
+    expect(module).toBeDefined();
+
   });
 
   describe("instance", function() {
+
     var focus;
     var inputName   = 'focusInput';
     var inputName2  = 'focusInput2';
 
     it("should get instance", function() {
+
+      // act
       focus = factory.get('inputFocusInstance');
 
+      // assertions
       expect(factory.get('inputFocusInstance')).toBeDefined();
       expect(focus.classInfo).toEqual('InputFocus for: inputFocusInstance');
+
     });
 
     it("should config", function() {
+
       // arrange
       scope[inputName] = true;
 
@@ -50,9 +59,11 @@ describe("Testing fend.input.utils Input Focus Factory", function() {
 
       // assertions
       expect(scope[inputName]).toBeFalsy();
+
     });
 
     it("should reset focus", function() {
+
       // arrange
       focus.config(
         scope,
@@ -65,38 +76,48 @@ describe("Testing fend.input.utils Input Focus Factory", function() {
 
       // assertions
       expect(scope[inputName]).toBeFalsy();
+
     });
 
     describe("focus", function() {
+
+      // Angular unit tests - timeout, exception - JSFiddle
       // http://jsfiddle.net/eitanp461/vWecL/
 
       beforeEach(function() {
+
         focus = factory.get('inputFocusInstance');
         focus.config(
           scope,
           [inputName, inputName2]
         );
+
       });
 
       it("should set focus", function() {
+
         // act
         focus.setFocus(inputName);
         timeout.flush();
 
         // assertions
         expect(scope[inputName]).toBeTruthy();
+
       });
 
       it("should set focus with custom timeout", function() {
+
         // act
         focus.setFocus(inputName, 10);
         timeout.flush();
 
         // assertions
         expect(scope[inputName]).toBeTruthy();
+
       });
 
       it("should change focus", function() {
+
         // act
         focus.setFocus(inputName);
         timeout.flush();
@@ -105,9 +126,11 @@ describe("Testing fend.input.utils Input Focus Factory", function() {
 
         // assertions
         expect(scope[inputName2]).toBeTruthy();
+
       });
 
       it("should stay in same input", function() {
+
         // act
         focus.setFocus(inputName);
         timeout.flush();
@@ -117,9 +140,11 @@ describe("Testing fend.input.utils Input Focus Factory", function() {
         expect(function () {
           timeout.flush();
         }).toThrow();
+
       });
 
       it("should do nothing", function() {
+
         // act
         focus.setFocus(123);
 
@@ -127,6 +152,7 @@ describe("Testing fend.input.utils Input Focus Factory", function() {
         expect(function () {
           timeout.flush();
         }).toThrow();
+
       });
 
     });

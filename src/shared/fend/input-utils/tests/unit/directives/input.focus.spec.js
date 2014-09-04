@@ -2,6 +2,7 @@ describe("Testing fend.input.utils Input Focus Directive", function() {
 
   var scope, compile, doc, body;
 
+  // excuted before each "it" is run
   beforeEach(function() {
 
     // load the module
@@ -27,28 +28,34 @@ describe("Testing fend.input.utils Input Focus Directive", function() {
     var element;
 
     beforeEach(function() {
+
       scope[focusName] = false;
       scope[modelName] = 'some value';
 
       element = compile('<input type="text" name="'+fieldName+'" ng-model="'+modelName+'" fend-focus="'+focusName+'">')(scope);
       scope.$digest();
       body.append(element); // important to receive focus test
+
     });
 
 
     it("should have fend-focus attribute equals to " + focusName, function() {
+
       // assertions
       expect(element.attr('fend-focus')).toEqual(focusName);
+
     });
 
 
     it("should receive focus", function() {
+
       // act
       scope[focusName] = true;
       scope.$digest();
 
       // assertions
       expect(document.activeElement === element[0]).toBeTruthy();
+
     });
 
 
