@@ -12,6 +12,7 @@ describe('Angular.js \'about\' Module', function() {
 
   it("should be registered", function() {
 
+    // assertions
     expect(module).toBeDefined();
 
   });
@@ -33,9 +34,14 @@ describe('Angular.js \'about\' Module', function() {
     ];
 
     mainDeps.forEach(function( depName ) {
+
       it('should have ' + depName +  ' as a dependency', function() {
+
+        // assertions
         expect(hasModule( depName )).toEqual(true);
+
       });
+
     });
 
   });

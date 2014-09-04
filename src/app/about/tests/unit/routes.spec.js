@@ -18,6 +18,7 @@ describe('Angular.js \'about\' Routes', function() {
   /* only to check if injection work fine */
   it('should be defined', function() {
 
+    // assertions
     expect(route).toBeDefined();
 
   });
@@ -27,15 +28,24 @@ describe('Angular.js \'about\' Routes', function() {
     describe('location \'/about\'', function() {
 
       it('should be defined', function() {
+
+        // assertions
         expect(route.routes['/about']).toBeDefined();
+
       });
 
       it('should map to controller AboutCtrl', function() {
+
+        // assertions
         expect(route.routes['/about'].controller).toBe('AboutCtrl');
+
       });
 
       it('should map to templateUrl app/about/templates/page.html', function() {
+
+        // assertions
         expect(route.routes['/about'].templateUrl).toEqual('app/about/templates/page.html');
+
       });
 
     });
