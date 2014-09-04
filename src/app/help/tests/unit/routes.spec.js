@@ -18,6 +18,7 @@ describe('Angular.js \'help\' Routes', function() {
   /* only to check if injection work fine */
   it('should be defined', function() {
 
+    // assertions
     expect(route).toBeDefined();
 
   });
@@ -27,15 +28,24 @@ describe('Angular.js \'help\' Routes', function() {
     describe('location \'/help\'', function() {
 
       it('should be defined', function() {
+
+        // assertions
         expect(route.routes['/help']).toBeDefined();
+
       });
 
       it('should map to controller HelpCtrl', function() {
+
+        // assertions
         expect(route.routes['/help'].controller).toBe('HelpCtrl');
+
       });
 
       it('should map to templateUrl app/help/template.html', function() {
+
+        // assertions
         expect(route.routes['/help'].templateUrl).toEqual('app/help/template.html');
+
       });
 
     });

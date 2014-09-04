@@ -24,6 +24,7 @@ describe('Testing Help Controller', function() {
 
   it('should have a pageName equals to \'Help Page\'', function() {
 
+    // assertions
     expect(scope.pageName).toEqual('Help Page');
 
   });
