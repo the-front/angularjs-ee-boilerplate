@@ -2,12 +2,18 @@ describe('Angular.js \'main\' Module', function() {
 
   var module;
 
+  // excuted before each "it" is run
   beforeEach(function() {
+
+    // load the module
     module = angular.module('main');
+
   });
 
   it("should be registered", function() {
-    expect(module).not.toEqual(null);
+
+    expect(module).toBeDefined();
+
   });
 
   describe("Dependencies:", function() {
