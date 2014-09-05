@@ -6,7 +6,7 @@
 
   * [[GitHub] shakyShane / grunt-browser-sync](https://github.com/shakyShane/grunt-browser-sync) - Grunt Task for keeping multiple browsers & devices in sync when building websites.
 
-- [x] add support to code generation from templates 
+- [x] Add support to code generation from templates 
 
   - [[GitHub] erkobridee / lab-nodejs](https://github.com/erkobridee/lab-nodejs)
 
@@ -21,7 +21,9 @@
 
 ## future version
 
-- [ ] study and add Offline (Application Cache) support
+- [ ] Study [browserify](http://browserify.org/) use instead [require.js](http://requirejs.org/)
+
+- [ ] Study and add Offline (Application Cache) support
 
   * look for : `grunt appcache`
 
