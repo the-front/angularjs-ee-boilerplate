@@ -7,6 +7,12 @@
   * [Pré-Requisitos](#pré-requisitos)
 * [Guia de Uso](#guia-de-uso)
   * [Ferramentas para o Fluxo de Desenvolvimento](#ferramentas-para-o-fluxo-de-desenvolvimento)
+    * [Construção](#construção)
+    * [Geração de Código](#geração-de-código)
+    * [Desenvolvimento](#desenvolvimento)
+    * [Visualização da versão de Distribuição](#visualização-da-versão-de-distribuição)
+    * [Testes](#testes)
+    * [Configurações do Ferramental](#configurações-do-ferramental)
   * [Ferramenta para Publicação no GitHub gh-pages](#ferramenta-para-publicação-no-github-gh-pages)
 * [Estrutura de Diretórios](#estrutura-de-diretórios)
   * [Desenvolvimento](#desenvolvimento)
@@ -15,6 +21,7 @@
   * [Projeto](#projeto)
 
 <!-- toc stop -->
+
 
 ## Visão Geral
 
@@ -58,17 +65,17 @@ $ npm run setup
 
   > **Atenção:** a tarefa ***lintspaces*** para verificar a padronização dos arquivos, esta depende do arquivo na raíz do repositório : `.editorconfig`
 
---
+#### Construção
 
 * `grunt build:dev` >> prepara os arquivos para desenvolvimento, dentro do diretório `./tools/.temp`
 
 * `grunt build:prod` >> limpa os diretórios de build, executa os testes e então prepara os arquivos para distribuição / produção, dentro do diretório `./dist`
 
---
+#### Geração de Código
 
 * `grunt generate` >> pergunta qual opção de geração de código você deseja, os respectivos valores para a opção escolhida e finalmente o destino de criação dos arquivos
 
---
+#### Desenvolvimento
 
 * `grunt dev:livereload` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao livereload, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browser e dispositivos conectados no servidor
 
@@ -84,7 +91,7 @@ $ npm run setup
 
   * `grunt dev:proxy` >> alias para `grunt dev:livereload:proxy`
 
---
+#### Visualização da versão de Distribuição
 
 * `grunt dist` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados
 
@@ -94,7 +101,7 @@ $ npm run setup
 
 * `grunt dist:sync:proxy` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + browser-sync para sincronizar os dados e navegação + proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
---
+#### Testes
 
 * `grunt ci` - limpa os diretórios de build, executa a tarefa `karma:ci` do grunt que executa os testes
 
@@ -104,7 +111,7 @@ $ npm run setup
 
 > **Atenção:** caso queira executar com o fluxo de desenvolvimento, execute primeiro a tarefa de desenvolvimento (ex.: `grunt dev`) em um terminal e em outro terminal execute `grunt specs`
 
---
+#### Configurações do Ferramental
 
 * Configurações globais do ferramental: `./tools/config.js`, as quais são utilizadas no `./tools/helpers/grunt/config/project.js`
 

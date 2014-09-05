@@ -7,6 +7,12 @@
   * [Prerequisites](#prerequisites)
 * [Use Guide](#use-guide)
   * [Tools for Development Workflow](#tools-for-development-workflow)
+    * [Build](#build)
+    * [Code Generation](#code-generation)
+    * [Development](#development)
+    * [Distribuction Preview](#distribuction-preview)
+    * [Tests](#tests)
+    * [Tools Configuration](#tools-configuration)
   * [Publishing tool for GitHub gh-pages](#publishing-tool-for-github-gh-pages)
 * [Directories Structure](#directories-structure)
   * [Development](#development)
@@ -15,6 +21,7 @@
   * [Project](#project)
 
 <!-- toc stop -->
+
 
 ## Overview
 
@@ -56,17 +63,17 @@ $ npm run setup
 
   > **Attention:** the following task **lintspaces** will verify the patterns insides files according rules inside `.editorconfig` in the root directory
 
---
+#### Build
 
 * `grunt build:dev` >> prepare files for development, inside `./tools/.temp` directory
 
 * `grunt build:prod` >> cleanup build directories, execute test's and then prepare files for distribution / production, inside `./dist` directory
 
---
+#### Code Generation
 
 * `grunt generate` >> ask for which code generate option you want, values for the chosen and finally output destination
 
---
+#### Development
 
 * `grunt dev:livereload` >> first will execute `build:dev` task, after that start web server with livereload support and watch changes on files *.html, .css and .js*, that will update all browsers and devices connect to server
 
@@ -82,7 +89,7 @@ $ npm run setup
 
   * `grunt dev:proxy` >> alias to `grunt dev:livereload:proxy`
 
---
+#### Distribuction Preview
 
 * `grunt dist` >> first will execute `build:prod` task, after that start web server with generated files
 
@@ -92,7 +99,7 @@ $ npm run setup
 
 * `grunt dist:sync:proxy` >> first will execute `build:prod` task, after that start web server with generated files + browser-sync to synchronize data and navigation + proxy to route requests to other server based on given context, for example `/rest`
 
---
+#### Tests
 
 * `grunt ci` - cleanup build directories and then execute `karma:ci` grunt task that run test's
 
@@ -102,7 +109,7 @@ $ npm run setup
 
 > **Attention:** if you want to run with dev flow, run first dev task (ex.: `grunt dev`) in one terminal and in other terminal run `grunt specs`
 
---
+#### Tools Configuration
 
 * Tools global configs: `./tools/config.js` which is used on `./tools/helpers/grunt/config/project.js`
 
