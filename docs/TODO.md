@@ -38,3 +38,4 @@
 
 - [ ] define and use an Angular.js NavBar directive
 
+- [ ] create [yeoman](http://yeoman.io/) [generator](http://yeoman.io/authoring/)
