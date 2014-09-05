@@ -2,7 +2,7 @@ define(
 // require.js dependency injection
 [
   'angular',
-  'angularRoute',
+  'angularRoute'
 ],
 
 // require.js module scope
