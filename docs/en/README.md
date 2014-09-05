@@ -13,10 +13,11 @@
     * [Distribuction Preview](#distribuction-preview)
     * [Tests](#tests)
     * [Tools Configuration](#tools-configuration)
+    * [Tips](#tips)
+    * [Known Issues](#known-issues)
   * [Publishing tool for GitHub gh-pages](#publishing-tool-for-github-gh-pages)
 * [Directories Structure](#directories-structure)
   * [Development](#development)
-    * [Known Issues](#known-issues)
   * [Publishing](#publishing)
   * [Project](#project)
 
@@ -28,6 +29,7 @@
 FrontEnd Boilerplate project with development and publishing tools (for GitHub gh-pages)
 
 * **Important**: to define a better communication between frontend and backend (server), please consider follow the given proposal [REST URL Design](rest_url_design.md)
+
 
 ## Installation Guide
 
@@ -43,6 +45,7 @@ $ cd tools
 $ npm run setup
 ```
 
+
 ### Prerequisites
 
 * Must have [Git](http://git-scm.com/) installed
@@ -50,6 +53,7 @@ $ npm run setup
 * Must have [node.js (at least v0.10.0)](http://nodejs.org/) installed with npm (Node Package Manager)
 
 * Must have [Grunt](https://github.com/gruntjs/grunt) node package installed globally
+
 
 ## Use Guide
 
@@ -117,6 +121,36 @@ $ npm run setup
 
   * Proxy Grunt.js Plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 
+#### Tips
+
+* If you use Sublime Text, check this out:
+
+  * [[GitHub] erkobridee / sublime-angularjs-ee-snippets](https://github.com/erkobridee/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js and Require.js (focused to the angularjs-ee-boilerplate code)
+
+  * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
+
+#### Known Issues
+
+##### Mac OSX
+
+* [How do I fix the error EMFILE: Too many opened files? | grunt-contrib-watch - GitHub](https://github.com/gruntjs/grunt-contrib-watch#how-do-i-fix-the-error-emfile-too-many-opened-files)
+
+  * [[SuperUser] How to change default ulimit values in Mac OS X 10.6?](https://superuser.com/questions/261023/how-to-change-default-ulimit-values-in-mac-os-x-10-6)
+
+  This is because of your system's max opened file limit.
+  For OSX the default is very low (256).
+  Temporarily increase your limit with `ulimit -n 10480`,
+  the number being the new max limit.
+
+  In some versions of OSX the above solution doesn't work.
+  In that case try `launchctl limit maxfiles 10480 10480` and restart your terminal.
+
+##### Windows
+
+* Behind a NTLM proxy
+
+  * run `npm install` two times, to install all dependencies
+
 
 ### Publishing tool for GitHub gh-pages
 
@@ -142,6 +176,7 @@ $ npm run setup
   /publisher  >> publisher tool
 ```
 
+
 ### Development
 
 ```
@@ -162,36 +197,6 @@ $ npm run setup
   package.json           >> node.js 'tools' project and dependencies configuration
 ```
 
-> If you use Sublime Text, check this out:
->
-> * [[GitHub] erkobridee / sublime-angularjs-ee-snippets](https://github.com/erkobridee/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js and Require.js (focused to the angularjs-ee-boilerplate code)
->
-> * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
->
-
-#### Known Issues
-
-##### Mac OSX
-
-* [How do I fix the error EMFILE: Too many opened files? | grunt-contrib-watch - GitHub](https://github.com/gruntjs/grunt-contrib-watch#how-do-i-fix-the-error-emfile-too-many-opened-files)
-
-  * [[SuperUser] How to change default ulimit values in Mac OS X 10.6?](https://superuser.com/questions/261023/how-to-change-default-ulimit-values-in-mac-os-x-10-6)
-
-  This is because of your system's max opened file limit.
-  For OSX the default is very low (256).
-  Temporarily increase your limit with `ulimit -n 10480`,
-  the number being the new max limit.
-
-  In some versions of OSX the above solution doesn't work.
-  In that case try `launchctl limit maxfiles 10480 10480` and restart your terminal.
-
-
-##### Windows
-
-* Behind a NTLM proxy
-
-  * run `npm install` two times, to install all dependencies
-
 
 ### Publishing
 
@@ -204,6 +209,7 @@ $ npm run setup
   Gruntfile.js    >> main grunt.js configuration file
   package.json    >> node.js 'publisher' project and dependencies configuration
 ```
+
 
 ### Project
 

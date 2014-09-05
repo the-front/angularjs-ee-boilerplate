@@ -13,10 +13,11 @@
     * [Visualização da versão de Distribuição](#visualização-da-versão-de-distribuição)
     * [Testes](#testes)
     * [Configurações do Ferramental](#configurações-do-ferramental)
+    * [Dicas](#dicas)
+    * [Problemas Conhecidos](#problemas-conhecidos)
   * [Ferramenta para Publicação no GitHub gh-pages](#ferramenta-para-publicação-no-github-gh-pages)
 * [Estrutura de Diretórios](#estrutura-de-diretórios)
   * [Desenvolvimento](#desenvolvimento)
-    * [Problemas Conhecidos](#problemas-conhecidos)
   * [Publicação](#publicação)
   * [Projeto](#projeto)
 
@@ -28,6 +29,7 @@
 Projeto Boilerplate, com ferramental de suporte para o desenvolvimento e publicação no gh-pages do GitHub
 
 * **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](rest_url_design.md)
+
 
 ## Guia de Instalação
 
@@ -43,6 +45,7 @@ $ cd tools
 $ npm run setup
 ```
 
+
 ### Pré-Requisitos
 
 * Necessário ter instalado o [Git](http://git-scm.com/)
@@ -52,6 +55,7 @@ $ npm run setup
   * caso esteja em um ambiente corporativo, utilizando o windows atrás de um proxy NTLM, siga estas intruções : [Utilizando o Node.js em um Windows XP sem Administrador | Javascript Brasil](http://javascriptbrasil.com/2012/11/19/utilizando-o-node-js-em-um-windows-xp-sem-administrador/)
 
 * Necessário ter o [Grunt](https://github.com/gruntjs/grunt) instalado como um pacote global
+
 
 ## Guia de Uso
 
@@ -119,6 +123,39 @@ $ npm run setup
 
   * Plugin do Grunt.js para proxy : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 
+#### Dicas
+
+* Caso você use o Sublime Text, veja isso:
+
+  * [[GitHub] erkobridee / sublime-angularjs-ee-snippets](https://github.com/erkobridee/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js and Require.js (focused to the angularjs-ee-boilerplate code)
+
+  * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
+
+#### Problemas Conhecidos
+
+##### Mac OSX
+
+* [Como eu conserto o erro EMFILE: Muitos arquivos abertos? | grunt-contrib-watch - GitHub](https://github.com/gruntjs/grunt-contrib-watch#how-do-i-fix-the-error-emfile-too-many-opened-files)
+
+  * [[SuperUser] How to change default ulimit values in Mac OS X 10.6?](https://superuser.com/questions/261023/how-to-change-default-ulimit-values-in-mac-os-x-10-6)
+
+  Isto porque o sistema limita a quantidade máxima de arquivos abertos.
+  Para o OSX o valor padrão é muito baixo (256).
+  Para aumentar temporariamente este limite use o comando `ulimit -n 10480`,
+  este número será o novo limite máximo.
+
+  Em algumas versões do OSX a solução acima não funciona. 
+
+  Neste caso tente `launchctl limit maxfiles 10480 10480` e reinicie
+  o terminal.
+
+##### Windows
+
+* Atrás de um proxy NTLM
+
+  * execute duas vezes o comando `npm install`, para instalar todas as dependências
+
+
 ### Ferramenta para Publicação no GitHub gh-pages
 
 > Dentro do diretório `./publisher`, comandos disponíveis do grunt.js
@@ -133,6 +170,7 @@ $ npm run setup
 
 * `grunt publish:dev` - esta tarefa irá copiar os arquivo do diretório `./src` para `./publisher/local/gh-pages`, efetuar o commit dos arquivos e então enviar para o branch `gh-pages` no Github
 
+
 ## Estrutura de Diretórios
 
 ```
@@ -141,6 +179,7 @@ $ npm run setup
   /tools      >> ferramentas de desenvolvimento
   /publisher  >> ferramenta de publicação
 ```
+
 
 ### Desenvolvimento
 
@@ -162,38 +201,6 @@ $ npm run setup
   package.json           >> arquivo de configuração e dependências do projeto 'tools' em node.js
 ```
 
-> Caso você use o Sublime Text, veja isso:
->
-> * [[GitHub] erkobridee / sublime-angularjs-ee-snippets](https://github.com/erkobridee/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js and Require.js (focused to the angularjs-ee-boilerplate code)
->
-> * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
->
-
-#### Problemas Conhecidos
-
-##### Mac OSX
-
-* [Como eu conserto o erro EMFILE: Muitos arquivos abertos? | grunt-contrib-watch - GitHub](https://github.com/gruntjs/grunt-contrib-watch#how-do-i-fix-the-error-emfile-too-many-opened-files)
-
-  * [[SuperUser] How to change default ulimit values in Mac OS X 10.6?](https://superuser.com/questions/261023/how-to-change-default-ulimit-values-in-mac-os-x-10-6)
-
-  Isto porque o sistema limita a quantidade máxima de arquivos abertos.
-  Para o OSX o valor padrão é muito baixo (256).
-  Para aumentar temporariamente este limite use o comando `ulimit -n 10480`,
-  este número será o novo limite máximo.
-
-  Em algumas versões do OSX a solução acima não funciona. 
-
-  Neste caso tente `launchctl limit maxfiles 10480 10480` e reinicie
-  o terminal.
-
-
-##### Windows
-
-* Atrás de um proxy NTLM
-
-  * execute duas vezes o comando `npm install`, para instalar todas as dependências
-
 
 ### Publicação
 
@@ -206,6 +213,7 @@ $ npm run setup
   Gruntfile.js    >> arquivo principal de configuração do grunt.js
   package.json    >> arquivo de configuração e dependências do projeto 'publisher' em node.js
 ```
+
 
 ### Projeto
 
