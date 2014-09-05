@@ -14,9 +14,9 @@
 
 - [ ] Add tests support
 
-  - [x] unit ( jasmine, karma runner and coverage )
+  - [x] unit ( [jasmine](https://jasmine.github.io/), [karma runner](https://karma-runner.github.io/) and [istanbul code coverage](https://gotwarlost.github.io/istanbul/) )
 
-  - [ ] e2e (interface / selenium)
+  - [ ] e2e ( interface / selenium | [Protractor](https://angular.github.io/protractor/) - E2E test framework for Angular Apps )
 
 
 ## future version
@@ -31,6 +31,8 @@
 
 
 ## Feature Requests
+
+- [ ] load mock data from json file
 
 - [ ] create angular constant to event's name
 
