@@ -12,7 +12,7 @@
 
 - [ ] Add tests support
 
-  - [ ] unit ( jasmine, karma runner and coverage )
+  - [x] unit ( jasmine, karma runner and coverage )
 
   - [ ] e2e (interface / selenium)
 
