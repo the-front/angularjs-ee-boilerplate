@@ -117,9 +117,11 @@ $ npm run setup
 
 * Tools global configs: `./tools/config.js` which is used on `./tools/helpers/grunt/config/project.js`
 
-  * To center and make more easy to manage Grunt.js tasks configurations was defined the file `./tools/helpers/grunt/config/project.js`, among them the proxy routing configuration (see: `backend.proxies`)
+  * Proxy routing configuration ( see: `var backend = { ...` )
 
-  * Proxy Grunt.js Plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
+    * Proxy Grunt.js Plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
+
+  * To center and make more easy to manage Grunt.js tasks configurations was defined the file `./tools/helpers/grunt/config/project.js`
 
 #### Tips
 
