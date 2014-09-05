@@ -175,7 +175,8 @@ $ npm run setup
   Para aumentar temporariamente este limite use o comando `ulimit -n 10480`,
   este número será o novo limite máximo.
 
-  Em algumas versões do OSX a solução acima não funciona.
+  Em algumas versões do OSX a solução acima não funciona. 
+
   Neste caso tente `launchctl limit maxfiles 10480 10480` e reinicie
   o terminal.
 
