@@ -83,11 +83,11 @@ $ npm run setup
 
 * `grunt dev:livereload` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao livereload, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browser e dispositivos conectados no servidor
 
-* `grunt dev:livereload:proxy` >> além das tarefas do `grunt dev`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
+* `grunt dev:livereload:proxy` >> além das tarefas do `dev:livereload`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
 * `grunt dev:sync` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao browser-sync, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browser e dispositivos conectados no servidor, também mantem os dados e navegação sincronizada
 
-* `grunt dev:sync:proxy` >> além das tarefas do `grunt dev:sync`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
+* `grunt dev:sync:proxy` >> além das tarefas do `dev:sync`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
 * alias
 
