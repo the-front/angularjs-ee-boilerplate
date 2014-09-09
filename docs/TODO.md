@@ -34,6 +34,8 @@
 
 - [ ] load mock data from json file
 
+- [ ] study [angular ui route](https://github.com/angular-ui/ui-router) use instead [angular $route](https://docs.angularjs.org/api/ngRoute/service/$route)
+
 - [ ] create angular constant to event's name
 
 - [ ] define and use an Angular.js NavBar directive
