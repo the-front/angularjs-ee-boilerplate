@@ -38,6 +38,8 @@
 
 - [ ] create angular constant to event's name
 
+- [ ] add i18n support
+
 - [ ] define and use an Angular.js NavBar directive
 
 - [ ] create [yeoman](http://yeoman.io/) [generator](http://yeoman.io/authoring/)
