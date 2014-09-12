@@ -32,6 +32,10 @@
 
 ## Feature Requests
 
+- [ ] change require.js typical AMD style to commonjs AMD style 
+
+  - check this blog post : [Require.js packages for building large scale angular applications | Jonathan Creamer](http://jonathancreamer.com/require-js-packages-for-building-large-scale-angular-applications/)
+
 - [ ] load mock data from json file
 
 - [ ] study [angular ui route](https://github.com/angular-ui/ui-router) use instead [angular $route](https://docs.angularjs.org/api/ngRoute/service/$route)
