@@ -1,9 +1,5 @@
 # Angular.js Enterprise Edition Boilerplate
 
-This boilerplate (seed project, starting project) helps you build large scale [Angular.js](https://angularjs.org/) applications with [Require.js](http://requirejs.org/)
-
---
-
 * [README (en)](docs/en/README.md)
 
 * [README (pt-Br)](docs/pt-Br/README.md)

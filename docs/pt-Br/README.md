@@ -1,5 +1,9 @@
 # Angular.js Enterprise Edition Boilerplate
 
+Este projeto "clichê" (semente, inicial) irá lhe ajudar na construção de aplicações de grande escala, usando o [Angular.js](https://angularjs.org/) com [Require.js](http://requirejs.org/)
+
+--
+
 <!-- toc -->
 
 * [Visão Geral](#visão-geral)
