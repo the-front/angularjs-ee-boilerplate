@@ -145,11 +145,11 @@ $ npm run setup
 
   This is because of your system's max opened file limit.
   For OSX the default is very low (256).
-  Temporarily increase your limit with `ulimit -n 10480`,
+  Temporarily increase your limit with `ulimit -n 2048`,
   the number being the new max limit.
 
   In some versions of OSX the above solution doesn't work.
-  In that case try `launchctl limit maxfiles 10480 10480` and restart your terminal.
+  In that case try `launchctl limit maxfiles 2048 2048` and restart your terminal.
 
 ##### Windows
 

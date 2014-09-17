@@ -147,12 +147,12 @@ $ npm run setup
 
   Isto porque o sistema limita a quantidade máxima de arquivos abertos.
   Para o OSX o valor padrão é muito baixo (256).
-  Para aumentar temporariamente este limite use o comando `ulimit -n 10480`,
+  Para aumentar temporariamente este limite use o comando `ulimit -n 2048`,
   este número será o novo limite máximo.
 
   Em algumas versões do OSX a solução acima não funciona. 
 
-  Neste caso tente `launchctl limit maxfiles 10480 10480` e reinicie
+  Neste caso tente `launchctl limit maxfiles 2048 2048` e reinicie
   o terminal.
 
 ##### Windows
