@@ -50,3 +50,8 @@
 - [ ] define and use an Angular.js NavBar directive
 
 - [ ] create [yeoman](http://yeoman.io/) [generator](http://yeoman.io/authoring/)
+
+
+## Future
+
+* Create a GitHub organization and move this repository
