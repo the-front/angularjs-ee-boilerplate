@@ -15,7 +15,6 @@ grunt.config('requirejs', {
   // https://github.com/kvindasAB/angular-enterprise-kickstart/blob/master/Gruntfile.js#L303
   compile: {
     options: {
-      optimize: "uglify2",
       baseUrl: './<%= project.paths.build %>/',
 
       mainConfigFile: './<%= project.require.build %>',
@@ -27,6 +26,21 @@ grunt.config('requirejs', {
       wrap: {
         start: '(function() {\'use strict\';',
         end: '})();'
+      },
+      optimize: "uglify2",
+      uglify2: {
+        mangle:                 true,
+        compress: {
+          'drop_console':       true,
+          'drop_debugger':      true,
+          'dead_code':          true,
+          'join_vars':          true,
+          'if_return':          true,
+          'negate_iife':        true,
+          booleans:             true,
+          loops:                true,
+          unused:               true
+        }
       }
     }
   }
