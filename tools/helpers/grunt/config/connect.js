@@ -81,6 +81,20 @@ grunt.config('connect', {
 
       middleware: '<%= connect.middleware %>'
     }
+  },
+
+  //---
+
+  e2e: { // with proxy support
+    options: {
+      port: '<%= project.frontend.port.webserver %>',
+      base: '<%= project.paths.dist %>',
+      hostname: '*',
+      keepalive: false,
+      open: 'http://localhost:<%= project.frontend.port.webserver %>',
+
+      middleware: '<%= connect.middleware %>'
+    }
   }
 
 });
