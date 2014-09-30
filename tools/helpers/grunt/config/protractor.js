@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
 grunt.config('protractor', {
 
-  basic: {
+  e2e: {
     options: {
       configFile: 'config.protractor.js',
       args: {
