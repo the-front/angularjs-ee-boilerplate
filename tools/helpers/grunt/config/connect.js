@@ -91,7 +91,6 @@ grunt.config('connect', {
       base: '<%= project.paths.dist %>',
       hostname: '*',
       keepalive: false,
-      open: 'http://localhost:<%= project.frontend.port.webserver %>',
 
       middleware: '<%= connect.middleware %>'
     }
