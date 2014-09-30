@@ -72,6 +72,13 @@ module.exports = function(grunt) {
 
   //--- @begin: spec's tasks
 
+  // generate report's files for CI server
+  grunt.registerTask('ci', [
+    'start',
+    'karma:ci'
+  ]);
+
+  // generate html report's files
   grunt.registerTask('reports', [
     'start',
     'forceon',
@@ -82,11 +89,9 @@ module.exports = function(grunt) {
     'open:reports'    // open reports ouput directory
   ]);
 
-  grunt.registerTask('ci', [
-    'start',
-    'karma:ci'
-  ]);
+    //---
 
+  // test's unit : karma runner
   grunt.registerTask('specs', [
     'checkfiles',
     'forceon',
@@ -95,6 +100,17 @@ module.exports = function(grunt) {
     'copy:karma_report_jasmine',
     'concurrent:specs'
   ]);
+
+  // test's e2e : protractor
+  grunt.registerTask('e2e', function() {
+    grunt.loadNpmTasks('grunt-connect-proxy');
+    return grunt.task.run([
+      'build:prod',
+      'configureProxies',
+      'connect:e2e',
+      'protractor:e2e'
+    ]);
+  });
 
   //--- @end: spec's tasks
 
