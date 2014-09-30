@@ -33,5 +33,8 @@ async_exec('npm install shelljs --save-dev', function (err, stdout, stderr) {
   echo('Installing node dependencies...\n');
   exec('npm install');
 
+  echo('Updating webdriver manager...\n');
+  exec('npm run webdriver-manager-update');
+
   echo('\nOK!');
 });
