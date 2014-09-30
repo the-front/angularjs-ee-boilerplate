@@ -70,36 +70,30 @@ module.exports = function(grunt) {
 
 
   // @begin: build tasks
-  grunt.registerTask('build', function(target) {
-    if(target === 'dev') {
-      return grunt.task.run([
-        'start',
-        'copy:dev_tobuild',
-        'copy:dev_jstobuild',
-        'copy:dev_vendortobuild',
-        'cleanempty:build',
-        'less:dev'
-      ]);
+  grunt.registerTask('build:dev', [
+    'start',
+    'copy:dev_tobuild',
+    'copy:dev_jstobuild',
+    'copy:dev_vendortobuild',
+    'cleanempty:build',
+    'less:dev'
+  ]);
 
-    } else if(target === 'prod') {
-      return  grunt.task.run([
-        'start',
-        'karma:ci',
-        'copy:prod_jstobuild',
-        'html2js:prod',
-        'rewriterequireconfig',
-        'requirejs',
-        'clean:build',
-        'copy:prod_todist',
-        'cleanempty:dist',
-        'less:prod',
-        'htmlmin',
-        'imagemin',
-        'uglify'
-      ]);
-
-    }
-  });
+  grunt.registerTask('build:prod', [
+    'start',
+    'karma:ci',
+    'copy:prod_jstobuild',
+    'html2js:prod',
+    'rewriterequireconfig',
+    'requirejs',
+    'clean:build',
+    'copy:prod_todist',
+    'cleanempty:dist',
+    'less:prod',
+    'htmlmin',
+    'imagemin',
+    'uglify'
+  ]);
   // @end: build tasks
 
 
