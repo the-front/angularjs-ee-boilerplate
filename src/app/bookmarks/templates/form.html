@@ -68,12 +68,14 @@
 
     <div class="row" ng-if="!showConfirm">
       <div class="col-md-5">
-        <a href="#bookmarks" class="btn">Cancel</a>
+        <a href="#bookmarks" class="btn" id="cancelLinkBtn">Cancel</a>
         <button
+          id="saveBtn"
           ng-click="save()"
           ng-disabled="isClean() || bookmarkForm.$invalid"
           class="btn btn-primary">Save</button>
         <button
+          id="deleteConfirmBtn"
           ng-click="remove()"
           ng-if="bookmark.id"
           class="btn btn-danger">Delete</button>
@@ -85,9 +87,13 @@
     <div class="bs-callout bs-callout-danger" ng-if="showConfirm">
       <h4>Confirm</h4>
       <p>Delete <code>{{bookmark.name}}</code> bookmark?</p>
-      <button ng-click="destroy()"
+      <button
+        id="deleteBtn"
+        ng-click="destroy()"
         class="btn btn-danger">Delete</button>
-      <button ng-click="cancelRemove()"
+      <button
+        id="cancelBtn"
+        ng-click="cancelRemove()"
         class="btn btn-default">Cancel</button>
     </div>
     <!-- @end: confirm -->
