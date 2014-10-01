@@ -1,5 +1,5 @@
 describe("e2e: help page", function() {
-  var page = require('./help.po');
+  var page = require('./page.object');
 
   beforeEach(function() {
     page.get();
