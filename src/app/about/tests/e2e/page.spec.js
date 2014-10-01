@@ -1,9 +1,8 @@
 describe("e2e: about page", function() {
-  var page = require('./about.po');
+  var page = require('./page.object');
 
   beforeEach(function() {
     page.get();
-    browser.sleep(200);
   });
 
   it("should page name : 'About Page'", function() {
