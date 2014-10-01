@@ -40,7 +40,7 @@
 
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
-    <span ng-show="showFilterBtn">
+    <span ng-if="showFilterBtn">
       <button
         type="button"
         title="{{filterBtnLabel}}"
@@ -53,11 +53,11 @@
 
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
-    <span ng-show="showPagination">
-      <span ng-show="result.pages > 1">
+    <span ng-if="showPagination">
+      <span ng-if="result.pages > 1">
         Pages: <span class="badge">{{result.pages}}</span> &nbsp;&nbsp;
       </span>
-      <span ng-show="result.count > 0">
+      <span ng-if="result.count > 0">
         Total: <span class="badge">{{result.count}}</span>
       </span>
       <span class="visible-xs col-md-1">&nbsp;</span>
@@ -107,8 +107,8 @@
   <!-- @begin: pagination -->
 
   <!-- https://angular-ui.github.io/bootstrap/#/pagination -->
-  <div class="row" ng-show="showPagination">
-    <div class="text-center" ng-show="result.pages > 1">
+  <div class="row" ng-if="showPagination">
+    <div class="text-center" ng-if="result.pages > 1">
       <pagination
         ng-model="currentPage"
         max-size="paginationItemsSize"
@@ -122,7 +122,7 @@
       </div>
   </div>
 
-  <div class="row" ng-hide="showPagination">
+  <div class="row" ng-if="!showPagination">
     <p class="text-center" ng-show="filter.search">
       <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
     </p>
