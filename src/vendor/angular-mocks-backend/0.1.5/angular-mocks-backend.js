@@ -1,6 +1,6 @@
 /*
-  AngularJS Mocks Backend v0.1.4
-  (c) 2014 Erko Bridee - https://github.com/erkobridee/angular-mocks-backend/releases/tag/v0.1.4
+  AngularJS Mocks Backend v0.1.5
+  (c) 2014 Erko Bridee - https://github.com/erkobridee/angular-mocks-backend/releases/tag/0.1.5
   License: MIT
 */
 (function(angular) {
@@ -57,7 +57,7 @@
     var checkRegexp = function(regexp) {
       var outRegexp, objType = checkType(regexp);
 
-      if('RegExp' === objType) { 
+      if('RegExp' === objType) {
         outRegexp = regexp;
       } else if('String' === objType) {
         outRegexp = buildRegexp(regexp);
@@ -103,11 +103,11 @@
       }
       return ret;
     };
-    
+
   })();
 
 
-  //--- Backend mock support 
+  //--- Backend mock support
 
     // add to angular-mocks namespace
   angular.mock.backend = (function() {
@@ -128,7 +128,7 @@
     };
 
 
-    var configAllow = function(httpBackend) {      
+    var configAllow = function(httpBackend) {
       // Allow get html to load templates
       httpBackend.when('GET', regexpUrl(/.html$/)).passThrough();
     };
@@ -141,9 +141,9 @@
       if(resource) resources.push(resource);
     };
 
-    var configResources = function(injector) {  
+    var configResources = function(injector) {
       var i = (resources.length - 1);
-      
+
       while(i > -1) {
         injector.invoke(resources[i--]);
       }
@@ -183,11 +183,11 @@
 
   // provider
 
-    // You can also just use provide to blanket replace $httpBackend 
+    // You can also just use provide to blanket replace $httpBackend
     // with the mock
   ngMockBackend.config(
 
-    ['$provide', 
+    ['$provide',
 
   function($provide) {
 
@@ -207,25 +207,44 @@
     // you can pass this as the url argument to $httpBackend.[when|expect]
   ngMockBackend.run(
 
-    ['$timeout', 'ngMockBackendService', '$injector',
+    ['$interval', 'ngMockBackendService', '$injector',
 
-  function($timeout, service, $injector) {
+  function($interval, service, $injector) {
 
     service.config($injector);
 
     //---
 
-    // A "run loop" of sorts to get httpBackend to 
+    // A "run loop" of sorts to get httpBackend to
     // issue responses and trigger the client code's callbacks
-    var flushBackend = function() {
-      try {
-        $httpBackend.flush();
-      } catch (err) {
-        // ignore that there's nothing to flush
+    // https://github.com/angular/angular.js/blob/master/src/ng/interval.js#L55
+    var engine = (function() {
+      var gear = undefined;
+
+      function flushBackend() {
+        try {
+          $httpBackend.flush();
+        } catch (err) {
+          // ignore that there's nothing to flush
+        }
       }
-      $timeout(flushBackend, RUN_LOOP_TIMEOUT);
-    };
-    $timeout(flushBackend, RUN_LOOP_TIMEOUT);
+
+      return {
+        start: function() {
+          // Don't start a new fight if we are already fighting
+          if ( angular.isDefined(gear) ) return;
+          gear = $interval(flushBackend, RUN_LOOP_TIMEOUT);
+        },
+        stop: function() {
+          if (angular.isDefined(gear)) {
+            $interval.cancel(gear);
+            gear = null;
+          }
+        }
+      };
+
+    })();
+    engine.start();
 
   }]);
 
