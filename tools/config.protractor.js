@@ -6,6 +6,10 @@ exports.config = {
 
   specs: [
     '../src/**/tests/e2e/*.spec.js'
-  ]
+  ],
+
+  suites: {
+    bookmarks: ['../src/app/bookmarks/tests/e2e/*.spec.js']
+  }
 
 };
