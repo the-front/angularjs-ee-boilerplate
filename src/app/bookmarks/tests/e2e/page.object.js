@@ -1,6 +1,8 @@
 (function() {
   'use strict';
 
+  //----------------------------------------------------------------------------
+
   var _getId = function(id) {
     return element(by.id(id));
   };
@@ -13,10 +15,34 @@
     return element(by.binding(binding));
   };
 
+  var _getBindingAll = function(binding) {
+    return element.all(by.binding(binding));
+  };
+
   var _getModel = function(model) {
     return element(by.model(model));
   };
 
+  var _getRepeater = function(repeater) {
+    return element.all(by.repeater(repeater));
+  };
+
+  //----------------------------------------------------------------------------
+
+  var _listAndSearch = {
+    options: {
+      optionsButton:         function() { return _getId('optionsBtn'); },
+      optionsButtonLabel:    function() { return _getBindingAll('optionsBtnLabel').get(0); },
+
+      filterButton:          function() { return _getId('filterBtn'); },
+      filterButtonLabel:     function() { return _getBindingAll('filterBtnLabel').get(0); },
+
+      pageSizeInput:         function() { return _getModel('pageSize'); },
+      pageSizeMessage:       function() { return _getId('pageSizeMessage'); }
+    }
+  };
+
+  //----------------------------------------------------------------------------
 
   // Page Object
   module.exports = {
@@ -31,20 +57,25 @@
         links: {
           search:  function() { return _getLink('Search'); },
           new:     function() { return _getLink('New'); }
-        }
+        },
+
+        options: _listAndSearch.options
       },
 
       search: {
         links: {
           backToList: function() { return _getLink('All Bookmarks'); }
-        }
+        },
+
+        options: _listAndSearch.options
       },
 
-      // needed?
-      add: {},
-
-      // needed?
-      edit: {},
+      table: {
+        filterTexts:        function() { return _getBindingAll('filter.search'); },
+        filterInput:        function() { return _getModel('filter.search'); },
+        filterClearButton:  function() { return _getId('filterClearButton'); },
+        repeater:           function() { return _getRepeater('bookmark in result.data'); }
+      },
 
       form: {
         title: function() { return _getBinding('title'); },
