@@ -1,5 +1,5 @@
 describe("e2e: home page", function() {
-  var page = require('./home.po');
+  var page = require('./page.object');
 
   beforeEach(function() {
     page.get();
