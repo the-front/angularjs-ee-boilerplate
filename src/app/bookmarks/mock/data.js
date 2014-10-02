@@ -77,10 +77,41 @@ function(module) {
             };
           }
 
+          //---
+
           collection.insert( createObject(seq++, 'Twitter - Erko Bridee', '@ErkoBridee', 'https://twitter.com/erkobridee') );
           collection.insert( createObject(seq++, 'GitHub - Erko Bridee', 'github/erkobridee', 'https://github.com/erkobridee') );
           collection.insert( createObject(seq++, 'Delicious - Erko Bridee', 'delicious/erko.bridee', 'http://www.delicious.com/erko.bridee') );
           collection.insert( createObject(seq++, 'Site - Erko Bridee', 'Site : Erko Bridee', 'http://about.erkobridee.com/') );
+
+          //---
+
+          collection.insert(
+            createObject(
+              seq++,
+              'Protractor',
+              'end to end testing for AngularJS',
+              'https://angular.github.io/protractor/'
+            )
+          );
+          collection.insert(
+            createObject(
+              seq++,
+              'Protractor Tutorial',
+              'This is a simple tutorial that shows you how to set up Protractor and start running tests.',
+              'https://angular.github.io/protractor/#/tutorial'
+            )
+          );
+          collection.insert(
+            createObject(
+              seq++,
+              'Protractor Source Code',
+              '[GitHub] angular / protractor',
+              'https://github.com/angular/protractor'
+            )
+          );
+
+          //---
 
           function fakeUrl() {
             return 'http://google.com/#q=' + seq + '%2B' + seq;
@@ -90,6 +121,8 @@ function(module) {
             collection.insert( createObject(seq, 'fake bookmark ' + (seq+1), 'some description to fake bookmark ', fakeUrl()) );
             seq++;
           }
+
+          //---
 
         }
       }
