@@ -82,18 +82,65 @@ describe("e2e: bookmarks", function() {
       }); // end: page size
 
       describe("filter", function() {
+        var filterButton = page.on.list.options.filterButton();
 
         beforeEach(function() {
           optionsButton.click();
         });
 
-        // TODO: define test's
+        it("should show", function() {
+          // assert
+          expect(filterButton.getText()).toContain('Show filter');
+
+          // act
+          filterButton.click();
+
+          // assert
+          expect(filterButton.getText()).toContain('Hide filter');
+        });
+
+        // test all filter behave
+        it("should do filter", function() {
+          var filterTexts, filterInput, filterClearButton, repeater;
+
+          filterButton.click(); // show filter
+
+          repeater = page.on.table.repeater();
+          expect(repeater.count()).toBe(10); // initial itens length
+
+          filterInput = page.on.table.filterInput();
+          filterInput.sendKeys('ee'); // apply filter
+
+          expect(repeater.count()).toBe(4); // itens length after apply filter
+
+          filterTexts = page.on.table.filterTexts();
+          expect(filterTexts.count()).toBe(1);
+
+          filterClearButton = page.on.table.filterClearButton();
+          filterClearButton.click();
+
+          expect(repeater.count()).toBe(10); // return to initial itens length
+
+          filterTexts = page.on.table.filterTexts();
+          expect(filterTexts.count()).toBe(0); // initial stage
+
+          filterInput.sendKeys('ee'); // apply filter
+          optionsButton.click(); // hide options
+
+          filterTexts = page.on.table.filterTexts();
+          expect(filterTexts.count()).toBe(2);
+
+          optionsButton.click(); // show options
+          expect(filterButton.getText()).toContain('Hide filter');
+        });
 
       }); // end: filter
 
     }); // end: options
 
   }); // end: on list
+
+  //---
 
   describe("on search", function() {
     var seachLink = page.on.list.links.search();
@@ -113,8 +160,11 @@ describe("e2e: bookmarks", function() {
 
   }); // end: on search
 
+  //---
 
   // TODO: test on add new
+
+  //---
 
   // TODO: test on edit one
 
