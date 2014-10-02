@@ -20,6 +20,7 @@
       <li>
 
         <button
+          id="optionsBtn"
           type="button"
           title="{{optionsBtnLabel}}"
           ng-click="showOptionsBtnClick()"
@@ -42,6 +43,7 @@
 
     <span ng-if="showFilterBtn">
       <button
+        id="filterBtn"
         type="button"
         title="{{filterBtnLabel}}"
         ng-click="showFilterBtnClick()"
@@ -86,7 +88,7 @@
           </span>
         </div>
         <div>
-          <p ng-show="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
+          <p ng-if="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
             class="text-center">
             The value must be in range {{pageMinSize}} to {{pageMaxSize}}!
           </p>
