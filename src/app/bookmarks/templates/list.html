@@ -127,7 +127,7 @@
   </div>
 
   <div class="row" ng-if="!showPagination">
-    <p class="text-center" ng-show="filter.search">
+    <p class="text-center" ng-if="filter.search">
       <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
     </p>
   </div>
