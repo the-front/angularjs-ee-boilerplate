@@ -88,7 +88,9 @@
           </span>
         </div>
         <div>
-          <p ng-if="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
+          <p
+            id="pageSizeMessage"
+            ng-if="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
             class="text-center">
             The value must be in range {{pageMinSize}} to {{pageMaxSize}}!
           </p>

@@ -1,11 +1,11 @@
 <!-- @begin: filter -->
-<div class="row" ng-show="!showOptions &#38;&#38; !showPagination &#38;&#38; filter.search">
+<div class="row" ng-if="!showOptions &#38;&#38; !showPagination &#38;&#38; filter.search">
   <p class="text-center">
     <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
   </p>
 </div>
 
-<div ng-show="showFilter">
+<div ng-if="showFilter">
 
   <div class="input-group">
     <span class="input-group-addon">
@@ -19,6 +19,7 @@
       fend-focus="focusFilterSearchInput">
     <span class="input-group-btn">
       <button
+        id="filterClearButton"
         ng-click="clearFilter()"
         class="btn btn-default" type="button">Clear</button>
     </span>
