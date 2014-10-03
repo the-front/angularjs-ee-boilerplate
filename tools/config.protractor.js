@@ -28,6 +28,8 @@ exports.config = {
   ],
 
   suites: {
+    // page: ['../src/app/???/tests/e2e/*.spec.js'],
+    // crud: ['../src/app/???/tests/e2e/*.spec.js'],
     bookmarks: ['../src/app/bookmarks/tests/e2e/*.spec.js']
   }
 
