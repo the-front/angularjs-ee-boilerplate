@@ -22,7 +22,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt ci",
+    "test": "grunt e2e",
     "setup": "node helpers/scripts/setup",
     "testos": "node helpers/scripts/testos",
     "webdriver-manager-update": "./node_modules/.bin/webdriver-manager update",
