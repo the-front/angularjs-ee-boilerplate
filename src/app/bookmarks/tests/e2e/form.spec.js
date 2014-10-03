@@ -66,13 +66,12 @@ describe("e2e: bookmarks on add, edit and delete", function() {
 
     saveButton.click();
 
-    var repeater = page.on.table.repeater(); // get element
-
     // assertion
     expect(
-      repeater // all rows
-        .last() // last row
-        .element(by.binding('bookmark.name'))
+      page.on.table
+        .repeater() // get element
+        .last() // get element
+        .element(by.binding('bookmark.name')) // get element
         .getText()
     ).toContain(objectName);
   });
@@ -91,7 +90,7 @@ describe("e2e: bookmarks on add, edit and delete", function() {
 
     // go to edit
     lastRow
-      .element(by.id('gotoedit_1'))
+      .element(by.id('gotoedit_1')) // get element
       .click();
 
     // get elements
@@ -103,10 +102,7 @@ describe("e2e: bookmarks on add, edit and delete", function() {
     expect(nameInput.getAttribute('value')).toBe('Protractor e2e');
 
 
-    page
-      .on
-      .form
-      .buttons
+    page.on.form.buttons
       .cancelLink() // get element
       .click(); // cancel edition
 
@@ -134,7 +130,7 @@ describe("e2e: bookmarks on add, edit and delete", function() {
 
     // go to edit
     lastRow
-      .element(by.id('gotoedit_1'))
+      .element(by.id('gotoedit_1')) // get element
       .click();
 
     // get elements
@@ -179,7 +175,8 @@ describe("e2e: bookmarks on add, edit and delete", function() {
       .element(by.id('gotoedit_1')) // get element
       .click();
 
-    page.on.form.buttons.deleteConfirm() // get element
+    page.on.form.buttons
+      .deleteConfirm() // get element
       .click(); // show delete confirm
 
     expect(
@@ -188,19 +185,23 @@ describe("e2e: bookmarks on add, edit and delete", function() {
     ).toContain(objectName);
 
     expect(
-      page.on.form.buttons.delete() // get element
+      page.on.form.buttons
+        .delete() // get element
         .isPresent()
     ).toBeTruthy();
 
-    page.on.form.buttons.cancel() // get element
+    page.on.form.buttons
+      .cancel() // get element
       .click(); // cancel delete
 
     expect(
-      page.on.form.buttons.delete() // get element
+      page.on.form.buttons
+        .delete() // get element
         .isPresent()
     ).toBeFalsy();
 
-    page.on.form.buttons.deleteConfirm() // get element
+    page.on.form.buttons
+      .deleteConfirm() // get element
       .click(); // show delete confirm again
 
     expect(
@@ -208,7 +209,8 @@ describe("e2e: bookmarks on add, edit and delete", function() {
         .getText()
     ).toContain(objectName);
 
-    page.on.form.buttons.delete() // get element
+    page.on.form.buttons
+      .delete() // get element
       .click(); // do delete
 
     // final assertion
