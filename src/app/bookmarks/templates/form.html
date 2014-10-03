@@ -14,7 +14,7 @@
     <!-- @begin: name -->
     <div class="row" ng-class="{'has-error': bookmarkForm.name.$invalid}">
       <div class="col-md-1">
-        <i ng-show="bookmarkForm.name.$error.required"
+        <i ng-if="bookmarkForm.name.$error.required"
           class="glyphicon glyphicon-pencil"></i>
         <label for="nameInput">Name</label>
       </div>
@@ -35,7 +35,7 @@
     <!-- @begin: url -->
     <div class="row" ng-class="{'has-error': bookmarkForm.url.$invalid}">
       <div class="col-md-1">
-        <i ng-show="bookmarkForm.url.$error.required"
+        <i ng-if="bookmarkForm.url.$error.required"
           class="glyphicon glyphicon-pencil"></i>
         <label for="urlInput">URL</label>
       </div>

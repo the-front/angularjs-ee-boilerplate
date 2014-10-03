@@ -43,12 +43,16 @@
     <tbody>
       <tr ng-repeat="bookmark in result.data | filter:filter.search">
         <td class="visible-xs">
-          <a href="#bookmarks/edit/{{bookmark.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
+          <a
+            id="gotoedit_0"
+            href="#bookmarks/edit/{{bookmark.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
         </td>
         <td><a href="{{bookmark.url}}" target="_blank">{{bookmark.name}}</a></td>
         <td>{{bookmark.description}}</td>
         <td class="hidden-xs">
-          <a href="#bookmarks/edit/{{bookmark.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
+          <a
+            id="gotoedit_1"
+            href="#bookmarks/edit/{{bookmark.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
         </td>
       </tr>
     </tbody>
