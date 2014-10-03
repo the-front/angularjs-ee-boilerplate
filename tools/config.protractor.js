@@ -4,6 +4,25 @@ exports.config = {
   // will use local selenium server jar
   // seleniumAddress: 'http://localhost:4444/wd/hub',
 
+  // default web browser: Google Chrome
+  /*
+  capabilities: {
+    'browserName': 'firefox'
+  }
+  */
+
+  /*
+  multiCapabilities: [
+    {
+      'browserName': 'firefox'
+    }, {
+      'browserName': 'chrome'
+    }, {
+      'browserName': 'safari'
+    }
+  ],
+  */
+
   specs: [
     '../src/**/tests/e2e/*.spec.js'
   ],
