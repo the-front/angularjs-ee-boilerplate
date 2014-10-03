@@ -23,40 +23,40 @@ describe("e2e: bookmarks on add, edit and delete", function() {
   it("should go to bookmarks list page", function() {
     page.get();
 
-    var newLink = page.on.list.links.new();
+    var newLink = page.on.list.links.new(); // get element
 
     expect(newLink.isPresent()).toBeTruthy();
   });
 
   it("should go to bookmarks add page", function() {
-    var newLink = page.on.list.links.new();
+    var newLink = page.on.list.links.new(); // get element
 
     newLink.click();
 
-    var title = page.on.form.title();
+    var title = page.on.form.title(); // get element
 
     expect(title.getText()).toContain('New Bookmark');
   });
 
   it("should return to bookmarks list page", function() {
-    var cancelLink = page.on.form.buttons.cancelLink();
+    var cancelLink = page.on.form.buttons.cancelLink(); // get element
 
     cancelLink.click();
 
-    var newLink = page.on.list.links.new();
+    var newLink = page.on.list.links.new(); // get element
 
     expect(newLink.isPresent()).toBeTruthy();
   });
 
   it("should add new bookmark", function() {
-    var newLink = page.on.list.links.new();
+    var newLink = page.on.list.links.new(); // get element
 
     newLink.click();
 
-    var nameInput = page.on.form.inputs.name();
-    var urlInput = page.on.form.inputs.url();
-    var descriptionInput = page.on.form.inputs.description();
-    var saveButton = page.on.form.buttons.save();
+    var nameInput = page.on.form.inputs.name(); // get element
+    var urlInput = page.on.form.inputs.url(); // get element
+    var descriptionInput = page.on.form.inputs.description(); // get element
+    var saveButton = page.on.form.buttons.save(); // get element
 
     var objectName = 'Protractor e2e';
 
@@ -66,7 +66,7 @@ describe("e2e: bookmarks on add, edit and delete", function() {
 
     saveButton.click();
 
-    var repeater = page.on.table.repeater();
+    var repeater = page.on.table.repeater(); // get element
 
     // assertion
     expect(
@@ -78,13 +78,14 @@ describe("e2e: bookmarks on add, edit and delete", function() {
   });
 
   it("should go to edit bookmark and cancel edition", function() {
-    // get element
-    var lastRow = page.on.table.repeater().last();
+    var lastRow = page.on.table
+      .repeater() // get element
+      .last(); // get element
 
     // assertion
     expect(
       lastRow
-        .element(by.binding('bookmark.name'))
+        .element(by.binding('bookmark.name')) // get element
         .getText()
     ).toContain('Protractor e2e');
 
@@ -106,7 +107,7 @@ describe("e2e: bookmarks on add, edit and delete", function() {
       .on
       .form
       .buttons
-      .cancelLink() // get cancel link element
+      .cancelLink() // get element
       .click(); // cancel edition
 
 
@@ -118,14 +119,16 @@ describe("e2e: bookmarks on add, edit and delete", function() {
   });
 
   it("should edit bookmark", function() {
-    var lastRow = page.on.table.repeater().last();
+    var lastRow = page.on.table
+      .repeater() // get element
+      .last(); // get element
 
     var objectName = 'Protractor e2e';
 
     // assertion
     expect(
       lastRow
-        .element(by.binding('bookmark.name'))
+        .element(by.binding('bookmark.name')) // get element
         .getText()
     ).toContain(objectName);
 
@@ -145,66 +148,75 @@ describe("e2e: bookmarks on add, edit and delete", function() {
     saveButton.click();
 
 
-    lastRow = page.on.table.repeater().last();
+    lastRow = page.on.table
+      .repeater() // get element
+      .last(); // get element
+
     // assertion
     expect(
       lastRow
-        .element(by.binding('bookmark.name'))
+        .element(by.binding('bookmark.name')) // get element
         .getText()
     ).toContain(objectName);
   });
 
   it("should delete bookmark", function() {
-    var lastRow = page.on.table.repeater().last();
+    var lastRow = page.on.table
+      .repeater() // get element
+      .last(); // get element
 
     var objectName = 'Protractor e2e Edited';
 
     // assertion
     expect(
       lastRow
-        .element(by.binding('bookmark.name'))
+        .element(by.binding('bookmark.name')) // get element
         .getText()
     ).toContain(objectName);
 
     // go to edit
     lastRow
-      .element(by.id('gotoedit_1'))
+      .element(by.id('gotoedit_1')) // get element
       .click();
 
-    // show delete confirm
-    page.on.form.buttons.deleteConfirm().click();
+    page.on.form.buttons.deleteConfirm() // get element
+      .click(); // show delete confirm
 
     expect(
-      element(by.binding('bookmark.name'))
+      element(by.binding('bookmark.name')) // get element
         .getText()
     ).toContain(objectName);
 
     expect(
-      page.on.form.buttons.delete().isPresent()
+      page.on.form.buttons.delete() // get element
+        .isPresent()
     ).toBeTruthy();
 
-    // cancel delete
-    page.on.form.buttons.cancel().click();
+    page.on.form.buttons.cancel() // get element
+      .click(); // cancel delete
 
     expect(
-      page.on.form.buttons.delete().isPresent()
+      page.on.form.buttons.delete() // get element
+        .isPresent()
     ).toBeFalsy();
 
-    // show delete confirm again
-    page.on.form.buttons.deleteConfirm().click();
+    page.on.form.buttons.deleteConfirm() // get element
+      .click(); // show delete confirm again
 
     expect(
-      element(by.binding('bookmark.name'))
+      element(by.binding('bookmark.name')) // get element
         .getText()
     ).toContain(objectName);
 
-    // do delete
-    page.on.form.buttons.delete().click();
+    page.on.form.buttons.delete() // get element
+      .click(); // do delete
 
     // final assertion
     expect(
-      page.on.table.repeater().last()
-        .element(by.binding('bookmark.name'))
+      page.on.table
+        .repeater() // get element
+        .last() // get element
+        .element(by.binding('bookmark.name')) // get element
         .getText()
     ).not.toContain(objectName);
   });

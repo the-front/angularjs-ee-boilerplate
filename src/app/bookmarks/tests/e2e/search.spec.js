@@ -6,12 +6,12 @@ describe("e2e: bookmarks on search", function() {
 
   //---
 
-  var backToList = page.on.search.links.backToList();
-  var optionsButton = page.on.search.options.optionsButton();
+  var backToList = page.on.search.links.backToList(); // get element
+  var optionsButton = page.on.search.options.optionsButton(); // get element
 
-  var searchInput = page.on.search.searchInput();
+  var searchInput = page.on.search.searchInput(); // get element
 
-  var repeater = page.on.table.repeater();
+  var repeater = page.on.table.repeater(); // get element
 
   //---
 
@@ -57,7 +57,7 @@ describe("e2e: bookmarks on search", function() {
       // open options
       optionsButton.click();
 
-      var pageSizeInput = page.on.search.options.pageSizeInput();
+      var pageSizeInput = page.on.search.options.pageSizeInput(); // get element
 
       pageSizeInput.clear();
       pageSizeInput
