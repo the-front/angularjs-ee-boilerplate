@@ -67,6 +67,8 @@
           backToList: function() { return _getLink('All Bookmarks'); }
         },
 
+        searchInput: function() { return _getModel('searchName'); },
+
         options: _listAndSearch.options
       },
 
