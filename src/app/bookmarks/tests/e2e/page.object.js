@@ -32,10 +32,8 @@
   var _listAndSearch = {
     options: {
       optionsButton:         function() { return _getId('optionsBtn'); },
-      // optionsButtonLabel:    function() { return _getBindingAll('optionsBtnLabel').get(0); },
 
       filterButton:          function() { return _getId('filterBtn'); },
-      // filterButtonLabel:     function() { return _getBindingAll('filterBtnLabel').get(0); },
 
       pageSizeInput:         function() { return _getModel('pageSize'); },
       pageSizeMessage:       function() { return _getId('pageSizeMessage'); }
@@ -83,9 +81,9 @@
         title: function() { return _getBinding('title'); },
 
         inputs: {
-          name:          function() { return _getModel('bookmarks.name'); },
-          url:           function() { return _getModel('bookmarks.url'); },
-          description:   function() { return _getModel('bookmarks.description'); }
+          name:          function() { return _getModel('bookmark.name'); },
+          url:           function() { return _getModel('bookmark.url'); },
+          description:   function() { return _getModel('bookmark.description'); }
         },
 
         buttons: {
