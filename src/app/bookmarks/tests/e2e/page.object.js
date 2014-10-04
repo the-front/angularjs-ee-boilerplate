@@ -2,6 +2,7 @@
   'use strict';
 
   //----------------------------------------------------------------------------
+  // element shortcuts
 
   var _getId = function(id) {
     return element(by.id(id));
@@ -28,6 +29,7 @@
   };
 
   //----------------------------------------------------------------------------
+  // list and search options elements
 
   var _listAndSearch = {
     options: {
@@ -38,6 +40,26 @@
       pageSizeInput:         function() { return _getModel('pageSize'); },
       pageSizeMessage:       function() { return _getId('pageSizeMessage'); }
     }
+  };
+
+  //----------------------------------------------------------------------------
+  // table element shortcuts
+
+  var _repeater = function() { return _getRepeater('bookmark in result.data'); };
+
+  var _lastRow = function(repeater) {
+    repeater = repeater || _repeater();
+    return repeater.last();
+  };
+
+  var _lastRowName = function(lastRow) {
+    lastRow = lastRow || _lastRow();
+    return lastRow.element(by.binding('bookmark.name'));
+  };
+
+  var _lastRowEditLink = function(lastRow) {
+    lastRow = lastRow || _lastRow();
+    return lastRow.element(by.id('gotoedit_1'));
   };
 
   //----------------------------------------------------------------------------
@@ -74,16 +96,20 @@
         filterTexts:        function() { return _getBindingAll('filter.search'); },
         filterInput:        function() { return _getModel('filter.search'); },
         filterClearButton:  function() { return _getId('filterClearButton'); },
-        repeater:           function() { return _getRepeater('bookmark in result.data'); }
+        repeater:           _repeater,
+        lastRow:            _lastRow,
+        lastRowName:        _lastRowName,
+        lastRowEditLink:    _lastRowEditLink
       },
 
       form: {
-        title: function() { return _getBinding('title'); },
+        title:             function() { return _getBinding('title'); },
+        nameConfirm:       function() { return _getBinding('bookmark.name'); },
 
         inputs: {
-          name:          function() { return _getModel('bookmark.name'); },
-          url:           function() { return _getModel('bookmark.url'); },
-          description:   function() { return _getModel('bookmark.description'); }
+          name:            function() { return _getModel('bookmark.name'); },
+          url:             function() { return _getModel('bookmark.url'); },
+          description:     function() { return _getModel('bookmark.description'); }
         },
 
         buttons: {
