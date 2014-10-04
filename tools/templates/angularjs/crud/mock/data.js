@@ -65,6 +65,29 @@ function(module) {
 
           var seq = 0;
 
+          //---
+
+          collection.insert({
+            id:           seq++,
+            name:         'Protractor',
+            description:  'End to end testing for AngularJS :: ' +
+                          'https://angular.github.io/protractor/'
+          });
+          collection.insert({
+            id:           seq++,
+            name:         'Protractor Tutorial',
+            description:  'This is a simple tutorial that shows you how to set up Protractor and start running tests :: ' +
+                          'https://angular.github.io/protractor/#/tutorial'
+          });
+          collection.insert({
+            id:           seq++,
+            name:         'Protractor Source Code',
+            description:  '[GitHub] angular / protractor :: ' +
+                          'https://github.com/angular/protractor'
+          });
+
+          //---
+
           for (var i = 42; i > 0; i--) {
             collection.insert({
               id          : seq,

@@ -14,7 +14,7 @@
     <!-- @begin: name -->
     <div class="row" ng-class="{'has-error': <%= name %>Form.name.$invalid}">
       <div class="col-md-1">
-        <i ng-show="<%= name %>Form.name.$error.required"
+        <i ng-if="<%= name %>Form.name.$error.required"
           class="glyphicon glyphicon-pencil"></i>
         <label for="nameInput">Name</label>
       </div>
@@ -46,30 +46,36 @@
     <!-- @end: description -->
 
     <!-- @begin: buttons -->
-    <div class="row" ng-hide="showConfirm">&nbsp;</div>
+    <div class="row" ng-if="!showConfirm">&nbsp;</div>
 
-    <div class="row" ng-hide="showConfirm">
+    <div class="row" ng-if="!showConfirm">
       <div class="col-md-5">
-        <a href="#<%= route %>" class="btn">Cancel</a>
+        <a href="#<%= route %>" class="btn" id="cancelLinkBtn">Cancel</a>
         <button
+          id="saveBtn"
           ng-click="save()"
           ng-disabled="isClean() || <%= name %>Form.$invalid"
           class="btn btn-primary">Save</button>
         <button
+          id="deleteConfirmBtn"
           ng-click="remove()"
-          ng-show="<%= name %>.id"
+          ng-if="<%= name %>.id"
           class="btn btn-danger">Delete</button>
       </div>
     </div>
     <!-- @end: buttons -->
 
     <!-- @begin: confirm -->
-    <div class="bs-callout bs-callout-danger" ng-show="showConfirm">
+    <div class="bs-callout bs-callout-danger" ng-if="showConfirm">
       <h4>Confirm</h4>
       <p>Delete <code>{{<%= name %>.name}}</code> ?</p>
-      <button ng-click="destroy()"
+      <button
+        id="deleteBtn"
+        ng-click="destroy()"
         class="btn btn-danger">Delete</button>
-      <button ng-click="cancelRemove()"
+      <button
+        id="cancelBtn"
+        ng-click="cancelRemove()"
         class="btn btn-default">Cancel</button>
     </div>
     <!-- @end: confirm -->

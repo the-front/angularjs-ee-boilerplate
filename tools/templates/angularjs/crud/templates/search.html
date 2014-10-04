@@ -18,6 +18,7 @@
         <li>
 
           <button
+            id="optionsBtn"
             type="button"
             title="{{optionsBtnLabel}}"
             ng-click="showOptionsBtnClick()"
@@ -66,18 +67,19 @@
 
   <!-- @begin: options -->
   <div class="visible-xs">
-    <span ng-show="showOptions &#38;&#38; (showFilterBtn || result.count > 0)">&nbsp;</span>
+    <span ng-if="showOptions &#38;&#38; (showFilterBtn || result.count > 0)">&nbsp;</span>
   </div>
 
   <div class="row" ng-show="showOptions">
 
-    <span ng-show="showFilterBtn">
+    <span ng-if="showFilterBtn">
       <span>
         &nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;
       </span>
 
       <button
+        id="filterBtn"
         type="button"
         title="{{filterBtnLabel}}"
         ng-click="showFilterBtnClick()"
@@ -88,17 +90,17 @@
 
     </span>
 
-    <span ng-show="showPagination">
+    <span ng-if="showPagination">
 
-      <span ng-show="result.count > 0">
+      <span ng-if="result.count > 0">
         &nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;
       </span>
 
-      <span ng-show="result.pages > 1">
+      <span ng-if="result.pages > 1">
         Pages: <span class="badge">{{result.pages}}</span> &nbsp;&nbsp;
       </span>
-      <span ng-show="result.count > 0">
+      <span ng-if="result.count > 0">
         Total: <span class="badge">{{result.count}}</span>
       </span>
       <span class="visible-xs col-md-1">&nbsp;</span>
@@ -127,7 +129,9 @@
           </span>
         </div>
         <div>
-          <p ng-show="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
+          <p
+            id="pageSizeMessage"
+            ng-show="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
             class="text-center">
             The value must be in range {{pageMinSize}} to {{pageMaxSize}}!
           </p>
@@ -147,8 +151,8 @@
   <!-- @begin: pagination -->
 
   <!-- https://angular-ui.github.io/bootstrap/#/pagination -->
-  <div class="row" ng-show="showPagination">
-    <div class="text-center" ng-show="result.pages > 1">
+  <div class="row" ng-if="showPagination">
+    <div class="text-center" ng-if="result.pages > 1">
       <pagination
         ng-model="currentPage"
         max-size="paginationItemsSize"
@@ -162,8 +166,8 @@
       </div>
   </div>
 
-  <div class="row" ng-hide="showPagination">
-    <p class="text-center" ng-show="filter.search">
+  <div class="row" ng-if="!showPagination">
+    <p class="text-center" ng-if="filter.search">
       <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
     </p>
   </div>
