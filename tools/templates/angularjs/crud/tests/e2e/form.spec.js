@@ -77,11 +77,9 @@ describe("e2e: <%= helpers.capitalize( name ) %> on add, edit and delete", funct
     expect(title.getText()).toContain('Edit <%= helpers.capitalize( name ) %>');
     expect(nameInput.getAttribute('value')).toBe('Protractor e2e');
 
-
     page.on.form.buttons
       .cancelLink() // get element
       .click(); // cancel edition
-
 
     // get element
     var newLink = page.on.list.links.new();
@@ -94,6 +92,7 @@ describe("e2e: <%= helpers.capitalize( name ) %> on add, edit and delete", funct
     var lastRow = page.on.table.lastRow(); // get element
 
     var objectName = 'Protractor e2e';
+
     // assertion
     expect(
       page.on.table
