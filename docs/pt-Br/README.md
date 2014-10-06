@@ -119,6 +119,12 @@ $ npm run setup
 
 > **Atenção:** caso queira executar com o fluxo de desenvolvimento, execute primeiro a tarefa de desenvolvimento (ex.: `grunt dev`) em um terminal e em outro terminal execute `grunt specs`
 
+* `grunt e2e` - primeiro irá executar a tarefa `build:prod`, iniciar um servidor web com suporte a proxy e então executará os testes e2e com o Protractor
+
+* `grunt protractor` - executa apenas os testes e2e
+
+> **Atenção:** precisa executar em conjunto do fluxo de desenvolvimento, execute primeiro a tarefa de desenvolvimento (ex.: `grunt dev`) em um terminal e em outro terminal execute `grunt protrator`, ou para executar um suite de testes específico `grunt protractor --suite bookmarks` (configuração para o Protractor: `./tools/config.protractor.js`)
+
 #### Configurações do Ferramental
 
 * Configurações globais do ferramental: `./tools/config.js`, as quais são utilizadas no `./tools/helpers/grunt/config/project.js`

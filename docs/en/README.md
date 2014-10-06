@@ -117,6 +117,12 @@ $ npm run setup
 
 > **Attention:** if you want to run with dev flow, run first dev task (ex.: `grunt dev`) in one terminal and in other terminal run `grunt specs`
 
+* `grunt e2e` - execute `build:prod`, start web server with proxy support and then run e2e test's with Protractor
+
+* `grunt protractor` - run only e2e test's
+
+> **Attention:** need to run with dev flow, run first (ex.: `grunt dev`) in one terminal and in other terminal run `grunt protractor` or specific test's suite `grunt protractor --suite bookmarks` (Protractor configs: `./tools/config.protractor.js`)
+
 #### Tools Configuration
 
 * Tools global configs: `./tools/config.js` which is used on `./tools/helpers/grunt/config/project.js`
