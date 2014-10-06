@@ -12,11 +12,11 @@
 
     - [javascript / runner / tasks / grunt / templates / lodash-template](https://github.com/erkobridee/lab-nodejs/tree/master/javascript/runner/task/grunt/templates/lodash-template)
 
-- [ ] Add tests support
+- [x] Add tests support
 
   - [x] unit ( [jasmine](https://jasmine.github.io/), [karma runner](https://karma-runner.github.io/) and [istanbul code coverage](https://gotwarlost.github.io/istanbul/) )
 
-  - [ ] e2e ( interface / selenium | [Protractor](https://angular.github.io/protractor/) - E2E test framework for Angular Apps )
+  - [x] e2e ( interface / selenium | [Protractor](https://angular.github.io/protractor/) - E2E test framework for Angular Apps )
 
 
 ## 1.1.0 version
