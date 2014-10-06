@@ -1,13 +1,7 @@
-define(
-// require.js dependency injection
-[
-  'shared/mock/backend'
-],
-
-// require.js module scope
-function(backend) {
+define(function(require) {
   'use strict';
 
+  var backend = require('shared/mock/backend');
 
   backend.addResource(
     // mock resource dependencies injection
@@ -20,6 +14,5 @@ function(backend) {
     $httpBackend.when('GET', regexpUrl(/api\.github\.com\/users(\/)?([A-z0-9]+)?$/)).passThrough();
 
   }]);
-
 
 });
