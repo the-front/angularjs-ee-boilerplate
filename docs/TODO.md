@@ -1,24 +1,5 @@
 # TODO
 
-## 0.x -> 1.0.0 version
-
-- [x] Add browser-sync support
-
-  * [[GitHub] shakyShane / grunt-browser-sync](https://github.com/shakyShane/grunt-browser-sync) - Grunt Task for keeping multiple browsers & devices in sync when building websites.
-
-- [x] Add support to code generation from templates 
-
-  - [[GitHub] erkobridee / lab-nodejs](https://github.com/erkobridee/lab-nodejs)
-
-    - [javascript / runner / tasks / grunt / templates / lodash-template](https://github.com/erkobridee/lab-nodejs/tree/master/javascript/runner/task/grunt/templates/lodash-template)
-
-- [x] Add tests support
-
-  - [x] unit ( [jasmine](https://jasmine.github.io/), [karma runner](https://karma-runner.github.io/) and [istanbul code coverage](https://gotwarlost.github.io/istanbul/) )
-
-  - [x] e2e ( interface / selenium | [Protractor](https://angular.github.io/protractor/) - E2E test framework for Angular Apps )
-
-
 ## 1.1.0 version
 
 - [ ] change require.js typical AMD style to commonjs AMD style 
