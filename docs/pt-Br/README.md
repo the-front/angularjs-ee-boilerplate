@@ -169,6 +169,11 @@ $ npm run setup
 
   * execute duas vezes o comando `npm install`, para instalar todas as dependências
 
+##### Protracto e Selenium - Firefox não funciona
+
+* Quando você atualizar para a última versão do Firefox e o Selenium parar de funcionar
+
+  * **Solução:** `mantenha o jar do servidor Selenium sempre atualizado com a última versão`
 
 ### Ferramenta para Publicação no GitHub gh-pages
 

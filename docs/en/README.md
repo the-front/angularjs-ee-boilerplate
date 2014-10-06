@@ -165,6 +165,11 @@ $ npm run setup
 
   * run `npm install` two times, to install all dependencies
 
+##### Protracto & Selenium - Firefox dos not work
+
+* When you uptade to last Firefox version and Selenium stop to work with
+
+  * **Solution:** `keep selenium server jar always up to date`
 
 ### Publishing tool for GitHub gh-pages
 
