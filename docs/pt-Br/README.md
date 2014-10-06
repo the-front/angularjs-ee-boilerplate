@@ -211,6 +211,8 @@ $ npm run setup
       require.config.js  >> carrega os arquivos e testes da aplicação para o Karma Runner
   /templates             >> arquivos de templates para a tarefa generate do grunt.js
   config.js              >> configurações globais para as tarefas do grunt.js
+  config.karma.js        >> referenciado no config.js
+  config.protractor.js   >> configurações para o Protractor
   Gruntfile.js           >> arquivo principal de configuração do grunt.js
   package.json           >> arquivo de configuração e dependências do projeto 'tools' em node.js
 ```
@@ -246,6 +248,8 @@ $ npm run setup
       /tests/unit
         >> require.load.js mapeia todos os arquivos js do diretório
            este arquivo é referenciado como dependência no /require.unit.load.js
+      /tests/e2e
+        >> arquivos carregados pelo Protractor através de uma expressão regular
 
     /about
       >> módulo referenciado como denpendência no /app/main/module.js

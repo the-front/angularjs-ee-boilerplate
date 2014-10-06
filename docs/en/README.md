@@ -204,9 +204,11 @@ $ npm run setup
       /config            >> configuration files to grunt.js tasks
       /tasks             >> custom grunt.js tasks
     /tests
-      require.config.js  >> load application files and test's specs to Karma Runner
+      require.config.js  >> load application files and test's specs for Karma Runner
   /templates             >> templates files for grunt.js generate task
-  config.js              >> global configs to grunt.js tasks
+  config.js              >> global configs for grunt.js tasks
+  config.karma.js        >> referenced on config.js
+  config.protractor.js   >> config for Protractor
   Gruntfile.js           >> main grunt.js configuration file
   package.json           >> node.js 'tools' project and dependencies configuration
 ```
@@ -242,6 +244,8 @@ $ npm run setup
       /tests/unit
         >> require.load.js map all js files in the directory
            this file is referenced as a dependency on /require.unit.load.js
+      /tests/e2e
+        >> files loaded from Protractor config specs regexp
 
     /about
       >> module referenced as a dependency on /app/main/module.js
