@@ -1,10 +1,10 @@
-define(
-// require.js dependency injection
-[
-  './module',
-  './factories/input.focus',
-  './directives/input.focus'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  var module = require('./module');
+  require('./factories/input.focus');
+  require('./directives/input.focus');
+
+  return module;
+
+});

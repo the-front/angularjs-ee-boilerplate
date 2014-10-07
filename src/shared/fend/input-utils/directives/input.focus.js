@@ -1,13 +1,7 @@
-define(
-// require.js dependency injection
-[
-  '../module'
-],
-
-// require.js module scope
-function(module) {
+define(function(require) {
   'use strict';
 
+  var module = require('../module');
 
   module.directive(
 
@@ -34,6 +28,5 @@ function(module) {
     based on:
     http://blog.ejci.net/2013/08/06/dealing-with-focus-and-blur-in-angularjs-directives/
   */
-
 
 });

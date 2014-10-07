@@ -1,13 +1,7 @@
-define(
-// require.js dependency injection
-[
-  '../module'
-],
-
-// require.js module scope
-function(module) {
+define(function(require) {
   'use strict';
 
+  var module = require('../module');
 
   module.factory(
 
@@ -110,6 +104,5 @@ function(module) {
     };
 
   }]);
-
 
 });
