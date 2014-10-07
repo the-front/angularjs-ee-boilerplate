@@ -12,4 +12,8 @@ define(function(require) {
   require('app/help/tests/unit/require.load');
   require('app/bookmarks/tests/unit/require.load');
 
+
+  // TODO: add here tests unit module to load
+
+
 });
