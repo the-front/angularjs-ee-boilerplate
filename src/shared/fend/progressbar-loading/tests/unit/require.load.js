@@ -1,11 +1,9 @@
-define(
-// require.js dependency injection
-[
-  './module.spec',
-  './factories/progress.config.spec',
-  './factories/progress.status.spec',
-  './factories/progress.interceptor.spec'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  require('./module.spec');
+  require('./factories/progress.config.spec');
+  require('./factories/progress.status.spec');
+  require('./factories/progress.interceptor.spec');
+
+});
