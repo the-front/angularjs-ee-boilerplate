@@ -1,10 +1,8 @@
-define(
-// require.js dependency injection
-[
-  './module.spec',
-  './routes.spec',
-  './controller.spec'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  require('./module.spec');
+  requre('./routes.spec');
+  require('./controller.spec');
+
+});
