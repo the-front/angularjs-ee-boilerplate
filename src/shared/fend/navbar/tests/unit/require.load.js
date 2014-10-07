@@ -1,9 +1,7 @@
-define(
-// require.js dependency injection
-[
-  './module.spec',
-  './factories/menu.config.spec'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  require('./module.spec');
+  require('./factories/menu.config.spec');
+
+});
