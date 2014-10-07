@@ -1,14 +1,12 @@
-define(
-// require.js dependency injection
-[
+define(function(require) {
+  'use strict';
+
   // allow request pass through angular.js mock url interceptor
-  //'./allow-pass'
+  // require('./allow-pass');
 
   /**/
-  './data',
-  './url-interceptors'
+  require('./data'); // local mock data
+  require('./url-interceptors'); // intercepts and responds
   /**/
-],
 
-// require.js module scope
-function() {});
+});

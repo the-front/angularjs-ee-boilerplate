@@ -1,15 +1,15 @@
-define(
-// require.js dependency injection
-[
-  './module',
-  './controllers/edit',
-  './controllers/list',
-  './controllers/new',
-  './controllers/search',
-  './resources/rest',
-  './resources/search',
-  './routes'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  var module = require('./module');
+  require('./controllers/edit');
+  require('./controllers/list');
+  require('./controllers/new');
+  require('./controllers/search');
+  require('./resources/rest');
+  require('./resources/search');
+  require('./routes');
+
+  return module;
+
+});

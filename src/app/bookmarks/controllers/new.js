@@ -1,14 +1,8 @@
-define(
-// require.js dependency injection
-[
-  '../module',
-  '../resources/rest'
-],
-
-// require.js module scope
-function(module) {
+define(function(require) {
   'use strict';
 
+  var module = require('../module');
+  require('../resources/rest');
 
   module.controller(
 
@@ -52,6 +46,5 @@ function(module) {
     };
 
   }]);
-
 
 });
