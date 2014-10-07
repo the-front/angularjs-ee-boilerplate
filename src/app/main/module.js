@@ -1,30 +1,19 @@
-define(
-// require.js dependency injection
-[
-  'angular',
-  'angularRoute',
-
-  'angularUiBootstrap',
-
-  './templates/cache',
-
-  'shared/fend/progressbar-loading/require.load',
-  'shared/fend/navbar/require.load',
-
-  'app/home/require.load',
-  'app/about/require.load',
-
-  'app/bookmarks/require.load',
-
-  'app/help/require.load'
-],
-
-// require.js module scope
-function(ng) {
+define(function(require) {
   'use strict';
 
-  // Module definition
-  return ng.module(
+  var angular = require('angular');
+  require('angularRoute');
+
+  require('angularUiBootstrap');
+
+  // TODO: review and update
+  require('./templates/cache');
+
+  require('shared/fend/progressbar-loading/require.load');
+  require('shared/fend/navbar/require.load');
+
+  // angular module definition
+  return angular.module(
 
     // module name
     'main',
@@ -40,12 +29,12 @@ function(ng) {
       'fend.progressbar.loading',
       'fend.navbar',
 
-      'home',
-      'about',
+      require('app/home/require.load').name,
+      require('app/about/require.load').name,
 
-      'bookmarks',
+      require('app/bookmarks/require.load').name,
 
-      'help'
+      require('app/help/require.load').name,
     ]
   );
 
