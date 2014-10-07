@@ -1,13 +1,7 @@
-define(
-// require.js dependency injection
-[
-  'shared/mock/backend'
-],
-
-// require.js module scope
-function(backend) {
+define(function(require) {
   'use strict';
 
+  var backend = require('shared/mock/backend');
 
   backend.addResource(
     // mock resource dependencies injection
@@ -50,6 +44,5 @@ function(backend) {
 
     //--- @end: Allow pass to server
   }]);
-
 
 });

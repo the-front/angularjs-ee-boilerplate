@@ -1,15 +1,13 @@
-define(
-// require.js dependency injection
-[
-  './module.spec',
-  './routes.spec',
-  './resources/rest.spec',
-  './resources/search.spec',
-  './controllers/list.spec',
-  './controllers/search.spec',
-  './controllers/new.spec',
-  './controllers/edit.spec'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  require('./module.spec');
+  require('./routes.spec');
+  require('./resources/rest.spec');
+  require('./resources/search.spec');
+  require('./controllers/list.spec');
+  require('./controllers/search.spec');
+  require('./controllers/new.spec');
+  require('./controllers/edit.spec');
+
+});

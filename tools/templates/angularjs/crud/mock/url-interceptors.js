@@ -1,16 +1,10 @@
-define(
-// require.js dependency injection
-[
-  'angular',
-  'shared/mock/backend',
-
-  './data'
-],
-
-// require.js module scope
-function(ng, backend) {
+define(function(require) {
   'use strict';
 
+  var angular = require('angular');
+  var backend = require('shared/mock/backend');
+
+  require('./data');
 
   backend.addResource(
 

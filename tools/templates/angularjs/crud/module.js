@@ -1,20 +1,12 @@
-define(
-// require.js dependency injection
-[
-  'angular',
-  'angularRoute',
-  'angularResource',
-
-  'shared/fend/input-utils/require.load',
-  'shared/fend/pagination/require.load'
-],
-
-// require.js module scope
-function(ng) {
+define(function(require) {
   'use strict';
 
-  // module definition
-  return ng.module(
+  var angular = require('angular');
+  require('angularRoute');
+  require('angularResource');
+
+  // angular module definition
+  return angular.module(
     // module name
     '<%= name %>',
 
@@ -23,8 +15,9 @@ function(ng) {
       'ngRoute',
       'ngResource',
 
-      'fend.input.utils',
-      'fend.pagination'
+      require('shared/fend/input-utils/require.load').name,
+      require('shared/fend/pagination/require.load').name,
+
     ]
   );
 
