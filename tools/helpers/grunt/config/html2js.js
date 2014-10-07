@@ -5,7 +5,7 @@ grunt.config('html2js', {
   options: {
     module: 'templatesCache',
     fileHeaderString: 'define([\'angular\'], function(angular) { \n',
-    fileFooterString: '\n});',
+    fileFooterString: '\nreturn { name: \'<%= html2js.options.module %>\' };\n});',
 
     rename: function (moduleName) {
       return moduleName.replace('../../src/', '');
