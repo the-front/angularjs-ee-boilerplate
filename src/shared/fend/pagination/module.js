@@ -1,15 +1,10 @@
-define(
-// require.js dependency injection
-[
-  'angular'
-],
-
-// require.js module scope
-function(ng) {
+define(function(require) {
   'use strict';
 
-  // module definition
-  return ng.module(
+  var angular = require('angular');
+
+  // angular module definition
+  return angular.module(
     // module name
     'fend.pagination',
 
