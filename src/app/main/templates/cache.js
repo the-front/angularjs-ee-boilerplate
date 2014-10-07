@@ -8,4 +8,6 @@ define(['angular'], function() {
 
   angular.module('templatesCache', []);
 
+  return { name: 'templatesCache' };
+
 });

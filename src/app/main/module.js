@@ -6,9 +6,6 @@ define(function(require) {
 
   require('angularUiBootstrap');
 
-  // TODO: review and update
-  require('./templates/cache');
-
   // angular module definition
   return angular.module(
 
@@ -21,7 +18,7 @@ define(function(require) {
 
       'ui.bootstrap',
 
-      'templatesCache',
+      require('./templates/cache').name,
 
       require('shared/fend/progressbar-loading/require.load').name,
       require('shared/fend/navbar/require.load').name,
