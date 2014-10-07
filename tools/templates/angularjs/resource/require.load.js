@@ -1,9 +1,9 @@
-define(
-// require.js dependency injection
-[
-  './module',
-  './resources/rest'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  var module = require('./module');
+  require('./resources/rest');
+
+  return module;
+
+});
