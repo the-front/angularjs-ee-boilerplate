@@ -5,10 +5,6 @@ define(function(require) {
   require('angularRoute');
   require('angularResource');
 
-  // TODO: review module deps after update /src/shared
-  require('shared/fend/input-utils/require.load');
-  require('shared/fend/pagination/require.load');
-
   // angular module definition
   return angular.module(
     // module name
@@ -19,8 +15,8 @@ define(function(require) {
       'ngRoute',
       'ngResource',
 
-      'fend.input.utils',
-      'fend.pagination'
+      require('shared/fend/input-utils/require.load').name,
+      require('shared/fend/pagination/require.load').name
     ]
   );
 
