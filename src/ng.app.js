@@ -1,36 +1,28 @@
-define(
-// require.js dependency injection
-[
-  'angular',
-
-  './require.mock.load',
-
-  'app/main/require.load'
-],
-
-// require.js module scope
-function(ng) {
+define(function(require) {
   'use strict';
 
-  ng.element(document).ready(function() {
+  var angular = require('angular');
+
+  angular.element(document).ready(function() {
 
     console.log('bootstrap angular application');
 
     // define run module to bootstrap application
-    ng.module(
+    var module = angular.module(
       // module name
       'run',
 
       // module dependencies
       [
-        'ngMockBackend',
+        // enable mock and intercep $HTTP requests
+        require('./require.mock.load').name,
 
-        'main'
+        require('app/main/require.load').name
       ]
     );
 
     // start angular app
-    ng.bootstrap(document, ['run']);
+    angular.bootstrap(document, [module.name]);
 
   });
 
