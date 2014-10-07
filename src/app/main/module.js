@@ -29,6 +29,11 @@ define(function(require) {
       require('app/bookmarks/require.load').name,
 
       require('app/help/require.load').name,
+
+
+      // TODO: add here module to load
+
+
     ]
   );
 
