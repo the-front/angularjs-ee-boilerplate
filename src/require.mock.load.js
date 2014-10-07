@@ -1,12 +1,10 @@
-define(
-// require.js dependency injection
-[
-  'shared/mock/require.load',
+define(function(require) {
+  'use strict';
 
-  'app/help/mock/allow-pass-github',
+  require('shared/mock/require.load');
 
-  'app/bookmarks/mock/require.load'
-],
+  require('app/help/mock/allow-pass-github');
 
-// require.js module scope
-function() {});
+  require('app/bookmarks/mock/require.load');
+
+});
