@@ -9,9 +9,6 @@ define(function(require) {
   // TODO: review and update
   require('./templates/cache');
 
-  require('shared/fend/progressbar-loading/require.load');
-  require('shared/fend/navbar/require.load');
-
   // angular module definition
   return angular.module(
 
@@ -26,8 +23,8 @@ define(function(require) {
 
       'templatesCache',
 
-      'fend.progressbar.loading',
-      'fend.navbar',
+      require('shared/fend/progressbar-loading/require.load').name,
+      require('shared/fend/navbar/require.load').name,
 
       require('app/home/require.load').name,
       require('app/about/require.load').name,
