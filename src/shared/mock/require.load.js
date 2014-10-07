@@ -1,12 +1,12 @@
-define(
-// require.js dependency injection
-[
-  './module',
-  './backend',
-  './helpers',
-  './datastore',
-  './allow-pass-jsonp'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  var module = require('./module');
+  require('./backend');
+  require('./helpers');
+  require('./datastore');
+  require('./allow-pass-jsonp');
+
+  return module;
+
+});

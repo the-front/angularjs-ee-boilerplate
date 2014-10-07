@@ -1,12 +1,7 @@
-define(
-// require.js dependency injection
-[
-  'shared/mock/module'
-],
-
-// require.js module scope
-function(module) {
+define(function(require) {
   'use strict';
+
+  var module = require('shared/mock/module');
 
   module.factory(
 

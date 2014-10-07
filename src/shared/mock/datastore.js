@@ -1,15 +1,10 @@
 // http://jshint.com/docs/options/
 /* jshint newcap:false */
-define(
-// require.js dependency injection
-[
-  'shared/mock/module',
-  'lokijs'
-],
-
-// require.js module scope
-function(module) {
+define(function(require) {
   'use strict';
+
+  var module = require('shared/mock/module');
+  require('lokijs');
 
   module.factory(
 

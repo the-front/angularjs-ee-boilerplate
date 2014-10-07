@@ -1,15 +1,10 @@
-define(
-// require.js dependency injection
-[
-  'angular',
-  'angularMocksBackend'
-],
-
-// require.js module scope
-function(ng) {
+define(function(require) {
   'use strict';
 
+  var angular = require('angular');
+  require('angularMocksBackend');
+
   // get mock module
-  return ng.module('ngMockBackend');
+  return angular.module('ngMockBackend');
 
 });
