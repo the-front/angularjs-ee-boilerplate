@@ -1,10 +1,10 @@
-define(
-// require.js dependency injection
-[
-  './module',
-  './controller',
-  './routes'
-],
+define(function(require) {
+  'use strict';
 
-// require.js module scope
-function() {});
+  var module = require('./module');
+  require('./controller');
+  require('./routes');
+
+  return module;
+
+});
