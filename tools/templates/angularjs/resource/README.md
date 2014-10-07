@@ -51,9 +51,8 @@ define(function(require) {
   'use strict';
 
   var angular = require('angular');
-  require('angularRoute');
 
-  require('angularUiBootstrap');
+  ...
 
   // angular module definition
   return angular.module(
@@ -63,9 +62,6 @@ define(function(require) {
 
     // module dependencies
     [
-      'ngRoute',
-
-      'ui.bootstrap',
 
       ...
 
@@ -84,7 +80,7 @@ define(function(require) {
 4 - delete this file : README.md
 
 
--------------------------------------------------------------------------------
+=------------------------------------------------------------------------------=
 
 Values to templates:
 
@@ -98,4 +94,4 @@ Values to templates:
 
   backend resource regexp escape: <%= helpers.stringRegExpEscape( endpoint ) %>
 
--------------------------------------------------------------------------------
+=------------------------------------------------------------------------------=
