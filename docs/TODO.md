@@ -1,12 +1,5 @@
 # TODO
 
-## 1.1.0 version
-
-- [x] change require.js typical AMD style to commonjs AMD style 
-
-  - check this blog post : [Require.js packages for building large scale angular applications | Jonathan Creamer](http://jonathancreamer.com/require-js-packages-for-building-large-scale-angular-applications/)
-
-
 ## future version
 
 - [ ] Study [browserify](http://browserify.org/) use instead [require.js](http://requirejs.org/)
