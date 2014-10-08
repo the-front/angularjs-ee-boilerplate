@@ -1,7 +1,7 @@
 
-TODO:
+# TODO:
 
-1 - update /src/require.unit.load.js
+1 - update `/src/require.unit.load.js`
 
 ```javascript
 define(function(require) {
@@ -18,7 +18,7 @@ define(function(require) {
 ```
 
 
-2 - update /src/require.mock.load.js
+2 - update `/src/require.mock.load.js`
 
 ```javascript
 define(function(require) {
@@ -45,7 +45,7 @@ define(function(require) {
 ```
 
 
-3 - update /src/app/main/module.js
+3 - update `/src/app/main/module.js`
 
 ```javascript
 define(function(require) {
@@ -79,7 +79,7 @@ define(function(require) {
 ```
 
 
-4 - add menu item :: update /src/app/main/controller.js
+4 - add menu item :: update `/src/app/main/controller.js`
 
 ```javascript
   //--- @begin: menu items
@@ -96,7 +96,7 @@ define(function(require) {
 ```
 
 
-5 - delete this file : README.md
+5 - delete this file : `README.md`
 
 
 =------------------------------------------------------------------------------=
