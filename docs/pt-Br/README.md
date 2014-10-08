@@ -111,6 +111,8 @@ $ npm run setup
 
 #### Testes
 
+##### Testes Unitários
+
 * `grunt ci` - limpa os diretórios de build, executa a tarefa `karma:ci` do grunt que executa os testes
 
 * `grunt reports` - limpa os diretórios de build, executa a tarefa `karma:reports` do grunt que gera os relatórios html de cobertura e teste, então abre o diretório onde os relatórios foram gerados
@@ -118,6 +120,8 @@ $ npm run setup
 * `grunt specs` - primeiro gera os relatórios html de cobertura e teste, inicia o karma com watch e um webserver com livereload observando os arquivos html dos relatórios, que são regerados a cada execução do karma
 
 > **Atenção:** caso queira executar com o fluxo de desenvolvimento, execute primeiro a tarefa de desenvolvimento (ex.: `grunt dev`) em um terminal e em outro terminal execute `grunt specs`
+
+##### Testes e2e (end-to-end) - Selenium
 
 * `grunt e2e` - primeiro irá executar a tarefa `build:prod`, iniciar um servidor web com suporte a proxy e então executará os testes e2e com o Protractor
 

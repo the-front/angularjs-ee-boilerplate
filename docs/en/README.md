@@ -109,6 +109,8 @@ $ npm run setup
 
 #### Tests
 
+##### Unit Tests
+
 * `grunt ci` - cleanup build directories and then execute `karma:ci` grunt task that run test's
 
 * `grunt reports` - cleanup build directories, execute `karma:reports` grunt task that generate coverage and jasmine html reports and then open reports output directory
@@ -116,6 +118,8 @@ $ npm run setup
 * `grunt specs` - first generate coverage and jasmine html reports, start karma with watch process and webserver with livereload watching reports html's
 
 > **Attention:** if you want to run with dev flow, run first dev task (ex.: `grunt dev`) in one terminal and in other terminal run `grunt specs`
+
+##### e2e (end-to-end) - Selenium Tests
 
 * `grunt e2e` - execute `build:prod`, start web server with proxy support and then run e2e test's with Protractor
 
