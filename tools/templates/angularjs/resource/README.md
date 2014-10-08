@@ -1,7 +1,7 @@
 
-TODO:
+# TODO:
 
-1 - update /src/require.unit.load.js
+1 - update `/src/require.unit.load.js`
 
 ```javascript
 define(function(require) {
@@ -17,7 +17,7 @@ define(function(require) {
 });
 ```
 
-2 - update /src/require.mock.load.js
+2 - update `/src/require.mock.load.js`
 
 ```javascript
 define(function(require) {
@@ -43,7 +43,7 @@ define(function(require) {
 });
 ```
 
-3 - update /src/app/main/module.js
+3 - update `/src/app/main/module.js`
     or in some specific application module
 
 ```javascript
@@ -77,7 +77,7 @@ define(function(require) {
 });
 ```
 
-4 - delete this file : README.md
+4 - delete this file : `README.md`
 
 
 =------------------------------------------------------------------------------=
