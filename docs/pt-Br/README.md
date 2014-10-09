@@ -93,7 +93,7 @@ $ npm run setup
 
 * `grunt dev:sync:proxy` >> além das tarefas do `dev:sync`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
-* alias
+##### alias
 
   * `grunt dev` >> alias para `grunt dev:livereload`
 
