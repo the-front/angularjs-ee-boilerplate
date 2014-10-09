@@ -66,7 +66,7 @@
       ],
 
       angularMocksBackend: [
-        'vendor/angular-mocks-backend/0.1.5/angular-mocks-backend'
+        'vendor/angular-mocks-backend/0.1.6/angular-mocks-backend'
       ],
       // @end: mock libs
 
