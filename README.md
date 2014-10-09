@@ -22,4 +22,4 @@ English is the universal language nowadays, so please don't create or comment on
 
 ## License
 
-MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org) 
+- [MIT](LICENSE)
