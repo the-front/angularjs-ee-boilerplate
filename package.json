@@ -1,6 +1,6 @@
 {
   "name": "angularjs-ee-boilerplate",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "angularjs enterprise edition boilerplate",
   "keywords": [
@@ -12,9 +12,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erkobridee/angularjs-ee-boilerplate.git"
+    "url": "https://github.com/the-front/angularjs-ee-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/erkobridee/angularjs-ee-boilerplate/issues"
+    "url": "https://github.com/the-front/angularjs-ee-boilerplate/issues"
   }
 }
