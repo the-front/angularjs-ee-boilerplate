@@ -143,8 +143,6 @@ $ npm run setup
 
 * Caso você use o Sublime Text, veja isso:
 
-  * **Desatualizado** [[GitHub] erkobridee / sublime-angularjs-ee-snippets](https://github.com/erkobridee/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js and Require.js (focused to the angularjs-ee-boilerplate code)
-
   * [[GitHub] maxhoffmann / angular-snippets](https://github.com/maxhoffmann/angular-snippets) - Sublime Text Snippets and Completions for Angular.js
 
   * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
