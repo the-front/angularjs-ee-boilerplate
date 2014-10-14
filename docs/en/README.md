@@ -42,11 +42,11 @@ Enter the following commands in the terminal
 ```bash
 $ git clone https://github.com/erkobridee/angularjs-ee-boilerplate.git
 $ cd angularjs-ee-boilerplate
-$ cd publicher
-$ npm install
-$ cd ..
 $ cd tools
 $ npm run setup
+$ cd ..
+$ cd publicher
+$ npm install
 ```
 
 
