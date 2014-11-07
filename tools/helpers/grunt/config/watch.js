@@ -3,11 +3,11 @@
 
     This is because of your system's max opened file limit.
     For OSX the default is very low (256).
-    Temporarily increase your limit with `ulimit -n 10480`,
+    Temporarily increase your limit with `ulimit -n 2048`,
     the number being the new max limit.
 
     In some versions of OSX the above solution doesn't work.
-    In that case try `launchctl limit maxfiles 10480 10480` and restart your terminal.
+    In that case try `launchctl limit maxfiles 2048 2048` and restart your terminal.
 
   https://github.com/gruntjs/grunt-contrib-watch#how-do-i-fix-the-error-emfile-too-many-opened-files
 
@@ -105,8 +105,9 @@ grunt.registerTask('watch:project', function() {
 
     vendor: {
       files: [
-        '<%= project.paths.src %>/vendor/**/*',
-        '!<%= project.paths.src %>/vendor/**/*.less'
+        '<%= project.paths.src %>/vendor/**/*.{js,css,map}',
+        '!<%= project.paths.src %>/vendor/**/*.less',
+        '!<%= project.paths.src %>/vendor/**/docs/**/*'
       ],
       tasks : [ 'newer:copy:dev_vendortobuild' ]
     }
