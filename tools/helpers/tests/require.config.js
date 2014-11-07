@@ -21,28 +21,34 @@
     paths: {
 
       jquery: [
-        'vendor/jquery/1.11.1/jquery.min'
+        // 'vendor/jquery/1.11.1/jquery.min'
+        'vendor/jquery/2.1.1/jquery.min'
       ],
 
       bootstrap: [
-        'vendor/bootstrap/3.2.0/js/bootstrap.min'
+        // 'vendor/bootstrap/3.2.0/js/bootstrap.min'
+        'vendor/bootstrap/3.3.0/js/bootstrap.min'
       ],
 
 
       angular: [
-        'vendor/angular.js/1.2.22/angular.min'
+        // 'vendor/angular.js/1.2.22/angular.min'
+        'vendor/angular.js/1.3.1/angular.min'
       ],
 
       angularRoute: [
-        'vendor/angular.js/1.2.22/angular-route.min'
+        // 'vendor/angular.js/1.2.22/angular-route.min'
+        'vendor/angular.js/1.3.1/angular-route.min'
       ],
 
       angularResource: [
-        'vendor/angular.js/1.2.22/angular-resource.min'
+        // 'vendor/angular.js/1.2.22/angular-resource.min'
+        'vendor/angular.js/1.3.1/angular-resource.min'
       ],
 
       angularAnimate: [
-        'vendor/angular.js/1.2.22/angular-animate.min'
+        // 'vendor/angular.js/1.2.22/angular-animate.min'
+        'vendor/angular.js/1.3.1/angular-animate.min'
       ],
 
 
@@ -62,7 +68,8 @@
 
       // @begin: mock libs
       angularMocks: [
-        'vendor/angular.js/1.2.22/angular-mocks'
+        // 'vendor/angular.js/1.2.22/angular-mocks'
+        'vendor/angular.js/1.3.1/angular-mocks'
       ],
 
       angularMocksBackend: [
@@ -72,7 +79,8 @@
 
 
       lokijs: [
-        'vendor/lokijs/0.0.1/lokijs.min'
+        // 'vendor/lokijs/0.0.1/lokijs.min'
+        'vendor/lokijs/1.0.1/lokijs.min'
       ]
 
     },
