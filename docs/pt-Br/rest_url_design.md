@@ -83,7 +83,7 @@ _**quantidade de itens selecionados**_ = size
 }
 ```
 
-* **Atenção:_** é altamente recomendável definir valores iniciais, caso uma requisição de paginação venha sem parâmetros, isto previne de recuperar todos os itens do banco de dados (mantenha em mente, provavelmente sua base irá crescer além de 100, 1000, ... registros).
+* _**Atenção:**_ é altamente recomendável definir valores iniciais, caso uma requisição de paginação venha sem parâmetros, isto previne de recuperar todos os itens do banco de dados (mantenha em mente, provavelmente sua base irá crescer além de 100, 1000, ... registros).
 
 
 ### Consulta e paginação

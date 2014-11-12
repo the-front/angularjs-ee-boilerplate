@@ -83,7 +83,7 @@ _**amount of selected itens**_ = size
 }
 ```
 
-* **_Attention:_** it's highly recommended set default values in case some pagination request come without pagination parameters, that's prevents retrieve all items (resources) from database (keep in mind probably your database will grow beyond 100, 1000, ... items).
+* _**Attention:**_ it's highly recommended set default values in case some pagination request come without pagination parameters, that's prevents retrieve all items (resources) from database (keep in mind probably your database will grow beyond 100, 1000, ... items).
 
 ### Search and pagination
 
