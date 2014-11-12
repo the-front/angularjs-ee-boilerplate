@@ -15,8 +15,8 @@ define(function(require) {
       'ngRoute',
       'ngResource',
 
-      require('shared/fend/input-utils/require.load').name,
-      require('shared/fend/pagination/require.load').name
+      require('shared/fend/input-utils/package').name,
+      require('shared/fend/pagination/package').name
     ]
   );
 

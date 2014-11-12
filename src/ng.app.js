@@ -17,7 +17,7 @@ define(function(require) {
         // enable mock and intercep $HTTP requests
         require('./require.mock.load').name,
 
-        require('app/main/require.load').name
+        require('app/main/package').name
       ]
     );
 

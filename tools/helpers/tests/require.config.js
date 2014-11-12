@@ -135,7 +135,7 @@
 
 
     deps: [
-      'app/main/require.load',
+      'app/main/package',
 
       'angularMocks',
 
