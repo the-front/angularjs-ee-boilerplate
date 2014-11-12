@@ -247,13 +247,13 @@ $ npm install
   /app
 
     /bookmarks >> exemplo CRUD com mock
-      >> require.load.js mapeia todos os arquivos js do diretório
+      >> package.js mapeia todos os arquivos js do diretório
          este arquivo é referenciado como dependência no /app/main/module.js
       /mock
-        >> require.load.js mapeia todos os arquivos js do diretório
+        >> package.js mapeia todos os arquivos js do diretório
            este arquivo é referenciado como dependência no /require.mock.load.js
       /tests/unit
-        >> require.load.js mapeia todos os arquivos js do diretório
+        >> package.js mapeia todos os arquivos js do diretório
            este arquivo é referenciado como dependência no /require.unit.load.js
       /tests/e2e
         >> arquivos carregados pelo Protractor através de uma expressão regular
@@ -269,7 +269,7 @@ $ npm install
 
     /main
       >> módulo principal da aplicação onde são carregados os demais módulos no /module.js
-      >> require.load.js mapeia todos os arquivos js do diretório
+      >> package.js mapeia todos os arquivos js do diretório
          este arquivo é referenciado como dependência no /ng.app.js
 
   /shared

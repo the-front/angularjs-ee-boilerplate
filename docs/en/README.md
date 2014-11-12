@@ -243,13 +243,13 @@ $ npm install
   /app
 
     /bookmarks >> CRUD example with mock
-      >> require.load.js map all js files in the directory
+      >> package.js map all js files in the directory
          this file is referenced as a dependency on /app/main/module.js
       /mock
-        >> require.load.js map all js files in the directory
+        >> package.js map all js files in the directory
            this file is referenced as a dependency on /require.mock.load.js
       /tests/unit
-        >> require.load.js map all js files in the directory
+        >> package.js map all js files in the directory
            this file is referenced as a dependency on /require.unit.load.js
       /tests/e2e
         >> files loaded from Protractor config specs regexp
@@ -265,7 +265,7 @@ $ npm install
 
     /main
       >> main application module where other modules are charged on /module.js
-      >> require.load.js map all js files in the directory
+      >> package.js map all js files in the directory
          this file is referenced as a dependency on /ng.app.js
 
   /shared
