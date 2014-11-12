@@ -12,7 +12,7 @@ define(function(require) {
   // TODO: add here tests unit module to load
 
   // ↓↓↓ ADD ↓↓↓
-  require('<%= location %>/tests/unit/require.load');
+  require('<%= location %>/tests/unit/package');
 
 });
 ```
@@ -34,7 +34,7 @@ define(function(require) {
   // TODO: add here mock module to load
 
   // ↓↓↓ ADD ↓↓↓
-  require('<%= location %>/mock/require.load');
+  require('<%= location %>/mock/package');
 
   // @end: load mocks
   //-------------------
@@ -70,7 +70,7 @@ define(function(require) {
       // TODO: add here module to load
 
       // ↓↓↓ ADD ↓↓↓
-      require('<%= location %>/require.load').name,
+      require('<%= location %>/package').name,
 
     ]
   );
