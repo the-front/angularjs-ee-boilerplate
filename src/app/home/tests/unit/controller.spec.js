@@ -1,6 +1,6 @@
 describe('Testing Home Controller', function() {
 
-  var ctrl, scope;
+  var ctrl;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,12 +9,10 @@ describe('Testing Home Controller', function() {
     module('home');
 
     // inject dependencies
-    inject(function($controller, $rootScope) {
-      scope = $rootScope.$new();
+    inject(function($controller) {
 
-      ctrl = $controller('HomeCtrl', {
-        $scope: scope
-      });
+      ctrl = $controller('HomeCtrl');
+
     });
 
   });
@@ -23,14 +21,14 @@ describe('Testing Home Controller', function() {
   it('should have a pageName equals to \'Home Page\'', function() {
 
     // assertions
-    expect(scope.pageName).toEqual('Home Page');
+    expect(ctrl.pageName).toEqual('Home Page');
 
   });
 
   it("should call success toaster...", function() {
 
     // assertions
-    expect(scope.popup('success')).toEqual('toaster success');
+    expect(ctrl.popup('success')).toEqual('toaster success');
 
   });
 

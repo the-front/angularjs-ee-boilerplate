@@ -34,10 +34,10 @@ describe('Angular.js \'home\' Routes', function() {
 
       });
 
-      it('should map to controller HomeCtrl', function() {
+      it('should map to controller HomeCtrl as home', function() {
 
         // assertions
-        expect(route.routes['/'].controller).toBe('HomeCtrl');
+        expect(route.routes['/'].controller).toBe('HomeCtrl as home');
 
       });
 
