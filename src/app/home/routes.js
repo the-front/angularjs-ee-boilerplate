@@ -3,23 +3,23 @@ define(function(require) {
 
   var module = require('./module');
 
-  module.config(
+  module.config(configure);
 
-    // dependencies injection
-    ['$routeProvider',
+  //---
 
-  // routes definition
-  function ($routeProvider) {
+  configure.$inject = ['$routeProvider'];
+
+  function configure($routeProvider) {
 
     $routeProvider
       .when(
         '/',
         {
-          controller: 'HomeCtrl',
+          controller: 'HomeCtrl as home',
           templateUrl: 'app/home/template.html'
         }
       );
 
-  }]);
+  }
 
 });
