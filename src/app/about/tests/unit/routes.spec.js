@@ -34,10 +34,10 @@ describe('Angular.js \'about\' Routes', function() {
 
       });
 
-      it('should map to controller AboutCtrl', function() {
+      it('should map to controller AboutCtrl as about', function() {
 
         // assertions
-        expect(route.routes['/about'].controller).toBe('AboutCtrl');
+        expect(route.routes['/about'].controller).toBe('AboutCtrl as about');
 
       });
 

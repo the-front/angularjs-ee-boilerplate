@@ -1,6 +1,6 @@
 describe('Testing About Controller', function() {
 
-  var ctrl, scope;
+  var ctrl;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,12 +9,10 @@ describe('Testing About Controller', function() {
     module('about');
 
     // inject dependencies
-    inject(function($controller, $rootScope) {
-      scope = $rootScope.$new();
+    inject(function($controller) {
 
-      ctrl = $controller('AboutCtrl', {
-        $scope: scope
-      });
+      ctrl = $controller('AboutCtrl');
+
     });
 
   });
@@ -23,7 +21,7 @@ describe('Testing About Controller', function() {
   it('should have a pageName equals to \'About Page\'', function() {
 
     // assertions
-    expect(scope.pageName).toEqual('About Page');
+    expect(ctrl.pageName).toEqual('About Page');
 
   });
 
