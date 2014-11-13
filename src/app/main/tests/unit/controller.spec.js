@@ -1,6 +1,6 @@
 describe('Testing Main Controller', function() {
 
-  var ctrl, scope;
+  var ctrl;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,12 +9,10 @@ describe('Testing Main Controller', function() {
     module('main');
 
     // inject dependencies
-    inject(function($controller, $rootScope) {
-      scope = $rootScope.$new();
+    inject(function($controller) {
 
-      ctrl = $controller('MainCtrl', {
-        $scope: scope
-      });
+      ctrl = $controller('MainCtrl');
+
     });
 
   });
@@ -24,6 +22,13 @@ describe('Testing Main Controller', function() {
 
     // assertions
     expect(ctrl).toBeDefined();
+
+  });
+
+  it("should appLoaded to be 'ok'", function() {
+
+    // assertions
+    expect(ctrl.appLoaded).toEqual('ok');
 
   });
 
