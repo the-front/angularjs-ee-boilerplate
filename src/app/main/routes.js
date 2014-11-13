@@ -13,14 +13,13 @@ https://gist.github.com/mariojunior/6175736
 
 */
 
-  module.config(
+  module.config(configure);
 
-    // dependencies injection
-    ['$routeProvider', '$httpProvider',
+  //---
 
-  // routes definition
-  function ($routeProvider, $httpProvider) {
+  configure.$inject = ['$routeProvider', '$httpProvider'];
 
+  function configure($routeProvider, $httpProvider) {
 
     //------------------------------------------------
     // @begin: angular.js $httpProvider useful configs
@@ -45,7 +44,7 @@ https://gist.github.com/mariojunior/6175736
 
       .otherwise({redirectTo:'/404'});
 
-  }]);
+  }
 
 
 });
