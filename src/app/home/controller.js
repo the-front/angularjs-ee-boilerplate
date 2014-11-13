@@ -13,11 +13,14 @@ define(function(require) {
     var vm = this;
 
     vm.pageName = 'Home Page';
+    vm.popup = popup;
 
-    vm.popup = function(type) {
+    //---
+
+    function popup(type) {
       $toaster.pop(type, 'Title', 'Short description text...');
       return 'toaster ' + type;
-    };
+    }
 
   }
 
