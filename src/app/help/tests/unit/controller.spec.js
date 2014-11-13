@@ -1,6 +1,6 @@
 describe('Testing Help Controller', function() {
 
-  var ctrl, scope, httpBackend;
+  var ctrl, httpBackend;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,14 +9,12 @@ describe('Testing Help Controller', function() {
     module('help');
 
     // inject dependencies
-    inject(function($controller, $rootScope, $httpBackend) {
-      scope = $rootScope.$new();
+    inject(function($controller, $httpBackend) {
 
-      ctrl = $controller('HelpCtrl', {
-        $scope: scope
-      });
+      ctrl = $controller('HelpCtrl');
 
       httpBackend = $httpBackend;
+
     });
 
   });
@@ -25,7 +23,7 @@ describe('Testing Help Controller', function() {
   it('should have a pageName equals to \'Help Page\'', function() {
 
     // assertions
-    expect(scope.pageName).toEqual('Help Page');
+    expect(ctrl.pageName).toEqual('Help Page');
 
   });
 
@@ -46,7 +44,7 @@ describe('Testing Help Controller', function() {
       httpBackend.flush();
 
       // assertions
-      expect(scope.githubUser.login).toEqual(find);
+      expect(ctrl.githubUser.login).toEqual(find);
 
     });
 

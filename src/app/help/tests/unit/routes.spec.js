@@ -34,10 +34,10 @@ describe('Angular.js \'help\' Routes', function() {
 
       });
 
-      it('should map to controller HelpCtrl', function() {
+      it('should map to controller HelpCtrl as help', function() {
 
         // assertions
-        expect(route.routes['/help'].controller).toBe('HelpCtrl');
+        expect(route.routes['/help'].controller).toBe('HelpCtrl as help');
 
       });
 
