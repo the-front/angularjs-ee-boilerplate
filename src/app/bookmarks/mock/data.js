@@ -3,16 +3,13 @@ define(function(require) {
 
   var module = require('shared/mock/module');
 
-  module.factory(
+  module.factory('BookmarksCollection', BookmarksCollectionFactory);
 
-    // factory name
-    'BookmarksCollection',
+  //---
 
-    // factory dependencies injection
-    ['DataStore', 'Helpers', '$log',
+  BookmarksCollectionFactory.$inject = ['DataStore', 'Helpers', '$log'];
 
-  // factory definition
-  function(DataStore, helpers, console) {
+  function BookmarksCollectionFactory(DataStore, helpers, console) {
 
     console.debug('BookmarksCollection');
 
@@ -138,6 +135,6 @@ define(function(require) {
 
     return instance;
 
-  }]);
+  }
 
 });

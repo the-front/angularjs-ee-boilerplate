@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row"><h4>{{title}}</h4></div>
+  <div class="row"><h4>{{vm.title}}</h4></div>
 
   <div class="row"><hr></div>
 
@@ -23,7 +23,7 @@
           type="text"
           class="form-control error" id="nameInput"
           name="name"
-          ng-model="bookmark.name"
+          ng-model="vm.bookmark.name"
           fend-focus="focusBookmarkNameInput"
           required>
       </div>
@@ -43,7 +43,9 @@
         <input
           type="url"
           class="form-control" id="urlInput"
-          name="url" ng-model="bookmark.url" required>
+          name="url"
+          ng-model="vm.bookmark.url"
+          required>
       </div>
     </div>
     <!-- @end: url -->
@@ -58,42 +60,43 @@
       <div class="col-md-5">
         <textarea
           class="form-control" id="descriptionArea"
-          name="description" ng-model="bookmark.description"></textarea>
+          name="description"
+          ng-model="vm.bookmark.description"></textarea>
       </div>
     </div>
     <!-- @end: description -->
 
     <!-- @begin: buttons -->
-    <div class="row" ng-if="!showConfirm">&nbsp;</div>
+    <div class="row" ng-if="!vm.showConfirm">&nbsp;</div>
 
-    <div class="row" ng-if="!showConfirm">
+    <div class="row" ng-if="!vm.showConfirm">
       <div class="col-md-5">
         <a href="#bookmarks" class="btn" id="cancelLinkBtn">Cancel</a>
         <button
           id="saveBtn"
-          ng-click="save()"
-          ng-disabled="isClean() || bookmarkForm.$invalid"
+          ng-click="vm.save()"
+          ng-disabled="vm.isClean() || bookmarkForm.$invalid"
           class="btn btn-primary">Save</button>
         <button
           id="deleteConfirmBtn"
-          ng-click="remove()"
-          ng-if="bookmark.id"
+          ng-click="vm.remove()"
+          ng-if="vm.bookmark.id"
           class="btn btn-danger">Delete</button>
       </div>
     </div>
     <!-- @end: buttons -->
 
     <!-- @begin: confirm -->
-    <div class="bs-callout bs-callout-danger" ng-if="showConfirm">
+    <div class="bs-callout bs-callout-danger" ng-if="vm.showConfirm">
       <h4>Confirm</h4>
-      <p>Delete <code>{{bookmark.name}}</code> bookmark?</p>
+      <p>Delete <code>{{vm.bookmark.name}}</code> bookmark?</p>
       <button
         id="deleteBtn"
-        ng-click="destroy()"
+        ng-click="vm.destroy()"
         class="btn btn-danger">Delete</button>
       <button
         id="cancelBtn"
-        ng-click="cancelRemove()"
+        ng-click="vm.cancelRemove()"
         class="btn btn-default">Cancel</button>
     </div>
     <!-- @end: confirm -->

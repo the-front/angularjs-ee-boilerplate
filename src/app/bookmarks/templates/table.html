@@ -1,11 +1,11 @@
 <!-- @begin: filter -->
-<div class="row" ng-if="!showOptions &#38;&#38; !showPagination &#38;&#38; filter.search">
+<div class="row" ng-if="!vm.showOptions &#38;&#38; !vm.showPagination &#38;&#38; vm.filter.search">
   <p class="text-center">
-    <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
+    <i class="glyphicon glyphicon-filter"></i> : {{vm.filter.search}}
   </p>
 </div>
 
-<div ng-if="showFilter">
+<div ng-if="vm.showFilter">
 
   <div class="input-group">
     <span class="input-group-addon">
@@ -15,12 +15,12 @@
       type="text"
       class="form-control"
       placeholder="Text"
-      ng-model="filter.search"
+      ng-model="vm.filter.search"
       fend-focus="focusFilterSearchInput">
     <span class="input-group-btn">
       <button
         id="filterClearButton"
-        ng-click="clearFilter()"
+        ng-click="vm.clearFilter()"
         class="btn btn-default" type="button">Clear</button>
     </span>
   </div>
@@ -41,7 +41,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="bookmark in result.data | filter:filter.search">
+      <tr ng-repeat="bookmark in vm.result.data | filter:vm.filter.search">
         <td class="visible-xs">
           <a
             id="gotoedit_0"

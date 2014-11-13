@@ -3,23 +3,20 @@ define(function(require) {
 
   var module = require('../module');
 
-  module.factory(
+  module.factory('BookmarksSearchResource', BookmarksSearchResource);
 
-    // resource name
-    'BookmarksSearchResource',
+  //---
 
-    // dependency injection
-    ['$resource',
+  BookmarksSearchResource.$inject = ['$resource'];
 
-  function($resource) {
+  function BookmarksSearchResource($resource) {
 
-    // http://code.angularjs.org/1.2.1/docs/api/ngResource.$resource
     var rest = $resource(
       'rest/bookmarks/search/:name'
     );
 
     return rest;
 
-  }]);
+  }
 
 });

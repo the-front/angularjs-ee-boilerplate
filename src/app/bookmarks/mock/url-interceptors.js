@@ -5,16 +5,20 @@ define(function(require) {
   var backend = require('shared/mock/backend');
   require('./data');
 
-  backend.addResource(
+  backend.addResource(UrlInterceptors);
 
-    // mock resource dependencies injection
-    [
-      'BookmarksCollection', 'Helpers',
-      '$httpBackend', 'regexpUrl', 'getParams',
-      '$log',
+  //---
 
-  // mock resource definition
-  function(collection, helpers, $httpBackend, regexpUrl, getParams, console) {
+  UrlInterceptors.$inject = [
+    'BookmarksCollection', 'Helpers',
+    '$httpBackend', 'regexpUrl', 'getParams',
+    '$log'
+  ];
+
+  function UrlInterceptors(
+    collection, helpers, $httpBackend,
+    regexpUrl, getParams, console
+  ) {
 
     //--- @begin: URL interceptor
 
@@ -139,6 +143,6 @@ define(function(require) {
     console.debug(collection.search('erko'));
     console.debug(collection.list());
 
-  }]);
+  }
 
 });

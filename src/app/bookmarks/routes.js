@@ -3,45 +3,45 @@ define(function(require) {
 
   var module = require('./module');
 
-  module.config(
+  module.config(configure);
 
-    // dependencies injection
-    ['$routeProvider',
+  //---
 
-  // routes definition
-  function ($routeProvider) {
+  configure.$inject = ['$routeProvider'];
+
+  function configure($routeProvider) {
 
     $routeProvider
       .when(
         '/bookmarks',
         {
-          controller: 'BookmarksListCtrl',
+          controller: 'BookmarksListCtrl as vm',
           templateUrl: 'app/bookmarks/templates/list.html'
         }
       )
       .when(
         '/bookmarks/search',
         {
-          controller: 'BookmarksSearchCtrl',
+          controller: 'BookmarksSearchCtrl as vm',
           templateUrl: 'app/bookmarks/templates/search.html'
         }
       )
       .when(
         '/bookmarks/new',
         {
-          controller: 'BookmarksNewCtrl',
+          controller: 'BookmarksNewCtrl as vm',
           templateUrl: 'app/bookmarks/templates/form.html'
         }
       )
       .when(
         '/bookmarks/edit/:id',
         {
-          controller: 'BookmarksEditCtrl',
+          controller: 'BookmarksEditCtrl as vm',
           templateUrl: 'app/bookmarks/templates/form.html'
         }
       )
     ;
 
-  }]);
+  }
 
 });
