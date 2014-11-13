@@ -3,7 +3,11 @@ define(function(require) {
 
   var angular = require('angular');
 
-  angular.element(document).ready(function() {
+  angular.element(document).ready(bootstrap);
+
+  //---
+
+  function bootstrap() {
 
     console.log('bootstrap angular application');
 
@@ -24,6 +28,6 @@ define(function(require) {
     // start angular app
     angular.bootstrap(document, [module.name]);
 
-  });
+  }
 
 });
