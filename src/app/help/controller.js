@@ -13,7 +13,11 @@ define(function(require) {
     var vm = this;
 
     vm.pageName = 'Help Page';
+    vm.githubUser = undefined;
 
+    //---
+
+    // TODO: use resolve in some near future
     $http.get('https://api.github.com/users/erkobridee').success(function(data) {
       vm.githubUser = data;
     });
