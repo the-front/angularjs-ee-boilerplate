@@ -11,28 +11,39 @@ define(function(require) {
 
   function MenuConfig($scope, $location) {
 
-    var menuItemFn,
-        addMenuItemFn,
-        selectMenuItemFn,
-        checkLocationFn,
-        menuItemSelected = null,
+    var menuItemSelected = null,
         locationsMap = {},
         menuItems = {
           left: [],
           right: []
         };
 
+    var service = {
+      addMenuItem: addMenuItemFn
+    };
+
+    //--- @begin: $scope config
+    $scope.menuItems = menuItems;
+
+    $scope.location = $location;
+    $scope.$watch("location.path()", checkLocationFn, true);
+    //--- @end: $scope config
+
+    return service;
+
+    //---
+
     //--- @begin: internal functions
-    menuItemFn = function(label, location, css) {
+    function menuItemFn(label, location, css) {
       return {
         label: label,
         location: '/'+location,
         url: '#'+location,
         css: (css || '') // 'active'
       };
-    };
+    }
 
-    addMenuItemFn = function(label, location, position) {
+    function addMenuItemFn(label, location, position) {
       position = position || 'left';
       var menuItem = menuItemFn(label, location);
       locationsMap[menuItem.location] = menuItem;
@@ -45,18 +56,17 @@ define(function(require) {
           menuItems.right.push(menuItem);
           break;
       }
+    }
 
-    };
-
-    selectMenuItemFn = function(item) {
+    function selectMenuItemFn(item) {
       if(item !== menuItemSelected) {
         if(menuItemSelected !== null) menuItemSelected.css = '';
         item.css = 'active';
         menuItemSelected = item;
       }
-    };
+    }
 
-    checkLocationFn = function() {
+    function checkLocationFn() {
       var path, splitArr, location;
 
       path = $location.path();
@@ -75,22 +85,8 @@ define(function(require) {
           menuItemSelected = null;
         }
       }
-    };
+    }
     //--- @end: internal functions
-
-    //--- @begin: $scope config
-    $scope.menuItems = menuItems;
-
-    $scope.location = $location;
-    $scope.$watch("location.path()", checkLocationFn, true);
-    //--- @end: $scope config
-
-
-    //--- @begin: public functions
-    return {
-      addMenuItem: addMenuItemFn
-    };
-    //--- @end: public functions
 
   }
 
