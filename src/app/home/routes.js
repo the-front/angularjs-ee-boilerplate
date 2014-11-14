@@ -15,7 +15,7 @@ define(function(require) {
       .when(
         '/',
         {
-          controller: 'HomeCtrl as home',
+          controller: 'HomeCtrl as vm',
           templateUrl: 'app/home/template.html'
         }
       );

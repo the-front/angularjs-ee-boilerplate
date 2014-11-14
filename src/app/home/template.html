@@ -1,7 +1,7 @@
 <div class="container">
 
 <div class="row">
-  <p>{{home.pageName}}  | <a href="#/about">About</a></p>
+  <p>{{vm.pageName}}  | <a href="#/about">About</a></p>
   <hr>
 </div>
 
@@ -10,16 +10,16 @@
   <hr/>
   <ul class="list-inline">
     <li>
-      <button class="btn btn-primary" ng-click="home.popup('note')">Info (note)</button>
+      <button class="btn btn-primary" ng-click="vm.popup('note')">Info (note)</button>
     </li>
     <li>
-      <button class="btn btn-success" ng-click="home.popup('success')">Success</button>
+      <button class="btn btn-success" ng-click="vm.popup('success')">Success</button>
     </li>
     <li>
-      <button class="btn btn-warning" ng-click="home.popup('warning')">Alert</button>
+      <button class="btn btn-warning" ng-click="vm.popup('warning')">Alert</button>
     </li>
     <li>
-      <button class="btn btn-danger" ng-click="home.popup('error')">Error</button>
+      <button class="btn btn-danger" ng-click="vm.popup('error')">Error</button>
     </li>
   </ul>
 </div>
