@@ -15,7 +15,7 @@ define(function(require) {
       .when(
         '/help',
         {
-          controller: 'HelpCtrl as help',
+          controller: 'HelpCtrl as vm',
           templateUrl: 'app/help/template.html'
         }
       );

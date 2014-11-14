@@ -3,15 +3,15 @@ define(function(require) {
 
   var backend = require('shared/mock/backend');
 
-  backend.addResource(resource);
+  backend.addResource(AllowPass);
 
   //---
 
   // mock resource dependencies injection
-  resource.$inject = ['$httpBackend', 'regexpUrl'];
+  AllowPass.$inject = ['$httpBackend', 'regexpUrl'];
 
   // mock resource definition
-  function resource($httpBackend, regexpUrl) {
+  function AllowPass($httpBackend, regexpUrl) {
 
     // Allow GET users from GitHub API
     $httpBackend.when('GET', regexpUrl(/api\.github\.com\/users(\/)?([A-z0-9]+)?$/)).passThrough();
