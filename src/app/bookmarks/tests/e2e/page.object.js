@@ -37,7 +37,7 @@
 
       filterButton:          function() { return _getId('filterBtn'); },
 
-      pageSizeInput:         function() { return _getModel('pageSize'); },
+      pageSizeInput:         function() { return _getModel('vm.pageSize'); },
       pageSizeMessage:       function() { return _getId('pageSizeMessage'); }
     }
   };
@@ -45,7 +45,7 @@
   //----------------------------------------------------------------------------
   // table element shortcuts
 
-  var _repeater = function() { return _getRepeater('bookmark in result.data'); };
+  var _repeater = function() { return _getRepeater('bookmark in vm.result.data'); };
 
   var _lastRow = function(repeater) {
     repeater = repeater || _repeater();
@@ -87,14 +87,14 @@
           backToList: function() { return _getLink('All Bookmarks'); }
         },
 
-        searchInput: function() { return _getModel('searchName'); },
+        searchInput: function() { return _getModel('vm.searchName'); },
 
         options: _listAndSearch.options
       },
 
       table: {
-        filterTexts:        function() { return _getBindingAll('filter.search'); },
-        filterInput:        function() { return _getModel('filter.search'); },
+        filterTexts:        function() { return _getBindingAll('vm.filter.search'); },
+        filterInput:        function() { return _getModel('vm.filter.search'); },
         filterClearButton:  function() { return _getId('filterClearButton'); },
         repeater:           _repeater,
         lastRow:            _lastRow,
@@ -103,13 +103,13 @@
       },
 
       form: {
-        title:             function() { return _getBinding('title'); },
-        nameConfirm:       function() { return _getBinding('bookmark.name'); },
+        title:             function() { return _getBinding('vm.title'); },
+        nameConfirm:       function() { return _getBinding('vm.bookmark.name'); },
 
         inputs: {
-          name:            function() { return _getModel('bookmark.name'); },
-          url:             function() { return _getModel('bookmark.url'); },
-          description:     function() { return _getModel('bookmark.description'); }
+          name:            function() { return _getModel('vm.bookmark.name'); },
+          url:             function() { return _getModel('vm.bookmark.url'); },
+          description:     function() { return _getModel('vm.bookmark.description'); }
         },
 
         buttons: {
