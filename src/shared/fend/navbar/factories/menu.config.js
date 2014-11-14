@@ -3,16 +3,13 @@ define(function(require) {
 
   var module = require('../module');
 
-  module.factory(
+  module.factory('MenuConfig', MenuConfig);
 
-    // factory name
-    'MenuConfig',
+  //---
 
-  // dependencies injection
-  ['$rootScope', '$location',
+  MenuConfig.$inject = ['$rootScope', '$location'];
 
-  // factory definition
-  function($scope, $location) {
+  function MenuConfig($scope, $location) {
 
     var menuItemFn,
         addMenuItemFn,
@@ -95,6 +92,7 @@ define(function(require) {
     };
     //--- @end: public functions
 
-  }]);
+  }
+
 
 });
