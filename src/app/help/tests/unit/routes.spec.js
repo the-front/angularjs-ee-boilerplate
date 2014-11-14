@@ -36,8 +36,11 @@ describe('Angular.js \'help\' Routes', function() {
 
       it('should map to controller HelpCtrl as vm', function() {
 
+        var check = route.routes['/help'];
+
         // assertions
-        expect(route.routes['/help'].controller).toBe('HelpCtrl as vm');
+        expect(check.controller).toBe('HelpCtrl');
+        expect(check.controllerAs).toBe('vm');
 
       });
 
