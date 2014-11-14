@@ -114,7 +114,7 @@
   <div class="row" ng-if="vm.showPagination">
     <div class="text-center" ng-if="vm.result.pages > 1">
       <pagination
-        ng-model="currentPage"
+        ng-model="vm.currentPage"
         max-size="vm.paginationItemsSize"
         total-items="vm.result.count"
         num-pages="vm.result.pages"

@@ -76,6 +76,7 @@ define(function(require) {
     vm.paginationItemsSize = 5;
     vm.paginationPageSize = pagination.getPageSize();
 
+    vm.currentPage = 1;
     vm.pageChanged = PageChanged;
 
     vm.updatePageSizeInvalid = updatePageSizeInvalid;
@@ -230,9 +231,8 @@ define(function(require) {
     // @begin: pagination
 
     function PageChanged() {
-      var self = this;
-      if(self.currentPage != vm.result.page) {
-        pagination.setNextPage(self.currentPage);
+      if(vm.currentPage != vm.result.page) {
+        pagination.setNextPage(vm.currentPage);
         loadData(pagination.getNextPage());
       }
     }
