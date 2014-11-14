@@ -5,8 +5,8 @@ module.exports = {
     return browser.get('#/help');
   },
 
-  pageName: element(by.binding('pageName')),
+  pageName: element(by.binding('vm.pageName')),
 
-  githubUser: element(by.binding('githubUser'))
+  githubUser: element(by.binding('vm.githubUser'))
 
 };
