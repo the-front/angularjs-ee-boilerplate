@@ -6,16 +6,13 @@ define(function(require) {
   var module = require('shared/mock/module');
   require('lokijs');
 
-  module.factory(
+  module.factory('DataStore', DataStoreFactory);
 
-    // factory name
-    'DataStore',
+  //---
 
-    // factory dependencies injection
-    ['Helpers', '$log',
+  DataStoreFactory.$inject = ['Helpers', '$log'];
 
-  // factory definition
-  function(helpers, console) {
+  function DataStoreFactory(helpers, console) {
 
     //--------------------------------------------------------------------------
 
@@ -300,6 +297,6 @@ define(function(require) {
 
     return DataStore;
 
-  }]);
+  }
 
 });

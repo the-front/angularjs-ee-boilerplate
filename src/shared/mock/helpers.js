@@ -3,16 +3,13 @@ define(function(require) {
 
   var module = require('shared/mock/module');
 
-  module.factory(
+  module.factory('Helpers', HelpersFactory);
 
-    // factory name
-    'Helpers',
+  //---
 
-    // factory dependencies injection
-    [
+  //HelpersFactory.$inject = [];
 
-  // factory definition
-  function() {
+  function HelpersFactory() {
 
     var Helpers = (function() {
 
@@ -162,6 +159,6 @@ define(function(require) {
 
     return new Helpers();
 
-  }]);
+  }
 
 });
