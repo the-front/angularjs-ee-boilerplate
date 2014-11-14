@@ -7,7 +7,7 @@ define(function(require) {
 
   //---
 
-  //AboutCtrl.$inject = ['$scope'];
+  //AboutCtrl.$inject = [];
 
   function AboutCtrl() {
     var vm = this;
