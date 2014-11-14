@@ -3,16 +3,13 @@ define(function(require) {
 
   var module = require('../module');
 
-  module.factory(
+  module.factory('InputFocusFactory', InputFocusFactory);
 
-    // factory name
-    'InputFocusFactory',
+  //---
 
-  // dependencies injection
-  ['$timeout',
+  InputFocusFactory.$inject = ['$timeout'];
 
-  // factory definition
-  function($timeout) {
+  function InputFocusFactory($timeout) {
 
     var InputFocus = (function() {
 
@@ -86,6 +83,15 @@ define(function(require) {
     //---
 
     var instanceCache = {};
+
+    var service = {
+      get: getInstance
+    };
+
+    return service;
+
+    //---
+
     function getInstance(name) {
       var instance = instanceCache[name];
       if(instance) {
@@ -97,12 +103,6 @@ define(function(require) {
       }
     }
 
-    return {
-      get: function(name) {
-        return getInstance(name);
-      }
-    };
-
-  }]);
+  }
 
 });
