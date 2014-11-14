@@ -15,7 +15,8 @@ define(function(require) {
       .when(
         '/about',
         {
-          controller: 'AboutCtrl as vm',
+          controller: 'AboutCtrl',
+          controllerAs: 'vm',
           templateUrl: 'app/about/templates/page.html'
         }
       );
