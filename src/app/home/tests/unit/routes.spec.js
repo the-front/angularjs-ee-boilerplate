@@ -36,8 +36,11 @@ describe('Angular.js \'home\' Routes', function() {
 
       it('should map to controller HomeCtrl as vm', function() {
 
+        var check = route.routes['/'];
+
         // assertions
-        expect(route.routes['/'].controller).toBe('HomeCtrl as vm');
+        expect(check.controller).toBe('HomeCtrl');
+        expect(check.controllerAs).toBe('vm');
 
       });
 
