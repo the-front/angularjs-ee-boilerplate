@@ -339,12 +339,10 @@ describe('Testing Bookmarks Search Controller', function() {
         page: 1
       };
 
-      var objParams = {
-        currentPage: 2
-      };
+      vm.currentPage = 2;
 
       // act
-      vm.pageChanged.call(objParams);
+      vm.pageChanged();
 
       // assertions
       expect(pagination.getNextPage()).toEqual(2);
@@ -358,12 +356,10 @@ describe('Testing Bookmarks Search Controller', function() {
         page: 1
       };
 
-      var objParams = {
-        currentPage: 1
-      };
+      vm.currentPage = 1;
 
       // act
-      vm.pageChanged.call(objParams);
+      vm.pageChanged();
 
       // assertions
       expect(pagination.getNextPage()).toEqual(1);
