@@ -21,7 +21,7 @@ define(function(require) {
     //--- @end: loading progressbar config
 
     //--- @begin: menu items
-    menu.addMenuItem('Home', '/');
+    ///menu.addMenuItem('Home', '/');
     menu.addMenuItem('Bookmarks', 'bookmarks');
 
     // TODO: add here new item
