@@ -1,6 +1,6 @@
 describe('Testing Help Controller', function() {
 
-  var vm, httpBackend;
+  var vm;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,11 +9,13 @@ describe('Testing Help Controller', function() {
     module('help');
 
     // inject dependencies
-    inject(function($controller, $httpBackend) {
+    inject(function($controller) {
 
-      vm = $controller('HelpCtrl');
+      var githubUser = {login: 'erkobridee'};
 
-      httpBackend = $httpBackend;
+      vm = $controller('HelpCtrl', {
+        githubUser: githubUser
+      });
 
     });
 
@@ -27,26 +29,10 @@ describe('Testing Help Controller', function() {
 
   });
 
+  it("should have a githubUser equals to \'erkobridee\'", function() {
 
-  describe("Request GitHub user", function() {
-
-    it("Success", function() {
-
-      // arrange
-      var find = 'erkobridee';
-
-      httpBackend.when('GET', 'https://api.github.com/users/'+find )
-        .respond(function(method, url, data) {
-          return [200, {login: find}];
-        });
-
-      // act
-      httpBackend.flush();
-
-      // assertions
-      expect(vm.githubUser.login).toEqual(find);
-
-    });
+    // assertions
+    expect(vm.githubUser.login).toEqual('erkobridee');
 
   });
 
