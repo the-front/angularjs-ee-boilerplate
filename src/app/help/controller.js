@@ -15,12 +15,17 @@ define(function(require) {
     vm.pageName = 'Help Page';
     vm.githubUser = undefined;
 
+    getGitHubUser();
+
     //---
 
     // TODO: use resolve in some near future
-    $http.get('https://api.github.com/users/erkobridee').success(function(data) {
-      vm.githubUser = data;
-    });
+    function getGitHubUser() {
+      return $http.get('https://api.github.com/users/erkobridee').success(function(data) {
+        vm.githubUser = data;
+        return vm.githubUser;
+      });
+    }
 
   }
 
