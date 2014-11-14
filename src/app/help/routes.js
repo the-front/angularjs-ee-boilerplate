@@ -15,12 +15,27 @@ define(function(require) {
       .when(
         '/help',
         {
+          templateUrl: 'app/help/template.html',
           controller: 'HelpCtrl',
           controllerAs: 'vm',
-          templateUrl: 'app/help/template.html'
+          resolve: {
+            githubUser: ResolveGithubUser
+          }
         }
       );
 
+  }
+
+  //---
+
+  ResolveGithubUser.$inject = ['$http'];
+
+  function ResolveGithubUser($http) {
+    return $http
+      .get('https://api.github.com/users/erkobridee')
+      .success(function(data) {
+        return data;
+      });
   }
 
 });

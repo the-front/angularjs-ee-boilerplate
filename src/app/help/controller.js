@@ -7,25 +7,13 @@ define(function(require) {
 
   //---
 
-  HelpCtrl.$inject = ['$http'];
+  HelpCtrl.$inject = ['githubUser']; //'$http'
 
-  function HelpCtrl($http) {
+  function HelpCtrl(githubUser) { // $http
     var vm = this;
 
     vm.pageName = 'Help Page';
-    vm.githubUser = undefined;
-
-    getGitHubUser();
-
-    //---
-
-    // TODO: use resolve in some near future
-    function getGitHubUser() {
-      return $http.get('https://api.github.com/users/erkobridee').success(function(data) {
-        vm.githubUser = data;
-        return vm.githubUser;
-      });
-    }
+    vm.githubUser = githubUser;
 
   }
 
