@@ -31,7 +31,7 @@ describe('Testing Bookmarks Search Controller', function() {
 
   //----------------------------------------------------------------------------
 
-  var location, ctrl, scope, rootScope, httpBackend, pagination;
+  var location, vm, scope, rootScope, httpBackend, pagination;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -49,7 +49,7 @@ describe('Testing Bookmarks Search Controller', function() {
     ) {
       scope = $rootScope.$new();
 
-      ctrl = $controller(ctrlName, {
+      vm = $controller(ctrlName, {
         $scope: scope
       });
 
@@ -64,7 +64,7 @@ describe('Testing Bookmarks Search Controller', function() {
   it('should be defined', function() {
 
     // assertions
-    expect(ctrl).toBeDefined();
+    expect(vm).toBeDefined();
 
   });
 
@@ -74,49 +74,49 @@ describe('Testing Bookmarks Search Controller', function() {
     it("should show", function() {
 
       // act
-      ctrl.showOptionsBtnClick();
+      vm.showOptionsBtnClick();
 
       // assertions
-      expect(ctrl.showOptions).toBeTruthy();
-      expect(ctrl.optionsBtnLabel).toEqual('Hide Options');
+      expect(vm.showOptions).toBeTruthy();
+      expect(vm.optionsBtnLabel).toEqual('Hide Options');
 
     });
 
     it("should show options and filter", function() {
 
       // act
-      ctrl.showFilterBtnActive = true;
-      ctrl.showOptionsBtnClick();
+      vm.showFilterBtnActive = true;
+      vm.showOptionsBtnClick();
 
       // assertions
-      expect(ctrl.showOptions).toBeTruthy();
-      expect(ctrl.optionsBtnLabel).toEqual('Hide Options');
+      expect(vm.showOptions).toBeTruthy();
+      expect(vm.optionsBtnLabel).toEqual('Hide Options');
 
     });
 
     it("should hide", function() {
 
       // act
-      ctrl.showOptions = true;
-      ctrl.showOptionsBtnClick();
+      vm.showOptions = true;
+      vm.showOptionsBtnClick();
 
       // assertions
-      expect(ctrl.showOptions).toBeFalsy();
-      expect(ctrl.optionsBtnLabel).toEqual('Show Options');
+      expect(vm.showOptions).toBeFalsy();
+      expect(vm.optionsBtnLabel).toEqual('Show Options');
 
     });
 
     it("should hide options and filter", function() {
 
       // act
-      ctrl.filter = { search: '' };
-      ctrl.showFilter = true;
-      ctrl.showOptions = true;
-      ctrl.showOptionsBtnClick();
+      vm.filter = { search: '' };
+      vm.showFilter = true;
+      vm.showOptions = true;
+      vm.showOptionsBtnClick();
 
       // assertions
-      expect(ctrl.showOptions).toBeFalsy();
-      expect(ctrl.optionsBtnLabel).toEqual('Show Options');
+      expect(vm.showOptions).toBeFalsy();
+      expect(vm.optionsBtnLabel).toEqual('Show Options');
 
     });
 
@@ -128,23 +128,23 @@ describe('Testing Bookmarks Search Controller', function() {
     it("should show", function() {
 
       // act
-      ctrl.showFilterBtnClick();
+      vm.showFilterBtnClick();
 
       // assertions
-      expect(ctrl.showFilter).toBeTruthy();
-      expect(ctrl.filterBtnLabel).toEqual('Hide filter');
+      expect(vm.showFilter).toBeTruthy();
+      expect(vm.filterBtnLabel).toEqual('Hide filter');
 
     });
 
     it("should hide", function() {
 
       // act
-      ctrl.showFilter = true;
-      ctrl.showFilterBtnClick();
+      vm.showFilter = true;
+      vm.showFilterBtnClick();
 
       // assertions
-      expect(ctrl.showFilter).toBeFalsy();
-      expect(ctrl.filterBtnLabel).toEqual('Show filter');
+      expect(vm.showFilter).toBeFalsy();
+      expect(vm.filterBtnLabel).toEqual('Show filter');
 
     });
 
@@ -156,28 +156,28 @@ describe('Testing Bookmarks Search Controller', function() {
     it("should be valid", function() {
 
       // arrange
-      ctrl.pageMinSize = 5;
-      ctrl.pageMaxSize = 100;
+      vm.pageMinSize = 5;
+      vm.pageMaxSize = 100;
 
       // act and assertions
-      expect(ctrl.updatePageSizeInvalid( 11 )).toBeFalsy();
-      expect(ctrl.updatePageSizeInvalid( 6 )).toBeFalsy();
-      expect(ctrl.updatePageSizeInvalid( 99 )).toBeFalsy();
+      expect(vm.updatePageSizeInvalid( 11 )).toBeFalsy();
+      expect(vm.updatePageSizeInvalid( 6 )).toBeFalsy();
+      expect(vm.updatePageSizeInvalid( 99 )).toBeFalsy();
 
     });
 
     it("should be invalid", function() {
 
       // arrange
-      ctrl.pageMinSize = 5;
-      ctrl.pageMaxSize = 100;
+      vm.pageMinSize = 5;
+      vm.pageMaxSize = 100;
 
       // act and assertions
-      expect(ctrl.updatePageSizeInvalid( undefined )).toBeTruthy();
-      expect(ctrl.updatePageSizeInvalid( null )).toBeTruthy();
-      expect(ctrl.updatePageSizeInvalid( 10 )).toBeTruthy();
-      expect(ctrl.updatePageSizeInvalid( 2 )).toBeTruthy();
-      expect(ctrl.updatePageSizeInvalid( 200 )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( undefined )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( null )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( 10 )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( 2 )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( 200 )).toBeTruthy();
 
     });
 
@@ -191,34 +191,34 @@ describe('Testing Bookmarks Search Controller', function() {
       // arrange
       var search = 'something';
       backendList(search, 1, 11);
-      ctrl.pageMinSize = 5;
-      ctrl.pageMaxSize = 100;
+      vm.pageMinSize = 5;
+      vm.pageMaxSize = 100;
 
       // act
-      ctrl.searchName = search;
-      ctrl.pageSize = 11;
-      ctrl.updatePageSizeFormSubmit();
+      vm.searchName = search;
+      vm.pageSize = 11;
+      vm.updatePageSizeFormSubmit();
       httpBackend.flush();
 
       // assertions
-      expect(ctrl.currentPage).toEqual(1);
-      expect(ctrl.result.data.length).toEqual(11);
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(11);
 
     });
 
     it("should not submit", function() {
 
       // arrange
-      ctrl.showFilter = true;
-      ctrl.pageMinSize = 5;
-      ctrl.pageMaxSize = 100;
+      vm.showFilter = true;
+      vm.pageMinSize = 5;
+      vm.pageMaxSize = 100;
 
       // act
-      ctrl.pageSize = 200;
-      ctrl.updatePageSizeFormSubmit();
+      vm.pageSize = 200;
+      vm.updatePageSizeFormSubmit();
 
       // assertions
-      expect(ctrl.showFilter).toBeTruthy();
+      expect(vm.showFilter).toBeTruthy();
 
     });
 
@@ -230,16 +230,16 @@ describe('Testing Bookmarks Search Controller', function() {
     it("should not search", function() {
 
       // arrange
-      ctrl.result = {
+      vm.result = {
         message: 'nothing'
       };
 
       // act
-      ctrl.searchName = '';
-      ctrl.doSearch();
+      vm.searchName = '';
+      vm.doSearch();
 
       // assertions
-      expect(ctrl.result.message).toEqual('nothing');
+      expect(vm.result.message).toEqual('nothing');
 
     });
 
@@ -251,14 +251,14 @@ describe('Testing Bookmarks Search Controller', function() {
       backendList(search);
 
       // act
-      ctrl.searchName = search;
-      ctrl.doSearch();
+      vm.searchName = search;
+      vm.doSearch();
       httpBackend.flush();
 
       // assertions
-      expect(ctrl.currentPage).toEqual(1);
-      expect(ctrl.result.data.length).toEqual(10);
-      expect(ctrl.result.data[0].name).toEqual(matchFirstBookmarkName);
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(10);
+      expect(vm.result.data[0].name).toEqual(matchFirstBookmarkName);
 
     });
 
@@ -271,14 +271,14 @@ describe('Testing Bookmarks Search Controller', function() {
       backendList(search, 1, _pageSize);
 
       // act
-      ctrl.searchName = search;
-      ctrl.pageSize = _pageSize;
-      ctrl.updatePageSize();
+      vm.searchName = search;
+      vm.pageSize = _pageSize;
+      vm.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(ctrl.currentPage).toEqual(1);
-      expect(ctrl.result.data.length).toEqual(_pageSize);
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(_pageSize);
 
     });
 
@@ -289,18 +289,18 @@ describe('Testing Bookmarks Search Controller', function() {
       // arrange
       var search = 'something';
       backendList(search, 1, _pageSize);
-      ctrl.showFilter = true;
+      vm.showFilter = true;
 
       // act
-      ctrl.searchName = search;
-      ctrl.pageSize = _pageSize;
-      ctrl.updatePageSize();
+      vm.searchName = search;
+      vm.pageSize = _pageSize;
+      vm.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(ctrl.currentPage).toEqual(1);
-      expect(ctrl.result.data.length).toEqual(_pageSize);
-      expect(ctrl.showFilter).toBeFalsy();
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(_pageSize);
+      expect(vm.showFilter).toBeFalsy();
 
     });
 
@@ -311,19 +311,19 @@ describe('Testing Bookmarks Search Controller', function() {
       // arrange
       var search = 'something';
       backendList(search, 1, _pageSize);
-      ctrl.showFilterBtnActive = true;
-      ctrl.showOptions = true;
+      vm.showFilterBtnActive = true;
+      vm.showOptions = true;
 
       // act
-      ctrl.searchName = search;
-      ctrl.pageSize = _pageSize;
-      ctrl.updatePageSize();
+      vm.searchName = search;
+      vm.pageSize = _pageSize;
+      vm.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(ctrl.currentPage).toEqual(1);
-      expect(ctrl.result.data.length).toEqual(_pageSize);
-      expect(ctrl.showFilter).toBeFalsy();
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(_pageSize);
+      expect(vm.showFilter).toBeFalsy();
 
     });
 
@@ -335,7 +335,7 @@ describe('Testing Bookmarks Search Controller', function() {
     it("should change page", function() {
 
       // arrange
-      ctrl.result = {
+      vm.result = {
         page: 1
       };
 
@@ -344,7 +344,7 @@ describe('Testing Bookmarks Search Controller', function() {
       };
 
       // act
-      ctrl.pageChanged.call(objParams);
+      vm.pageChanged.call(objParams);
 
       // assertions
       expect(pagination.getNextPage()).toEqual(2);
@@ -354,7 +354,7 @@ describe('Testing Bookmarks Search Controller', function() {
     it("should not change page", function() {
 
       // arrange
-      ctrl.result = {
+      vm.result = {
         page: 1
       };
 
@@ -363,7 +363,7 @@ describe('Testing Bookmarks Search Controller', function() {
       };
 
       // act
-      ctrl.pageChanged.call(objParams);
+      vm.pageChanged.call(objParams);
 
       // assertions
       expect(pagination.getNextPage()).toEqual(1);

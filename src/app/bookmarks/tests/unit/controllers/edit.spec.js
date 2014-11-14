@@ -1,6 +1,6 @@
 describe('Testing Bookmarks Edit Controller', function() {
 
-  var ctrl, scope, rootScope, httpBackend;
+  var vm, scope, rootScope, httpBackend;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -14,7 +14,7 @@ describe('Testing Bookmarks Edit Controller', function() {
       $routeParams.id = 1;
       scope = $rootScope.$new();
 
-      ctrl = $controller('BookmarksEditCtrl', {
+      vm = $controller('BookmarksEditCtrl', {
         $scope: scope
       });
 
@@ -28,7 +28,7 @@ describe('Testing Bookmarks Edit Controller', function() {
   it('should be defined', function() {
 
     // assertions
-    expect(ctrl).toBeDefined();
+    expect(vm).toBeDefined();
 
   });
 
@@ -36,7 +36,7 @@ describe('Testing Bookmarks Edit Controller', function() {
   it("should have a title equals to 'Edit Bookmark : 1'", function() {
 
     // assertions
-    expect(ctrl.title).toEqual('Edit Bookmark : 1');
+    expect(vm.title).toEqual('Edit Bookmark : 1');
 
   });
 
@@ -44,10 +44,10 @@ describe('Testing Bookmarks Edit Controller', function() {
   it("should show delete confirm", function() {
 
     // act
-    ctrl.remove();
+    vm.remove();
 
     // assertions
-    expect(ctrl.showConfirm).toBeTruthy();
+    expect(vm.showConfirm).toBeTruthy();
 
   });
 
@@ -55,8 +55,8 @@ describe('Testing Bookmarks Edit Controller', function() {
   it("should hide delete confirm", function() {
 
     // act
-    ctrl.showConfirm = true;
-    ctrl.cancelRemove();
+    vm.showConfirm = true;
+    vm.cancelRemove();
 
     // assertions
     expect(scope.showConfirm).toBeFalsy();
@@ -85,7 +85,7 @@ describe('Testing Bookmarks Edit Controller', function() {
     it("should get bookmark id : 1", function() {
 
       // assertions
-      expect(ctrl.bookmark.id).toEqual(1);
+      expect(vm.bookmark.id).toEqual(1);
 
     });
 
@@ -103,7 +103,7 @@ describe('Testing Bookmarks Edit Controller', function() {
       spyOn(rootScope, '$emit');
 
       // act
-      ctrl.save();
+      vm.save();
       httpBackend.flush();
 
       // assertions
@@ -126,7 +126,7 @@ describe('Testing Bookmarks Edit Controller', function() {
       spyOn(rootScope, '$emit');
 
       // act
-      ctrl.destroy();
+      vm.destroy();
       httpBackend.flush();
 
       // assertions

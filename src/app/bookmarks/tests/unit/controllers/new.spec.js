@@ -1,6 +1,6 @@
 describe('Testing Bookmarks New Controller', function() {
 
-  var httpBackend, ctrl, rootScope, scope;
+  var httpBackend, vm, rootScope, scope;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -12,7 +12,7 @@ describe('Testing Bookmarks New Controller', function() {
     inject(function($controller, $rootScope, $httpBackend) {
       scope = $rootScope.$new();
 
-      ctrl = $controller('BookmarksNewCtrl', {
+      vm = $controller('BookmarksNewCtrl', {
         $scope: scope
       });
 
@@ -26,22 +26,22 @@ describe('Testing Bookmarks New Controller', function() {
   it('should be defined', function() {
 
     // assertions
-    expect(ctrl).toBeDefined();
+    expect(vm).toBeDefined();
 
   });
 
   it("should have a title equals to 'New Bookmark'", function() {
 
     // assertions
-    expect(ctrl.title).toEqual('New Bookmark');
+    expect(vm.title).toEqual('New Bookmark');
 
   });
 
   it("should have empty bookmark object", function() {
 
     // assertions
-    expect(ctrl.bookmark.id).toEqual(0);
-    expect(ctrl.bookmark.name).toEqual('');
+    expect(vm.bookmark.id).toEqual(0);
+    expect(vm.bookmark.name).toEqual('');
 
   });
 
@@ -58,7 +58,7 @@ describe('Testing Bookmarks New Controller', function() {
     spyOn(rootScope, '$emit');
 
     // act
-    ctrl.save();
+    vm.save();
     httpBackend.flush();
 
     // assertions
