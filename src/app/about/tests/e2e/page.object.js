@@ -5,6 +5,6 @@ module.exports = {
     return browser.get('#/about');
   },
 
-  pageName: element(by.binding('pageName'))
+  pageName: element(by.binding('vm.pageName'))
 
 };
