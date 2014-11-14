@@ -3,16 +3,13 @@ define(function(require) {
 
   var module = require('./module');
 
-  module.factory(
+  module.factory('PaginationFactory', PaginationFactory);
 
-    // factory name
-    'PaginationFactory',
+  //---
 
-  // dependencies injection
-  [ //'$rootScope',
+  //PaginationFactory.$inject = [];
 
-  // factory definition
-  function() {
+  function PaginationFactory() {
 
     var Pagination = (function() {
 
@@ -125,6 +122,6 @@ define(function(require) {
       }
     };
 
-  }]);
+  }
 
 });
