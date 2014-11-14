@@ -3,21 +3,28 @@ define(function(require) {
 
   var module = require('../module');
 
-  module.config(
+  module.config(configure);
+  //---
 
-    ['$httpProvider', '$provide',
+  configure.$inject = ['$httpProvider', '$provide'];
 
-  function ($httpProvider, $provide) {
+  function configure($httpProvider, $provide) {
 
-    $provide.factory('ProgressInterceptorDefined',
-      ['ProgressInterceptor',
-    function(progress) {
-      progress.setHttpProviderDefaults($httpProvider);
-      return progress;
-    }]);
+    $provide.factory('ProgressInterceptorDefined', ProgressInterceptorDefined);
 
     $httpProvider.interceptors.push('ProgressInterceptorDefined');
 
-  }]);
+    //---
+
+    ProgressInterceptorDefined.$inject = ['ProgressInterceptor'];
+
+    function ProgressInterceptorDefined(progress) {
+
+      progress.setHttpProviderDefaults($httpProvider);
+      return progress;
+
+    }
+
+  }
 
 });

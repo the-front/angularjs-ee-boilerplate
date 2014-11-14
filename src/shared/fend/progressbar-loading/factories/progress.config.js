@@ -3,42 +3,49 @@ define(function(require) {
 
   var module = require('../module');
 
-  module.factory(
+  module.factory('ProgressConfig', ProgressConfig);
 
-    // resource name
-    'ProgressConfig',
+  //---
 
-  // dependencies injection
-  ['$rootScope', 'ngProgress',
+  ProgressConfig.$inject = ['$rootScope', 'ngProgress'];
 
-  // factory definition
-  function($rootScope, ngProgress) {
+  function ProgressConfig($rootScope, ngProgress) {
 
-    return {
-      eventListeners: function() {
-        $rootScope.$on('loadingbar:start:event', function(event) {
-          ngProgress.start();
-        });
-
-        $rootScope.$on('loadingbar:progress:event', function(event, value) {
-          ngProgress.set(value);
-        });
-
-        $rootScope.$on('loadingbar:complete:event', function(event) {
-          ngProgress.complete();
-          ngProgress.stop();
-        });
-      },
-
-      color: function(new_color) {
-        ngProgress.color(new_color);
-      },
-
-      height: function(new_height) {
-        ngProgress.height(new_height);
-      }
+    var service = {
+      eventListeners: eventListeners,
+      color: color,
+      height: height
     };
 
-  }]);
+    return service;
+
+    //---
+
+    function eventListeners() {
+
+      $rootScope.$on('loadingbar:start:event', function(event) {
+        ngProgress.start();
+      });
+
+      $rootScope.$on('loadingbar:progress:event', function(event, value) {
+        ngProgress.set(value);
+      });
+
+      $rootScope.$on('loadingbar:complete:event', function(event) {
+        ngProgress.complete();
+        ngProgress.stop();
+      });
+
+    }
+
+    function color(new_color) {
+      ngProgress.color(new_color);
+    }
+
+    function height(new_height) {
+      ngProgress.height(new_height);
+    }
+
+  }
 
 });
