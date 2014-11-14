@@ -105,6 +105,14 @@ define(function(require) {
 
     var instanceCache = {};
 
+    var service = {
+      get: getInstance
+    };
+
+    return service;
+
+    //---
+
     function getInstance(name) {
       var instance = instanceCache[name];
       if(instance) {
@@ -115,12 +123,6 @@ define(function(require) {
         return instance;
       }
     }
-
-    return {
-      get: function(name) {
-        return getInstance(name);
-      }
-    };
 
   }
 
