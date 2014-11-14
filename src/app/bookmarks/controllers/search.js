@@ -205,7 +205,7 @@ define(function(require) {
 
     function PageChanged() {
       var self = this;
-      if(sefl.currentPage != vm.result.page) {
+      if(self.currentPage != vm.result.page) {
         pagination.setNextPage(self.currentPage);
         loadData(pagination.getNextPage());
       }
@@ -236,8 +236,9 @@ define(function(require) {
     }
 
     function updatePageSizeFormSubmit() {
-      if(!vm.updatePageSizeInvalid(vm.pageSize))
+      if(!vm.updatePageSizeInvalid(vm.pageSize)) {
         vm.updatePageSize();
+      }
     }
 
     // @end: pagination
