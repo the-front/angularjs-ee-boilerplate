@@ -1,6 +1,6 @@
 describe('Testing About Controller', function() {
 
-  var ctrl;
+  var vm;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -11,7 +11,7 @@ describe('Testing About Controller', function() {
     // inject dependencies
     inject(function($controller) {
 
-      ctrl = $controller('AboutCtrl');
+      vm = $controller('AboutCtrl');
 
     });
 
@@ -21,7 +21,7 @@ describe('Testing About Controller', function() {
   it('should have a pageName equals to \'About Page\'', function() {
 
     // assertions
-    expect(ctrl.pageName).toEqual('About Page');
+    expect(vm.pageName).toEqual('About Page');
 
   });
 
