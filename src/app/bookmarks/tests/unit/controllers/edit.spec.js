@@ -36,7 +36,7 @@ describe('Testing Bookmarks Edit Controller', function() {
   it("should have a title equals to 'Edit Bookmark : 1'", function() {
 
     // assertions
-    expect(scope.title).toEqual('Edit Bookmark : 1');
+    expect(ctrl.title).toEqual('Edit Bookmark : 1');
 
   });
 
@@ -44,10 +44,10 @@ describe('Testing Bookmarks Edit Controller', function() {
   it("should show delete confirm", function() {
 
     // act
-    scope.remove();
+    ctrl.remove();
 
     // assertions
-    expect(scope.showConfirm).toBeTruthy();
+    expect(ctrl.showConfirm).toBeTruthy();
 
   });
 
@@ -55,8 +55,8 @@ describe('Testing Bookmarks Edit Controller', function() {
   it("should hide delete confirm", function() {
 
     // act
-    scope.showConfirm = true;
-    scope.cancelRemove();
+    ctrl.showConfirm = true;
+    ctrl.cancelRemove();
 
     // assertions
     expect(scope.showConfirm).toBeFalsy();
@@ -85,7 +85,7 @@ describe('Testing Bookmarks Edit Controller', function() {
     it("should get bookmark id : 1", function() {
 
       // assertions
-      expect(scope.bookmark.id).toEqual(1);
+      expect(ctrl.bookmark.id).toEqual(1);
 
     });
 
@@ -103,7 +103,7 @@ describe('Testing Bookmarks Edit Controller', function() {
       spyOn(rootScope, '$emit');
 
       // act
-      scope.save();
+      ctrl.save();
       httpBackend.flush();
 
       // assertions
@@ -126,7 +126,7 @@ describe('Testing Bookmarks Edit Controller', function() {
       spyOn(rootScope, '$emit');
 
       // act
-      scope.destroy();
+      ctrl.destroy();
       httpBackend.flush();
 
       // assertions

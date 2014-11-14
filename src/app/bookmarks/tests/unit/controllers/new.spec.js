@@ -33,15 +33,15 @@ describe('Testing Bookmarks New Controller', function() {
   it("should have a title equals to 'New Bookmark'", function() {
 
     // assertions
-    expect(scope.title).toEqual('New Bookmark');
+    expect(ctrl.title).toEqual('New Bookmark');
 
   });
 
   it("should have empty bookmark object", function() {
 
     // assertions
-    expect(scope.bookmark.id).toEqual(0);
-    expect(scope.bookmark.name).toEqual('');
+    expect(ctrl.bookmark.id).toEqual(0);
+    expect(ctrl.bookmark.name).toEqual('');
 
   });
 
@@ -58,7 +58,7 @@ describe('Testing Bookmarks New Controller', function() {
     spyOn(rootScope, '$emit');
 
     // act
-    scope.save();
+    ctrl.save();
     httpBackend.flush();
 
     // assertions

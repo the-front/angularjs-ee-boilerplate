@@ -136,49 +136,49 @@ describe('Testing Bookmarks List Controller', function() {
     it("should show", function() {
 
       // act
-      scope.showOptionsBtnClick();
+      ctrl.showOptionsBtnClick();
 
       // assertions
-      expect(scope.showOptions).toBeTruthy();
-      expect(scope.optionsBtnLabel).toEqual('Hide Options');
+      expect(ctrl.showOptions).toBeTruthy();
+      expect(ctrl.optionsBtnLabel).toEqual('Hide Options');
 
     });
 
     it("should show options and filter", function() {
 
       // act
-      scope.showFilterBtnActive = true;
-      scope.showOptionsBtnClick();
+      ctrl.showFilterBtnActive = true;
+      ctrl.showOptionsBtnClick();
 
       // assertions
-      expect(scope.showOptions).toBeTruthy();
-      expect(scope.optionsBtnLabel).toEqual('Hide Options');
+      expect(ctrl.showOptions).toBeTruthy();
+      expect(ctrl.optionsBtnLabel).toEqual('Hide Options');
 
     });
 
     it("should hide", function() {
 
       // act
-      scope.showOptions = true;
-      scope.showOptionsBtnClick();
+      ctrl.showOptions = true;
+      ctrl.showOptionsBtnClick();
 
       // assertions
-      expect(scope.showOptions).toBeFalsy();
-      expect(scope.optionsBtnLabel).toEqual('Show Options');
+      expect(ctrl.showOptions).toBeFalsy();
+      expect(ctrl.optionsBtnLabel).toEqual('Show Options');
 
     });
 
     it("should hide options and filter", function() {
 
       // act
-      scope.filter = { search: '' };
-      scope.showFilter = true;
-      scope.showOptions = true;
-      scope.showOptionsBtnClick();
+      ctrl.filter = { search: '' };
+      ctrl.showFilter = true;
+      ctrl.showOptions = true;
+      ctrl.showOptionsBtnClick();
 
       // assertions
-      expect(scope.showOptions).toBeFalsy();
-      expect(scope.optionsBtnLabel).toEqual('Show Options');
+      expect(ctrl.showOptions).toBeFalsy();
+      expect(ctrl.optionsBtnLabel).toEqual('Show Options');
 
     });
 
@@ -190,23 +190,23 @@ describe('Testing Bookmarks List Controller', function() {
     it("should show", function() {
 
       // act
-      scope.showFilterBtnClick();
+      ctrl.showFilterBtnClick();
 
       // assertions
-      expect(scope.showFilter).toBeTruthy();
-      expect(scope.filterBtnLabel).toEqual('Hide filter');
+      expect(ctrl.showFilter).toBeTruthy();
+      expect(ctrl.filterBtnLabel).toEqual('Hide filter');
 
     });
 
     it("should hide", function() {
 
       // act
-      scope.showFilter = true;
-      scope.showFilterBtnClick();
+      ctrl.showFilter = true;
+      ctrl.showFilterBtnClick();
 
       // assertions
-      expect(scope.showFilter).toBeFalsy();
-      expect(scope.filterBtnLabel).toEqual('Show filter');
+      expect(ctrl.showFilter).toBeFalsy();
+      expect(ctrl.filterBtnLabel).toEqual('Show filter');
 
     });
 
@@ -218,28 +218,28 @@ describe('Testing Bookmarks List Controller', function() {
     it("should be valid", function() {
 
       // arrange
-      scope.pageMinSize = 5;
-      scope.pageMaxSize = 100;
+      ctrl.pageMinSize = 5;
+      ctrl.pageMaxSize = 100;
 
       // act and assertions
-      expect(scope.updatePageSizeInvalid( 11 )).toBeFalsy();
-      expect(scope.updatePageSizeInvalid( 6 )).toBeFalsy();
-      expect(scope.updatePageSizeInvalid( 99 )).toBeFalsy();
+      expect(ctrl.updatePageSizeInvalid( 11 )).toBeFalsy();
+      expect(ctrl.updatePageSizeInvalid( 6 )).toBeFalsy();
+      expect(ctrl.updatePageSizeInvalid( 99 )).toBeFalsy();
 
     });
 
     it("should be invalid", function() {
 
       // arrange
-      scope.pageMinSize = 5;
-      scope.pageMaxSize = 100;
+      ctrl.pageMinSize = 5;
+      ctrl.pageMaxSize = 100;
 
       // act and assertions
-      expect(scope.updatePageSizeInvalid( undefined )).toBeTruthy();
-      expect(scope.updatePageSizeInvalid( null )).toBeTruthy();
-      expect(scope.updatePageSizeInvalid( 10 )).toBeTruthy();
-      expect(scope.updatePageSizeInvalid( 2 )).toBeTruthy();
-      expect(scope.updatePageSizeInvalid( 200 )).toBeTruthy();
+      expect(ctrl.updatePageSizeInvalid( undefined )).toBeTruthy();
+      expect(ctrl.updatePageSizeInvalid( null )).toBeTruthy();
+      expect(ctrl.updatePageSizeInvalid( 10 )).toBeTruthy();
+      expect(ctrl.updatePageSizeInvalid( 2 )).toBeTruthy();
+      expect(ctrl.updatePageSizeInvalid( 200 )).toBeTruthy();
 
     });
 
@@ -253,33 +253,33 @@ describe('Testing Bookmarks List Controller', function() {
       // arrange
       backendList();
       backendList(1, 11);
-      scope.pageMinSize = 5;
-      scope.pageMaxSize = 100;
+      ctrl.pageMinSize = 5;
+      ctrl.pageMaxSize = 100;
 
       // act
-      scope.pageSize = 11;
-      scope.updatePageSizeFormSubmit();
+      ctrl.pageSize = 11;
+      ctrl.updatePageSizeFormSubmit();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(11);
+      expect(ctrl.currentPage).toEqual(1);
+      expect(ctrl.result.data.length).toEqual(11);
 
     });
 
     it("should not submit", function() {
 
       // arrange
-      scope.showFilter = true;
-      scope.pageMinSize = 5;
-      scope.pageMaxSize = 100;
+      ctrl.showFilter = true;
+      ctrl.pageMinSize = 5;
+      ctrl.pageMaxSize = 100;
 
       // act
-      scope.pageSize = 200;
-      scope.updatePageSizeFormSubmit();
+      ctrl.pageSize = 200;
+      ctrl.updatePageSizeFormSubmit();
 
       // assertions
-      expect(scope.showFilter).toBeTruthy();
+      expect(ctrl.showFilter).toBeTruthy();
 
     });
 
@@ -301,8 +301,8 @@ describe('Testing Bookmarks List Controller', function() {
     it("should load first default page", function() {
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(10);
+      expect(ctrl.currentPage).toEqual(1);
+      expect(ctrl.result.data.length).toEqual(10);
 
     });
 
@@ -315,13 +315,13 @@ describe('Testing Bookmarks List Controller', function() {
       backendList(1, _pageSize);
 
       // act
-      scope.pageSize = _pageSize;
-      scope.updatePageSize();
+      ctrl.pageSize = _pageSize;
+      ctrl.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(_pageSize);
+      expect(ctrl.currentPage).toEqual(1);
+      expect(ctrl.result.data.length).toEqual(_pageSize);
 
     });
 
@@ -332,17 +332,17 @@ describe('Testing Bookmarks List Controller', function() {
 
       // arrange
       backendList(1, _pageSize);
-      scope.showFilter = true;
+      ctrl.showFilter = true;
 
       // act
-      scope.pageSize = _pageSize;
-      scope.updatePageSize();
+      ctrl.pageSize = _pageSize;
+      ctrl.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(_pageSize);
-      expect(scope.showFilter).toBeFalsy();
+      expect(ctrl.currentPage).toEqual(1);
+      expect(ctrl.result.data.length).toEqual(_pageSize);
+      expect(ctrl.showFilter).toBeFalsy();
 
     });
 
@@ -353,18 +353,18 @@ describe('Testing Bookmarks List Controller', function() {
 
       // arrange
       backendList(1, _pageSize);
-      scope.showFilterBtnActive = true;
-      scope.showOptions = true;
+      ctrl.showFilterBtnActive = true;
+      ctrl.showOptions = true;
 
       // act
-      scope.pageSize = _pageSize;
-      scope.updatePageSize();
+      ctrl.pageSize = _pageSize;
+      ctrl.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(_pageSize);
-      expect(scope.showFilter).toBeFalsy();
+      expect(ctrl.currentPage).toEqual(1);
+      expect(ctrl.result.data.length).toEqual(_pageSize);
+      expect(ctrl.showFilter).toBeFalsy();
 
     });
 
@@ -376,7 +376,7 @@ describe('Testing Bookmarks List Controller', function() {
     it("should change page", function() {
 
       // arrange
-      scope.result = {
+      ctrl.result = {
         page: 1
       };
 
@@ -385,7 +385,7 @@ describe('Testing Bookmarks List Controller', function() {
       };
 
       // act
-      scope.pageChanged.call(objParams);
+      ctrl.pageChanged.call(objParams);
 
       // assertions
       expect(pagination.getNextPage()).toEqual(2);
@@ -395,7 +395,7 @@ describe('Testing Bookmarks List Controller', function() {
     it("should not change page", function() {
 
       // arrange
-      scope.result = {
+      ctrl.result = {
         page: 1
       };
 
@@ -404,7 +404,7 @@ describe('Testing Bookmarks List Controller', function() {
       };
 
       // act
-      scope.pageChanged.call(objParams);
+      ctrl.pageChanged.call(objParams);
 
       // assertions
       expect(pagination.getNextPage()).toEqual(1);

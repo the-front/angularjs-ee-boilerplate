@@ -34,10 +34,10 @@ describe('Angular.js \'bookmarks\' Routes', function() {
 
       });
 
-      it('should map to controller BookmarksListCtrl', function() {
+      it('should map to controller BookmarksListCtrl as vm', function() {
 
         // assertions
-        expect(route.routes['/bookmarks'].controller).toBe('BookmarksListCtrl');
+        expect(route.routes['/bookmarks'].controller).toBe('BookmarksListCtrl as vm');
 
       });
 
@@ -60,10 +60,10 @@ describe('Angular.js \'bookmarks\' Routes', function() {
 
       });
 
-      it('should map to controller BookmarksSearchCtrl', function() {
+      it('should map to controller BookmarksSearchCtrl as vm', function() {
 
         // assertions
-        expect(route.routes['/bookmarks/search'].controller).toBe('BookmarksSearchCtrl');
+        expect(route.routes['/bookmarks/search'].controller).toBe('BookmarksSearchCtrl as vm');
 
       });
 
@@ -86,10 +86,10 @@ describe('Angular.js \'bookmarks\' Routes', function() {
 
       });
 
-      it('should map to controller BookmarksNewCtrl', function() {
+      it('should map to controller BookmarksNewCtrl as vm', function() {
 
         // assertions
-        expect(route.routes['/bookmarks/new'].controller).toBe('BookmarksNewCtrl');
+        expect(route.routes['/bookmarks/new'].controller).toBe('BookmarksNewCtrl as vm');
 
       });
 
@@ -111,10 +111,10 @@ describe('Angular.js \'bookmarks\' Routes', function() {
 
       });
 
-      it('should map to controller BookmarksEditCtrl', function() {
+      it('should map to controller BookmarksEditCtrl as vm', function() {
 
         // assertions
-        expect(route.routes['/bookmarks/edit/:id'].controller).toBe('BookmarksEditCtrl');
+        expect(route.routes['/bookmarks/edit/:id'].controller).toBe('BookmarksEditCtrl as vm');
 
       });
 
