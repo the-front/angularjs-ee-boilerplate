@@ -15,29 +15,33 @@ define(function(require) {
       .when(
         '/bookmarks',
         {
-          controller: 'BookmarksListCtrl as vm',
-          templateUrl: 'app/bookmarks/templates/list.html'
+          templateUrl   : 'app/bookmarks/templates/list.html',
+          controller    : 'BookmarksListCtrl',
+          controllerAs  : 'vm'
         }
       )
       .when(
         '/bookmarks/search',
         {
-          controller: 'BookmarksSearchCtrl as vm',
-          templateUrl: 'app/bookmarks/templates/search.html'
+          templateUrl   : 'app/bookmarks/templates/search.html',
+          controller    : 'BookmarksSearchCtrl',
+          controllerAs  : 'vm',
         }
       )
       .when(
         '/bookmarks/new',
         {
-          controller: 'BookmarksNewCtrl as vm',
-          templateUrl: 'app/bookmarks/templates/form.html'
+          templateUrl   : 'app/bookmarks/templates/form.html',
+          controller    : 'BookmarksNewCtrl',
+          controllerAs  : 'vm'
         }
       )
       .when(
         '/bookmarks/edit/:id',
         {
-          controller: 'BookmarksEditCtrl as vm',
-          templateUrl: 'app/bookmarks/templates/form.html'
+          templateUrl   : 'app/bookmarks/templates/form.html',
+          controller    : 'BookmarksEditCtrl',
+          controllerAs  : 'vm'
         }
       )
     ;
