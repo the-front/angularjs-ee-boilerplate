@@ -3,19 +3,16 @@ define(function(require) {
 
   var module = require('./module');
 
-  module.controller(
+  module.controller('<%= helpers.capitalize( name ) %>Ctrl', <%= helpers.capitalize( name ) %>Ctrl);
 
-    // controller name
-    '<%= helpers.capitalize( name ) %>Ctrl',
+  //---
 
-    // dependencies injection
-    ['$scope',
+  // <%= helpers.capitalize( name ) %>Ctrl.$inject = [];
 
-  // controller definition
-  function($scope) {
+  function <%= helpers.capitalize( name ) %>Ctrl() {
+    var vm = this;
 
-    $scope.pageName = '<%= helpers.capitalize( name ) %> Page';
-
-  }]);
+    vm.pageName = '<%= helpers.capitalize( name ) %> Page';
+  }
 
 });

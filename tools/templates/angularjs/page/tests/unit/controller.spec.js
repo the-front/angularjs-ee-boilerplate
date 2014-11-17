@@ -1,6 +1,6 @@
 describe('Testing <%= helpers.capitalize( name ) %> Controller', function() {
 
-  var ctrl, scope;
+  var vm;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,12 +9,10 @@ describe('Testing <%= helpers.capitalize( name ) %> Controller', function() {
     module('<%= name %>');
 
     // inject dependencies
-    inject(function($controller, $rootScope) {
-      scope = $rootScope.$new();
+    inject(function($controller) {
 
-      ctrl = $controller('<%= helpers.capitalize( name ) %>Ctrl', {
-        $scope: scope
-      });
+      vm = $controller('<%= helpers.capitalize( name ) %>Ctrl');
+
     });
 
   });
@@ -23,7 +21,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Controller', function() {
   it('should have a pageName equals to \'<%= helpers.capitalize( name ) %> Page\'', function() {
 
     // assertions
-    expect(scope.pageName).toEqual('<%= helpers.capitalize( name ) %> Page');
+    expect(vm.pageName).toEqual('<%= helpers.capitalize( name ) %> Page');
 
   });
 

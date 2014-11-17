@@ -26,10 +26,13 @@ describe('Angular.js \'<%= name %>\' Routes', function() {
 
       });
 
-      it('should map to controller <%= helpers.capitalize( name ) %>Ctrl', function() {
+      it('should map to controller <%= helpers.capitalize( name ) %>Ctrl as vm', function() {
+
+        var check = route.routes['/<%= route %>'];
 
         // assertions
-        expect(route.routes['/<%= route %>'].controller).toBe('<%= helpers.capitalize( name ) %>Ctrl');
+        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>Ctrl');
+        expect(check.controllerAs).toBe('vm');
 
       });
 
