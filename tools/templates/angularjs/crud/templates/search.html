@@ -20,11 +20,11 @@
           <button
             id="optionsBtn"
             type="button"
-            title="{{optionsBtnLabel}}"
-            ng-click="showOptionsBtnClick()"
+            title="{{vm.optionsBtnLabel}}"
+            ng-click="vm.showOptionsBtnClick()"
             class="btn btn-sm btn-default"
-            ng-class="{'active': showOptions}">
-            <i class="glyphicon glyphicon-wrench"></i> {{optionsBtnLabel}}
+            ng-class="{'active': vm.showOptions}">
+            <i class="glyphicon glyphicon-wrench"></i> {{vm.optionsBtnLabel}}
           </button>
 
         </li>
@@ -35,7 +35,7 @@
     <div class="col-md-6 col-md-offset-3">
 
       <!-- @begin: searchForm -->
-      <form role="form" name="searchForm" ng-submit="doSearch()">
+      <form role="form" name="searchForm" ng-submit="vm.doSearch()">
         <div class="input-group" ng-class="{'has-error': searchForm.searchInput.$invalid}">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-search"></i>
@@ -45,15 +45,15 @@
             type="text" class="form-control"
             placeholder="<%= helpers.capitalize( name ) %>"
             name="searchInput"
-            ng-model="searchName"
+            ng-model="vm.searchName"
             fend-focus="focusSearchInput"
             required>
 
           <span class="input-group-btn">
             <button
               class="btn btn-default"
-              ng-click="doSearch()"
-              ng-disabled="isClean() || searchForm.$invalid"
+              ng-click="vm.doSearch()"
+              ng-disabled="vm.isClean() || searchForm.$invalid"
               type="button">Search</button>
           </span>
         </div>
@@ -67,12 +67,12 @@
 
   <!-- @begin: options -->
   <div class="visible-xs">
-    <span ng-if="showOptions &#38;&#38; (showFilterBtn || result.count > 0)">&nbsp;</span>
+    <span ng-if="vm.showOptions &#38;&#38; (vm.showFilterBtn || vm.result.count > 0)">&nbsp;</span>
   </div>
 
-  <div class="row" ng-show="showOptions">
+  <div class="row" ng-show="vm.showOptions">
 
-    <span ng-if="showFilterBtn">
+    <span ng-if="vm.showFilterBtn">
       <span>
         &nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -81,35 +81,35 @@
       <button
         id="filterBtn"
         type="button"
-        title="{{filterBtnLabel}}"
-        ng-click="showFilterBtnClick()"
+        title="{{vm.filterBtnLabel}}"
+        ng-click="vm.showFilterBtnClick()"
         class="btn btn-sm btn-default"
-        ng-class="{'active': showFilterBtnActive}">
-        <i class="glyphicon glyphicon-filter"></i> {{filterBtnLabel}}
+        ng-class="{'active': vm.showFilterBtnActive}">
+        <i class="glyphicon glyphicon-filter"></i> {{vm.filterBtnLabel}}
       </button>
 
     </span>
 
-    <span ng-if="showPagination">
+    <span ng-if="vm.showPagination">
 
-      <span ng-if="result.count > 0">
+      <span ng-if="vm.result.count > 0">
         &nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;
       </span>
 
-      <span ng-if="result.pages > 1">
-        Pages: <span class="badge">{{result.pages}}</span> &nbsp;&nbsp;
+      <span ng-if="vm.result.pages > 1">
+        Pages: <span class="badge">{{vm.result.pages}}</span> &nbsp;&nbsp;
       </span>
-      <span ng-if="result.count > 0">
-        Total: <span class="badge">{{result.count}}</span>
+      <span ng-if="vm.result.count > 0">
+        Total: <span class="badge">{{vm.result.count}}</span>
       </span>
       <span class="visible-xs col-md-1">&nbsp;</span>
     </span>
 
-    <div class="col-md-3 pull-right" ng-show="showPagination">
+    <div class="col-md-3 pull-right" ng-show="vm.showPagination">
       <form
         name="updateSizeForm"
-        ng-submit="updatePageSizeFormSubmit()"
+        ng-submit="vm.updatePageSizeFormSubmit()"
         role="form" novalidate>
         <div class="input-group input-group-sm">
           <span class="input-group-addon">Page Size</span>
@@ -117,14 +117,14 @@
             class="form-control"
             type="number"
             name="pageSize"
-            ng-model="pageSize"
+            ng-model="vm.pageSize"
             fend-focus="focusPageSizeInput"
-            min="{{pageMinSize}}" max="{{pageMaxSize}}"
+            min="{{vm.pageMinSize}}" max="{{vm.pageMaxSize}}"
             placeholder="min value 2">
           <span class="input-group-btn">
             <button
-              ng-click="updatePageSize()"
-              ng-disabled="updatePageSizeInvalid(pageSize)"
+              ng-click="vm.updatePageSize()"
+              ng-disabled="vm.updatePageSizeInvalid(pageSize)"
               class="btn btn-default" type="button">Update</button>
           </span>
         </div>
@@ -133,7 +133,7 @@
             id="pageSizeMessage"
             ng-show="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
             class="text-center">
-            The value must be in range {{pageMinSize}} to {{pageMaxSize}}!
+            The value must be in range {{vm.pageMinSize}} to {{vm.pageMaxSize}}!
           </p>
         </div>
       </form>
@@ -151,24 +151,24 @@
   <!-- @begin: pagination -->
 
   <!-- https://angular-ui.github.io/bootstrap/#/pagination -->
-  <div class="row" ng-if="showPagination">
-    <div class="text-center" ng-if="result.pages > 1">
+  <div class="row" ng-if="vm.showPagination">
+    <div class="text-center" ng-if="vm.result.pages > 1">
       <pagination
-        ng-model="currentPage"
-        max-size="paginationItemsSize"
-        total-items="result.count"
-        num-pages="result.pages"
-        items-per-page="paginationPageSize"
-        ng-change="pageChanged()"
+        ng-model="vm.currentPage"
+        max-size="vm.paginationItemsSize"
+        total-items="vm.result.count"
+        num-pages="vm.result.pages"
+        items-per-page="vm.paginationPageSize"
+        ng-change="vm.pageChanged()"
         class="pagination-sm"
         boundary-links="true"
         rotate="false"></pagination>
       </div>
   </div>
 
-  <div class="row" ng-if="!showPagination">
-    <p class="text-center" ng-if="filter.search">
-      <i class="glyphicon glyphicon-filter"></i> : {{filter.search}}
+  <div class="row" ng-if="!vm.showPagination">
+    <p class="text-center" ng-if="vm.filter.search">
+      <i class="glyphicon glyphicon-filter"></i> : {{vm.filter.search}}
     </p>
   </div>
   <!-- @end: pagination -->

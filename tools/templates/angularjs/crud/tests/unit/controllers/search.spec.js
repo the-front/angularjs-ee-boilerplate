@@ -31,7 +31,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
 
   //----------------------------------------------------------------------------
 
-  var location, ctrl, scope, rootScope, httpBackend, pagination;
+  var location, vm, scope, rootScope, httpBackend, pagination;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -48,7 +48,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
     ) {
       scope = $rootScope.$new();
 
-      ctrl = $controller(ctrlName, {
+      vm = $controller(ctrlName, {
         $scope: scope
       });
 
@@ -63,7 +63,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
   it('should be defined', function() {
 
     // assertions
-    expect(ctrl).toBeDefined();
+    expect(vm).toBeDefined();
 
   });
 
@@ -73,49 +73,49 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
     it("should show", function() {
 
       // act
-      scope.showOptionsBtnClick();
+      vm.showOptionsBtnClick();
 
       // assertions
-      expect(scope.showOptions).toBeTruthy();
-      expect(scope.optionsBtnLabel).toEqual('Hide Options');
+      expect(vm.showOptions).toBeTruthy();
+      expect(vm.optionsBtnLabel).toEqual('Hide Options');
 
     });
 
     it("should show options and filter", function() {
 
       // act
-      scope.showFilterBtnActive = true;
-      scope.showOptionsBtnClick();
+      vm.showFilterBtnActive = true;
+      vm.showOptionsBtnClick();
 
       // assertions
-      expect(scope.showOptions).toBeTruthy();
-      expect(scope.optionsBtnLabel).toEqual('Hide Options');
+      expect(vm.showOptions).toBeTruthy();
+      expect(vm.optionsBtnLabel).toEqual('Hide Options');
 
     });
 
     it("should hide", function() {
 
       // act
-      scope.showOptions = true;
-      scope.showOptionsBtnClick();
+      vm.showOptions = true;
+      vm.showOptionsBtnClick();
 
       // assertions
-      expect(scope.showOptions).toBeFalsy();
-      expect(scope.optionsBtnLabel).toEqual('Show Options');
+      expect(vm.showOptions).toBeFalsy();
+      expect(vm.optionsBtnLabel).toEqual('Show Options');
 
     });
 
     it("should hide options and filter", function() {
 
       // act
-      scope.filter = { search: '' };
-      scope.showFilter = true;
-      scope.showOptions = true;
-      scope.showOptionsBtnClick();
+      vm.filter = { search: '' };
+      vm.showFilter = true;
+      vm.showOptions = true;
+      vm.showOptionsBtnClick();
 
       // assertions
-      expect(scope.showOptions).toBeFalsy();
-      expect(scope.optionsBtnLabel).toEqual('Show Options');
+      expect(vm.showOptions).toBeFalsy();
+      expect(vm.optionsBtnLabel).toEqual('Show Options');
 
     });
 
@@ -127,23 +127,23 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
     it("should show", function() {
 
       // act
-      scope.showFilterBtnClick();
+      vm.showFilterBtnClick();
 
       // assertions
-      expect(scope.showFilter).toBeTruthy();
-      expect(scope.filterBtnLabel).toEqual('Hide filter');
+      expect(vm.showFilter).toBeTruthy();
+      expect(vm.filterBtnLabel).toEqual('Hide filter');
 
     });
 
     it("should hide", function() {
 
       // act
-      scope.showFilter = true;
-      scope.showFilterBtnClick();
+      vm.showFilter = true;
+      vm.showFilterBtnClick();
 
       // assertions
-      expect(scope.showFilter).toBeFalsy();
-      expect(scope.filterBtnLabel).toEqual('Show filter');
+      expect(vm.showFilter).toBeFalsy();
+      expect(vm.filterBtnLabel).toEqual('Show filter');
 
     });
 
@@ -155,28 +155,28 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
     it("should be valid", function() {
 
       // arrange
-      scope.pageMinSize = 5;
-      scope.pageMaxSize = 100;
+      vm.pageMinSize = 5;
+      vm.pageMaxSize = 100;
 
       // act and assertions
-      expect(scope.updatePageSizeInvalid( 11 )).toBeFalsy();
-      expect(scope.updatePageSizeInvalid( 6 )).toBeFalsy();
-      expect(scope.updatePageSizeInvalid( 99 )).toBeFalsy();
+      expect(vm.updatePageSizeInvalid( 11 )).toBeFalsy();
+      expect(vm.updatePageSizeInvalid( 6 )).toBeFalsy();
+      expect(vm.updatePageSizeInvalid( 99 )).toBeFalsy();
 
     });
 
     it("should be invalid", function() {
 
       // arrange
-      scope.pageMinSize = 5;
-      scope.pageMaxSize = 100;
+      vm.pageMinSize = 5;
+      vm.pageMaxSize = 100;
 
       // act and assertions
-      expect(scope.updatePageSizeInvalid( undefined )).toBeTruthy();
-      expect(scope.updatePageSizeInvalid( null )).toBeTruthy();
-      expect(scope.updatePageSizeInvalid( 10 )).toBeTruthy();
-      expect(scope.updatePageSizeInvalid( 2 )).toBeTruthy();
-      expect(scope.updatePageSizeInvalid( 200 )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( undefined )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( null )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( 10 )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( 2 )).toBeTruthy();
+      expect(vm.updatePageSizeInvalid( 200 )).toBeTruthy();
 
     });
 
@@ -190,34 +190,34 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
       // arrange
       var search = 'something';
       backendList(search, 1, 11);
-      scope.pageMinSize = 5;
-      scope.pageMaxSize = 100;
+      vm.pageMinSize = 5;
+      vm.pageMaxSize = 100;
 
       // act
-      scope.searchName = search;
-      scope.pageSize = 11;
-      scope.updatePageSizeFormSubmit();
+      vm.searchName = search;
+      vm.pageSize = 11;
+      vm.updatePageSizeFormSubmit();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(11);
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(11);
 
     });
 
     it("should not submit", function() {
 
       // arrange
-      scope.showFilter = true;
-      scope.pageMinSize = 5;
-      scope.pageMaxSize = 100;
+      vm.showFilter = true;
+      vm.pageMinSize = 5;
+      vm.pageMaxSize = 100;
 
       // act
-      scope.pageSize = 200;
-      scope.updatePageSizeFormSubmit();
+      vm.pageSize = 200;
+      vm.updatePageSizeFormSubmit();
 
       // assertions
-      expect(scope.showFilter).toBeTruthy();
+      expect(vm.showFilter).toBeTruthy();
 
     });
 
@@ -229,16 +229,16 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
     it("should not search", function() {
 
       // arrange
-      scope.result = {
+      vm.result = {
         message: 'nothing'
       };
 
       // act
-      scope.searchName = '';
-      scope.doSearch();
+      vm.searchName = '';
+      vm.doSearch();
 
       // assertions
-      expect(scope.result.message).toEqual('nothing');
+      expect(vm.result.message).toEqual('nothing');
 
     });
 
@@ -250,14 +250,14 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
       backendList(search);
 
       // act
-      scope.searchName = search;
-      scope.doSearch();
+      vm.searchName = search;
+      vm.doSearch();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(10);
-      expect(scope.result.data[0].name).toEqual(matchFirst<%= helpers.capitalize( name ) %>Name);
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(10);
+      expect(vm.result.data[0].name).toEqual(matchFirst<%= helpers.capitalize( name ) %>Name);
 
     });
 
@@ -270,14 +270,14 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
       backendList(search, 1, _pageSize);
 
       // act
-      scope.searchName = search;
-      scope.pageSize = _pageSize;
-      scope.updatePageSize();
+      vm.searchName = search;
+      vm.pageSize = _pageSize;
+      vm.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(_pageSize);
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(_pageSize);
 
     });
 
@@ -288,18 +288,18 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
       // arrange
       var search = 'something';
       backendList(search, 1, _pageSize);
-      scope.showFilter = true;
+      vm.showFilter = true;
 
       // act
-      scope.searchName = search;
-      scope.pageSize = _pageSize;
-      scope.updatePageSize();
+      vm.searchName = search;
+      vm.pageSize = _pageSize;
+      vm.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(_pageSize);
-      expect(scope.showFilter).toBeFalsy();
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(_pageSize);
+      expect(vm.showFilter).toBeFalsy();
 
     });
 
@@ -310,19 +310,19 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
       // arrange
       var search = 'something';
       backendList(search, 1, _pageSize);
-      scope.showFilterBtnActive = true;
-      scope.showOptions = true;
+      vm.showFilterBtnActive = true;
+      vm.showOptions = true;
 
       // act
-      scope.searchName = search;
-      scope.pageSize = _pageSize;
-      scope.updatePageSize();
+      vm.searchName = search;
+      vm.pageSize = _pageSize;
+      vm.updatePageSize();
       httpBackend.flush();
 
       // assertions
-      expect(scope.currentPage).toEqual(1);
-      expect(scope.result.data.length).toEqual(_pageSize);
-      expect(scope.showFilter).toBeFalsy();
+      expect(vm.currentPage).toEqual(1);
+      expect(vm.result.data.length).toEqual(_pageSize);
+      expect(vm.showFilter).toBeFalsy();
 
     });
 
@@ -334,16 +334,14 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
     it("should change page", function() {
 
       // arrange
-      scope.result = {
+      vm.result = {
         page: 1
       };
 
-      var objParams = {
-        currentPage: 2
-      };
+      vm.currentPage = 2;
 
       // act
-      scope.pageChanged.call(objParams);
+      vm.pageChanged();
 
       // assertions
       expect(pagination.getNextPage()).toEqual(2);
@@ -352,16 +350,14 @@ describe('Testing <%= helpers.capitalize( name ) %> Search Controller', function
 
     it("should not change page", function() {
       // arrange
-      scope.result = {
+      vm.result = {
         page: 1
       };
 
-      var objParams = {
-        currentPage: 1
-      };
+      vm.currentPage = 1;
 
       // act
-      scope.pageChanged.call(objParams);
+      vm.pageChanged();
 
       // assertions
       expect(pagination.getNextPage()).toEqual(1);

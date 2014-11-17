@@ -1,6 +1,6 @@
 describe('Testing <%= helpers.capitalize( name ) %> New Controller', function() {
 
-  var httpBackend, ctrl, rootScope, scope;
+  var httpBackend, vm, rootScope, scope;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -12,7 +12,7 @@ describe('Testing <%= helpers.capitalize( name ) %> New Controller', function() 
     inject(function($controller, $rootScope, $httpBackend) {
       scope = $rootScope.$new();
 
-      ctrl = $controller('<%= helpers.capitalize( name ) %>NewCtrl', {
+      vm = $controller('<%= helpers.capitalize( name ) %>NewCtrl', {
         $scope: scope
       });
 
@@ -26,22 +26,22 @@ describe('Testing <%= helpers.capitalize( name ) %> New Controller', function() 
   it('should be defined', function() {
 
     // assertions
-    expect(ctrl).toBeDefined();
+    expect(vm).toBeDefined();
 
   });
 
   it("should have a title equals to 'New <%= helpers.capitalize( name ) %>'", function() {
 
     // assertions
-    expect(scope.title).toEqual('New <%= helpers.capitalize( name ) %>');
+    expect(vm.title).toEqual('New <%= helpers.capitalize( name ) %>');
 
   });
 
   it("should have empty <%= name %> object", function() {
 
     // assertions
-    expect(scope.<%= name %>.id).toEqual(0);
-    expect(scope.<%= name %>.name).toEqual('');
+    expect(vm.<%= name %>.id).toEqual(0);
+    expect(vm.<%= name %>.name).toEqual('');
 
   });
 
@@ -58,7 +58,7 @@ describe('Testing <%= helpers.capitalize( name ) %> New Controller', function() 
     spyOn(rootScope, '$emit');
 
     // act
-    scope.save();
+    vm.save();
     httpBackend.flush();
 
     // assertions

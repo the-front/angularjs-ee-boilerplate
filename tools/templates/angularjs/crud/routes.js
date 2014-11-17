@@ -3,45 +3,48 @@ define(function(require) {
 
   var module = require('./module');
 
-  module.config(
+  module.config(configure);
 
-    // dependencies injection
-    ['$routeProvider',
+  //---
 
-  // routes definition
-  function ($routeProvider) {
+  configure.$inject = ['$routeProvider'];
+
+  function configure($routeProvider) {
 
     $routeProvider
       .when(
         '/<%= route %>',
         {
-          controller: '<%= helpers.capitalize( name ) %>ListCtrl',
-          templateUrl: '<%= location %>/templates/list.html'
+          templateUrl   : '<%= location %>/templates/list.html',
+          controller    : '<%= helpers.capitalize( name ) %>ListCtrl',
+          controllerAs  : 'vm'
         }
       )
       .when(
         '/<%= route %>/search',
         {
-          controller: '<%= helpers.capitalize( name ) %>SearchCtrl',
-          templateUrl: '<%= location %>/templates/search.html'
+          templateUrl   : '<%= location %>/templates/search.html',
+          controller    : '<%= helpers.capitalize( name ) %>SearchCtrl',
+          controllerAs  : 'vm'
         }
       )
       .when(
         '/<%= route %>/new',
         {
-          controller: '<%= helpers.capitalize( name ) %>NewCtrl',
-          templateUrl: '<%= location %>/templates/form.html'
+          templateUrl   : '<%= location %>/templates/form.html',
+          controller    : '<%= helpers.capitalize( name ) %>NewCtrl',
+          controllerAs  : 'vm'
         }
       )
       .when(
         '/<%= route %>/edit/:id',
         {
-          controller: '<%= helpers.capitalize( name ) %>EditCtrl',
-          templateUrl: '<%= location %>/templates/form.html'
+          templateUrl   : '<%= location %>/templates/form.html',
+          controller    : '<%= helpers.capitalize( name ) %>EditCtrl',
+          controllerAs  : 'vm'
         }
-      )
-    ;
+      );
 
-  }]);
+  }
 
 });

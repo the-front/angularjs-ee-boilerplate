@@ -1,6 +1,6 @@
 describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function() {
 
-  var ctrl, scope, rootScope, httpBackend;
+  var vm, scope, rootScope, httpBackend;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -14,7 +14,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
       $routeParams.id = 1;
       scope = $rootScope.$new();
 
-      ctrl = $controller('<%= helpers.capitalize( name ) %>EditCtrl', {
+      vm = $controller('<%= helpers.capitalize( name ) %>EditCtrl', {
         $scope: scope
       });
 
@@ -28,7 +28,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
   it('should be defined', function() {
 
     // assertions
-    expect(ctrl).toBeDefined();
+    expect(vm).toBeDefined();
 
   });
 
@@ -36,7 +36,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
   it("should have a title equals to 'Edit <%= helpers.capitalize( name ) %> : 1'", function() {
 
     // assertions
-    expect(scope.title).toEqual('Edit <%= helpers.capitalize( name ) %> : 1');
+    expect(vm.title).toEqual('Edit <%= helpers.capitalize( name ) %> : 1');
 
   });
 
@@ -44,10 +44,10 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
   it("should show delete confirm", function() {
 
     // act
-    scope.remove();
+    vm.remove();
 
     // assertions
-    expect(scope.showConfirm).toBeTruthy();
+    expect(vm.showConfirm).toBeTruthy();
 
   });
 
@@ -55,11 +55,11 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
   it("should hide delete confirm", function() {
 
     // act
-    scope.showConfirm = true;
-    scope.cancelRemove();
+    vm.showConfirm = true;
+    vm.cancelRemove();
 
     // assertions
-    expect(scope.showConfirm).toBeFalsy();
+    expect(vm.showConfirm).toBeFalsy();
 
   });
 
@@ -85,7 +85,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
     it("should get <%= helpers.capitalize( name ) %> id : 1", function() {
 
       // assertions
-      expect(scope.<%= name %>.id).toEqual(1);
+      expect(vm.<%= name %>.id).toEqual(1);
 
     });
 
@@ -103,7 +103,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
       spyOn(rootScope, '$emit');
 
       // act
-      scope.save();
+      vm.save();
       httpBackend.flush();
 
       // assertions
@@ -126,7 +126,7 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
       spyOn(rootScope, '$emit');
 
       // act
-      scope.destroy();
+      vm.destroy();
       httpBackend.flush();
 
       // assertions

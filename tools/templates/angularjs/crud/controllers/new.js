@@ -4,18 +4,30 @@ define(function(require) {
   var module = require('../module');
   require('../resources/rest');
 
-  module.controller(
+  module.controller('<%= helpers.capitalize( name ) %>NewCtrl', <%= helpers.capitalize( name ) %>NewCtrl);
 
-    // controller name
-    '<%= helpers.capitalize( name ) %>NewCtrl',
+  //---
 
-    // dependencies injection
-    ['$rootScope', '$scope', '<%= helpers.capitalize( name ) %>Resource', 'InputFocusFactory',
+  <%= helpers.capitalize( name ) %>NewCtrl.$inject = [
+    '$rootScope', '$scope',
+    '<%= helpers.capitalize( name ) %>Resource', 'InputFocusFactory'
+  ];
 
-  // controller definition
-  function ($rootScope, $scope, Resource, input) {
+  function <%= helpers.capitalize( name ) %>NewCtrl($rootScope, $scope, Resource, input) {
+    var vm = this;
+
+    vm.title = 'New <%= helpers.capitalize( name ) %>';
+
+    vm.<%= name %> = new Resource({
+      'id':0,
+      'name':'',
+      'description':''
+    });
+
+    vm.save = save;
 
     //---
+
     var ctrlName = '<%= helpers.capitalize( name ) %>NewCtrl';
     input = input.get(ctrlName);
 
@@ -28,22 +40,15 @@ define(function(require) {
     input.setFocus('focus<%= helpers.capitalize( name ) %>NameInput', 200);
 
     //console.debug(input);
+
     //---
 
-    $scope.title = 'New <%= helpers.capitalize( name ) %>';
-
-    $scope.<%= name %> = new Resource({
-      'id':0,
-      'name':'',
-      'description':''
-    });
-
-    $scope.save = function() {
-      $scope.<%= name %>.$save(function(res) {
+    function save() {
+      vm.<%= name %>.$save(function(res) {
         $rootScope.$emit('<%= name %>:add:event', 'added');
       });
-    };
+    }
 
-  }]);
+  }
 
 });

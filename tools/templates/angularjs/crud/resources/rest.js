@@ -3,15 +3,13 @@ define(function(require) {
 
   var module = require('../module');
 
-  module.factory(
+  module.factory('<%= helpers.capitalize( name ) %>Resource', <%= helpers.capitalize( name ) %>Resource);
 
-    // resource name
-    '<%= helpers.capitalize( name ) %>Resource',
+  //---
 
-    // dependency injection
-    ['$resource',
+  <%= helpers.capitalize( name ) %>Resource.$inject = ['$resource'];
 
-  function($resource) {
+  function <%= helpers.capitalize( name ) %>Resource($resource) {
 
     var rest = $resource(
       '<%= endpoint %>/:id',
@@ -25,6 +23,6 @@ define(function(require) {
 
     return rest;
 
-  }]);
+  }
 
 });

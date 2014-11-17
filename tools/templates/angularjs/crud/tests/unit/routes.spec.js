@@ -27,10 +27,13 @@ describe('Angular.js \'<%= name %>\' Routes', function() {
 
       });
 
-      it('should map to controller <%= helpers.capitalize( name ) %>ListCtrl', function() {
+      it('should map to controller <%= helpers.capitalize( name ) %>ListCtrl as vm', function() {
+
+        var check = route.routes['/<%= route %>'];
 
         // assertions
-        expect(route.routes['/<%= route %>'].controller).toBe('<%= helpers.capitalize( name ) %>ListCtrl');
+        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>ListCtrl');
+        expect(check.controllerAs).toBe('vm');
 
       });
 
@@ -53,10 +56,13 @@ describe('Angular.js \'<%= name %>\' Routes', function() {
 
       });
 
-      it('should map to controller <%= helpers.capitalize( name ) %>SearchCtrl', function() {
+      it('should map to controller <%= helpers.capitalize( name ) %>SearchCtrl as vm', function() {
+
+        var check = route.routes['/<%= route %>/search'];
 
         // assertions
-        expect(route.routes['/<%= route %>/search'].controller).toBe('<%= helpers.capitalize( name ) %>SearchCtrl');
+        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>SearchCtrl');
+        expect(check.controllerAs).toBe('vm');
 
       });
 
@@ -79,10 +85,13 @@ describe('Angular.js \'<%= name %>\' Routes', function() {
 
       });
 
-      it('should map to controller <%= helpers.capitalize( name ) %>NewCtrl', function() {
+      it('should map to controller <%= helpers.capitalize( name ) %>NewCtrl as vm', function() {
+
+        var check = route.routes['/<%= route %>/new'];
 
         // assertions
-        expect(route.routes['/<%= route %>/new'].controller).toBe('<%= helpers.capitalize( name ) %>NewCtrl');
+        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>NewCtrl');
+        expect(check.controllerAs).toBe('vm');
 
       });
 
@@ -105,10 +114,13 @@ describe('Angular.js \'<%= name %>\' Routes', function() {
 
       });
 
-      it('should map to controller <%= helpers.capitalize( name ) %>EditCtrl', function() {
+      it('should map to controller <%= helpers.capitalize( name ) %>EditCtrl as vm', function() {
+
+        var check = route.routes['/<%= route %>/edit/:id'];
 
         // assertions
-        expect(route.routes['/<%= route %>/edit/:id'].controller).toBe('<%= helpers.capitalize( name ) %>EditCtrl');
+        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>EditCtrl');
+        expect(check.controllerAs).toBe('vm');
 
       });
 

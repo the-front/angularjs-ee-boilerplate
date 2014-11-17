@@ -37,7 +37,7 @@
 
       filterButton:          function() { return _getId('filterBtn'); },
 
-      pageSizeInput:         function() { return _getModel('pageSize'); },
+      pageSizeInput:         function() { return _getModel('vm.pageSize'); },
       pageSizeMessage:       function() { return _getId('pageSizeMessage'); }
     }
   };
@@ -45,7 +45,7 @@
   //----------------------------------------------------------------------------
   // table element shortcuts
 
-  var _repeater = function() { return _getRepeater('<%= name %> in result.data'); };
+  var _repeater = function() { return _getRepeater('<%= name %> in vm.result.data'); };
 
   var _lastRow = function(repeater) {
     repeater = repeater || _repeater();
@@ -87,14 +87,14 @@
           backToList: function() { return _getLink('All <%= helpers.capitalize( name ) %>'); }
         },
 
-        searchInput: function() { return _getModel('searchName'); },
+        searchInput: function() { return _getModel('vm.searchName'); },
 
         options: _listAndSearch.options
       },
 
       table: {
-        filterTexts:        function() { return _getBindingAll('filter.search'); },
-        filterInput:        function() { return _getModel('filter.search'); },
+        filterTexts:        function() { return _getBindingAll('vm.filter.search'); },
+        filterInput:        function() { return _getModel('vm.filter.search'); },
         filterClearButton:  function() { return _getId('filterClearButton'); },
         repeater:           _repeater,
         lastRow:            _lastRow,
@@ -103,12 +103,12 @@
       },
 
       form: {
-        title:             function() { return _getBinding('title'); },
-        nameConfirm:       function() { return _getBinding('<%= name %>.name'); },
+        title:             function() { return _getBinding('vm.title'); },
+        nameConfirm:       function() { return _getBinding('vm.<%= name %>.name'); },
 
         inputs: {
-          name:            function() { return _getModel('<%= name %>.name'); },
-          description:     function() { return _getModel('<%= name %>.description'); }
+          name:            function() { return _getModel('vm.<%= name %>.name'); },
+          description:     function() { return _getModel('vm.<%= name %>.description'); }
         },
 
         buttons: {

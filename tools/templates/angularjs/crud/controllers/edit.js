@@ -4,18 +4,36 @@ define(function(require) {
   var module = require('../module');
   require('../resources/rest');
 
-  module.controller(
+  module.controller('<%= helpers.capitalize( name ) %>EditCtrl', <%= helpers.capitalize( name ) %>EditCtrl);
 
-    // controller name
-    '<%= helpers.capitalize( name ) %>EditCtrl',
+  //---
 
-    // dependencies injection
-    ['$rootScope', '$scope', '<%= helpers.capitalize( name ) %>Resource', '$routeParams', 'InputFocusFactory',
+  <%= helpers.capitalize( name ) %>EditCtrl.$inject = [
+    '$rootScope', '$scope', '<%= helpers.capitalize( name ) %>Resource',
+    '$routeParams', 'InputFocusFactory'
+  ];
 
-  // controller definition
-  function ($rootScope, $scope, resource, $routeParams, input) {
+  function <%= helpers.capitalize( name ) %>EditCtrl(
+      $rootScope, $scope, resource, $routeParams, input
+  ) {
+    var vm = this;
+
+    vm.title = 'Edit <%= helpers.capitalize( name ) %> : ' + $routeParams.id;
+
+    vm.<%= name %> = undefined;
+
+    vm.showConfirm = false;
+
+    vm.save = save;
+
+    vm.remove = remove;
+
+    vm.cancelRemove = cancelRemove;
+
+    vm.destroy = destroy;
 
     //---
+
     var ctrlName = '<%= helpers.capitalize( name ) %>EditCtrl';
     input = input.get(ctrlName);
 
@@ -26,40 +44,40 @@ define(function(require) {
       ]);
 
     //console.debug(input);
+
     //---
 
-    $scope.title = 'Edit <%= helpers.capitalize( name ) %> : ' + $routeParams.id;
-
+    // TODO: move to route resolve?
     resource.get({id: $routeParams.id}, function(result) {
-      $scope.<%= name %> = result;
+      vm.<%= name %> = result;
       input.setFocus('focus<%= helpers.capitalize( name ) %>NameInput', 200);
     });
 
-    $scope.save = function() {
-      $scope.<%= name %>.$update({id: $routeParams.id}, function(res) {
+    //---
+
+    function save() {
+      vm.<%= name %>.$update({id: $routeParams.id}, function(res) {
         $rootScope.$emit('<%= name %>:update:event', 'updated');
       });
-    };
+    }
 
-    $scope.showConfirm = false;
+    function remove() {
+      vm.showConfirm = true;
+    }
 
-    $scope.remove = function() {
-      $scope.showConfirm = true;
-    };
-
-    $scope.cancelRemove = function() {
-      $scope.showConfirm = false;
+    function cancelRemove() {
+      vm.showConfirm = false;
       input.focusReset();
       input.setFocus('focus<%= helpers.capitalize( name ) %>NameInput');
-    };
+    }
 
-    $scope.destroy = function() {
-      $scope.<%= name %>.$delete({id: $routeParams.id}, function(res) {
-        $scope.showConfirm = false;
+    function destroy() {
+      vm.<%= name %>.$delete({id: $routeParams.id}, function(res) {
+        vm.showConfirm = false;
         $rootScope.$emit('<%= name %>:remove:event', 'removed');
       });
-    };
+    }
 
-  }]);
+  }
 
 });
