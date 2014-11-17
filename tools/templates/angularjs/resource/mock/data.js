@@ -3,16 +3,13 @@ define(function(require) {
 
   var module = require('shared/mock/module');
 
-  module.factory(
+  module.factory('<%= helpers.capitalize( name ) %>Collection', <%= helpers.capitalize( name ) %>CollectionFactory);
 
-    // factory name
-    '<%= helpers.capitalize( name ) %>Collection',
+  //---
 
-    // factory dependencies injection
-    ['DataStore', 'Helpers', '$log',
+  <%= helpers.capitalize( name ) %>CollectionFactory.$inject = ['DataStore', 'Helpers', '$log'];
 
-  // factory definition
-  function(DataStore, helpers, console) {
+  function <%= helpers.capitalize( name ) %>CollectionFactory(DataStore, helpers, console) {
 
     console.debug('<%= helpers.capitalize( name ) %>Collection');
 
@@ -88,6 +85,6 @@ define(function(require) {
 
     return instance;
 
-  }]);
+  }
 
 });

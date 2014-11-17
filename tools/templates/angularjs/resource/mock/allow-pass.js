@@ -3,12 +3,13 @@ define(function(require) {
 
   var backend = require('shared/mock/backend');
 
-  backend.addResource(
-    // mock resource dependencies injection
-    ['$httpBackend', 'regexpUrl',
+  backend.addResource(AllowPass);
 
-  // mock resource definition
-  function($httpBackend, regexpUrl) {
+  //---
+
+  AllowPass.$inject = ['$httpBackend', 'regexpUrl'];
+
+  function AllowPass($httpBackend, regexpUrl) {
 
     //--- @begin: Allow pass to server
 
@@ -38,6 +39,7 @@ define(function(require) {
       .passThrough();
 
     //--- @end: Allow pass to server
-  }]);
+
+  }
 
 });
