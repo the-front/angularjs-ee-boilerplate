@@ -17,9 +17,9 @@ https://gist.github.com/mariojunior/6175736
 
   //---
 
-  configure.$inject = ['$routeProvider', '$httpProvider'];
+  configure.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
 
-  function configure($routeProvider, $httpProvider) {
+  function configure($stateProvider, $urlRouterProvider, $httpProvider) {
 
     //------------------------------------------------
     // @begin: angular.js $httpProvider useful configs
@@ -33,18 +33,32 @@ https://gist.github.com/mariojunior/6175736
     // @end: angular.js $httpProvider useful configs
     //------------------------------------------------
 
+    $urlRouterProvider
+      .when('', '/') // default
+      .otherwise("/404"); // For any unmatched url, redirect to /404
 
-    $routeProvider
-      .when(
-        '/404',
-        {
-          templateUrl: 'app/main/templates/404.html'
+    $stateProvider
+      .state('404', {
+        url: '/404',
+        views: {
+          'master': {
+            templateUrl: 'app/main/templates/layout.html'
+          },
+          /*
+          'navbar@404': {
+            templateUrl: 'app/main/templates/navbar.html'
+          },
+          */
+          'content@404': {
+            templateUrl: 'app/main/templates/404.html'
+          }/*,
+          'footer@404': {
+            templateUrl: 'app/main/templates/footer.html'
+          }*/
         }
-      )
 
-      .otherwise({redirectTo:'/404'});
+      });
 
   }
-
 
 });
