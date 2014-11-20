@@ -16,7 +16,7 @@ define(function(require) {
         url: '/about',
         views: {
           'master': {
-            templateUrl: 'app/main/templates/layout.html'
+            templateUrl   : 'app/main/templates/layout.html'
           },
           'content@about': {
             templateUrl   : 'app/about/templates/page.html',

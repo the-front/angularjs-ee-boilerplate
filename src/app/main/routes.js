@@ -42,18 +42,18 @@ https://gist.github.com/mariojunior/6175736
         url: '/404',
         views: {
           'master': {
-            templateUrl: 'app/main/templates/layout.html'
+            templateUrl   : 'app/main/templates/layout.html'
           },
           /*
           'navbar@404': {
-            templateUrl: 'app/main/templates/navbar.html'
+            templateUrl   : 'app/main/templates/navbar.html'
           },
           */
           'content@404': {
-            templateUrl: 'app/main/templates/404.html'
+            templateUrl   : 'app/main/templates/404.html'
           }/*,
           'footer@404': {
-            templateUrl: 'app/main/templates/footer.html'
+            templateUrl   : 'app/main/templates/footer.html'
           }*/
         }
 
