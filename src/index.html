@@ -26,52 +26,68 @@
 </head>
 <body>
 
-<!-- toaster-config -->
-<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
-
-<!-- Wrap all page content here -->
-<div id="wrap">
-
-  <!-- navbar -->
-  <div ng-include="'app/main/templates/navbar.html'"></div>
-
-  <!-- @begin: ie warning alert -->
-  <!--[if lt IE 7]><div class="container">
+<!-- @begin: ie warning alert -->
+<!--[if lt IE 7]>
   <br><br><br><br>
-  <div class="alert alert-danger">
+  <div class="alert alert-danger container">
   <p>Your browser is <em>ancient!</em>
     <a href="http://browsehappy.com/">Upgrade to a different browser</a> or
     <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
   </p>
   </div>
-  <![endif]-->
+<![endif]-->
 
-  <!--[if lt IE 9]><div class="container">
+<!--[if lt IE 9]>
   <br><br><br><br>
-  <div class="alert alert-warning">
+  <div class="alert alert-warning container">
     You are using an old version of Internet Explorer.
     For better and safer browsing experience please <a href="http://www.microsoft.com/IE9">upgrade IE</a>
     or install <a href="http://google.com/chrome">Google Chrome browser</a>.
   </div>
-  <![endif]-->
-  <!-- @begin: ie warning alert -->
+<![endif]-->
+<!-- @begin: ie warning alert -->
 
-  <!-- app content -->
+<!-- toaster-config -->
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+
+<div ui-view="master">
+  <!-- loagind app -->
+  <div class="loading_app">
+    <p style="text-align:center">
+      <img src="shared/img/loading.gif"><br>Loading...
+    </p>
+  </div>
+</div>
+
+
+<!-- @begin: main layout definition -->
+<!--
+<! - - Wrap all page content here - - >
+<div id="wrap">
+
+  <! - - navbar - - >
+  <div ng-include="'app/main/templates/navbar.html'"></div>
+
+  <! - - app content - - >
   <div class="container ng-view"></div>
 
 </div>
 
-<!-- footer -->
+<! - - footer - - >
 <div ng-include="'app/main/templates/footer.html'"></div>
+-->
+<!-- @end: main layout definition -->
+
 
 
 <!-- loagind app -->
+<!--
 <div class="loading_app" ng-if="!main.appLoaded">
   <p style="text-align:center">
     <img src="shared/img/loading.gif"><br>Loading...
   </p>
 </div>
-
+-->
 
 <!-- javascript -->
 <script
