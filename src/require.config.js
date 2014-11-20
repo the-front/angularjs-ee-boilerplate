@@ -16,6 +16,7 @@ require({
       'vendor/angular.js/1.3.3/angular.min'
     ],
 
+    // TODO: remove
     angularRoute: [
       'vendor/angular.js/1.3.3/angular-route.min'
     ],
@@ -33,6 +34,9 @@ require({
       'vendor/angular-ui/bootstrap/0.11.0/ui-bootstrap-tpls.min'
     ],
 
+    uiRouter: [
+      'vendor/angular-ui/ui-router/0.2.11/angular-ui-router.min'
+    ],
 
     toaster: [
       'vendor/toaster/0.3.0/toaster'
@@ -76,6 +80,11 @@ require({
       deps: ['bootstrap',  'angular']
     },
 
+    'uiRouter': {
+      deps: ['angular']
+    },
+
+    // TODO: remove
     'angularRoute': {
       deps: ['angular']
     },

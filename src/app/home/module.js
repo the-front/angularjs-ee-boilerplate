@@ -2,7 +2,12 @@ define(function(require) {
   'use strict';
 
   var angular = require('angular');
+
+  // TODO: remove
   require('angularRoute');
+
+  require('uiRouter');
+
   require('toaster');
 
   // angular module definition
@@ -12,7 +17,10 @@ define(function(require) {
 
     // module dependencies
     [
+      // TODO: remove
       'ngRoute',
+
+      'ui.router',
 
       'toaster'
     ]
