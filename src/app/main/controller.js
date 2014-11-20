@@ -12,6 +12,7 @@ define(function(require) {
   function MainCtrl(progressConfig, menu) {
     var vm = this;
 
+    // TODO: review :: needed?
     vm.appLoaded = 'ok';
 
     //--- @begin: loading progressbar config
