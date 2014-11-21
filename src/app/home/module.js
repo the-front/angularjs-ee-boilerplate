@@ -3,9 +3,6 @@ define(function(require) {
 
   var angular = require('angular');
 
-  // TODO: remove
-  require('angularRoute');
-
   require('uiRouter');
 
   require('toaster');
@@ -17,9 +14,6 @@ define(function(require) {
 
     // module dependencies
     [
-      // TODO: remove
-      'ngRoute',
-
       'ui.router',
 
       'toaster'

@@ -2,12 +2,9 @@ define(function(require) {
   'use strict';
 
   var angular = require('angular');
-  // TODO: remove
-  require('angularRoute');
 
   require('uiRouter');
-
-  require('angularUiBootstrap');
+  require('uiBootstrap');
 
   // angular module definition
   return angular.module(
@@ -17,11 +14,7 @@ define(function(require) {
 
     // module dependencies
     [
-      // TODO: remove
-      'ngRoute',
-
       'ui.router',
-
       'ui.bootstrap',
 
       require('./templates/cache').name,

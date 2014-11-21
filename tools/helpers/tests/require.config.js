@@ -33,11 +33,6 @@
         'vendor/angular.js/1.3.3/angular.min'
       ],
 
-      // TODO: remove
-      angularRoute: [
-        'vendor/angular.js/1.3.3/angular-route.min'
-      ],
-
       angularResource: [
         'vendor/angular.js/1.3.3/angular-resource.min'
       ],
@@ -47,7 +42,7 @@
       ],
 
 
-      angularUiBootstrap: [
+      uiBootstrap: [
         'vendor/angular-ui/bootstrap/0.11.0/ui-bootstrap-tpls.min'
       ],
 
@@ -93,24 +88,19 @@
         exports: 'angular'
       },
 
-      'angularUiBootstrap': {
-        deps: ['bootstrap',  'angular']
-      },
-
-      'uiRouter': {
-        deps: ['angular']
-      },
-
-      // TODO: remove
-      'angularRoute': {
-        deps: ['angular']
-      },
-
       'angularResource': {
         deps: ['angular']
       },
 
       'angularAnimate': {
+        deps: ['angular']
+      },
+
+      'uiBootstrap': {
+        deps: ['bootstrap',  'angular']
+      },
+
+      'uiRouter': {
         deps: ['angular']
       },
 

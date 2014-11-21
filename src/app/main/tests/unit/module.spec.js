@@ -30,8 +30,7 @@ describe('Angular.js \'main\' Module', function() {
     });
 
     var mainDeps = [
-      'ngRoute',
-
+      'ui.router',
       'ui.bootstrap',
 
       'templatesCache',
