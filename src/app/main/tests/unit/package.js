@@ -3,8 +3,6 @@ define(function(require) {
 
   require('./module.spec');
   require('./controller.spec');
-
-  // TODO: update test
-  // require('./routes.spec');
+  require('./routes.spec');
 
 });
