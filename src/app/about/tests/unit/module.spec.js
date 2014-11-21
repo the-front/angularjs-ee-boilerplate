@@ -30,7 +30,7 @@ describe('Angular.js \'about\' Module', function() {
     });
 
     var mainDeps = [
-      'ngRoute'
+      'ui.router'
     ];
 
     mainDeps.forEach(function( depName ) {
