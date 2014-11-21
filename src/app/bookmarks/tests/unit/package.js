@@ -8,8 +8,6 @@ define(function(require) {
   require('./controllers/search.spec');
   require('./controllers/new.spec');
   require('./controllers/edit.spec');
-
-  // TODO: update test
-  // require('./routes.spec');
+  require('./routes.spec');
 
 });
