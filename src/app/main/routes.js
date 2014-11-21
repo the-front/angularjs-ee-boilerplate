@@ -34,7 +34,8 @@ https://gist.github.com/mariojunior/6175736
     //------------------------------------------------
 
     $urlRouterProvider
-      .when('', '/') // default
+      .when('', '/home') // default
+      .when('/', '/home') // default
       .otherwise("/404"); // For any unmatched url, redirect to /404
 
     $stateProvider
