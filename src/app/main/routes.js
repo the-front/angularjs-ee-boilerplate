@@ -47,6 +47,7 @@ https://gist.github.com/mariojunior/6175736
           },
           /*
           'navbar@404': {
+            // default value on 'app/main/templates/layout.html' ui-view navbar
             templateUrl   : 'app/main/templates/navbar.html'
           },
           */
@@ -54,6 +55,7 @@ https://gist.github.com/mariojunior/6175736
             templateUrl   : 'app/main/templates/404.html'
           }/*,
           'footer@404': {
+            // default value on 'app/main/templates/layout.html' ui-view footer
             templateUrl   : 'app/main/templates/footer.html'
           }*/
         }
