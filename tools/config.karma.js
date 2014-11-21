@@ -37,7 +37,7 @@ module.exports = {
       // source files, that you wanna generate coverage for
       // do not include tests or libraries
       // (these files will be instrumented by Istanbul)
-      '{src,src/!(vendor)/!(tests){,/!(tests){,/!(tests){,/!(tests)}}}}/!(require.load).js': ['coverage']
+      '{src,src/!(vendor)/!(tests){,/!(tests){,/!(tests){,/!(tests)}}}}/!(package).js': ['coverage']
     },
 
     ngHtml2JsPreprocessor: {
