@@ -7,22 +7,27 @@ define(function(require) {
 
   //---
 
-  configure.$inject = ['$routeProvider'];
+  configure.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function configure($routeProvider) {
+  function configure($stateProvider, $urlRouterProvider) {
 
-    $routeProvider
-      .when(
-        '/help',
-        {
-          templateUrl: 'app/help/template.html',
-          controller: 'HelpCtrl',
-          controllerAs: 'vm',
-          resolve: {
-            githubUser: ResolveGithubUser
+    $stateProvider
+      .state('help', {
+        url: '/help',
+        views: {
+          'master': {
+            templateUrl   : 'app/main/templates/layout.html'
+          },
+          'content@help': {
+            templateUrl   : 'app/help/template.html',
+            controller    : 'HelpCtrl',
+            controllerAs  : 'vm',
+            resolve: {
+              githubUser  : ResolveGithubUser
+            }
           }
         }
-      );
+      });
 
   }
 
