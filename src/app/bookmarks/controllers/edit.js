@@ -10,14 +10,14 @@ define(function(require) {
 
   BookmarksEditCtrl.$inject = [
     '$rootScope', '$scope',
-    'BookmarksResource', '$routeParams',
+    'BookmarksResource', '$stateParams',
     'InputFocusFactory'
   ];
 
-  function BookmarksEditCtrl($rootScope, $scope, resource, $routeParams, input) {
+  function BookmarksEditCtrl($rootScope, $scope, resource, params, input) {
     var vm = this;
 
-    vm.title = 'Edit Bookmark : ' + $routeParams.id;
+    vm.title = 'Edit Bookmark : ' + params.id;
 
     vm.bookmark = undefined;
 
@@ -47,7 +47,7 @@ define(function(require) {
     //---
 
     // TODO: move to route resolve?
-    resource.get({id: $routeParams.id}, function(result) {
+    resource.get({id: params.id}, function(result) {
       vm.bookmark = result;
       input.setFocus('focusBookmarkNameInput', 200);
     });
@@ -55,7 +55,7 @@ define(function(require) {
     //---
 
     function save() {
-      vm.bookmark.$update({id: $routeParams.id}, function(res) {
+      vm.bookmark.$update({id: params.id}, function(res) {
         $rootScope.$emit('bookmarks:update:event', 'updated');
       });
     }
@@ -71,7 +71,7 @@ define(function(require) {
     }
 
     function destroy() {
-      vm.bookmark.$delete({id: $routeParams.id}, function(res) {
+      vm.bookmark.$delete({id: params.id}, function(res) {
         vm.showConfirm = false;
         $rootScope.$emit('bookmarks:remove:event', 'removed');
       });
