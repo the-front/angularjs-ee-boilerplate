@@ -7,43 +7,63 @@ define(function(require) {
 
   //---
 
-  configure.$inject = ['$routeProvider'];
+  configure.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function configure($routeProvider) {
+  function configure($stateProvider, $urlRouterProvider) {
 
-    $routeProvider
-      .when(
-        '/<%= route %>',
-        {
-          templateUrl   : '<%= location %>/templates/list.html',
-          controller    : '<%= helpers.capitalize( name ) %>ListCtrl',
-          controllerAs  : 'vm'
+    $urlRouterProvider
+      .when('/<%= route %>', '/<%= route %>/list'); // default
+
+    $stateProvider
+      .state('<%= name %>', {
+        abstract: true,
+        url: '/<%= route %>',
+        views: {
+          'master': {
+            templateUrl   : 'app/main/templates/layout.html'
+          }
         }
-      )
-      .when(
-        '/<%= route %>/search',
-        {
-          templateUrl   : '<%= location %>/templates/search.html',
-          controller    : '<%= helpers.capitalize( name ) %>SearchCtrl',
-          controllerAs  : 'vm'
+      })
+      .state('<%= name %>.list', {
+        url: '/list',
+        views: {
+          'content@<%= name %>': {
+            templateUrl   : '<%= location %>/templates/list.html',
+            controller    : '<%= helpers.capitalize( name ) %>ListCtrl',
+            controllerAs  : 'vm'
+          }
         }
-      )
-      .when(
-        '/<%= route %>/new',
-        {
-          templateUrl   : '<%= location %>/templates/form.html',
-          controller    : '<%= helpers.capitalize( name ) %>NewCtrl',
-          controllerAs  : 'vm'
+      })
+      .state('<%= name %>.search', {
+        url: '/search',
+        views: {
+          'content@<%= name %>': {
+            templateUrl   : '<%= location %>/templates/search.html',
+            controller    : '<%= helpers.capitalize( name ) %>SearchCtrl',
+            controllerAs  : 'vm'
+          }
         }
-      )
-      .when(
-        '/<%= route %>/edit/:id',
-        {
-          templateUrl   : '<%= location %>/templates/form.html',
-          controller    : '<%= helpers.capitalize( name ) %>EditCtrl',
-          controllerAs  : 'vm'
+      })
+      .state('<%= name %>.new', {
+        url: '/new',
+        views: {
+          'content@<%= name %>': {
+            templateUrl   : '<%= location %>/templates/form.html',
+            controller    : '<%= helpers.capitalize( name ) %>NewCtrl',
+            controllerAs  : 'vm'
+          }
         }
-      );
+      })
+      .state('<%= name %>.edit', {
+        url: '/edit/:id',
+        views: {
+          'content@<%= name %>': {
+            templateUrl   : '<%= location %>/templates/form.html',
+            controller    : '<%= helpers.capitalize( name ) %>EditCtrl',
+            controllerAs  : 'vm'
+          }
+        }
+      });
 
   }
 

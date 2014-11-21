@@ -9,9 +9,9 @@ describe('Testing <%= helpers.capitalize( name ) %> Edit Controller', function()
     module('<%= name %>');
 
     // inject dependencies
-    inject(function($rootScope, $routeParams, $controller, $httpBackend) {
+    inject(function($rootScope, $stateParams, $controller, $httpBackend) {
 
-      $routeParams.id = 1;
+      $stateParams.id = 1;
       scope = $rootScope.$new();
 
       vm = $controller('<%= helpers.capitalize( name ) %>EditCtrl', {

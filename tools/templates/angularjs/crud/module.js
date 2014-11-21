@@ -2,8 +2,10 @@ define(function(require) {
   'use strict';
 
   var angular = require('angular');
-  require('angularRoute');
   require('angularResource');
+
+  require('uiRouter');
+  require('uiBootstrap');
 
   // angular module definition
   return angular.module(
@@ -12,8 +14,10 @@ define(function(require) {
 
     // module dependencies
     [
-      'ngRoute',
       'ngResource',
+
+      'ui.router',
+      'ui.bootstrap',
 
       require('shared/fend/input-utils/package').name,
       require('shared/fend/pagination/package').name,

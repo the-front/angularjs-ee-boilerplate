@@ -1,6 +1,6 @@
-describe('Angular.js \'<%= name %>\' Routes', function() {
+describe('ui.router: \'<%= name %>\'', function() {
 
-  var route;
+  var state;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,131 +9,199 @@ describe('Angular.js \'<%= name %>\' Routes', function() {
     module('<%= name %>');
 
     // inject dependencies
-    inject(function($route) {
-      route = $route;
+    inject(function($state) {
+      state = $state;
     });
 
   });
 
-  describe('Routes Map', function() {
+  describe("States Map", function() {
 
+    it("$state should be defined", function() {
+      expect(state).toBeDefined();
+    });
 
-    describe('location \'/<%= route %>\' - list <%= name %>', function() {
+    describe("<%= name %> state", function() {
 
-      it('should be defined', function() {
+      var config;
+
+      it("should be defined", function() {
+        // arrange
+        config = state.get('<%= name %>');
 
         // assertions
-        expect(route.routes['/<%= route %>']).toBeDefined();
+        expect(config).toBeDefined();
+      });
+
+      it("should be abstract", function() {
+        expect(config.abstract).toBeTruthy();
+      });
+
+      it("should map url to \'/<%= route %>\'", function() {
+        expect(config.url).toEqual('/<%= route %>');
+      });
+
+      describe("views", function() {
+
+        var views;
+
+        it("should be defined", function() {
+          // arrange
+          views = config.views;
+
+          // assertions
+          expect(views).toBeDefined();
+        });
+
+        describe("master", function() {
+
+          var master;
+
+          it("should be defined", function() {
+            // arrange
+            /*jshint sub:true*/
+            master = views['master'];
+
+            // assertions
+            expect(master).toBeDefined();
+          });
+
+          it("should map to templateUrl \'app/main/templates/layout.html\'", function() {
+            expect(master.templateUrl).toEqual('app/main/templates/layout.html');
+          });
+
+        });
 
       });
 
-      it('should map to controller <%= helpers.capitalize( name ) %>ListCtrl as vm', function() {
+    }); //--- end: <%= name %> state
 
-        var check = route.routes['/<%= route %>'];
+    describe("<%= name %>.list state", function() {
 
-        // assertions
-        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>ListCtrl');
-        expect(check.controllerAs).toBe('vm');
-
+      stateSpecs({
+        state         : '<%= name %>.list',
+        url           : '/list',
+        templateUrl   : '<%= location %>/templates/list.html',
+        controller    : '<%= helpers.capitalize( name ) %>ListCtrl',
+        controllerAs  : 'vm'
       });
 
-      it('should map to templateUrl <%= location %>/templates/list.html', function() {
+    }); //--- end: <%= name %>.list state
+
+    describe("<%= name %>.search state", function() {
+
+      stateSpecs({
+        state         : '<%= name %>.search',
+        url           : '/search',
+        templateUrl   : '<%= location %>/templates/search.html',
+        controller    : '<%= helpers.capitalize( name ) %>SearchCtrl',
+        controllerAs  : 'vm'
+      });
+
+    }); //--- end: <%= name %>.search state
+
+    describe("<%= name %>.new state", function() {
+
+      stateSpecs({
+        state         : '<%= name %>.new',
+        url           : '/new',
+        templateUrl   : '<%= location %>/templates/form.html',
+        controller    : '<%= helpers.capitalize( name ) %>NewCtrl',
+        controllerAs  : 'vm'
+      });
+
+    }); //--- end: <%= name %>.new state
+
+    describe("<%= name %>.edit state", function() {
+
+      stateSpecs({
+        state         : '<%= name %>.edit',
+        url           : '/edit/:id',
+        templateUrl   : '<%= location %>/templates/form.html',
+        controller    : '<%= helpers.capitalize( name ) %>EditCtrl',
+        controllerAs  : 'vm'
+      });
+
+    }); //--- end: <%= name %>.edit state
+
+  }); //--- end: States Map
+
+  //----------------------------------------------------------------------------
+
+  function stateSpecs(check) {
+
+    /*
+    check = {
+      state         : 'parent_state.state_name',
+      url           : 'url location',
+      templateUrl   : 'template path file',
+      controller    : 'controller name',
+      controllerAs  : 'controller alias'
+    }
+    */
+
+    check.controllerAs = check.controllerAs || 'vm'; // default value
+
+    describe(check.state + " state", function() {
+
+      var config;
+
+      it("should be defined", function() {
+        // arrange
+        config = state.get(check.state);
 
         // assertions
-        expect(route.routes['/<%= route %>'].templateUrl).toEqual('<%= location %>/templates/list.html');
+        expect(config).toBeDefined();
+      });
+
+      it("should map url to \'" + check.url + "\'", function() {
+        expect(config.url).toEqual(check.url);
+      });
+
+      describe("views", function() {
+
+        var views;
+
+        it("should be defined", function() {
+          // arrange
+          views = config.views;
+
+          // assertions
+          expect(views).toBeDefined();
+        });
+
+        describe("content", function() {
+
+          var content;
+          var viewName = (check.state.split('.')[0]);
+
+          it("should be defined", function() {
+            // arrange
+            /*jshint sub:true*/
+            content = views['content@' + viewName];
+
+            // assertions
+            expect(content).toBeDefined();
+          });
+
+          it("should map to templateUrl \'" + check.templateUrl + "\'", function() {
+            expect(content.templateUrl).toEqual(check.templateUrl);
+          });
+
+          it("should map to controller \'" + check.controller + "\'", function() {
+            expect(content.controller).toEqual(check.controller);
+          });
+
+          it("should map to controllerAs \'" + check.controllerAs + "\'", function() {
+            expect(content.controllerAs).toEqual(check.controllerAs);
+          });
+
+        });
 
       });
 
     });
 
-
-    describe('location \'/<%= route %>/search\' - search <%= name %>', function() {
-
-      it('should be defined', function() {
-
-        // assertions
-        expect(route.routes['/<%= route %>/search']).toBeDefined();
-
-      });
-
-      it('should map to controller <%= helpers.capitalize( name ) %>SearchCtrl as vm', function() {
-
-        var check = route.routes['/<%= route %>/search'];
-
-        // assertions
-        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>SearchCtrl');
-        expect(check.controllerAs).toBe('vm');
-
-      });
-
-      it('should map to templateUrl <%= location %>/templates/search.html', function() {
-
-        // assertions
-        expect(route.routes['/<%= route %>/search'].templateUrl).toEqual('<%= location %>/templates/search.html');
-
-      });
-
-    });
-
-
-    describe('location \'/<%= route %>/new\' - add new <%= name %>', function() {
-
-      it('should be defined', function() {
-
-        // assertions
-        expect(route.routes['/<%= route %>/new']).toBeDefined();
-
-      });
-
-      it('should map to controller <%= helpers.capitalize( name ) %>NewCtrl as vm', function() {
-
-        var check = route.routes['/<%= route %>/new'];
-
-        // assertions
-        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>NewCtrl');
-        expect(check.controllerAs).toBe('vm');
-
-      });
-
-      it('should map to templateUrl <%= location %>/templates/form.html', function() {
-
-        // assertions
-        expect(route.routes['/<%= route %>/new'].templateUrl).toEqual('<%= location %>/templates/form.html');
-
-      });
-
-    });
-
-
-    describe('location \'/<%= route %>/edit/:id\' - edit <%= name %>', function() {
-
-      it('should be defined', function() {
-
-        // assertions
-        expect(route.routes['/<%= route %>/edit/:id']).toBeDefined();
-
-      });
-
-      it('should map to controller <%= helpers.capitalize( name ) %>EditCtrl as vm', function() {
-
-        var check = route.routes['/<%= route %>/edit/:id'];
-
-        // assertions
-        expect(check.controller).toBe('<%= helpers.capitalize( name ) %>EditCtrl');
-        expect(check.controllerAs).toBe('vm');
-
-      });
-
-      it('should map to templateUrl <%= location %>/templates/form.html', function() {
-
-        // assertions
-        expect(route.routes['/<%= route %>/edit/:id'].templateUrl).toEqual('<%= location %>/templates/form.html');
-
-      });
-
-    });
-
-
-  }); //--- end: Routes Map
+  } //--- end: stateSpecs(check)
 
 });

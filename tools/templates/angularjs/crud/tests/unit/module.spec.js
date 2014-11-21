@@ -30,13 +30,16 @@ describe('Angular.js \'<%= name %>\' Module', function() {
     });
 
     var mainDeps = [
-      'ngRoute',
       'ngResource',
 
+      'ui.router',
+      'ui.bootstrap',
+
       'fend.input.utils',
-      'fend.pagination'
+      'fend.pagination',
 
       // TODO: review
+
     ];
 
     mainDeps.forEach(function( depName ) {

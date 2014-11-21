@@ -10,15 +10,15 @@ define(function(require) {
 
   <%= helpers.capitalize( name ) %>EditCtrl.$inject = [
     '$rootScope', '$scope', '<%= helpers.capitalize( name ) %>Resource',
-    '$routeParams', 'InputFocusFactory'
+    '$stateParams', 'InputFocusFactory'
   ];
 
   function <%= helpers.capitalize( name ) %>EditCtrl(
-      $rootScope, $scope, resource, $routeParams, input
+      $rootScope, $scope, resource, params, input
   ) {
     var vm = this;
 
-    vm.title = 'Edit <%= helpers.capitalize( name ) %> : ' + $routeParams.id;
+    vm.title = 'Edit <%= helpers.capitalize( name ) %> : ' + params.id;
 
     vm.<%= name %> = undefined;
 
@@ -48,7 +48,7 @@ define(function(require) {
     //---
 
     // TODO: move to route resolve?
-    resource.get({id: $routeParams.id}, function(result) {
+    resource.get({id: params.id}, function(result) {
       vm.<%= name %> = result;
       input.setFocus('focus<%= helpers.capitalize( name ) %>NameInput', 200);
     });
@@ -56,7 +56,7 @@ define(function(require) {
     //---
 
     function save() {
-      vm.<%= name %>.$update({id: $routeParams.id}, function(res) {
+      vm.<%= name %>.$update({id: params.id}, function(res) {
         $rootScope.$emit('<%= name %>:update:event', 'updated');
       });
     }
@@ -72,7 +72,7 @@ define(function(require) {
     }
 
     function destroy() {
-      vm.<%= name %>.$delete({id: $routeParams.id}, function(res) {
+      vm.<%= name %>.$delete({id: params.id}, function(res) {
         vm.showConfirm = false;
         $rootScope.$emit('<%= name %>:remove:event', 'removed');
       });
