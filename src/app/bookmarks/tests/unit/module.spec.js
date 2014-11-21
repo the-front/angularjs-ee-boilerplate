@@ -30,8 +30,10 @@ describe('Angular.js \'bookmarks\' Module', function() {
     });
 
     var mainDeps = [
-      'ngRoute',
       'ngResource',
+
+      'ui.router',
+      'ui.bootstrap',
 
       'fend.input.utils',
       'fend.pagination'
