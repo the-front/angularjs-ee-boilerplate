@@ -1,6 +1,6 @@
-describe('Angular.js \'bookmarks\' Routes', function() {
+describe('ui.router: \'bookmarks\'', function() {
 
-  var route;
+  var state;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,137 +9,199 @@ describe('Angular.js \'bookmarks\' Routes', function() {
     module('bookmarks');
 
     // inject dependencies
-    inject(function($route) {
-      route = $route;
+    inject(function($state) {
+      state = $state;
     });
 
   });
 
-  /* only to check if injection work fine */
-  it('should be defined', function() {
+  describe("States Map", function() {
 
-    // assertions
-    expect(route).toBeDefined();
+    it("$state should be defined", function() {
+      expect(state).toBeDefined();
+    });
 
-  });
+    describe("bookmarks state", function() {
 
-  describe('Routes Map', function() {
+      var config;
 
-    describe('location \'/bookmarks\' - list booksmarks', function() {
-
-      it('should be defined', function() {
+      it("should be defined", function() {
+        // arrange
+        config = state.get('bookmarks');
 
         // assertions
-        expect(route.routes['/bookmarks']).toBeDefined();
+        expect(config).toBeDefined();
+      });
+
+      it("should be abstract", function() {
+        expect(config.abstract).toBeTruthy();
+      });
+
+      it("should map url to \'/bookmarks\'", function() {
+        expect(config.url).toEqual('/bookmarks');
+      });
+
+      describe("views", function() {
+
+        var views;
+
+        it("should be defined", function() {
+          // arrange
+          views = config.views;
+
+          // assertions
+          expect(views).toBeDefined();
+        });
+
+        describe("master", function() {
+
+          var master;
+
+          it("should be defined", function() {
+            // arrange
+            /*jshint sub:true*/
+            master = views['master'];
+
+            // assertions
+            expect(master).toBeDefined();
+          });
+
+          it("should map to templateUrl \'app/main/templates/layout.html\'", function() {
+            expect(master.templateUrl).toEqual('app/main/templates/layout.html');
+          });
+
+        });
 
       });
 
-      it('should map to controller BookmarksListCtrl as vm', function() {
+    }); //--- end: bookmarks state
 
-        var check = route.routes['/bookmarks'];
+    describe("bookmarks.list state", function() {
 
-        // assertions
-        expect(check.controller).toBe('BookmarksListCtrl');
-        expect(check.controllerAs).toBe('vm');
-
+      stateSpecs({
+        state         : 'bookmarks.list',
+        url           : '/list',
+        templateUrl   : 'app/bookmarks/templates/list.html',
+        controller    : 'BookmarksListCtrl',
+        controllerAs  : 'vm'
       });
 
-      it('should map to templateUrl app/bookmarks/templates/list.html', function() {
+    }); //--- end: bookmarks.list state
+
+    describe("bookmarks.search state", function() {
+
+      stateSpecs({
+        state         : 'bookmarks.search',
+        url           : '/search',
+        templateUrl   : 'app/bookmarks/templates/search.html',
+        controller    : 'BookmarksSearchCtrl',
+        controllerAs  : 'vm'
+      });
+
+    }); //--- end: bookmarks.search state
+
+    describe("bookmarks.new state", function() {
+
+      stateSpecs({
+        state         : 'bookmarks.new',
+        url           : '/new',
+        templateUrl   : 'app/bookmarks/templates/form.html',
+        controller    : 'BookmarksNewCtrl',
+        controllerAs  : 'vm'
+      });
+
+    }); //--- end: bookmarks.new state
+
+    describe("bookmarks.edit state", function() {
+
+      stateSpecs({
+        state         : 'bookmarks.edit',
+        url           : '/edit/:id',
+        templateUrl   : 'app/bookmarks/templates/form.html',
+        controller    : 'BookmarksEditCtrl',
+        controllerAs  : 'vm'
+      });
+
+    }); //--- end: bookmarks.edit state
+
+  }); //--- end: States Map
+
+  //----------------------------------------------------------------------------
+
+  function stateSpecs(check) {
+
+    /*
+    check = {
+      state         : 'parent_state.state_name',
+      url           : 'url location',
+      templateUrl   : 'template path file',
+      controller    : 'controller name',
+      controllerAs  : 'controller alias'
+    }
+    */
+
+    check.controllerAs = check.controllerAs || 'vm'; // default value
+
+    describe(check.state + " state", function() {
+
+      var config;
+
+      it("should be defined", function() {
+        // arrange
+        config = state.get(check.state);
 
         // assertions
-        expect(route.routes['/bookmarks'].templateUrl).toEqual('app/bookmarks/templates/list.html');
+        expect(config).toBeDefined();
+      });
+
+      it("should map url to \'" + check.url + "\'", function() {
+        expect(config.url).toEqual(check.url);
+      });
+
+      describe("views", function() {
+
+        var views;
+
+        it("should be defined", function() {
+          // arrange
+          views = config.views;
+
+          // assertions
+          expect(views).toBeDefined();
+        });
+
+        describe("content", function() {
+
+          var content;
+          var viewName = (check.state.split('.')[0]);
+
+          it("should be defined", function() {
+            // arrange
+            /*jshint sub:true*/
+            content = views['content@' + viewName];
+
+            // assertions
+            expect(content).toBeDefined();
+          });
+
+          it("should map to templateUrl \'" + check.templateUrl + "\'", function() {
+            expect(content.templateUrl).toEqual(check.templateUrl);
+          });
+
+          it("should map to controller \'" + check.controller + "\'", function() {
+            expect(content.controller).toEqual(check.controller);
+          });
+
+          it("should map to controllerAs \'" + check.controllerAs + "\'", function() {
+            expect(content.controllerAs).toEqual(check.controllerAs);
+          });
+
+        });
 
       });
 
     });
 
-
-    describe('location \'/bookmarks/search\' - search booksmarks', function() {
-
-      it('should be defined', function() {
-
-        // assertions
-        expect(route.routes['/bookmarks/search']).toBeDefined();
-
-      });
-
-      it('should map to controller BookmarksSearchCtrl as vm', function() {
-
-        var check = route.routes['/bookmarks/search'];
-
-        // assertions
-        expect(check.controller).toBe('BookmarksSearchCtrl');
-        expect(check.controllerAs).toBe('vm');
-
-      });
-
-      it('should map to templateUrl app/bookmarks/templates/search.html', function() {
-
-        // assertions
-        expect(route.routes['/bookmarks/search'].templateUrl).toEqual('app/bookmarks/templates/search.html');
-
-      });
-
-    });
-
-
-    describe('location \'/bookmarks/new\' - add new booksmark', function() {
-
-      it('should be defined', function() {
-
-        // assertions
-        expect(route.routes['/bookmarks/new']).toBeDefined();
-
-      });
-
-      it('should map to controller BookmarksNewCtrl as vm', function() {
-
-        var check = route.routes['/bookmarks/new'];
-
-        // assertions
-        expect(check.controller).toBe('BookmarksNewCtrl');
-        expect(check.controllerAs).toBe('vm');
-
-      });
-
-      it('should map to templateUrl app/bookmarks/templates/form.html', function() {
-
-        // assertions
-        expect(route.routes['/bookmarks/new'].templateUrl).toEqual('app/bookmarks/templates/form.html');
-
-      });
-
-    });
-
-    describe('location \'/bookmarks/edit/:id\' - edit booksmark', function() {
-
-      it('should be defined', function() {
-
-        // assertions
-        expect(route.routes['/bookmarks/edit/:id']).toBeDefined();
-
-      });
-
-      it('should map to controller BookmarksEditCtrl as vm', function() {
-
-        var check = route.routes['/bookmarks/edit/:id'];
-
-        // assertions
-        expect(check.controller).toBe('BookmarksEditCtrl');
-        expect(check.controllerAs).toBe('vm');
-
-      });
-
-      it('should map to templateUrl app/bookmarks/templates/form.html', function() {
-
-        // assertions
-        expect(route.routes['/bookmarks/edit/:id'].templateUrl).toEqual('app/bookmarks/templates/form.html');
-
-      });
-
-    });
-
-
-  }); //--- end: Routes Map
+  } //--- end: stateSpecs(check)
 
 });
