@@ -13,7 +13,7 @@ define(function(require) {
 
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '/home',
         views: {
           'master': {
             templateUrl   : 'app/main/templates/layout.html'
