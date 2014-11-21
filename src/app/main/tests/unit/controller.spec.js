@@ -1,6 +1,6 @@
 describe('Testing Main Controller', function() {
 
-  var ctrl;
+  var vm;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -11,7 +11,7 @@ describe('Testing Main Controller', function() {
     // inject dependencies
     inject(function($controller) {
 
-      ctrl = $controller('MainCtrl');
+      vm = $controller('MainCtrl');
 
     });
 
@@ -21,14 +21,7 @@ describe('Testing Main Controller', function() {
   it('should be defined', function() {
 
     // assertions
-    expect(ctrl).toBeDefined();
-
-  });
-
-  it("should appLoaded to be 'ok'", function() {
-
-    // assertions
-    expect(ctrl.appLoaded).toEqual('ok');
+    expect(vm).toBeDefined();
 
   });
 
