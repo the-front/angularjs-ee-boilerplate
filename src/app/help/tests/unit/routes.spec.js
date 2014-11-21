@@ -1,6 +1,6 @@
-describe('Angular.js \'help\' Routes', function() {
+describe('ui.router: \'help\'', function() {
 
-  var route;
+  var state;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,51 +9,96 @@ describe('Angular.js \'help\' Routes', function() {
     module('help');
 
     // inject dependencies
-    inject(function($route) {
-      route = $route;
+    inject(function($state) {
+      state = $state;
     });
 
   });
 
-  /* only to check if injection work fine */
-  it('should be defined', function() {
+  describe("States Map", function() {
 
-    // assertions
-    expect(route).toBeDefined();
+    it("$state should be defined", function() {
+      expect(state).toBeDefined();
+    });
 
-  });
+    describe("help state", function() {
 
-  describe('Routes Map', function() {
+      var config;
 
-    describe('location \'/help\'', function() {
-
-      it('should be defined', function() {
+      it("should be defined", function() {
+        // arrange
+        config = state.get('help');
 
         // assertions
-        expect(route.routes['/help']).toBeDefined();
-
+        expect(config).toBeDefined();
       });
 
-      it('should map to controller HelpCtrl as vm', function() {
-
-        var check = route.routes['/help'];
-
-        // assertions
-        expect(check.controller).toBe('HelpCtrl');
-        expect(check.controllerAs).toBe('vm');
-
+      it("should map url to \'/help\'", function() {
+        expect(config.url).toEqual('/help');
       });
 
-      it('should map to templateUrl app/help/template.html', function() {
+      describe("views", function() {
 
-        // assertions
-        expect(route.routes['/help'].templateUrl).toEqual('app/help/template.html');
+        var views;
+
+        it("should be defined", function() {
+          // arrange
+          views = config.views;
+
+          // assertions
+          expect(views).toBeDefined();
+        });
+
+        describe("master", function() {
+
+          var master;
+
+          it("should be defined", function() {
+            // arrange
+            /*jshint sub:true*/
+            master = views['master'];
+
+            // assertions
+            expect(master).toBeDefined();
+          });
+
+          it("should map to templateUrl \'app/main/templates/layout.html\'", function() {
+            expect(master.templateUrl).toEqual('app/main/templates/layout.html');
+          });
+
+        });
+
+        describe("content", function() {
+
+          var content;
+
+          it("should be defined", function() {
+            // arrange
+            /*jshint sub:true*/
+            content = views['content@help'];
+
+            // assertions
+            expect(content).toBeDefined();
+          });
+
+          it("should map to templateUrl \'app/help/template.html\'", function() {
+            expect(content.templateUrl).toEqual('app/help/template.html');
+          });
+
+          it("should map to controller HelpCtrl", function() {
+            expect(content.controller).toEqual('HelpCtrl');
+          });
+
+          it("should map to controllerAs vm", function() {
+            expect(content.controllerAs).toEqual('vm');
+          });
+
+        });
 
       });
 
     });
 
-
-  }); //--- end: Routes Map
+  }); //--- end: States Map
 
 });
