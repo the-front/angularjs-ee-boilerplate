@@ -1,6 +1,6 @@
-describe('Angular.js \'main\' Routes', function() {
+describe('ui.router: \'main\'', function() {
 
-  var route;
+  var state;
 
   // excuted before each "it" is run
   beforeEach(function() {
@@ -9,51 +9,88 @@ describe('Angular.js \'main\' Routes', function() {
     module('main');
 
     // inject dependencies
-    inject(function($route) {
-      route = $route;
+    inject(function($state) {
+      state = $state;
     });
 
   });
 
-  /* only to check if injection work fine */
-  it('should be defined', function() {
+  describe("States Map", function() {
 
-    // assertions
-    expect(route).toBeDefined();
+    it("$state should be define", function() {
+      expect(state).toBeDefined();
+    });
 
-  });
+    describe("404 state", function() {
 
-  describe('Routes Map', function() {
+      var config;
 
-    describe('location \'/404\'', function() {
-
-      it('should be defined', function() {
+      it("should be defined", function() {
+        // arrange
+        config = state.get('404');
 
         // assertions
-        expect(route.routes['/404']).toBeDefined();
-
+        expect(config).toBeDefined();
       });
 
-      it('should map to templateUrl app/main/templates/404.html', function() {
+      it("should map url to \'/404\'", function() {
+        expect(config.url).toEqual('/404');
+      });
 
-        // assertions
-        expect(route.routes['/404'].templateUrl).toEqual('app/main/templates/404.html');
+      describe("views", function() {
+
+        var views;
+
+        it("should be defined", function() {
+          // arrange
+          views = config.views;
+
+          // assertions
+          expect(views).toBeDefined();
+        });
+
+        describe("master", function() {
+
+          var master;
+
+          it("should be defined", function() {
+            // arrange
+            /*jshint sub:true*/
+            master = views['master'];
+
+            // assertions
+            expect(master).toBeDefined();
+          });
+
+          it("should map to templateUrl \'app/main/templates/layout.html\'", function() {
+            expect(master.templateUrl).toEqual('app/main/templates/layout.html');
+          });
+
+        });
+
+        describe("content", function() {
+
+          var content;
+
+          it("should be defined", function() {
+            // arrange
+            /*jshint sub:true*/
+            content = views['content@404'];
+
+            // assertions
+            expect(content).toBeDefined();
+          });
+
+          it("should map to templateUrl \'app/main/templates/404.html\'", function() {
+            expect(content.templateUrl).toEqual('app/main/templates/404.html');
+          });
+
+        });
 
       });
 
     });
 
-    describe('otherwise is the empty string', function() {
-
-      it('should redirect to location \'/404\'', function() {
-
-        // assertions
-        expect(route.routes[null].redirectTo).toEqual('/404');
-
-      });
-
-    });
-
-  }); //--- end: Routes Map
+  }); //--- end: States Map
 
 });
