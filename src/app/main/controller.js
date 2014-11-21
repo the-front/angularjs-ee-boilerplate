@@ -22,7 +22,9 @@ define(function(require) {
     menu.addMenuItem('Home', 'home');
     menu.addMenuItem('Bookmarks', 'bookmarks');
 
+
     // TODO: add here new item
+
 
     menu.addMenuItem('About', 'about');
     menu.addMenuItem('Help', 'help', 'right');
