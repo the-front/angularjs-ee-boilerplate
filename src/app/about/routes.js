@@ -20,7 +20,7 @@ define(function(require) {
           },
           'content@about': {
             templateUrl   : 'app/about/templates/page.html',
-            controller    : 'AboutCtrl as about',
+            controller    : 'AboutCtrl',
             controllerAs  : 'vm'
           }
         }
