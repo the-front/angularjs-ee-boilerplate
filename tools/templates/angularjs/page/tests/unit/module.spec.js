@@ -30,7 +30,7 @@ describe('Angular.js \'<%= name %>\' Module', function() {
     });
 
     var mainDeps = [
-      'ngRoute'
+      'ui.router'
 
       // TODO: review
 

@@ -7,19 +7,24 @@ define(function(require) {
 
   //---
 
-  configure.$inject = ['$routeProvider'];
+  configure.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function configure($routeProvider) {
+  function configure($stateProvider, $urlRouterProvider) {
 
-    $routeProvider
-      .when(
-        '/<%= route %>',
-        {
-          templateUrl: '<%= location %>/template.html',
-          controller: '<%= helpers.capitalize( name ) %>Ctrl',
-          controllerAs: 'vm'
+    $stateProvider
+      .state('<%= name %>', {
+        url: '/<%= route %>',
+        views: {
+          'master': {
+            templateUrl   : 'app/main/templates/layout.html'
+          },
+          'content@<%= name %>': {
+            templateUrl   : '<%= location %>/template.html',
+            controller    : '<%= helpers.capitalize( name ) %>Ctrl',
+            controllerAs  : 'vm'
+          }
         }
-      );
+      });
 
   }
 
