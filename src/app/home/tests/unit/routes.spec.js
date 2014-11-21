@@ -85,11 +85,11 @@ describe('ui.router: \'home\'', function() {
             expect(content.templateUrl).toEqual('app/home/template.html');
           });
 
-          it("should map to controller HomeCtrl", function() {
+          it("should map to controller \'HomeCtrl\'", function() {
             expect(content.controller).toEqual('HomeCtrl');
           });
 
-          it("should map to controllerAs vm", function() {
+          it("should map to controllerAs \'vm\'", function() {
             expect(content.controllerAs).toEqual('vm');
           });
 
