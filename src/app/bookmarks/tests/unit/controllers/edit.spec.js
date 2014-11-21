@@ -9,9 +9,9 @@ describe('Testing Bookmarks Edit Controller', function() {
     module('bookmarks');
 
     // inject dependencies
-    inject(function($rootScope, $routeParams, $controller, $httpBackend) {
+    inject(function($rootScope, $stateParams, $controller, $httpBackend) {
 
-      $routeParams.id = 1;
+      $stateParams.id = 1;
       scope = $rootScope.$new();
 
       vm = $controller('BookmarksEditCtrl', {
