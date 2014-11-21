@@ -20,7 +20,7 @@ define(function(require) {
         url: '/bookmarks',
         views: {
           'master': {
-            templateUrl: 'app/main/templates/layout.html'
+            templateUrl   : 'app/main/templates/layout.html'
           }
         }
       })
