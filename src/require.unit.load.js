@@ -9,8 +9,8 @@ define(function(require) {
   // require('app/main/tests/unit/package');
   // require('app/home/tests/unit/package');
   // require('app/about/tests/unit/package');
-  require('app/help/tests/unit/package');
-  // require('app/bookmarks/tests/unit/package');
+  // require('app/help/tests/unit/package');
+  require('app/bookmarks/tests/unit/package');
 
 
   // TODO: add here tests unit module to load
