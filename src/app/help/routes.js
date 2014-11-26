@@ -3,13 +3,13 @@ define(function(require) {
 
   var module = require('./module');
 
-  module.config(configure);
+  module.config(configureStates);
 
   //---
 
-  configure.$inject = ['$stateProvider', '$urlRouterProvider'];
+  configureStates.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function configure($stateProvider, $urlRouterProvider) {
+  function configureStates($stateProvider, $urlRouterProvider) {
 
     $stateProvider
       .state('help', {

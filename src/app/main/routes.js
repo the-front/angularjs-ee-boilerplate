@@ -13,13 +13,13 @@ https://gist.github.com/mariojunior/6175736
 
 */
 
-  module.config(configure);
+  module.config(configureStates);
 
   //---
 
-  configure.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
+  configureStates.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
 
-  function configure($stateProvider, $urlRouterProvider, $httpProvider) {
+  function configureStates($stateProvider, $urlRouterProvider, $httpProvider) {
 
     //------------------------------------------------
     // @begin: angular.js $httpProvider useful configs
