@@ -143,7 +143,7 @@ $ npm install
 
 * Caso você use o Sublime Text, veja isso:
 
-  * [[GitHub] the-front/sublime-angularjs-ee-snippets](https://github.com/the-front/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js, Angular UI Router and Require.js (focused to the angularjs-ee-boilerplate code)
+  * [[GitHub] the-front / sublime-angularjs-ee-snippets](https://github.com/the-front/sublime-angularjs-ee-snippets) - Sublime Text 2 / 3 Snippets and Completions for Angular.js, Angular UI Router and Require.js (focused to the angularjs-ee-boilerplate code)
 
   * [[GitHub] caiogondim / jasmine-sublime-snippets](https://github.com/caiogondim/jasmine-sublime-snippets) - Snippets for Jasmine, the BDD framework for testing JavaScript, in Sublime Text
 
