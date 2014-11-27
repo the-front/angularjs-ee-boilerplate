@@ -3,6 +3,6 @@ define(function(require) {
 
   require('./module.spec');
   require('./controller.spec');
-  require('./routes.spec');
+  require('./states.spec');
 
 });
