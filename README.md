@@ -8,6 +8,7 @@ This boilerplate (seed project, starting project) helps you build large scale [A
 
 * [README (pt-Br)](docs/pt-Br/README.md)
 
+
 ## Contributing
 
 1. Fork it!
@@ -17,6 +18,11 @@ This boilerplate (seed project, starting project) helps you build large scale [A
 5. Submit a pull request :D
 
 English is the universal language nowadays, so please don't create or comment on issues using another language.
+
+
+## CHANGELOG
+
+Check [Releases](https://github.com/the-front/angularjs-ee-boilerplate/releases)
 
 
 ## License
