@@ -25,7 +25,7 @@
       ],
 
       bootstrap: [
-        'vendor/bootstrap/3.3.0/js/bootstrap.min'
+        'vendor/bootstrap/3.3.1/js/bootstrap.min'
       ],
 
 
