@@ -10,7 +10,7 @@ grunt.config('imagemin', {
       {
         expand: true,
         cwd: '<%= project.paths.dist %>/',
-        src: ['**/*.{png,jpg,jpeg}'], // ,gif (not work on Windows plataform)
+        src: ['**/*.{png,jpg,jpeg}'], // ,gif (not work on Windows platform)
         dest: '<%= project.paths.dist %>/',
       }
     ]
