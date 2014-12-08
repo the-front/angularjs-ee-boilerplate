@@ -45,7 +45,7 @@ $ cd angularjs-ee-boilerplate
 $ cd tools
 $ npm run setup
 $ cd ..
-$ cd publicher
+$ cd publisher
 $ npm install
 ```
 
