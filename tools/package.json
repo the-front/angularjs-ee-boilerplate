@@ -69,7 +69,7 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-requirejs": "^0.2.2",
     "lodash-node": "^3.0.0",
-    "moment": "^2.8.1",
+    "moment": "^2.9.0",
     "protractor": "^1.4.0",
     "q": "^1.1.2",
     "q-io": "^1.11.6",
