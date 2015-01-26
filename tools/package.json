@@ -76,6 +76,6 @@
     "requirejs": "^2.1.14",
     "shelljs": "^0.3.0",
     "time-grunt": "^1.0.0",
-    "underscore.string": "^2.3.3"
+    "underscore.string": "^3.0.2"
   }
 }
