@@ -52,7 +52,7 @@
     "grunt-html2js": "^0.2.8",
     "grunt-karma": "^0.8.3",
     "grunt-lintspaces": "^0.6.0",
-    "grunt-newer": "^0.7.0",
+    "grunt-newer": "^1.1.0",
     "grunt-open": "^0.2.3",
     "grunt-protractor-runner": "^1.1.4",
     "inquirer": "^0.6.0",
