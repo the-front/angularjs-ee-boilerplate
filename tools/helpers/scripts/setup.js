@@ -1,7 +1,7 @@
-var async_exec = require('child_process').exec
+var async_exec = require('child_process').exec;
 
 // http://documentup.com/arturadib/shelljs
-async_exec('npm install shelljs --save-dev', function (err, stdout, stderr) {
+async_exec('npm install shelljs', function (err, stdout, stderr) {
   require('shelljs/global');
 
   var oscheck = require('../lib/oscheck');
