@@ -30,7 +30,7 @@ require({
     ],
 
     uiRouter: [
-      'vendor/angular-ui/ui-router/0.2.11/angular-ui-router.min'
+      'vendor/angular-ui/ui-router/0.2.13/angular-ui-router.min'
     ],
 
     toaster: [
