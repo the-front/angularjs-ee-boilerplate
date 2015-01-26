@@ -22,6 +22,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
+    "outdated": "npm outdated --depth=0",
     "test": "grunt e2e",
     "setup": "node helpers/scripts/setup",
     "maven": "node helpers/scripts/maven",
