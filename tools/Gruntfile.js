@@ -64,7 +64,9 @@ module.exports = function(grunt) {
     'less:prod',
     'htmlmin',
     'imagemin',
-    'uglify'
+    'uglify',
+    'concat:requireConfigDist',
+    'clean:distUnusedFiles'
   ]);
 
   //--- @end: build tasks
