@@ -68,7 +68,7 @@
     "karma-ng-html2js-preprocessor": "^0.1.0",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-requirejs": "^0.2.2",
-    "lodash-node": "^2.4.1",
+    "lodash-node": "^3.0.0",
     "moment": "^2.8.1",
     "protractor": "^1.4.0",
     "q": "^1.0.1",
