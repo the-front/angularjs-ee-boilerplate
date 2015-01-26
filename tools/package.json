@@ -75,7 +75,7 @@
     "q-io": "^1.11.4",
     "requirejs": "^2.1.14",
     "shelljs": "^0.3.0",
-    "time-grunt": "^0.4.0",
+    "time-grunt": "^1.0.0",
     "underscore.string": "^2.3.3"
   }
 }
