@@ -26,7 +26,7 @@ require({
 
 
     uiBootstrap: [
-      'vendor/angular-ui/bootstrap/0.11.0/ui-bootstrap-tpls.min'
+      'vendor/angular-ui/bootstrap/0.12.0/ui-bootstrap-tpls.min'
     ],
 
     uiRouter: [
