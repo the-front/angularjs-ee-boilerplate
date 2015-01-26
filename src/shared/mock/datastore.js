@@ -4,7 +4,7 @@ define(function(require) {
   'use strict';
 
   var module = require('shared/mock/module');
-  require('lokijs');
+  var Lokijs = require('lokijs');
 
   module.factory('DataStore', DataStoreFactory);
 
@@ -30,7 +30,7 @@ define(function(require) {
       http://lokijs.org/
       https://github.com/techfort/LokiJS/blob/master/src/lokijs.js
     */
-    DataStore.db = new loki( 'mock.db' );
+    DataStore.db = new Lokijs( 'mock.db' );
 
     DataStore.addCollection = function() {
       return DataStore.db.addCollection.apply(
