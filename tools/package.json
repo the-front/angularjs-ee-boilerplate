@@ -49,7 +49,7 @@
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-uglify": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-html2js": "^0.2.8",
+    "grunt-html2js": "^0.3.0",
     "grunt-karma": "^0.8.3",
     "grunt-lintspaces": "^0.6.0",
     "grunt-newer": "^1.1.0",
