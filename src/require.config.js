@@ -13,15 +13,15 @@ require({
 
 
     angular: [
-      'vendor/angular.js/1.3.4/angular.min'
+      'vendor/angular.js/1.3.9/angular.min'
     ],
 
     angularResource: [
-      'vendor/angular.js/1.3.4/angular-resource.min'
+      'vendor/angular.js/1.3.9/angular-resource.min'
     ],
 
     angularAnimate: [
-      'vendor/angular.js/1.3.4/angular-animate.min'
+      'vendor/angular.js/1.3.9/angular-animate.min'
     ],
 
 
@@ -44,11 +44,11 @@ require({
 
     // @begin: mock libs
     angularMocks: [
-      'vendor/angular.js/1.3.4/angular-mocks'
+      'vendor/angular.js/1.3.9/angular-mocks'
     ],
 
     angularMocksBackend: [
-      'vendor/angular-mocks-backend/0.1.6/angular-mocks-backend'
+      'vendor/angular-mocks-backend/0.1.7/angular-mocks-backend'
     ],
     // @end: mock libs
 
