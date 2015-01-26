@@ -21,7 +21,7 @@
     paths: {
 
       jquery: [
-        'vendor/jquery/2.1.1/jquery.min'
+        'vendor/jquery/2.1.3/jquery.min'
       ],
 
       bootstrap: [
