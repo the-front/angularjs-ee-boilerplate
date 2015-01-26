@@ -22,6 +22,11 @@ grunt.config('clean', {
     src: ['<%= project.paths.reports %>/__jasmine']
   },
 
+  distUnusedFiles: {
+    options: { force: true },
+    src: ['<%= project.paths.dist %>/ng.app.js']
+  }
+
 });
 
 };
