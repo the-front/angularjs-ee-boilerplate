@@ -4,12 +4,14 @@
 module.exports = function(grunt) {
   'use strict';
 
-  var rewrite = require('../../lib/js-ast-js/rewrite-require-config');
+  var rewrite = require('../../lib/requirejs/js-ast-js/rewrite-require-config');
 
-  grunt.registerMultiTask('rewriterequireconfig', 'Rewrite require.config.js to r.js', function() {
+  grunt.registerTask('rewriteRequireConfig', 'Rewrite require.config.js to r.js', function() {
 
-    var srcInputFile = this.data.input,
-        srcOutputFile = this.data.output;
+    var project = grunt.config.get('project');
+
+    var srcInputFile = project.require.config,
+        srcOutputFile = project.require.build;
 
     if( grunt.file.isFile(srcInputFile) ) {
 

@@ -56,7 +56,7 @@ module.exports = function(grunt) {
     'karma:ci',
     'copy:prod_jstobuild',
     'html2js:prod',
-    'rewriterequireconfig',
+    'rewriteRequireConfig',
     'requirejs',
     'clean:build',
     'copy:prod_todist',
