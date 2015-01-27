@@ -54,7 +54,7 @@ require({
 
 
     lokijs: [
-      'vendor/lokijs/1.1/lokijs.min'
+      'vendor/lokijs/1.0.1/lokijs.min'
     ]
 
   },

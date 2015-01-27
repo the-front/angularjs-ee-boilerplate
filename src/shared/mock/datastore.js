@@ -4,7 +4,9 @@ define(function(require) {
   'use strict';
 
   var module = require('shared/mock/module');
-  var Lokijs = require('lokijs');
+  require('lokijs');
+
+  var Lokijs = loki;
 
   module.factory('DataStore', DataStoreFactory);
 

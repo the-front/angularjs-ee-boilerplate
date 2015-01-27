@@ -88,7 +88,7 @@ define(function(require) {
       ClassDef.prototype.notFound = function( id ) {
         var msg = 'Not found';
         if( id ) msg += ' - id: ' + id;
-        return createResultMessage( 404, msg );
+        return this.createResultMessage( 404, msg );
       };
 
       ClassDef.prototype.paginate = function( data, options ) {
