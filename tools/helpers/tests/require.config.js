@@ -30,15 +30,15 @@
 
 
       angular: [
-        'vendor/angular.js/1.3.9/angular.min'
+        'vendor/angular.js/1.3.11/angular.min'
       ],
 
       angularResource: [
-        'vendor/angular.js/1.3.9/angular-resource.min'
+        'vendor/angular.js/1.3.11/angular-resource.min'
       ],
 
       angularAnimate: [
-        'vendor/angular.js/1.3.9/angular-animate.min'
+        'vendor/angular.js/1.3.11/angular-animate.min'
       ],
 
 
@@ -61,7 +61,7 @@
 
       // @begin: mock libs
       angularMocks: [
-        'vendor/angular.js/1.3.9/angular-mocks'
+        'vendor/angular.js/1.3.11/angular-mocks'
       ],
 
       angularMocksBackend: [
