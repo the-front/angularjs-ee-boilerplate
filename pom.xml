@@ -4,10 +4,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.the-front.angularjs-ee-boilerplate</groupId>
-  <artifactId>com.github.the-front.angularjs-ee-boilerplate</artifactId>
+  <artifactId>angularjs-ee-boilerplate</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>The Front - Angular.js Enterprise Edition Boilerplate</name>
   <packaging>pom</packaging>
+
+  <properties>
+    <encoding>UTF-8</encoding>
+    <frontend-maven-plugin.version>0.0.20</frontend-maven-plugin.version>
+    <node.version>0.10.30</node.version>
+    <npm.version>1.4.21</npm.version>
+  </properties>
 
   <build>
 
@@ -17,7 +24,7 @@
 
         <groupId>com.github.eirslett</groupId>
         <artifactId>frontend-maven-plugin</artifactId>
-        <version>0.0.20</version>
+        <version>${frontend-maven-plugin.version}</version>
 
         <executions>
 
@@ -28,8 +35,8 @@
             </goals>
             <configuration>
               <workingDirectory>tools</workingDirectory>
-              <nodeVersion>v0.10.30</nodeVersion>
-              <npmVersion>1.4.21</npmVersion>
+              <nodeVersion>v${node.version}</nodeVersion>
+              <npmVersion>${npm.version}</npmVersion>
             </configuration>
           </execution>
 
