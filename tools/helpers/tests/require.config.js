@@ -170,14 +170,20 @@
       }
     });
 
-    require(allTemplateCacheFiles, function() {
-      console.log( 'ng-html2js files loaded' );
+    require(['angular'], function(angular) {
+      console.log( 'angular loaded' );
 
-      bootstrapAngularApp(function() {
-        window.__karma__.start();
+      require(allTemplateCacheFiles, function() {
+        console.log( 'ng-html2js files loaded' );
+
+        bootstrapAngularApp(function() {
+          window.__karma__.start();
+        });
+
       });
 
     });
+
   }
 
 
