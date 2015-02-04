@@ -1,5 +1,7 @@
 # Angular.js Enterprise Edition Boilerplate
 
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/the-front)
+
 This boilerplate (seed project, starting project) helps you build large scale [Angular.js](https://angularjs.org/) applications with [Require.js](http://requirejs.org/)
 
 --
