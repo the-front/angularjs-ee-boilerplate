@@ -1,0 +1,91 @@
+module.exports = function(gulp, $) {
+
+  var karma = require('karma').server;
+
+  //---
+
+  var karmaConfigFile = $.path.resolve( $.config.rootPath, 'tools/karma/karma.conf.js' );
+
+  //---
+
+  var UNCOMPILED_SRC = [
+    'tools/karma/test-utils.js',
+    $.config.paths.src + '/core/**/*.js',
+
+    // Test utilities, source, and specifications.
+    // We are explicit like this because we don't want to put
+    // demos in the tests, and Karma doesn't support advanced
+    // globbing.
+    $.config.paths.src + '/components/*/*.js',
+    $.config.paths.src + '/components/*/js/*.js'
+  ];
+
+  var COMPILED_SRC = [
+    // Minified source
+    $.config.paths.outputDir + '/' + $.pkg.name + '.min.js',
+
+    // Test utilties and specifications
+    'tools/karma/test-utils.js',
+    $.config.paths.src + '/**/*.spec.js'
+  ];
+
+  //---
+
+  function karmaFiles(config, releaseMode) {
+    releaseMode = releaseMode || false;
+    var testSrc = releaseMode ? COMPILED_SRC : UNCOMPILED_SRC;
+
+    config.files = [];
+    if( $.config.karma.dependencies ) {
+      config.files = config.files.concat( $.config.karma.dependencies );
+    }
+    config.files = config.files.concat( testSrc );
+  }
+
+  //---
+
+  gulp.task('karma', function(done) {
+
+    var karmaConfig = {
+      singleRun: true,
+      autoWatch: false,
+      browsers : $.args.browsers ? $.args.browsers.trim().split(',') : ['Chrome'],
+      configFile: karmaConfigFile
+    };
+
+
+    $.log( 'Running unit tests on unminified source.' );
+
+    karmaFiles( karmaConfig, false );
+
+    karma.start( karmaConfig, testMinified );
+
+    function testMinified() {
+
+      $.log('Running unit tests on minified source.');
+
+      $.streams.buildJS( true );
+
+      karmaFiles( karmaConfig, true );
+
+      karma.start( karmaConfig, done );
+
+    }
+
+  });
+
+  gulp.task('karma-watch', function(done) {
+
+    var karmaConfig = {
+      singleRun:false,
+      autoWatch:true,
+      configFile: karmaConfigFile
+    };
+
+    karmaFiles( karmaConfig, false );
+
+    karma.start( karmaConfig, done );
+
+  });
+
+};
