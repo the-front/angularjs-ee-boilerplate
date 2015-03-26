@@ -1,6 +1,6 @@
 {
   "name": "angularjs-ee-boilerplate",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "private": true,
   "description": "angularjs enterprise edition boilerplate",
   "keywords": [
@@ -16,8 +16,8 @@
   "bugs": {
     "url": "https://github.com/the-front/angularjs-ee-boilerplate/issues"
   },
-  "author": "Erko Bridee de Almeida Cabrera <erko.bridee@gmail.com>",
-  "collaborators": [
+  "contributors": [
+    "Erko Bridee de Almeida Cabrera <erko.bridee@gmail.com>",
     "Janderson Fernandes Cardoso <jandersonfc.com@gmail.com>",
     "Mario de Souza Junior <mrdesouzajunior@gmail.com>",
     "Vinicius Camara de Oliveira <viniciuscamara@gmail.com>"
