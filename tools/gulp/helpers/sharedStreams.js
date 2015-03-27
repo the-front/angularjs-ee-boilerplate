@@ -27,6 +27,8 @@ streams.less = function() {
     .pipe( $.insert.prepend( $.config.banner ) )
     .pipe( $.if( $.is.release, $.minifyCss() ) )
     .pipe( gulp.dest( outputCssDir ) )
+    .pipe( $.filter( '**/*.css' ) )
+    .pipe( $.if( $.browserSync.active, $.reload({stream: true}) ) )
     .on( 'error', $.onError );
 
 };
@@ -42,6 +44,8 @@ streams.sass = function() {
     .pipe( $.insert.prepend( $.config.banner ) )
     .pipe( $.if( $.is.release, $.minifyCss() ) )
     .pipe( gulp.dest( outputCssDir ) )
+    .pipe( $.filter( '**/*.css' ) )
+    .pipe( $.if( $.browserSync.active, $.reload({stream: true}) ) )
     .on( 'error', $.onError );
 
 };
