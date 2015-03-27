@@ -6,11 +6,7 @@ var streams = $.streams = {};
 
 //--
 
-var outputCssDir = (
-  $.is.release ?
-    $.config.paths.dist :
-    $.config.paths.build
-);
+var outputCssDir = $.path.join( $.config.paths.outputDir, 'styles' );
 
 //---
 
@@ -30,7 +26,7 @@ streams.less = function() {
     .pipe( streams.autoprefix() )
     .pipe( $.insert.prepend( $.config.banner ) )
     .pipe( $.if( $.is.release, $.minifyCss() ) )
-    .pipe( gulp.dest( $.config.paths.outputDir ) )
+    .pipe( gulp.dest( outputCssDir ) )
     .on( 'error', $.onError );
 
 };
@@ -45,7 +41,7 @@ streams.sass = function() {
     .pipe( streams.autoprefix() )
     .pipe( $.insert.prepend( $.config.banner ) )
     .pipe( $.if( $.is.release, $.minifyCss() ) )
-    .pipe( gulp.dest( $.config.paths.outputDir ) )
+    .pipe( gulp.dest( outputCssDir ) )
     .on( 'error', $.onError );
 
 };
