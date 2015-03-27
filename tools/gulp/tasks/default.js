@@ -21,7 +21,7 @@ module.exports = function(gulp, $) {
     } else {
 
       // dev flow
-      // runTasks = runTasks.concat([ 'watch' ]); // TODO: review and redefine
+      runTasks = runTasks.concat([ 'watch' ]);
 
     }
 
