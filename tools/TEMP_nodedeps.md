@@ -23,6 +23,7 @@ npm install \
   gulp-less \
   gulp-minify-css \
   gulp-uglify \
+  gulp-lintspaces \
   gulp-jshint \
   jshint-stylish \
   --save-dev
