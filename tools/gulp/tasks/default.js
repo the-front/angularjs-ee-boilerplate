@@ -3,8 +3,9 @@ module.exports = function(gulp, $) {
   gulp.task('run:flow', function(done) {
 
     var runTasks = [
-      'jshint',
       'clean:dist',
+      'jshint',
+      'lintspaces'
     ];
 
     if( $.is.release ) {

@@ -1,13 +1,13 @@
 var TestUtil = {
   /**
-   * Mocks angular.element#focus for the duration of the test
-   * @example
-   * it('some focus test', inject(function($document) {
-   *   TestUtil.mockFocus(this); // 'this' is the test instance
-   *   doSomething();
-   *   expect($document.activeElement).toBe(someElement[0]);
-   * }));
-   */
+    * Mocks angular.element#focus for the duration of the test
+    * @example
+    * it('some focus test', inject(function($document) {
+    *   TestUtil.mockFocus(this); // 'this' is the test instance
+    *   doSomething();
+    *   expect($document.activeElement).toBe(someElement[0]);
+    * }));
+    */
   mockElementFocus: function(test) {
     var focus = angular.element.prototype.focus;
     inject(function($document) {
@@ -22,8 +22,8 @@ var TestUtil = {
   },
 
   /**
-   * Create a fake version of $$rAF that does things asynchronously
-   */
+    * Create a fake version of $$rAF that does things asynchronously
+    */
   mockRaf: function() {
     module('ng', function($provide) {
       $provide.value('$$rAF', mockRaf);
@@ -47,7 +47,7 @@ beforeEach(function() {
     var defaultPalette = {
       '50': 'ffebee', '100': 'ffcdd2', '200': 'ef9a9a', '300': 'e57373',
       '400': 'ef5350', '500': 'f44336', '600': 'e53935', '700': 'd32f2f',
-      '800': 'c62828', '900': 'b71c1c', 'A100': 'ff8a80', 'A200': 'ff5252', 
+      '800': 'c62828', '900': 'b71c1c', 'A100': 'ff8a80', 'A200': 'ff5252',
       'A400': 'ff1744', 'A700': 'd50000',
       'contrastDefaultColor': 'light',
       'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100']
@@ -76,15 +76,15 @@ beforeEach(function() {
       return true;
     },
     /**
-     * A helper to match the type of a given value
-     * @example expect(1).toBeOfType('number')
-     */
+      * A helper to match the type of a given value
+      * @example expect(1).toBeOfType('number')
+      */
     toBeOfType: function(type) {
       this.message = function() {
         return "Expected " + angular.mock.dump(this.actual) + " of type " +
           (typeof this.actual) + (this.isNot ? ' not ' : '') + " to have type '" + type + "'.";
       };
-      return typeof this.actual == type;
+      return (typeof this.actual == type);
     }
   });
 
