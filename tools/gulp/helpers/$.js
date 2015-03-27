@@ -47,7 +47,9 @@ $.args = require('yargs').argv;
 $.is = {
   debug     : !!$.args.debug,
   release   : !!$.args.release,
-  preview   : !!$.args.preview
+  preview   : !!$.args.preview,
+  less      : !!$.args.less,
+  sass      : !!$.args.sass
 };
 
 //---
@@ -55,7 +57,11 @@ $.is = {
 
 (function() {
 
-  $.config.paths.outputDir = $.config.paths.dist || 'dist';
+  $.config.paths.outputDir = (
+    $.is.release ?
+      $.config.paths.dist :
+      $.config.paths.build
+  );
 
 })();
 
