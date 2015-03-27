@@ -70,6 +70,13 @@ module.exports = (function() {
 
   //---
 
+  config.html = {
+    index: config.paths.src + '/index.html',
+    files: config.paths.src + '/**/*.html',
+  };
+
+  //---
+
   config.autoprefixer = {
     browsers: [
       'last 2 versions', 'last 4 Android versions'
