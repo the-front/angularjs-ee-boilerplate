@@ -11,7 +11,7 @@ module.exports = function(gulp, $) {
   });
 
   gulp.task('jshint:project', function() {
-    return gulp.src( $.config.js.project.files )
+    return gulp.src( $.config.js.project )
       .pipe( jshintStream() );
   });
 
