@@ -31,29 +31,18 @@ module.exports = (function() {
 
   config.paths = {
     src: 'src',
+    build: '.temp',
     dist: 'dist'
-  };
-
-  //---
-
-  config.glob = {
-    paths: config.paths.src + '/{components,services}/**'
   };
 
   //---
 
   config.js = {
 
-    project: {
-      base: [ // TODO: review
-        config.paths.src + '/core/**/*.js',
-        '!' + config.paths.src + '/core/**/*.spec.js'
-      ],
-      files: [
-        config.paths.src + '/**/*.js',
-        '!' + config.paths.src + '/vendor/**/*.js'
-      ]
-    },
+    project: [
+      config.paths.src + '/**/*.js',
+      '!' + config.paths.src + '/vendor/**/*.js'
+    ],
 
     tools: [
       'gulpfile.js',
@@ -64,43 +53,17 @@ module.exports = (function() {
 
   //---
 
-  var stylesVariables = config.paths.src + '/core/style/variables.scss';
-  var stylesLayout = config.paths.src + '/core/style/layout.scss';
+  var stylefilename = 'app';
 
-  // TODO: review
   config.styles = {
-
-    project: {
-
-      variables: stylesVariables,
-
-      base: {
-        theme: [
-          stylesVariables,
-          config.paths.src + '/core/style/mixins.scss'
-        ],
-        files: [
-          config.paths.src + '/core/style/color-palette.scss',
-          stylesVariables,
-          config.paths.src + '/core/style/mixins.scss',
-          config.paths.src + '/core/style/structure.scss',
-          stylesLayout
-        ]
-      },
-
-      standalone: {
-        files: [
-          stylesLayout
-        ]
-      },
-
-      components: [
-        config.glob.paths + '/*.scss'
-      ],
-
-      all: config.paths.src + '/**/*.scss' // TODO: needed?
+    sass: {
+      main    : config.paths.src + '/scss/' + stylefilename + '.scss',
+      project : config.paths.src + '/{app,scss,shared}/**/*.sass'
+    },
+    less: {
+      main    : config.paths.src + '/less/' + stylefilename + '.less',
+      project : config.paths.src + '/{app,less,shared}/**/*.less'
     }
-
   };
 
   //---
@@ -109,14 +72,6 @@ module.exports = (function() {
     browsers: [
       'last 2 versions', 'last 4 Android versions'
     ]
-  };
-
-  //---
-
-  // TODO: review
-  config.__html = {
-    main: config.paths.src + '/index.html',
-    project: config.paths.src + '/**/*.html'
   };
 
   //---
@@ -140,18 +95,18 @@ module.exports = (function() {
 
   config.karma = {
     dependencies: [
-      'http://cdn.ciss.com.br/ajax/libs/angular.js/' + versions.angular + '/angular.min.js',
-      'http://cdn.ciss.com.br/ajax/libs/angular.js/' + versions.angular + '/angular-animate.min.js',
-      'http://cdn.ciss.com.br/ajax/libs/angular.js/' + versions.angular + '/angular-route.min.js',
-      'http://cdn.ciss.com.br/ajax/libs/angular.js/' + versions.angular + '/angular-aria.min.js',
-      'http://cdn.ciss.com.br/ajax/libs/angular.js/' + versions.angular + '/angular-messages.min.js',
-      'http://cdn.ciss.com.br/ajax/libs/angular.js/' + versions.angular + '/angular-mocks.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular.min.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-animate.min.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-route.min.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-aria.min.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-messages.min.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-mocks.js',
 
-      'http://cdn.ciss.com.br/ajax/libs/angular_material/' + versions.angular_material + '/angular-material.min.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/angular_material/' + versions.angular_material + '/angular-material.min.js',
 
-      'http://cdn.ciss.com.br/ajax/libs/hammerjs/' + versions.hammerjs + '/hammer.min.js',
-      'http://cdn.ciss.com.br/ajax/libs/moment.js/' + versions.moment + '/moment-with-locales.min.js',
-      'http://cdn.ciss.com.br/ajax/libs/angular-translate/' + versions.translate + '/angular-translate.min.js'
+      'http://erkobridee.github.io/cdn/ajax/libs/hammerjs/' + versions.hammerjs + '/hammer.min.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/moment.js/' + versions.moment + '/moment-with-locales.min.js',
+      'http://erkobridee.github.io/cdn/ajax/libs/angular-translate/' + versions.translate + '/angular-translate.min.js'
     ]
   };
 
