@@ -25,6 +25,8 @@ $.runSequence     = require('run-sequence');
 $.browserSync     = require('browser-sync');
 $.reload          = $.browserSync.reload;
 
+$.open            = require('open');
+
 /*
 $.through2       = require('through2');
 $.series         = require('stream-series');

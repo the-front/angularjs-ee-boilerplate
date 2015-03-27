@@ -14,8 +14,14 @@ module.exports = function(gulp, $) {
 
   gulp.task('webserver:preview', function() {
 
-    // TODO: define... use connect?
-    $.log( 'TODO: define preview webserver... use connect?' );
+    // https://www.npmjs.com/package/gulp-connect
+    $.connect.server({
+      port: $.config.webserver.port,
+      root: [
+        $.config.paths.outputDir
+      ]
+    });
+    $.open('http://' + $.localip + ':' + $.config.webserver.port);
 
   });
 

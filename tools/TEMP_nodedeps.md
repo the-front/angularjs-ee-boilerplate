@@ -1,6 +1,7 @@
 ```bash
 npm install \
   yargs \
+  open \
   browser-sync \
   del \
   lazypipe \
