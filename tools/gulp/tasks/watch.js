@@ -1,40 +1,27 @@
 module.exports = function(gulp, $) {
 
-  // TODO: review and redefine
-
-  gulp.task('_watch_', ['browserSync'], function() {
+  gulp.task('watch', ['webserver:dev'], function() {
 
     // javascript project
     gulp.watch([
-      $.config.paths.src + '/{core,services}/*.js',
-      $.config.paths.src + '/components/*/{*,/js/*}.js',
-      '!' + $.config.paths.src + '/**/*.spec.js'
+      $.config.js.project,
+      '!' + $.config.paths.src + '/{app,shared}/*{,*/**}/tests/**/*'
     ], ['wf:js:project']);
 
-    // javascript docs
+    //---
+
+    // html project
     gulp.watch([
-      $.config.paths.docs + '/app/js/*.js',
-      '!' + $.config.paths.docs + '/app/js/highlight.pack.js',
-    ], ['wf:js:docs']);
+      $.config.html.files,
+      '!' + $.config.paths.src + '/vendor/**/*'
+    ], ['wf:html:project']);
 
     //---
 
-    // stypes project
+    // (less) stypes project
     gulp.watch([
-      $.config.paths.src + '/**/*.scss'
+      $.config.styles.less.project
     ], ['wf:styles:project']);
-
-    // styles docs
-    gulp.watch([
-      $.config.paths.docs + '/app/css/*.css'
-    ], ['wf:styles:docs']);
-
-    //---
-
-    // demos
-    gulp.watch([
-      $.config.paths.src + '/components/*/demo*/*',
-    ], ['wf:demos']);
 
   });
 
@@ -47,49 +34,23 @@ module.exports = function(gulp, $) {
   gulp.task('wf:js:project', function( done ) {
 
     $.runSequence(
-      'build-js',
-      'wf:js:docs:js',
+      'jshint:project',
       'wf:bs:reload',
       done
     );
 
   });
 
-  gulp.task('wf:js:docs:app', function() {
-    return $.streams.docs.app();
-  });
-  gulp.task('wf:js:docs:js', function() {
-    return $.streams.docs.js();
-  });
-
-  gulp.task('wf:js:docs', function( done ) {
+  gulp.task('wf:html:project', function( done ) {
 
     $.runSequence(
-      'jshint:docs',
-      'wf:js:docs:app',
-      'wf:js:docs:js',
+      // 'jshint:project',
       'wf:bs:reload',
       done
     );
 
   });
 
-  gulp.task('wf:styles:project', ['sass'], function() {
-    return $.streams.docs.css();
-  });
-
-  gulp.task('wf:styles:docs', function() {
-    return $.streams.docs.css();
-  });
-
-  gulp.task('wf:demos', function( done ) {
-
-    $.runSequence(
-      'docs-demo-scripts',
-      'wf:bs:reload',
-      done
-    );
-
-  });
+  gulp.task('wf:styles:project', ['styles']);
 
 };
