@@ -2,25 +2,22 @@ module.exports = function(gulp, $) {
 
 
   gulp.task('less', function() {
-
     $.log("Building css files...");
-
-    //---
-
-    // TODO: define
-    $.log("define less build");
-
+    return $.streams.less();
   });
 
   gulp.task('sass', function() {
-
     $.log("Building css files...");
+    return $.streams.sass();
+  });
 
-    //---
-
-    // TODO: define
-    $.log("define sass build");
-
+  gulp.task('styles', function() {
+    $.log("Building css files...");
+    if( $.is.sass ) {
+      return $.streams.sass();
+    } else {
+      return $.streams.less();
+    }
   });
 
 };
