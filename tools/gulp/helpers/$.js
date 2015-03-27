@@ -38,7 +38,7 @@ $.pkg = $.rootRequire('package.json');
 
 $.config = $.rootRequire('tools/config');
 
-$.localip = $.rootRequire('tools/lib/localip')();
+$.localip = $.rootRequire('tools/lib/localip');
 
 //---
 
