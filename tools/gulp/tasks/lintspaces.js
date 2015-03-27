@@ -6,6 +6,8 @@ module.exports = function(gulp, $) {
     .pipe( $.lintspaces, { editorconfig: '.editorconfig' } )
     .pipe( $.lintspaces.reporter );
 
+  //---
+
   gulp.task('lintspaces:html', function() {
 
     return gulp.src( $.config.html.files )

@@ -12,8 +12,6 @@ module.exports = function(gulp, $) {
     ], done);
   });
 
-  // TODO: review
-
   gulp.task('clean', ['clean:dist', 'clean:build']);
 
 };

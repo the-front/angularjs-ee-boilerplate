@@ -5,6 +5,8 @@ module.exports = function(gulp, $) {
     .pipe( $.jshint.reporter, 'jshint-stylish' )
     .pipe( $.jshint.reporter, 'fail' );
 
+  //---
+
   gulp.task('jshint:tools', function() {
     return gulp.src( $.config.js.tools )
       .pipe( jshintStream() );
