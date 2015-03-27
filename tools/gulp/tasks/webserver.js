@@ -1,6 +1,6 @@
 module.exports = function(gulp, $) {
 
-  gulp.task('webserver:dev', function() {
+  gulp.task('webserver:dev', ['styles'], function() {
 
     $.browserSync({
       port: $.config.webserver.port,
