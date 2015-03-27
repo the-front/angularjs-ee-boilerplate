@@ -2,17 +2,13 @@ module.exports = function(gulp, $) {
 
   gulp.task('webserver:dev', function() {
 
-    // TODO: review
-    /*
     $.browserSync({
       port: $.config.webserver.port,
       server:[
-        $.config.paths.outputDir + '/docs/'
+        $.config.paths.src,
+        $.config.paths.outputDir
       ]
     });
-    */
-
-    $.log( 'TODO: define browserSync to dev flow' );
 
   });
 
