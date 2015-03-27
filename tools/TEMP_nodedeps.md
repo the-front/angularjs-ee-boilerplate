@@ -21,6 +21,7 @@ npm install \
   gulp-rename \
   gulp-sass \
   gulp-less \
+  gulp-minify-css \
   gulp-uglify \
   gulp-jshint \
   jshint-stylish \
