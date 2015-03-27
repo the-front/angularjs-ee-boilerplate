@@ -19,9 +19,11 @@ module.exports = (function() {
 
   //---
 
+  var bannerTitle = pkg.title || pkg.name;
+
   config.banner =
     '/*!\n' +
-    ' * ' + pkg.title + '\n' +
+    ' * ' + bannerTitle + '\n' +
     ' * ' + pkg.description + '\n' +
     ' * @license ' + pkg.license + '\n' +
     ' * v' + pkg.version + '\n' +
@@ -78,36 +80,6 @@ module.exports = (function() {
 
   config.webserver = {
     port: 1337
-  };
-
-  //---
-
-  var versions = {
-    angular           : '1.3.9',
-    angular_material  : '0.7.1',
-    hammerjs          : '2.0.4',
-    odin_icons        : '0.1.0',
-    moment            : '2.9.0',
-    translate         : '2.0.1'
-  };
-
-  config.versions = versions;
-
-  config.karma = {
-    dependencies: [
-      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular.min.js',
-      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-animate.min.js',
-      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-route.min.js',
-      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-aria.min.js',
-      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-messages.min.js',
-      'http://erkobridee.github.io/cdn/ajax/libs/angular.js/' + versions.angular + '/angular-mocks.js',
-
-      'http://erkobridee.github.io/cdn/ajax/libs/angular_material/' + versions.angular_material + '/angular-material.min.js',
-
-      'http://erkobridee.github.io/cdn/ajax/libs/hammerjs/' + versions.hammerjs + '/hammer.min.js',
-      'http://erkobridee.github.io/cdn/ajax/libs/moment.js/' + versions.moment + '/moment-with-locales.min.js',
-      'http://erkobridee.github.io/cdn/ajax/libs/angular-translate/' + versions.translate + '/angular-translate.min.js'
-    ]
   };
 
   //---
