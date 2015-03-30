@@ -1,11 +1,8 @@
 module.exports = function(gulp, $) {
 
-  // TODO: review
-
   gulp.task('build', function( done ) {
 
     $.runSequence(
-      // 'clean',
       [
         'copy:js2build',
         'styles',
@@ -16,7 +13,10 @@ module.exports = function(gulp, $) {
       'update:main:package.js',
       'requirejs',
       'build:concat:js',
-      // TODO: review
+
+      // TODO: optimize images
+      // TODO: uglify ie fallback
+
       'clean:build',
       done
     );
