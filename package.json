@@ -22,6 +22,12 @@
     "Mario de Souza Junior <mrdesouzajunior@gmail.com>",
     "Vinicius Camara de Oliveira <viniciuscamara@gmail.com>"
   ],
+  "engines": {
+    "node": ">=0.10.0 <0.12"
+  },
+  "scripts": {
+    "outdated": "npm outdated --depth=0"
+  },
   "devDependencies": {
     "browser-sync": "^2.4.0",
     "del": "^1.1.1",
