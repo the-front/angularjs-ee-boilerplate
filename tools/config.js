@@ -85,6 +85,14 @@ module.exports = (function() {
 
   //---
 
+  config.require = {
+    name: 'ng.app',
+    config: path.join(config.paths.src, 'require.config.js'),
+    build: path.join(config.paths.build, 'require.config.js')
+  };
+
+  //---
+
   config.webserver = {
     port: 1337
   };

@@ -1,9 +1,13 @@
 ```bash
 npm install \
   yargs \
+  requirejs \
+  escodegen \
+  esprima \
   open \
   browser-sync \
   del \
+  through2 \
   lazypipe \
   run-sequence \
   gulp \

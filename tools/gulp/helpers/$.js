@@ -33,6 +33,8 @@ $.config = $.rootRequire('tools/config');
 
 $.localip = $.rootRequire('tools/lib/localip');
 
+$.requirejs = $.rootRequire('tools/lib/requirejs');
+
 //---
 
 $.args = require('yargs').argv;
