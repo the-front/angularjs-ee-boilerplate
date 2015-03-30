@@ -6,7 +6,7 @@ module.exports = function(gulp, $) {
     gulp.watch([
       $.config.js.project,
       '!' + $.config.paths.src + '/{app,shared}/*{,*/**}/tests/**/*'
-    ], ['wf:js:project']);
+    ], ['wf:js']);
 
     //---
 
@@ -14,14 +14,14 @@ module.exports = function(gulp, $) {
     gulp.watch([
       $.config.html.files,
       '!' + $.config.paths.src + '/vendor/**/*'
-    ], ['wf:html:project']);
+    ], ['wf:html']);
 
     //---
 
     // (less) stypes project
     gulp.watch([
       $.config.styles.less.project
-    ], ['wf:styles:project']);
+    ], ['wf:styles']);
 
   });
 
@@ -31,26 +31,34 @@ module.exports = function(gulp, $) {
     $.reload();
   });
 
-  gulp.task('wf:js:project', function( done ) {
+  gulp.task('wf:js', function( done ) {
 
     $.runSequence(
-      'jshint:project',
+      ['jshint:project', 'lintspaces:js'],
       'wf:bs:reload',
       done
     );
 
   });
 
-  gulp.task('wf:html:project', function( done ) {
+  gulp.task('wf:html', function( done ) {
 
     $.runSequence(
-      // 'jshint:project',
+      'lintspaces:html',
       'wf:bs:reload',
       done
     );
 
   });
 
-  gulp.task('wf:styles:project', ['styles']);
+  gulp.task('wf:styles', function( done ) {
+
+    $.runSequence(
+      'lintspaces:styles',
+      'styles',
+      done
+    );
+
+  });
 
 };
