@@ -41,10 +41,23 @@ module.exports = (function() {
 
   config.js = {
 
-    project: [
-      config.paths.src + '/**/*.js',
-      '!' + config.paths.src + '/vendor/**/*.js'
-    ],
+    project: {
+      lint       : [
+        config.paths.src + '/**/*.js',
+        '!' + config.paths.src + '/vendor/**/*.js'
+      ],
+      watch      : [
+        config.paths.src + '/**/*.js',
+        '!' + config.paths.src + '/vendor/**/*.js',
+        '!' + config.paths.src + '/{app,shared}/*{,*/**}/tests/**/*.js'
+      ],
+      copy2build : [
+        config.paths.src + '/**/*.js',
+        '!' + config.paths.src + '/require.unit.load.js',
+        '!' + config.paths.src + '/vendor/**/*.js',
+        '!' + config.paths.src + '/{app,shared}/*{,*/**}/tests/**/*.js'
+      ]
+    },
 
     tools: [
       'gulpfile.js',
@@ -70,17 +83,38 @@ module.exports = (function() {
 
   //---
 
-  config.html = {
-    index: config.paths.src + '/index.html',
-    files: config.paths.src + '/**/*.html',
-  };
-
-  //---
-
   config.autoprefixer = {
     browsers: [
       'last 2 versions', 'last 4 Android versions'
     ]
+  };
+
+  //---
+
+  config.html = {
+    index: config.paths.src + '/index.html',
+    files: config.paths.src + '/**/*.html'
+  };
+
+  config.htmlmin = {
+    collapseBooleanAttributes: true,
+    collapseWhitespace: true,
+    removeAttributeQuotes: true, // TODO: review
+    removeComments: true,
+    removeEmptyAttributes: true,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true
+  };
+
+  config.html2js = {
+    filename: 'templatesCache.js',
+    moduleName: 'templatesCache',
+    src: [
+      config.paths.src + '/app/**/*.html',
+      config.paths.src + '/shared/**/*.html'
+    ],
+    dest: path.join( config.paths.build, 'app', 'main' )
   };
 
   //---

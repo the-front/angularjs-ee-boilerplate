@@ -17,7 +17,7 @@ module.exports = function(gulp, $) {
 
   gulp.task('lintspaces:js', function() {
 
-    return gulp.src( $.config.js.project )
+    return gulp.src( $.config.js.project.lint )
       .pipe( lintspacesStream() );
 
   });

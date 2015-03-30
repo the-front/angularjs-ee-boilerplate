@@ -16,7 +16,7 @@ npm install \
   gulp-task-listing \
   gulp-if \
   gulp-debug \
-  gulp-insert \
+  gulp-inject-string \
   gulp-plumber \
   gulp-connect \
   gulp-autoprefixer \
@@ -28,6 +28,8 @@ npm install \
   gulp-less \
   gulp-minify-css \
   gulp-uglify \
+  gulp-htmlmin \
+  gulp-angular-templatecache \
   gulp-lintspaces \
   gulp-jshint \
   jshint-stylish \

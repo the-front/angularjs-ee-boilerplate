@@ -24,7 +24,7 @@ streams.less = function() {
     .pipe( $.plumber() )
     .pipe( $.less({ paths: [ $.path.join( $.rootPath, 'src' ) ] }) )
     .pipe( streams.autoprefix() )
-    .pipe( $.insert.prepend( $.config.banner ) )
+    .pipe( $.injectString.prepend( $.config.banner ) )
     .pipe( $.if( $.is.release, $.minifyCss() ) )
     .pipe( gulp.dest( outputCssDir ) )
     .pipe( $.filter( '**/*.css' ) )
@@ -41,7 +41,7 @@ streams.sass = function() {
     .pipe( $.plumber() )
     .pipe( $.sass() ) // TODO: review
     .pipe( streams.autoprefix() )
-    .pipe( $.insert.prepend( $.config.banner ) )
+    .pipe( $.injectString.prepend( $.config.banner ) )
     .pipe( $.if( $.is.release, $.minifyCss() ) )
     .pipe( gulp.dest( outputCssDir ) )
     .pipe( $.filter( '**/*.css' ) )

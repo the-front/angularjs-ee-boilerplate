@@ -13,7 +13,7 @@ module.exports = function(gulp, $) {
   });
 
   gulp.task('jshint:project', function() {
-    return gulp.src( $.config.js.project )
+    return gulp.src( $.config.js.project.lint )
       .pipe( jshintStream() );
   });
 

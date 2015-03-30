@@ -3,17 +3,13 @@ module.exports = function(gulp, $) {
   gulp.task('run:flow', function(done) {
 
     var runTasks = [
-      'clean:dist',
-      'jshint',
-      'lintspaces'
+      'clean',
+      'validate',
     ];
 
     if( $.is.release ) {
 
-      // dist flow
-
-      // TODO: review and redefine [ build flow ]
-      // runTasks = runTasks.concat([ 'clean:dist:unused-files' ]);
+      runTasks = runTasks.concat([ 'build' ]);
 
       if( $.is.preview ) {
         runTasks = runTasks.concat([ 'webserver:preview' ]);

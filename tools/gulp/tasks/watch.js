@@ -3,10 +3,7 @@ module.exports = function(gulp, $) {
   gulp.task('watch', ['webserver:dev'], function() {
 
     // javascript project
-    gulp.watch([
-      $.config.js.project,
-      '!' + $.config.paths.src + '/{app,shared}/*{,*/**}/tests/**/*'
-    ], ['wf:js']);
+    gulp.watch( $.config.js.project.watch, ['wf:js'] );
 
     //---
 

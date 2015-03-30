@@ -34,12 +34,12 @@ module.exports = function(gulp, $) {
 
   // https://github.com/kvindasAB/angular-enterprise-kickstart/blob/master/Gruntfile.js#L303
   var requireBuildConfig = {
-    baseUrl: $.config.paths.src, // TODO: change to build dir
+    baseUrl: $.config.paths.build,
 
     mainConfigFile: $.config.require.build,
 
     name: $.config.require.name,
-    out: $.path.join( $.config.paths.dist, $.config.require.name + '.js' ),
+    out: $.path.join( $.config.paths.build, $.config.require.name + '.js' ),
 
     useStrict: true,
     wrap: {
@@ -66,8 +66,6 @@ module.exports = function(gulp, $) {
   //----------------------------------------------------------------------------
 
   gulp.task('requirejs', ['requirejs:rewrite-config'], function( done ) {
-    // $.log( JSON.stringify(requireBuildConfig,null,2) );
-
     $.requirejs.builder( requireBuildConfig, done, $.is.debug, $.log );
   });
 
