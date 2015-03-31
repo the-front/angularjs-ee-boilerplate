@@ -26,7 +26,10 @@
     "node": ">=0.10.0 <0.12"
   },
   "scripts": {
-    "outdated": "npm outdated --depth=0"
+    "outdated": "npm outdated --depth=0",
+    "setup": "node tools/scripts/setup",
+    "maven": "node tools/scripts/maven",
+    "testos": "node tools/scripts/testos"
   },
   "devDependencies": {
     "browser-sync": "^2.4.0",

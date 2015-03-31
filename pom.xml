@@ -11,9 +11,9 @@
 
   <properties>
     <encoding>UTF-8</encoding>
-    <frontend-maven-plugin.version>0.0.20</frontend-maven-plugin.version>
-    <node.version>0.10.30</node.version>
-    <npm.version>1.4.21</npm.version>
+    <frontend-maven-plugin.version>0.0.23</frontend-maven-plugin.version>
+    <node.version>0.10.38</node.version>
+    <npm.version>1.4.28</npm.version>
   </properties>
 
   <build>
@@ -34,7 +34,6 @@
               <goal>install-node-and-npm</goal>
             </goals>
             <configuration>
-              <workingDirectory>tools</workingDirectory>
               <nodeVersion>v${node.version}</nodeVersion>
               <npmVersion>${npm.version}</npmVersion>
             </configuration>
@@ -46,19 +45,17 @@
               <goal>npm</goal>
             </goals>
             <configuration>
-              <workingDirectory>tools</workingDirectory>
               <arguments>run maven</arguments>
             </configuration>
           </execution>
 
           <execution>
-            <id>grunt build</id>
+            <id>gulp build</id>
             <goals>
-              <goal>grunt</goal>
+              <goal>gulp</goal>
             </goals>
             <configuration>
-              <workingDirectory>tools</workingDirectory>
-              <arguments>build:prod</arguments>
+              <arguments>--release</arguments>
             </configuration>
           </execution>
 
