@@ -2,24 +2,6 @@ module.exports = function(gulp, $) {
 
   var requirejs = require('requirejs');
 
-  function builder( config, done ) {
-    requirejs( config, buildResponse, buildError );
-
-    function buildResponse( response ) {
-      if( $.is.debug ) {
-        $.log( 'requirejs build done' );
-        $.log( response );
-      }
-      done();
-    }
-
-    function buildError( error ) {
-      $.log( 'requirejs build error' );
-      $.log( error );
-      done();
-    }
-  }
-
   //----------------------------------------------------------------------------
 
   /*
@@ -71,7 +53,6 @@ module.exports = function(gulp, $) {
 
   //----------------------------------------------------------------------------
 
-  // TODO: copy *.js files to .temp/ and cache html
   gulp.task('requirejs:rewrite-config', function() {
     return gulp.src( $.config.require.config )
       .pipe( $.requirejs.rewriteConfig() )

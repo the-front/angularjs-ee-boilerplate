@@ -29,6 +29,7 @@ npm install \
   gulp-minify-css \
   gulp-uglify \
   gulp-htmlmin \
+  gulp-imagemin \
   gulp-angular-templatecache \
   gulp-lintspaces \
   gulp-jshint \

@@ -43,6 +43,7 @@
     "gulp-filter": "^2.0.2",
     "gulp-htmlmin": "^1.1.1",
     "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.2.1",
     "gulp-inject-string": "0.0.2",
     "gulp-jshint": "^1.9.4",
     "gulp-less": "^3.0.2",
