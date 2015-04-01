@@ -37,12 +37,18 @@ module.exports = function(gulp, $) {
   });
 
   gulp.task('build:concat:js', function() {
+    var filter = $.filter([
+      'require.config.js'
+    ]);
+
     return gulp.src([
         $.config.paths.build + '/' + $.config.require.name + '.js',
         $.config.require.config
       ])
-      .pipe( $.concat( 'require.config.js' ) )
+      .pipe( filter )
       .pipe( $.uglify() )
+      .pipe( filter.restore() )
+      .pipe( $.concat( 'require.config.js' ) )
       .pipe( gulp.dest( $.config.paths.dist ) );
   });
 
