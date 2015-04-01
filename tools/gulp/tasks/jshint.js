@@ -1,6 +1,7 @@
 module.exports = function(gulp, $) {
 
   var jshintStream = $.lazypipe()
+    .pipe( $.cached, 'jshint' )
     .pipe( $.jshint )
     .pipe( $.jshint.reporter, 'jshint-stylish' )
     .pipe( $.jshint.reporter, 'fail' );
