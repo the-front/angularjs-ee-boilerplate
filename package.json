@@ -28,7 +28,6 @@
   "scripts": {
     "outdated": "npm outdated --depth=0",
     "setup": "node tools/scripts/setup",
-    "maven": "node tools/scripts/maven",
     "testos": "node tools/scripts/testos"
   },
   "devDependencies": {

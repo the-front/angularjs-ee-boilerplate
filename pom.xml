@@ -44,9 +44,6 @@
             <goals>
               <goal>npm</goal>
             </goals>
-            <configuration>
-              <arguments>run maven</arguments>
-            </configuration>
           </execution>
 
           <execution>
