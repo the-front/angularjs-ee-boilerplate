@@ -4,10 +4,13 @@ module.exports = function(gulp, $) {
 
     $.browserSync({
       port: $.config.webserver.port,
-      server:[
-        $.config.paths.src,
-        $.config.paths.outputDir
-      ]
+      server:{
+        baseDir: [
+          $.config.paths.src,
+          $.config.paths.build
+        ],
+        middleware: $.config.webserver.middlewares
+      }
     });
 
   });
@@ -19,7 +22,10 @@ module.exports = function(gulp, $) {
       port: $.config.webserver.port,
       root: [
         $.config.paths.outputDir
-      ]
+      ],
+      middleware: function( connect, opts ) {
+        return $.config.webserver.middlewares;
+      }
     });
     $.open('http://' + $.localip + ':' + $.config.webserver.port);
 

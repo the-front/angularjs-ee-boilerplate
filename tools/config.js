@@ -128,7 +128,17 @@ module.exports = (function() {
   //---
 
   config.webserver = {
-    port: 1337
+    port: 1337,
+
+    // https://github.com/nodejitsu/node-http-proxy#options
+    // https://github.com/chimurai/http-proxy-middleware#http-proxy-options
+    proxies: [
+      {
+        host: 'localhost',
+        port: 9000,
+        context: 'rest'
+      }
+    ]
   };
 
   //---

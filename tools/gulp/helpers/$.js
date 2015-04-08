@@ -75,6 +75,59 @@ $.is = {
     .webserver
     .port = parseInt($.args.port, 10) || $.config.webserver.port || 3000;
 
+  // middlewares array
+  $.config
+    .webserver
+    .middlewares = [];
+
+  // config proxies
+  if( $.config.webserver.proxies ) {
+    var proxyMiddleware = require('http-proxy-middleware'),
+        proxyOptions;
+
+    $.config
+      .webserver
+      .proxies.forEach(function(proxy) {
+
+        proxyOptions = {
+          host     : proxy.host || 'localhost',
+          port     : proxy.port || 80,
+          context  : checkContext(proxy.context),
+          https    : proxy.https || false,
+          xforward : proxy.xforward || false
+        };
+
+        $.config
+          .webserver
+          .middlewares
+          .push(
+            proxyMiddleware(
+              proxyOptions.context,
+              {
+                target : mountTarget( proxyOptions ),
+                secure : proxyOptions.https,
+                xfwd   : proxyOptions.xforward
+              }
+            )
+          );
+
+      });
+
+  }
+
+  function checkContext( context ) {
+    if( !context ) return '/api';
+    if( !/^\//.test(context) ) context = '/' + context;
+    return context;
+  }
+
+  function mountTarget( proxyOptions ) {
+    return (
+      ( proxyOptions.https ? 'https://' : 'http://' ) +
+      proxyOptions.host + ':' + proxyOptions.port
+    );
+  }
+
 })();
 
 // @end: check webserver configs
