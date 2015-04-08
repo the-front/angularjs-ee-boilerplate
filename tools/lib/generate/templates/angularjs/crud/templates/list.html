@@ -1,0 +1,137 @@
+<div class="container">
+  <div class="row">&nbsp;</div>
+
+  <!-- @begin: buttons -->
+  <div class="row">
+
+    <ul class="list-inline">
+      <li>
+        <a href="#<%= route %>/search">
+          <i class="glyphicon glyphicon-search"></i> Search
+        </a>
+      </li>
+      <li>|</li>
+      <li>
+        <a href="#<%= route %>/new">
+          <i class="glyphicon glyphicon-plus-sign"></i> New
+        </a>
+      </li>
+      <li>&nbsp;</li>
+      <li>
+
+        <button
+          id="optionsBtn"
+          type="button"
+          title="{{vm.optionsBtnLabel}}"
+          ng-click="vm.showOptionsBtnClick()"
+          class="btn btn-sm btn-default"
+          ng-class="{'active': vm.showOptions}">
+          <i class="glyphicon glyphicon-wrench"></i> {{vm.optionsBtnLabel}}
+        </button>
+
+      </li>
+    </ul> <!-- / .list-inline -->
+
+  </div>
+  <!-- @end: buttons -->
+
+
+  <!-- @begin: options -->
+  <div class="row" ng-show="vm.showOptions">
+
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+    <span ng-if="vm.showFilterBtn">
+      <button
+        id="filterBtn"
+        type="button"
+        title="{{vm.filterBtnLabel}}"
+        ng-click="vm.showFilterBtnClick()"
+        class="btn btn-sm btn-default"
+        ng-class="{'active': vm.showFilterBtnActive}">
+        <i class="glyphicon glyphicon-filter"></i> {{vm.filterBtnLabel}}
+      </button>
+    </span>
+
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+    <span ng-if="vm.showPagination">
+      <span ng-if="vm.result.pages > 1">
+        Pages: <span class="badge">{{vm.result.pages}}</span> &nbsp;&nbsp;
+      </span>
+      <span ng-if="result.count > 0">
+        Total: <span class="badge">{{vm.result.count}}</span>
+      </span>
+      <span class="visible-xs col-md-1">&nbsp;</span>
+    </span>
+
+    <div class="col-md-3 pull-right" ng-show="vm.showPagination">
+      <form
+        name="updateSizeForm"
+        ng-submit="vm.updatePageSizeFormSubmit()"
+        role="form" novalidate>
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon">Page Size</span>
+          <input
+            class="form-control"
+            type="number"
+            name="pageSize"
+            ng-model="vm.pageSize"
+            fend-focus="focusPageSizeInput"
+            min="{{vm.pageMinSize}}" max="{{vm.pageMaxSize}}"
+            placeholder="min value 2">
+          <span class="input-group-btn">
+            <button
+              ng-click="vm.updatePageSize()"
+              ng-disabled="vm.updatePageSizeInvalid(pageSize)"
+              class="btn btn-default" type="button">Update</button>
+          </span>
+        </div>
+        <div>
+          <p
+            id="pageSizeMessage"
+            ng-if="updateSizeForm.pageSize.$error.min || updateSizeForm.pageSize.$error.max"
+            class="text-center">
+            The value must be in range {{vm.pageMinSize}} to {{vm.pageMaxSize}}!
+          </p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <span>&nbsp;</span>
+  </div>
+  <!-- @end: options -->
+
+  <div class="row" ng-include="'<%= location %>/templates/table.html'"></div>
+
+
+  <!-- @begin: pagination -->
+
+  <!-- https://angular-ui.github.io/bootstrap/#/pagination -->
+  <div class="row" ng-if="vm.showPagination">
+    <div class="text-center" ng-if="vm.result.pages > 1">
+      <pagination
+        ng-model="vm.currentPage"
+        max-size="vm.paginationItemsSize"
+        total-items="vm.result.count"
+        num-pages="vm.result.pages"
+        items-per-page="vm.paginationPageSize"
+        ng-change="vm.pageChanged()"
+        class="pagination-sm"
+        boundary-links="true"
+        rotate="false"></pagination>
+      </div>
+  </div>
+
+  <div class="row" ng-if="!vm.showPagination">
+    <p class="text-center" ng-if="vm.filter.search">
+      <i class="glyphicon glyphicon-filter"></i> : {{vm.filter.search}}
+    </p>
+  </div>
+  <!-- @end: pagination -->
+
+
+</div>

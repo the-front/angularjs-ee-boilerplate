@@ -32,9 +32,9 @@ module.exports = (function() {
   //---
 
   config.paths = {
-    src: 'src',
-    build: '.temp',
-    dist: 'dist'
+    src       : 'src',
+    build     : '.temp',
+    dist      : 'dist'
   };
 
   //---
@@ -61,7 +61,8 @@ module.exports = (function() {
 
     tools: [
       'gulpfile.js',
-      'tools/**/*.js'
+      'tools/**/*.js',
+      '!tools/lib/generate/templates/**/*'
     ]
 
   };
@@ -96,10 +97,11 @@ module.exports = (function() {
     files: config.paths.src + '/**/*.html'
   };
 
+  // TODO: review - needed?
   config.htmlmin = {
     collapseBooleanAttributes: true,
     collapseWhitespace: true,
-    removeAttributeQuotes: true, // TODO: review
+    removeAttributeQuotes: true,
     removeComments: true,
     removeEmptyAttributes: true,
     removeRedundantAttributes: true,

@@ -27,13 +27,15 @@ $.open            = require('open');
 
   //--- local modules
 
-$.pkg = $.rootRequire('package.json');
+$.pkg       = $.rootRequire('package.json');
 
-$.config = $.rootRequire('tools/config');
+$.config    = $.rootRequire('tools/config');
 
-$.localip = $.rootRequire('tools/lib/localip');
+$.localip   = $.rootRequire('tools/lib/localip');
 
 $.requirejs = $.rootRequire('tools/lib/requirejs');
+
+$.generate  = $.rootRequire('tools/lib/generate');
 
 //---
 
@@ -42,11 +44,11 @@ $.args = require('yargs').argv;
 //---
 
 $.is = {
-  debug     : !!$.args.debug,
-  release   : !!$.args.release,
-  preview   : !!$.args.preview,
-  less      : !!$.args.less,
-  sass      : !!$.args.sass
+  debug   : !!$.args.debug,
+  release : !!$.args.release,
+  preview : !!$.args.preview,
+  less    : !!$.args.less,
+  sass    : !!$.args.sass
 };
 
 //---
@@ -80,39 +82,47 @@ $.is = {
     .webserver
     .middlewares = [];
 
-  // config proxies
-  if( $.config.webserver.proxies ) {
-    var proxyMiddleware = require('http-proxy-middleware'),
-        proxyOptions;
+  //---
+  // @begin: config proxies
+  var proxyMiddleware = require('http-proxy-middleware'),
+      hasGulpTaskName = !!$.args._[0],
+      configProxyFlag = !hasGulpTaskName;
 
+  if( $.config.webserver.proxies ) {
     $.config
       .webserver
       .proxies.forEach(function(proxy) {
-
-        proxyOptions = {
-          host     : proxy.host || 'localhost',
-          port     : proxy.port || 80,
-          context  : checkContext(proxy.context),
-          https    : proxy.https || false,
-          xforward : proxy.xforward || false
-        };
-
-        $.config
-          .webserver
-          .middlewares
-          .push(
-            proxyMiddleware(
-              proxyOptions.context,
-              {
-                target : mountTarget( proxyOptions ),
-                secure : proxyOptions.https,
-                xfwd   : proxyOptions.xforward
-              }
-            )
-          );
-
+        if( !$.config.webserver.proxy ) $.config.webserver.proxy = proxy;
+        if( configProxyFlag ) configProxy( mountProxyOptions( proxy ) );
       });
+  } else if( $.config.webserver.proxy ) {
+    if( configProxyFlag ) configProxy( mountProxyOptions( $.config.webserver.proxy ) );
+  }
 
+  function mountProxyOptions( proxy ) {
+    return {
+      host     : proxy.host || 'localhost',
+      port     : proxy.port || 80,
+      context  : checkContext(proxy.context),
+      https    : proxy.https || false,
+      xforward : proxy.xforward || false
+    };
+  }
+
+  function configProxy( proxyOptions ) {
+    $.config
+      .webserver
+      .middlewares
+      .push(
+        proxyMiddleware(
+          proxyOptions.context,
+          {
+            target : mountTarget( proxyOptions ),
+            secure : proxyOptions.https,
+            xfwd   : proxyOptions.xforward
+          }
+        )
+      );
   }
 
   function checkContext( context ) {
@@ -127,6 +137,8 @@ $.is = {
       proxyOptions.host + ':' + proxyOptions.port
     );
   }
+  // @end: config proxies
+  //---
 
 })();
 
