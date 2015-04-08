@@ -6,7 +6,9 @@
   "keywords": [
     "angular.js",
     "javascript",
-    "boilerplate"
+    "boilerplate",
+    "requirejs",
+    "gulp"
   ],
   "license": "MIT",
   "repository": {
