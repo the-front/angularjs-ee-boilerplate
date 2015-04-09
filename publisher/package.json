@@ -1,33 +1,36 @@
 {
   "name": "publisher",
   "private": true,
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "github gh-pages publisher tool",
   "keywords": [
     "github",
     "gh-pages",
-    "gruntjs",
+    "gulp",
     "publisher",
     "tool"
   ],
-  "author": "Erko Bridee",
+  "author": "Erko Bridee de Almeida Cabrera <erko.bridee@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">=0.10.0 <0.12"
   },
   "scripts": {
-    "postinstall": "grunt init"
+    "outdated": "npm outdated --depth=0",
+    "postinstall": "gulp --init"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-git": "^0.2.11",
-    "grunt-contrib-copy": "^0.4.1",
-    "grunt-github-pages": "0.0.4",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-jshint": "^0.7.2",
-    "jshint-stylish": "^0.1.5",
-    "grunt-shell": "^0.6.4",
-    "time-grunt": "^0.3.1",
-    "jit-grunt": "^0.7.0"
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-cached": "^1.0.4",
+    "gulp-jshint": "^1.10.0",
+    "gulp-lintspaces": "^0.2.3",
+    "gulp-load-plugins": "^0.9.0",
+    "gulp-shell": "^0.4.0",
+    "gulp-util": "^3.0.4",
+    "jshint-stylish": "^1.0.1",
+    "lazypipe": "^0.2.3",
+    "run-sequence": "^1.0.2",
+    "yargs": "^3.7.0"
   }
 }
