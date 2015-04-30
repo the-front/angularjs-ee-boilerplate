@@ -86,7 +86,13 @@ $.is = {
   // @begin: config proxies
   var proxyMiddleware = require('http-proxy-middleware'),
       hasGulpTaskName = !!$.args._[0],
-      configProxyFlag = !hasGulpTaskName;
+      configProxyFlag = false;
+
+  if( $.is.release ) {
+    configProxyFlag = $.is.preview;
+  } else {
+    configProxyFlag = !hasGulpTaskName;
+  }
 
   if( $.config.webserver.proxies ) {
     $.config
