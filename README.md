@@ -4,7 +4,7 @@
 
 This boilerplate (seed project, starting project) helps you build large scale [Angular.js](https://angularjs.org/) applications with [Require.js](http://requirejs.org/)
 
-> **Status:** migrating grunt to gulp on [gulp branch](tree/gulp)
+> **Status:** migrating grunt to gulp on [gulp branch](../gulp)
 
 --
 
