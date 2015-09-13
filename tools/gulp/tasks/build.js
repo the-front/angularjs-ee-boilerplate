@@ -39,7 +39,7 @@ module.exports = function(gulp, $) {
   gulp.task('build:concat:js', function() {
     var filter = $.filter([
       'require.config.js'
-    ]);
+    ], {restore: true});
 
     return gulp.src([
         $.config.paths.build + '/' + $.config.require.name + '.js',
@@ -47,7 +47,7 @@ module.exports = function(gulp, $) {
       ])
       .pipe( filter )
       .pipe( $.uglify() )
-      .pipe( filter.restore() )
+      .pipe( filter.restore )
       .pipe( $.concat( 'require.config.js' ) )
       .pipe( gulp.dest( $.config.paths.dist ) );
   });
