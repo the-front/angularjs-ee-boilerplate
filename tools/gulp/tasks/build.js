@@ -2,7 +2,15 @@ module.exports = function(gulp, $) {
 
   gulp.task('build', function( done ) {
 
-    $.runSequence(
+    var runTasks = [];
+
+    if( $.is.preview ) {
+      runTasks.push( 'karma:unit:single-run' );
+    } else {
+      runTasks.push( 'karma:ci' );
+    }
+
+    runTasks = runTasks.concat([
       [
         'copy:js2build',
         'styles',
@@ -17,7 +25,9 @@ module.exports = function(gulp, $) {
       'build:concat:js',
       'clean:build',
       done
-    );
+    ]);
+
+    $.runSequence.apply(null, runTasks);
 
   });
 

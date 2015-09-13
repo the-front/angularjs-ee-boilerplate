@@ -47,14 +47,15 @@ $.args = require('yargs').argv;
 //---
 
 $.is = { // TODO: review
+  karma   : !!$.args.karma,
   debug   : !!$.args.debug,
   release : !!$.args.release,
   preview : !!$.args.preview,
   proxy   : !!$.args.proxy,
   less    : !!$.args.less,
   sass    : !!$.args.sass,
-  publish : !!$.args.publish,
-  init    : !!$.args.init
+  publish : !!$.args.publish, // TODO: define flow
+  init    : !!$.args.init // TODO: define flow
 };
 
 //---
@@ -181,7 +182,8 @@ $.onError = function(err) {
 //---
 
 $.swallowError = function(error) {
-  this.emit('end');
+  // do nothing... but block flow execution
+  // this.emit('end');
 };
 
 //---

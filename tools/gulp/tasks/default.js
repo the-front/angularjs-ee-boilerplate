@@ -17,6 +17,10 @@ module.exports = function(gulp, $) {
 
     } else {
 
+      if( $.is.karma ) {
+        runTasks = runTasks.concat([ 'karma:unit:single-run' ]);
+      }
+
       // dev flow
       runTasks = runTasks.concat([ 'watch' ]);
 

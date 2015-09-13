@@ -15,9 +15,17 @@ module.exports = function(gulp, $) {
 
     //---
 
-    // (less) stypes project
+    // stypes project
+    var watchStyles;
+
+    if( $.is.sass ) {
+      watchStyles = $.config.styles.sass.project;
+    } else {
+      watchStyles = $.config.styles.less.project;
+    }
+
     gulp.watch([
-      $.config.styles.less.project
+      watchStyles
     ], ['wf:styles']);
 
   });
@@ -30,11 +38,20 @@ module.exports = function(gulp, $) {
 
   gulp.task('wf:js', function( done ) {
 
-    $.runSequence(
-      ['jshint:project', 'lintspaces:js'],
+    var runTasks = [
+      ['jshint:project', 'lintspaces:js']
+    ];
+
+    if( $.is.karma ) {
+      runTasks.push( 'karma:unit:single-run' );
+    }
+
+    runTasks = runTasks.concat([
       'wf:bs:reload',
       done
-    );
+    ]);
+
+    $.runSequence.apply(null, runTasks);
 
   });
 
