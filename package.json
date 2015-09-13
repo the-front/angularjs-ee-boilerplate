@@ -30,7 +30,9 @@
   "scripts": {
     "outdated": "npm outdated --depth=0",
     "setup": "node tools/scripts/setup",
-    "testos": "node tools/scripts/testos"
+    "testos": "node tools/scripts/testos",
+    "prestart": "npm run setup",
+    "start": "echo \"start development\n\" && gulp"
   },
   "devDependencies": {
     "browser-sync": "^2.5.3",

@@ -43,12 +43,15 @@ $.args = require('yargs').argv;
 
 //---
 
-$.is = {
+$.is = { // TODO: review
   debug   : !!$.args.debug,
   release : !!$.args.release,
   preview : !!$.args.preview,
+  proxy   : !!$.args.proxy,
   less    : !!$.args.less,
-  sass    : !!$.args.sass
+  sass    : !!$.args.sass,
+  publish : !!$.args.publish,
+  init    : !!$.args.init
 };
 
 //---
@@ -57,7 +60,7 @@ $.is = {
 (function() {
 
   $.config.paths.outputDir = (
-    $.is.release ?
+    ($.is.release || $.is.preview) ?
       $.config.paths.dist :
       $.config.paths.build
   );
@@ -77,6 +80,9 @@ $.is = {
     .webserver
     .port = parseInt($.args.port, 10) || $.config.webserver.port || 3000;
 
+  // do not configure proxy if proxy flag isn't present
+  if(!$.is.proxy) return;
+
   // middlewares array
   $.config
     .webserver
@@ -85,24 +91,17 @@ $.is = {
   //---
   // @begin: config proxies
   var proxyMiddleware = require('http-proxy-middleware'),
-      hasGulpTaskName = !!$.args._[0],
-      configProxyFlag = false;
-
-  if( $.is.release ) {
-    configProxyFlag = $.is.preview;
-  } else {
-    configProxyFlag = !hasGulpTaskName;
-  }
+      hasGulpTaskName = !!$.args._[0];
 
   if( $.config.webserver.proxies ) {
     $.config
       .webserver
       .proxies.forEach(function(proxy) {
         if( !$.config.webserver.proxy ) $.config.webserver.proxy = proxy;
-        if( configProxyFlag ) configProxy( mountProxyOptions( proxy ) );
+        configProxy( mountProxyOptions( proxy ) );
       });
   } else if( $.config.webserver.proxy ) {
-    if( configProxyFlag ) configProxy( mountProxyOptions( $.config.webserver.proxy ) );
+    configProxy( mountProxyOptions( $.config.webserver.proxy ) );
   }
 
   function mountProxyOptions( proxy ) {
@@ -155,20 +154,31 @@ $.is = {
   * Log a message or series of messages using chalk's blue color.
   * Can pass in a string, object or array.
   */
-$.log = function(msg) {
+$.log = function(msg, color) {
+  color = color || $.util.colors.blue;
   if (typeof(msg) === 'object') {
     for (var item in msg) {
       if (msg.hasOwnProperty(item)) {
-        $.util.log($.util.colors.blue(msg[item]));
+        $.util.log(color(msg[item]));
       }
     }
   } else {
-    $.util.log($.util.colors.blue(msg));
+    $.util.log(color(msg));
   }
 };
 
+$.onSuccess = function(msg) {
+  $.log(msg, $.util.colors.green);
+};
+
 $.onError = function(err) {
-  $.log(err);
+  $.log(err, $.util.colors.red);
+};
+
+//---
+
+$.swallowError = function(error) {
+  this.emit('end');
 };
 
 //---
@@ -179,11 +189,17 @@ $.projectInfoMsg = function() {
   $.log('description: ' + $.pkg.description);
   $.log('');
 
-  var msg = '';
+  var msg = null;
 
   if( $.is.release ) {
-    msg += ' release';
+    msg = ' release';
+  } else if( $.is.preview ) {
+    msg = ' preview';
+  } else if( $.is.proxy ) {
+    msg = ' running with proxy';
+  }
 
+  if(msg){
     $.log('>> ' + msg);
     $.log('');
   }

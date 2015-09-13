@@ -1,7 +1,8 @@
-var async_exec = require('child_process').exec;
+var testModuleThenExecute = require('../lib/testModuleThenExecute');
 
-// http://documentup.com/arturadib/shelljs
-async_exec('npm install shelljs', function (err, stdout, stderr) {
+testModuleThenExecute('shelljs', function executeLater() {
+
+  // http://documentup.com/arturadib/shelljs
   require('shelljs/global');
 
   var oscheck = require('../lib/oscheck');
@@ -22,12 +23,15 @@ async_exec('npm install shelljs', function (err, stdout, stderr) {
     echo(cmd); exec(cmd);
     installedSomeGlobalFlag = true;
   }
+  echo('gulp --version ');
+  echo(exec('gulp --version', {silent:true}).output);
 
-  if(installedSomeGlobalFlag) echo('----------------------------------------');
+  echo('----------------------------------------');
 
   echo('Installing node dependencies...\n');
   exec('npm install');
 
 
-  echo('\nOK!');
+  echo('\nOK!\n');
+
 });

@@ -74,7 +74,7 @@ module.exports = (function() {
   config.styles = {
     sass: {
       main    : config.paths.src + '/scss/' + stylefilename + '.scss',
-      project : config.paths.src + '/{app,scss,shared}/**/*.sass'
+      project : config.paths.src + '/{app,scss,shared}/**/*.scss'
     },
     less: {
       main    : config.paths.src + '/less/' + stylefilename + '.less',
@@ -97,7 +97,6 @@ module.exports = (function() {
     files: config.paths.src + '/**/*.html'
   };
 
-  // TODO: review - needed?
   config.htmlmin = {
     collapseBooleanAttributes: true,
     collapseWhitespace: true,

@@ -10,12 +10,14 @@ module.exports = function(gulp, $) {
 
   gulp.task('jshint:tools', function() {
     return gulp.src( $.config.js.tools )
-      .pipe( jshintStream() );
+      .pipe( jshintStream() )
+      .on( 'error', $.swallowError );
   });
 
   gulp.task('jshint:project', function() {
     return gulp.src( $.config.js.project.lint )
-      .pipe( jshintStream() );
+      .pipe( jshintStream() )
+      .on( 'error', $.swallowError );
   });
 
   gulp.task('jshint', ['jshint:tools', 'jshint:project']);
