@@ -1,17 +1,22 @@
 module.exports = (function() {
 
-  var path = require('path');
-  var pkg = require('../package');
+  var path          = require('path'),
+      pkg           = require('../package'),
+      karmaConfigs  = require('./karma-configs');
 
   //---
 
   var config = {};
 
-  //--
+  //---
 
   config.root = './';
 
-  //--
+  //---
+
+  config.karma = karmaConfigs;
+
+  //---
 
   config.packages = [
     './package.json'
@@ -34,7 +39,8 @@ module.exports = (function() {
   config.paths = {
     src       : 'src',
     build     : '.temp',
-    dist      : 'dist'
+    dist      : 'dist',
+    reports   : 'tests_out'
   };
 
   //---

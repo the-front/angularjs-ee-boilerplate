@@ -23,6 +23,9 @@ $.runSequence     = require('run-sequence');
 $.browserSync     = require('browser-sync');
 $.reload          = $.browserSync.reload;
 
+// https://github.com/karma-runner/gulp-karma
+$.karma           = require('karma');
+
 $.open            = require('open');
 
   //--- local modules
