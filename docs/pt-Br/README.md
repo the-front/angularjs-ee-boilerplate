@@ -71,7 +71,7 @@ $ npm install
 
 * `grunt` >> (tarefa padrão) irá executar o lintspaces, jshint nos arquivos .js para verificar a qualidade de código e limpar diretórios de construção e distribuição
 
-  > **Atenção:** a tarefa ***lintspaces*** para verificar a padronização dos arquivos, esta depende do arquivo na raíz do repositório : `.editorconfig`
+  > **Atenção:** a tarefa ***lintspaces*** para verificar a padronização dos arquivos, esta depende do arquivo na raiz do repositório : `.editorconfig`
 
 #### Construção
 
@@ -133,7 +133,7 @@ $ npm install
 
 * Configurações globais do ferramental: `./tools/config.js`, as quais são utilizadas no `./tools/helpers/grunt/config/project.js`
 
-  * Configurações para o roteamendo do proxy ( ver: `var backend = { ...` ) 
+  * Configurações para o roteamendo do proxy ( ver: `var backend = { ...` )
 
     * Plugin do Grunt.js para proxy : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 
@@ -160,7 +160,7 @@ $ npm install
   Para aumentar temporariamente este limite use o comando `ulimit -n 2048`,
   este número será o novo limite máximo.
 
-  Em algumas versões do OSX a solução acima não funciona. 
+  Em algumas versões do OSX a solução acima não funciona.
 
   Neste caso tente `launchctl limit maxfiles 2048 2048` e reinicie
   o terminal.
