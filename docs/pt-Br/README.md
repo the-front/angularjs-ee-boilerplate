@@ -63,7 +63,7 @@ $ npm install
 
 ## Guia de Uso
 
-> `./` representa o diretório raíz
+> `./` representa o diretório raiz
 
 ### Ferramentas para o Fluxo de Desenvolvimento
 
@@ -85,11 +85,11 @@ $ npm install
 
 #### Desenvolvimento
 
-* `grunt dev:livereload` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao livereload, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browser e dispositivos conectados no servidor
+* `grunt dev:livereload` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao livereload, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browsers e dispositivos conectados no servidor
 
 * `grunt dev:livereload:proxy` >> além das tarefas do `dev:livereload`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
-* `grunt dev:sync` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao browser-sync, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browser e dispositivos conectados no servidor, também mantem os dados e navegação sincronizada
+* `grunt dev:sync` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao browser-sync, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browsers e dispositivos conectados no servidor, também mantem os dados e navegação sincronizada
 
 * `grunt dev:sync:proxy` >> além das tarefas do `dev:sync`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
 
@@ -133,7 +133,7 @@ $ npm install
 
 * Configurações globais do ferramental: `./tools/config.js`, as quais são utilizadas no `./tools/helpers/grunt/config/project.js`
 
-  * Configurações para o roteamendo do proxy ( ver: `var backend = { ...` )
+  * Configurações para o roteamendo do proxy (ver: `var backend = { ... }` ) 
 
     * Plugin do Grunt.js para proxy : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 
@@ -175,7 +175,7 @@ $ npm install
 
 * Quando você atualizar para a última versão do Firefox e o Selenium parar de funcionar
 
-  * **Solução:** `mantenha o jar do servidor Selenium sempre atualizado com a última versão`
+  * mantenha o jar do servidor Selenium sempre atualizado com a última versão
 
 ### Ferramenta para Publicação no GitHub gh-pages
 
