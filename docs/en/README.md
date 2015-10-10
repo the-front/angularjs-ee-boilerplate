@@ -131,7 +131,7 @@ $ npm install
 
 * Tools global configs: `./tools/config.js` which is used on `./tools/helpers/grunt/config/project.js`
 
-  * Proxy routing configuration ( see: `var backend = { ...` )
+  * Proxy routing configuration (see: `var backend = { ...`)
 
     * Proxy Grunt.js Plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 
@@ -171,7 +171,7 @@ $ npm install
 
 * When you uptade to last Firefox version and Selenium stop to work with
 
-  * **Solution:** `keep selenium server jar always up to date`
+  * keep selenium server jar always up to date
 
 ### Publishing tool for GitHub gh-pages
 
