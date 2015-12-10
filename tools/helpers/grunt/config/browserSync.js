@@ -99,9 +99,7 @@ grunt.config('browserSync', {
       }
 
     }
-
-  },
-
+  }
 
 });
 
