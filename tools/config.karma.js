@@ -17,6 +17,7 @@ module.exports = {
       {pattern: 'src/vendor/**/*.{js,map,css}', included: false, served: true, watched:false},
 
       // load app source and test's specs
+      'src/deps.config.js',
       'tools/helpers/tests/require.config.js',
 
       // app source, tests specs and html for cache templates
