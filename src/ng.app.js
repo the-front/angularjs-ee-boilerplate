@@ -18,7 +18,7 @@ define(function(require) {
 
       // module dependencies
       [
-        // enable mock and intercep $HTTP requests
+        // enable mock and intercept $HTTP requests
         require('./require.mock.load').name,
 
         require('app/main/package').name
