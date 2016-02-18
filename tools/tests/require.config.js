@@ -7,7 +7,7 @@
   console.log( 'isKarma: ' + isKarma );
   console.log( 'baseUrl: ' + _baseUrl );
 
-  var _config = getConfig();
+  var _config = getRequireConfig();
 
   //---
 

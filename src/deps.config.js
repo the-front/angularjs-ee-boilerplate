@@ -1,4 +1,4 @@
-function getConfig() {
+function getRequireConfig() {
   return {
 
     // libraries dependencies (fallback support)
