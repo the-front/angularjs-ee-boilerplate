@@ -57,6 +57,7 @@ module.exports = function(grunt) {
     'copy:prod_jstobuild',
     'html2js:prod',
     'rewriteRequireConfig',
+    'configRequirejsTask',
     'requirejs',
     'clean:build',
     'copy:prod_todist',

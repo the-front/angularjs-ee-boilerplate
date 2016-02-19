@@ -17,7 +17,7 @@ module.exports = {
       {pattern: 'src/vendor/**/*.{js,map,css}', included: false, served: true, watched:false},
 
       // load app source and test's specs
-      'src/deps.config.js',
+      'src/require.config.js',
       'tools/helpers/tests/require.config.js',
 
       // app source, tests specs and html for cache templates
@@ -26,7 +26,6 @@ module.exports = {
 
     // list of files to exclude
     exclude: [
-      'src/require.config.js',
       'src/require.mock.load.js',
       'src/**/mock/**/*'
     ],
