@@ -70,7 +70,6 @@
 
   }
 
-
   function onRequireReadyHandler() {
     console.log( 'onRequireReadyHandler' );
 

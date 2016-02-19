@@ -16,6 +16,8 @@ module.exports = (function() {
 
   config.karma = karmaConfigs;
 
+  config.protractor_config = 'tools/protractor.conf.js';
+
   //---
 
   config.packages = [
@@ -126,10 +128,14 @@ module.exports = (function() {
 
   //---
 
+  // config.require_deps = 'require.deps.config.js';
+  config.require_deps = 'require.config.js';
   config.require = {
     name: 'ng.app',
-    config: path.join(config.paths.src, 'require.config.js'),
-    build: path.join(config.paths.build, 'require.config.js')
+    // config: path.join(config.paths.src, 'require.config.js'),
+    // build: path.join(config.paths.build, 'require.config.js')
+    config: path.join(config.paths.src, config.require_deps),
+    build: path.join(config.paths.build, config.require_deps)
   };
 
   //---

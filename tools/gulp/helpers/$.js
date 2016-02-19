@@ -47,15 +47,17 @@ $.args = require('yargs').argv;
 //---
 
 $.is = { // TODO: review
-  karma   : !!$.args.karma,
-  debug   : !!$.args.debug,
-  release : !!$.args.release,
-  preview : !!$.args.preview,
-  proxy   : !!$.args.proxy,
-  less    : !!$.args.less,
-  sass    : !!$.args.sass,
-  publish : !!$.args.publish, // TODO: define flow
-  init    : !!$.args.init // TODO: define flow
+  karma       : !!$.args.karma,
+  protractor  : !!$.args.protractor,
+  e2e         : !!$.args.e2e,
+  debug       : !!$.args.debug,
+  release     : !!$.args.release,
+  preview     : !!$.args.preview,
+  proxy       : !!$.args.proxy,
+  less        : !!$.args.less,
+  sass        : !!$.args.sass,
+  publish     : !!$.args.publish, // TODO: define flow
+  init        : !!$.args.init // TODO: define flow
 };
 
 //---

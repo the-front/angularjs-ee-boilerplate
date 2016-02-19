@@ -41,4 +41,8 @@ module.exports = function(gulp, $) {
 
   });
 
+  gulp.task('webserver:preview:exit', function() {
+    $.connect.serverClose();
+  });
+
 };

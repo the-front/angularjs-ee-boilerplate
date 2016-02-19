@@ -15,6 +15,15 @@ module.exports = function(gulp, $) {
 
       runTasks = runTasks.concat([ 'build', 'webserver:preview' ]);
 
+    } else if( $.is.protractor || $.is.e2e ) {
+
+      runTasks = runTasks.concat([
+        'build',
+        'webserver:preview',
+        'protractor',
+        'webserver:preview:exit'
+      ]);
+
     } else {
 
       if( $.is.karma ) {

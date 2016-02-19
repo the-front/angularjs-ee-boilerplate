@@ -40,8 +40,8 @@ function generateAST(codeStr) {
 
 function editAST(ast) {
 
-  // get require config object : require( {} )
-  var configAST = ast.body[0].expression.arguments[0];
+  // redefine paths to 'empty:'
+  var configAST = ast.body[0].expression.callee.body.body[1].body.body[0].argument;
 
   var oldProperties = configAST.properties,
       newProperties = [],

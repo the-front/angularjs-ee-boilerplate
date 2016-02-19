@@ -48,6 +48,10 @@ module.exports = function(gulp, $) {
   //----------------------------------------------------------------------------
 
   gulp.task('requirejs', ['requirejs:rewrite-config'], function( done ) {
+
+    var config = $.rootRequire($.path.join($.config.paths.build, $.config.require_deps));
+    requireBuildConfig.paths = config.paths;
+
     $.requirejs.builder( requireBuildConfig, done, $.is.debug, $.log );
   });
 
