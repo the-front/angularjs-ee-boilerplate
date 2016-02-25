@@ -16,6 +16,8 @@ var protractor = require('gulp-protractor').protractor,
     gulp.task(name, ['protractor:webdriver_update'], function(cb) {
       gulp.src(files).pipe(protractor({
         configFile: $.config.protractor_config,
+
+        // https://github.com/angular/protractor/issues/66#issuecomment-186333950
         args: ['--baseUrl', 'http://' + $.localip + ':' + $.config.webserver.port + '?protractor-test']
       })).on('error', function(e) {
         console.log('ERRO!');
