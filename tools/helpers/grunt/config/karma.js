@@ -46,7 +46,8 @@ grunt.config('karma', {
     singleRun: true,
     logLevel: 'ERROR',
     junitReporter: {
-      outputFile: '<%= project.karma.reportsDir %>/junit/test-results.xml'
+      outputDir: '<%= project.karma.reportsDir %>/junit/',
+      outputFile: 'test-results.xml'
     },
     coverageReporter: {
       type : 'lcovonly', // produces an lcov.info file

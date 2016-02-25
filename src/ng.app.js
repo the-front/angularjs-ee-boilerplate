@@ -25,8 +25,14 @@ define(function(require) {
       ]
     );
 
-    // start angular app
-    angular.bootstrap(document, [module.name]);
+    if(location.href.indexOf("protractor-test") < 0){
+      // start angular app
+      angular.bootstrap(document, [module.name]);
+    } else {
+      // start angular app to protractor tests
+      window.name = 'NG_DEFER_BOOTSTRAP!' + window.name;
+      angular.bootstrap(document, [module.name]);
+    }
 
   }
 

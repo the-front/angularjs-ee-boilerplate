@@ -10,7 +10,8 @@ grunt.config('protractor', {
     options: {
       configFile: 'config.protractor.js',
       args: {
-        baseUrl: 'http://' + getIpAddress() + ':<%= project.frontend.port.webserver %>'
+        // https://github.com/angular/protractor/issues/66#issuecomment-186333950
+        baseUrl: 'http://' + getIpAddress() + ':<%= project.frontend.port.webserver %>?protractor-test'
       }
     }
   }
