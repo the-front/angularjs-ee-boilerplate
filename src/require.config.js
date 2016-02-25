@@ -12,7 +12,7 @@
         ],
 
         bootstrap: [
-          'vendor/bootstrap/3.3.2/js/bootstrap.min'
+          'vendor/bootstrap/3.3.6/js/bootstrap.min'
         ],
 
 
