@@ -30,7 +30,7 @@
 
 
         uiBootstrap: [
-          'vendor/angular-ui/bootstrap/0.12.0/ui-bootstrap-tpls.min'
+          'vendor/angular-ui/bootstrap/1.1.2/ui-bootstrap-tpls.min'
         ],
 
         uiRouter: [
