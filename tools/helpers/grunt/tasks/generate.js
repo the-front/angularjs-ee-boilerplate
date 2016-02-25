@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   'use strict';
 
-  var _         = require('lodash-node');
+  var _         = require('lodash');
   var _s        = require( 'underscore.string' );
   var path      = require( 'path' );
   var engine    = require( '../../lib/generate/engine' );

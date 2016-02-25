@@ -1,4 +1,4 @@
-var _     = require('lodash-node'),
+var _     = require('lodash'),
     path  = require('path'),
     Q     = require('q'),
     fs    = require('q-io/fs');

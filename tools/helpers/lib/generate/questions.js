@@ -1,5 +1,5 @@
 var path      = require('path'),
-    _         = require('lodash-node'),
+    _         = require('lodash'),
     _s        = require( 'underscore.string' ),
     Q         = require('q'),
     fs        = require('q-io/fs'),
