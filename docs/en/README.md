@@ -54,7 +54,7 @@ $ npm install
 
 * Must have [Git](http://git-scm.com/) installed
 
-* Must have [node.js (at least v0.10.0)](http://nodejs.org/) installed with npm (Node Package Manager)
+* Must have [node.js (at least v4.2.5)](http://nodejs.org/) installed with npm (Node Package Manager)
 
 * Must have [Grunt](https://github.com/gruntjs/grunt) node package installed globally
 
