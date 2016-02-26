@@ -8,7 +8,7 @@ This boilerplate (seed project, starting project) helps you build large scale [A
 > - [x] development workflow
 > - [x] code generation
 > - [x] production build
-> - [x] karma support >> need more reviews
+> - [x] karma support
 > - [x] protractor support
 > - [ ] review and update documentations
 
