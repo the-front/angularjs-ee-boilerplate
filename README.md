@@ -9,7 +9,7 @@ This boilerplate (seed project, starting project) helps you build large scale [A
 > - [x] code generation
 > - [x] production build
 > - [x] karma support
-> - [ ] protractor support
+> - [x] protractor support
 > - [ ] review and update documentations
 
 --
