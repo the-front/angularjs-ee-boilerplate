@@ -15,13 +15,28 @@ module.exports = function(gulp, $) {
 
       runTasks = runTasks.concat([ 'build', 'webserver:preview' ]);
 
-    } else if( $.is.protractor || $.is.e2e ) {
+    } else if( $.is.e2e ) {
 
       runTasks = runTasks.concat([
         'build',
         'webserver:preview',
         'protractor',
-        'webserver:preview:exit'
+        'webserver:exit'
+      ]);
+
+    } else if(
+      $.is.protractor &&
+      $._.isString($.args.protractor) &&
+      $._.isObject($.config.protractor) &&
+      $._.isObject($.config.protractor.tests) &&
+      $._.isArray($.config.protractor.tests.suites) &&
+      $._.find($.config.protractor.tests.suites, {name: $.args.protractor})
+    ) {
+
+      runTasks = runTasks.concat([
+        'webserver:protractor',
+        'protractor:suite:' + $.args.protractor,
+        'webserver:exit'
       ]);
 
     } else {

@@ -56,8 +56,9 @@ $.is = { // TODO: review
   proxy       : !!$.args.proxy,
   less        : !!$.args.less,
   sass        : !!$.args.sass,
-  publish     : !!$.args.publish, // TODO: define flow
-  init        : !!$.args.init // TODO: define flow
+
+  publish     : !!$.args.publish, // TODO: review - needed?
+  init        : !!$.args.init // TODO: review - needed?
 };
 
 //---
@@ -66,7 +67,7 @@ $.is = { // TODO: review
 (function() {
 
   $.config.paths.outputDir = (
-    ($.is.release || $.is.preview) ?
+    ($.is.release || $.is.preview || $.is.e2e) ?
       $.config.paths.dist :
       $.config.paths.build
   );

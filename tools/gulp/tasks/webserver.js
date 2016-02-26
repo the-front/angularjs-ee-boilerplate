@@ -20,6 +20,27 @@ module.exports = function(gulp, $) {
 
   });
 
+  gulp.task('webserver:protractor', ['styles'], function() {
+
+    var serverConfig = {
+      port: $.config.webserver.port,
+      root: [
+        $.config.paths.src,
+        $.config.paths.build
+      ]
+    };
+
+    if( $.is.proxy ) {
+      serverConfig.middleware = function( connect, opts ) {
+        return $.config.webserver.middlewares;
+      };
+    }
+
+    // https://www.npmjs.com/package/gulp-connect
+    $.connect.server( serverConfig );
+
+  });
+
   gulp.task('webserver:preview', function() {
 
     var serverConfig = {
@@ -37,11 +58,14 @@ module.exports = function(gulp, $) {
 
     // https://www.npmjs.com/package/gulp-connect
     $.connect.server( serverConfig );
-    $.open('http://' + $.localip + ':' + $.config.webserver.port);
+
+    if(!$.is.e2e){
+      $.open('http://' + $.localip + ':' + $.config.webserver.port);
+    }
 
   });
 
-  gulp.task('webserver:preview:exit', function() {
+  gulp.task('webserver:exit', function() {
     $.connect.serverClose();
   });
 
