@@ -25,6 +25,7 @@ define(function(require) {
       ]
     );
 
+    // https://github.com/angular/protractor/issues/66#issuecomment-186333950
     if(location.href.indexOf("protractor-test") < 0){
       // start angular app
       angular.bootstrap(document, [module.name]);
