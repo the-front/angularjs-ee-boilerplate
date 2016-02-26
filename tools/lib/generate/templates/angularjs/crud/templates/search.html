@@ -153,7 +153,7 @@
   <!-- https://angular-ui.github.io/bootstrap/#/pagination -->
   <div class="row" ng-if="vm.showPagination">
     <div class="text-center" ng-if="vm.result.pages > 1">
-      <pagination
+      <uib-pagination
         ng-model="vm.currentPage"
         max-size="vm.paginationItemsSize"
         total-items="vm.result.count"
@@ -162,7 +162,7 @@
         ng-change="vm.pageChanged()"
         class="pagination-sm"
         boundary-links="true"
-        rotate="false"></pagination>
+        rotate="false"></uib-pagination>
       </div>
   </div>
 

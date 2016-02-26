@@ -8,33 +8,33 @@
       paths: {
 
         jquery: [
-          'vendor/jquery/2.1.3/jquery.min'
+          'vendor/jquery/2.2.1/jquery.min'
         ],
 
         bootstrap: [
-          'vendor/bootstrap/3.3.2/js/bootstrap.min'
+          'vendor/bootstrap/3.3.6/js/bootstrap.min'
         ],
 
 
         angular: [
-          'vendor/angular.js/1.3.11/angular.min'
+          'vendor/angular.js/1.5.0/angular.min'
         ],
 
         angularResource: [
-          'vendor/angular.js/1.3.11/angular-resource.min'
+          'vendor/angular.js/1.5.0/angular-resource.min'
         ],
 
         angularAnimate: [
-          'vendor/angular.js/1.3.11/angular-animate.min'
+          'vendor/angular.js/1.5.0/angular-animate.min'
         ],
 
 
         uiBootstrap: [
-          'vendor/angular-ui/bootstrap/0.12.0/ui-bootstrap-tpls.min'
+          'vendor/angular-ui/bootstrap/1.1.2/ui-bootstrap-tpls.min'
         ],
 
         uiRouter: [
-          'vendor/angular-ui/ui-router/0.2.13/angular-ui-router.min'
+          'vendor/angular-ui/ui-router/0.2.18/angular-ui-router.min'
         ],
 
         toaster: [
@@ -48,7 +48,7 @@
 
         // @begin: mock libs
         angularMocks: [
-          'vendor/angular.js/1.3.11/angular-mocks'
+          'vendor/angular.js/1.5.0/angular-mocks'
         ],
 
         angularMocksBackend: [
