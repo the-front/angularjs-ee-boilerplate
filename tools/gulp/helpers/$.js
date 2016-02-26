@@ -15,7 +15,7 @@ $.rootRequire = function( name ) {
 };
 
 //---
-
+$._               = require('lodash');
 $.del             = require('del');
 $.lazypipe        = require('lazypipe');
 $.runSequence     = require('run-sequence');

@@ -15,7 +15,7 @@ var protractor = require('gulp-protractor').protractor,
   function configProgractorTask(name, files) {
     gulp.task(name, ['protractor:webdriver_update'], function(cb) {
       gulp.src(files).pipe(protractor({
-        configFile: $.config.protractor_config,
+        configFile: $.config.protractor.configFile,
 
         // https://github.com/angular/protractor/issues/66#issuecomment-186333950
         args: ['--baseUrl', 'http://' + $.localip + ':' + $.config.webserver.port + '?protractor-test']
@@ -29,17 +29,19 @@ var protractor = require('gulp-protractor').protractor,
     });
   }
 
-  configProgractorTask('protractor', ['src/**/e2e/**/*.js']);
+  if(
+      $._.isObject($.config.protractor) &&
+      $._.isObject($.config.protractor.tests)
+  ){
+      if( $._.isString($.config.protractor.tests.all)  ){
+        configProgractorTask('protractor', [$.config.protractor.tests.all]);
+      }
 
-  var suites = [
-    {name: 'home', files: ['src/app/home/**/tests/e2e/*.spec.js']},
-    {name: 'about', files: ['src/app/about/**/tests/e2e/*.spec.js']},
-    {name: 'help', files: ['src/app/help/**/tests/e2e/*.spec.js']},
-    {name: 'bookmarks', files: ['src/app/bookmarks/**/tests/e2e/*.spec.js']}
-  ];
-
-  suites.forEach(function(suite) {
-    configProgractorTask('protractor:suite:' + suite.name, suite.files);
-  });
+      if( $._.isArray($.config.protractor.tests.suites) ){
+        $.config.protractor.tests.suites.forEach(function(suite){
+          configProgractorTask('protractor:suite:' + suite.name, suite.files);
+        });
+      }
+  }
 
 };

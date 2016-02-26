@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-    options = require('./options');
+    options = require('./karma.options');
 
 var coverageReporterHtml = {
   type : 'html',

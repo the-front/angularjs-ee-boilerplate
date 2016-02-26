@@ -2,7 +2,7 @@ module.exports = (function() {
 
   var path          = require('path'),
       pkg           = require('../package'),
-      karmaConfigs  = require('./karma-configs');
+      karmaConfigs  = require('./karma.config');
 
   //---
 
@@ -14,9 +14,29 @@ module.exports = (function() {
 
   //---
 
+  config.paths = {
+    src       : 'src',
+    build     : '.temp',
+    dist      : 'dist',
+    reports   : 'tests_out'
+  };
+
+  //---
+
   config.karma = karmaConfigs;
 
-  config.protractor_config = 'tools/protractor.conf.js';
+  config.protractor = {
+    configFile : 'tools/protractor.config.js',
+    tests : {
+      all : 'src/**/e2e/**/*.js',
+      suites : [
+        {name: 'home', files: ['src/app/home/**/tests/e2e/*.spec.js']},
+        {name: 'about', files: ['src/app/about/**/tests/e2e/*.spec.js']},
+        {name: 'help', files: ['src/app/help/**/tests/e2e/*.spec.js']},
+        {name: 'bookmarks', files: ['src/app/bookmarks/**/tests/e2e/*.spec.js']}
+      ]
+    }
+  };
 
   //---
 
@@ -35,15 +55,6 @@ module.exports = (function() {
     ' * @license ' + pkg.license + '\n' +
     ' * v' + pkg.version + '\n' +
     ' */\n';
-
-  //---
-
-  config.paths = {
-    src       : 'src',
-    build     : '.temp',
-    dist      : 'dist',
-    reports   : 'tests_out'
-  };
 
   //---
 
