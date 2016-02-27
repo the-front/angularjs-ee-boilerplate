@@ -10,7 +10,9 @@ This boilerplate (seed project, starting project) helps you build large scale [A
 > - [x] production build
 > - [x] karma support
 > - [x] protractor support
-> - [ ] review and update documentations
+> - [x] node.js dependencies updated
+> - [x] pom.xml frontend plugin, node.js and npm versions updated
+> - [ ] update documentations >> in progress
 
 --
 
