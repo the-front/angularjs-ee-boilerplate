@@ -8,7 +8,7 @@ module.exports = function(gulp, $) {
 
     if( $.is.publish ) {
 
-      runTasks = runTasks.concat([ 'publish' ]);
+      runTasks = runTasks.concat([ 'init', 'publish' ]);
 
     } else if( $.is.init ) {
 
