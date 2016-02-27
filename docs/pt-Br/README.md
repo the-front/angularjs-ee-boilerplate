@@ -54,7 +54,7 @@ $ npm install
 
 * Necessário ter instalado o [Git](http://git-scm.com/)
 
-* Necessário ter instalado o [node.js (v0.10.0 ou mais recente)](http://nodejs.org/) com o npm (Node Package Manager)
+* Necessário ter instalado o [node.js (v4.2.5 ou mais recente)](http://nodejs.org/) com o npm (Node Package Manager)
 
   * caso esteja em um ambiente corporativo, utilizando o windows atrás de um proxy NTLM, siga estas intruções : [Utilizando o Node.js em um Windows XP sem Administrador | Javascript Brasil](http://javascriptbrasil.com/2012/11/19/utilizando-o-node-js-em-um-windows-xp-sem-administrador/)
 
@@ -133,7 +133,7 @@ $ npm install
 
 * Configurações globais do ferramental: `./tools/config.js`, as quais são utilizadas no `./tools/helpers/grunt/config/project.js`
 
-  * Configurações para o roteamendo do proxy (ver: `var backend = { ... }` ) 
+  * Configurações para o roteamendo do proxy (ver: `var backend = { ... }` )
 
     * Plugin do Grunt.js para proxy : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
 
