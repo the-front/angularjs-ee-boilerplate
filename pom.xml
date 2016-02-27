@@ -11,9 +11,9 @@
 
   <properties>
     <encoding>UTF-8</encoding>
-    <frontend-maven-plugin.version>0.0.23</frontend-maven-plugin.version>
-    <node.version>0.10.38</node.version>
-    <npm.version>1.4.28</npm.version>
+    <frontend-maven-plugin.version>0.0.28</frontend-maven-plugin.version>
+    <node.version>4.2.5</node.version>
+    <npm.version>2.14.12</npm.version>
   </properties>
 
   <build>
@@ -52,7 +52,7 @@
               <goal>gulp</goal>
             </goals>
             <configuration>
-              <arguments>--release</arguments>
+              <arguments>--release --no-color</arguments>
             </configuration>
           </execution>
 
