@@ -4,17 +4,6 @@
 
 This boilerplate (seed project, starting project) helps you build large scale [Angular.js](https://angularjs.org/) applications with [Require.js](http://requirejs.org/)
 
-> **Status:** migrating grunt to gulp on [gulp branch](https://github.com/the-front/angularjs-ee-boilerplate/tree/gulp)
-> - [x] development workflow
-> - [x] code generation
-> - [x] production build
-> - [x] karma support
-> - [x] protractor support
-> - [x] node.js dependencies updated
-> - [x] pom.xml frontend plugin, node.js and npm versions updated
-> - [x] update documentations
-> - [x] merge gulp to master and publish version 2.0.0
-
 --
 
 * [README (en)](docs/en/README.md)
