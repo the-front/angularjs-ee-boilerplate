@@ -12,7 +12,7 @@ This boilerplate (seed project, starting project) helps you build large scale [A
 > - [x] protractor support
 > - [x] node.js dependencies updated
 > - [x] pom.xml frontend plugin, node.js and npm versions updated
-> - [ ] update documentations >> in progress
+> - [x] update documentations
 
 --
 
