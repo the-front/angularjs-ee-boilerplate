@@ -34,7 +34,7 @@ FrontEnd Boilerplate project with development and publishing tools (for GitHub g
 
   * to define a better communication between frontend and backend (server), please consider follow the given proposal [REST URL Design](rest_url_design.md)
 
-  * tools and publisher are based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+  * `./tools` and `./publisher` are based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
 
 ## Installation Guide
 
