@@ -13,6 +13,7 @@ This boilerplate (seed project, starting project) helps you build large scale [A
 > - [x] node.js dependencies updated
 > - [x] pom.xml frontend plugin, node.js and npm versions updated
 > - [x] update documentations
+> - [ ] merge gulp to master and publish version 2.0.0
 
 --
 
