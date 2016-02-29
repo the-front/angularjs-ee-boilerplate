@@ -42,7 +42,11 @@ module.exports = function(gulp, $) {
   });
 
   gulp.task('karma:coverage', function( done ) {
-    startKarma( $.config.karma.coverage, done );
+    function karmaDone(){
+      $.open($.path.join($.config.paths.reports,'coverage','html','index.html') );
+      done();
+    }
+    startKarma( $.config.karma.coverage, karmaDone );
   });
 
   gulp.task('karma:ci', function( done ) {
