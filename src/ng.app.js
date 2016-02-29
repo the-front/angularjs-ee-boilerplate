@@ -3,6 +3,7 @@ define(function(require) {
 
   var angular = require('angular');
 
+
   angular.element(document).ready(startAngularApp);
 
   //---
@@ -18,7 +19,7 @@ define(function(require) {
 
       // module dependencies
       [
-        // enable mock and intercept $HTTP requests
+        // enable mock and intercep $HTTP requests
         require('./require.mock.load').name,
 
         require('app/main/package').name

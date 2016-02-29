@@ -11,10 +11,9 @@ Este projeto "clichê" (semente, inicial) irá lhe ajudar na construção de apl
   * [Pré-Requisitos](#pré-requisitos)
 * [Guia de Uso](#guia-de-uso)
   * [Ferramentas para o Fluxo de Desenvolvimento](#ferramentas-para-o-fluxo-de-desenvolvimento)
-    * [Construção](#construção)
     * [Geração de Código](#geração-de-código)
     * [Desenvolvimento](#desenvolvimento)
-    * [Visualização da versão de Distribuição](#visualização-da-versão-de-distribuição)
+    * [Distribuição](#distribuição)
     * [Testes](#testes)
     * [Configurações do Ferramental](#configurações-do-ferramental)
     * [Dicas](#dicas)
@@ -27,13 +26,15 @@ Este projeto "clichê" (semente, inicial) irá lhe ajudar na construção de apl
 
 <!-- toc stop -->
 
-
 ## Visão Geral
 
 Projeto Boilerplate, com ferramental de suporte para o desenvolvimento e publicação no gh-pages do GitHub
 
-* **Importante**: para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](rest_url_design.md)
+* **Importante:**
 
+  * para definir a comunicação com entre a aplicação frontend, com o backend (parte do servidor), observe e procure seguir a proposta [REST URL Design](rest_url_design.md)
+
+  * `./tools` e `./publisher` são baseados no [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
 
 ## Guia de Instalação
 
@@ -43,11 +44,13 @@ Execute os comandos a seguir no terminal (console)
 $ git clone https://github.com/erkobridee/angularjs-ee-boilerplate.git
 $ cd angularjs-ee-boilerplate
 $ cd tools
-$ npm run setup
+$ npm install
 $ cd ..
 $ cd publisher
 $ npm install
 ```
+
+> `./publisher` - a instalação é opcional, utilizado para publicar a versão de distribuição no branch `gh-pages`
 
 
 ### Pré-Requisitos
@@ -58,7 +61,7 @@ $ npm install
 
   * caso esteja em um ambiente corporativo, utilizando o windows atrás de um proxy NTLM, siga estas intruções : [Utilizando o Node.js em um Windows XP sem Administrador | Javascript Brasil](http://javascriptbrasil.com/2012/11/19/utilizando-o-node-js-em-um-windows-xp-sem-administrador/)
 
-* Necessário ter o [Grunt](https://github.com/gruntjs/grunt) instalado como um pacote global
+* Necessário ter o [Gulp](http://gulpjs.com/) instalado como um pacote global
 
 
 ## Guia de Uso
@@ -73,71 +76,43 @@ $ npm install
 
   > **Atenção:** a tarefa ***lintspaces*** para verificar a padronização dos arquivos, esta depende do arquivo na raiz do repositório : `.editorconfig`
 
-#### Construção
-
-* `grunt build:dev` >> prepara os arquivos para desenvolvimento, dentro do diretório `./tools/.temp`
-
-* `grunt build:prod` >> limpa os diretórios de build, executa os testes e então prepara os arquivos para distribuição / produção, dentro do diretório `./dist`
-
 #### Geração de Código
 
-* `grunt generate` >> pergunta qual opção de geração de código você deseja, os respectivos valores para a opção escolhida e finalmente o destino de criação dos arquivos
+* `gulp generate` - pergunta qual opção de geração de código você deseja, os respectivos valores para a opção escolhida e finalmente o destino de criação dos arquivos
 
 #### Desenvolvimento
 
-* `grunt dev:livereload` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao livereload, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browsers e dispositivos conectados no servidor
+* `gulp` - prepara e executa o fluxo de desenvolvimento
 
-* `grunt dev:livereload:proxy` >> além das tarefas do `dev:livereload`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
+#### Distribuição
 
-* `grunt dev:sync` >> primeiro irá executar a tarefa `build:dev`, depois disso inicia um servidor web com suporte ao browser-sync, o qual monitora alterações nos arquivos *.html, .css, e .js* e atualiza todos os browsers e dispositivos conectados no servidor, também mantem os dados e navegação sincronizada
+* `gulp --release` - gera a versão de distribuição no diretório `./dist`
 
-* `grunt dev:sync:proxy` >> além das tarefas do `dev:sync`, irá criar um proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
-
-##### alias
-
-  * `grunt dev` >> alias para `grunt dev:livereload`
-
-  * `grunt dev:proxy` >> alias para `grunt dev:livereload:proxy`
-
-#### Visualização da versão de Distribuição
-
-* `grunt dist` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados
-
-* `grunt dist:proxy` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
-
-* `grunt dist:sync` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + browser-sync para sincronizar os dados e navegação
-
-* `grunt dist:sync:proxy` >> primeiro irá executar a tarefa `build:prod`, depois disso inicia um servidor web com os arquivos gerados + browser-sync para sincronizar os dados e navegação + proxy para rotear as requisições de um contexto, por exemplo: `/rest`, para outro servidor
+* `gulp --preview` - gera a versão de distribuição no diretório `./dist` e inicia um servidor web para verificar a aplicação
 
 #### Testes
 
 ##### Testes Unitários
 
-* `grunt ci` - limpa os diretórios de build, executa a tarefa `karma:ci` do grunt que executa os testes
+> as configurações do karma estão definidas no arquivo `./tools/karma.options.js`, as configurações para as tasks gulp definidas no arquivo `./tools/karma.config.js` e carregadas no arquivo `./tools/config.js`
 
-* `grunt reports` - limpa os diretórios de build, executa a tarefa `karma:reports` do grunt que gera os relatórios html de cobertura e teste, então abre o diretório onde os relatórios foram gerados
+* `gulp --karma` - executa o fluxo de desenvolvimento e testes do karma
 
-* `grunt specs` - primeiro gera os relatórios html de cobertura e teste, inicia o karma com watch e um webserver com livereload observando os arquivos html dos relatórios, que são regerados a cada execução do karma
+* `gulp karma:specs` - inicia o processo do karma e monitora as alterações dos arquivos js do projeto e de testes onde a cada alteração o karma executa novamente os testes
 
-> **Atenção:** caso queira executar com o fluxo de desenvolvimento, execute primeiro a tarefa de desenvolvimento (ex.: `grunt dev`) em um terminal e em outro terminal execute `grunt specs`
+* `gulp karma:coverage` - executa os testes do karma e gera o relatório de cobertura no diretório `./tests_out/coverage/html`
 
 ##### Testes e2e (end-to-end) - Selenium
 
-* `grunt e2e` - primeiro irá executar a tarefa `build:prod`, iniciar um servidor web com suporte a proxy e então executará os testes e2e com o Protractor
+> as configurações globais para o protractor estão definidas no arquivo `./tools/protractor.config.js`, sendo carregado e especificada no arquivo `./tools/config.js`
 
-* `grunt protractor` - executa apenas os testes e2e
+* `gulp --e2e` - gera a versão de distribuição, inicia o servidor web e então executa todos os testes e2e
 
-> **Atenção:** precisa executar em conjunto do fluxo de desenvolvimento, execute primeiro a tarefa de desenvolvimento (ex.: `grunt dev`) em um terminal e em outro terminal execute `grunt protrator`, ou para executar um suite de testes específico `grunt protractor --suite bookmarks` (configuração para o Protractor: `./tools/config.protractor.js`)
+* `gulp --protractor={suiteName}` - prepara o servidor web e executa um conjunto de teste (suite) definido no arquivo `./tools/config.js`
 
 #### Configurações do Ferramental
 
-* Configurações globais do ferramental: `./tools/config.js`, as quais são utilizadas no `./tools/helpers/grunt/config/project.js`
-
-  * Configurações para o roteamendo do proxy (ver: `var backend = { ... }` )
-
-    * Plugin do Grunt.js para proxy : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
-
-  * Para centralizar e tornar mais fácil o gerenciado das configurações das tarefas do Grunt.js, foi definido o arquivo `./tools/helpers/grunt/config/project.js`
+* Configurações globais do ferramental: `./tools/config.js`, as quais são carregadas no arquivo `./tools/gulp/helpers/$.js` e injetada em cada arquivo de task do gulp `./tools/gulp/tasks`
 
 #### Dicas
 
@@ -179,64 +154,49 @@ $ npm install
 
 ### Ferramenta para Publicação no GitHub gh-pages
 
-> Dentro do diretório `./publisher`, comandos disponíveis do grunt.js
+> Dentro do diretório `./publisher`
 
-* `grunt init` >> realiza o clone do projeto a partir do GitHub no diretório `./publisher/local/gh-pages` e seleciona o branch `gh-pages`, o que é utilizado para atualizar o branch `gh-pages` no GitHub
-
-> Execute este comando uma vez, antes dos comandos a seguir
-
---
-
-* `grunt publish` >> esta tarefa irá executar o comando `grunt build:prod` dentro do diretório `./tools`, então irá copiar os arquivo gerados no diretório `./dist` para `./publisher/local/gh-pages`, efetuar o commit dos arquivos e então enviar para o branch `gh-pages` no Github
-
-* `grunt publish:dev` - esta tarefa irá copiar os arquivo do diretório `./src` para `./publisher/local/gh-pages`, efetuar o commit dos arquivos e então enviar para o branch `gh-pages` no Github
-
+* `gulp --publish` - essa tarefa irá invocar o comando `gulp --release` na raiz do projeto, então após gerar a versão de distribuição irá copiar os arquivos do diretório `./dist` para o diretório `./publisher/.local`, efetua os commit e sincroniza o branch `gh-pages` com o GitHub
 
 ## Estrutura de Diretórios
 
 ```
 ./
-  /src        >> fontes do projeto
-  /tools      >> ferramentas de desenvolvimento
-  /publisher  >> ferramenta de publicação
+  /src          >> fontes do projeto
+  /tools        >> ferramentas de desenvolvimento
+  /publisher    >> ferramenta de publicação
+  gulpfile.js   >> arquivo principal do gulp.js
+  package.json  >> arquivo de configuração e dependências do node.js
 ```
 
 
 ### Desenvolvimento
 
+> `./tools/gulp` baseado no [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+
 ```
 /tools
-  /helpers
-    /lib                 >> processamentos auxiliares
-    /scripts             >> processamentos de automação
-    /html_report_template
-      jasmine.html       >> template de relatório html do jasmine
-    /grunt
-      /config            >> arquivos de configurações para as tarefas do grunt.js
-      /tasks             >> tarefas customizadas para o grunt.js
-    /tests
-      require.config.js  >> carrega os arquivos e testes da aplicação para o Karma Runner
-  /templates             >> arquivos de templates para a tarefa generate do grunt.js
-  config.js              >> configurações globais para as tarefas do grunt.js
-  config.karma.js        >> referenciado no config.js
-  config.protractor.js   >> configurações para o Protractor
-  Gruntfile.js           >> arquivo principal de configuração do grunt.js
-  package.json           >> arquivo de configuração e dependências do projeto 'tools' em node.js
+  /gulp
+  /lib                   >> processamentos auxiliares
+  /scripts               >> scripts úteis utilizado no npm scripts
+  /tests
+    require.config.js    >> carrega os arquivos e testes da aplicação para o Karma Runner
+  config.js              >> configurações globais para as tarefas do gulp.js
+  karma.config.js        >> configuração das tasks karma carregadas no arquivo `config.js`
+  karma.options.js       >> configurações do karma usado no arquivo `karma.config.js`
+  protractor.config.js   >> arquivo de configuração do protractor utilizados pela execução do protractor
 ```
-
 
 ### Publicação
 
+> `./publisher/gulp` baseado no [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+
 ```
 /publisher
-  /helpers
-    /grunt
-      /config     >> arquivos de configurações para as tarefas do grunt.js
-      /tasks      >> tarefas customizadas para o grunt.js
-  Gruntfile.js    >> arquivo principal de configuração do grunt.js
-  package.json    >> arquivo de configuração e dependências do projeto 'publisher' em node.js
+  /gulp
+  gulpfile.js     >> arquivo principal do gulp.js
+  package.json    >> dependências node.js para as dependencias do `./publisher`
 ```
-
 
 ### Projeto
 
