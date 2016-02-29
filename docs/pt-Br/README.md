@@ -11,10 +11,9 @@ Este projeto "clichê" (semente, inicial) irá lhe ajudar na construção de apl
   * [Pré-Requisitos](#pré-requisitos)
 * [Guia de Uso](#guia-de-uso)
   * [Ferramentas para o Fluxo de Desenvolvimento](#ferramentas-para-o-fluxo-de-desenvolvimento)
-    * [Construção](#construção)
     * [Geração de Código](#geração-de-código)
     * [Desenvolvimento](#desenvolvimento)
-    * [Visualização da versão de Distribuição](#visualização-da-versão-de-distribuição)
+    * [Distribuição](#distribuição)
     * [Testes](#testes)
     * [Configurações do Ferramental](#configurações-do-ferramental)
     * [Dicas](#dicas)
@@ -26,7 +25,6 @@ Este projeto "clichê" (semente, inicial) irá lhe ajudar na construção de apl
   * [Projeto](#projeto)
 
 <!-- toc stop -->
-
 
 ## Visão Geral
 
