@@ -50,7 +50,7 @@ $ cd publisher
 $ npm install
 ```
 
-> ./publisher/ -> installation is optional, used to deploy distribution version on gh-pages
+> `./publisher/` installation is optional, used to deploy distribution version on gh-pages
 
 ### Prerequisites
 
@@ -90,7 +90,9 @@ $ npm install
 
 * `gulp --karma` - run development and karma tests flow
 
-> **TODO:** review
+* `gulp karma:specs` - start karma process and watch for project or test js file change
+
+* `gulp karma:coverage` - run karma tests and generate coverage report on `./tests_out/coverage/html/`
 
 ##### e2e (end-to-end) - Selenium Tests
 
@@ -157,9 +159,11 @@ $ npm install
 
 ### Development
 
+> `./tools/gulp` based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+
 ```
 /tools
-  /gulp                  >> gulp tasks based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+  /gulp
   /lib                   >> auxiliary processing
   /scripts               >> useful scripts used on npm scripts
   /tests
@@ -174,9 +178,11 @@ $ npm install
 
 ### Publishing
 
+> `./publisher/gulp` based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+
 ```
 /publisher
-  /gulp                  >> gulp tasks based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+  /gulp
   gulpfile.js     >> main gulp.js file
   package.json    >> node.js 'publisher' project and dependencies configuration
 ```
