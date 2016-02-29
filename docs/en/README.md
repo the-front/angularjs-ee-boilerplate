@@ -27,13 +27,15 @@ This boilerplate (seed project, starting project) helps you build large scale [A
 
 <!-- toc stop -->
 
-
 ## Overview
 
 FrontEnd Boilerplate project with development and publishing tools (for GitHub gh-pages)
 
-* **Important**: to define a better communication between frontend and backend (server), please consider follow the given proposal [REST URL Design](rest_url_design.md)
+* **Important:**
 
+  * to define a better communication between frontend and backend (server), please consider follow the given proposal [REST URL Design](rest_url_design.md)
+
+  * tools and publisher are based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
 
 ## Installation Guide
 
@@ -42,13 +44,13 @@ Enter the following commands in the terminal
 ```bash
 $ git clone https://github.com/erkobridee/angularjs-ee-boilerplate.git
 $ cd angularjs-ee-boilerplate
-$ cd tools
-$ npm run setup
+$ npm install
 $ cd ..
 $ cd publisher
 $ npm install
 ```
 
+> ./publisher/ -> installation is optional, used to deploy distribution version on gh-pages
 
 ### Prerequisites
 
@@ -56,86 +58,51 @@ $ npm install
 
 * Must have [node.js (at least v4.2.5)](http://nodejs.org/) installed with npm (Node Package Manager)
 
-* Must have [Grunt](https://github.com/gruntjs/grunt) node package installed globally
-
+* Must have [Gulp](http://gulpjs.com/) node package installed globally
 
 ## Use Guide
 
-> `./` means root directoy
+> `./` means root directory
 
 ### Tools for Development Workflow
 
-> Inside `./tools` directory, available grunt.js commands
-
-* `grunt` >> (default task) that will execute lintspaces, jshint to verify and ensure js code quality and cleanup build and dist directories
-
   > **Attention:** the following task **lintspaces** will verify the patterns insides files according rules inside `.editorconfig` in the root directory
-
-#### Build
-
-* `grunt build:dev` >> prepare files for development, inside `./tools/.temp` directory
-
-* `grunt build:prod` >> cleanup build directories, execute test's and then prepare files for distribution / production, inside `./dist` directory
 
 #### Code Generation
 
-* `grunt generate` >> ask for which code generate option you want, values for the chosen and finally output destination
+* `gulp generate` >> ask for which code generate option you want, values for the chosen and finally output destination, templated available on `./tools/lib/generate/templates`
 
 #### Development
 
-* `grunt dev:livereload` >> first will execute `build:dev` task, after that start web server with livereload support and watch changes on files *.html, .css and .js*, that will update all browsers and devices connect to server
+* `gulp` - prepare and execute development workflow
 
-* `grunt dev:livereload:proxy` >> beyond the `dev:livereload` tasks, this task create a proxy to route requests to other server based on given context, for example `/rest`
+#### Distribuction
 
-* `grunt dev:sync` >> first will execute `build:dev` task, after that start web server with browser-sync support and watch changes on files *.html, .css and .js*, that will update all browsers and devices connect to server and sync data and navigation
+* `gulp --release` - generate distribuction version on `./dist`
 
-* `grunt dev:sync:proxy` >> beyond the `dev:sync` tasks, this task create a proxy to route requests to other server based on given context, for example `/rest`
-
-##### alias
-
-  * `grunt dev` >> alias to `grunt dev:livereload`
-
-  * `grunt dev:proxy` >> alias to `grunt dev:livereload:proxy`
-
-#### Distribuction Preview
-
-* `grunt dist` >> first will execute `build:prod` task, after that start web server with generated files
-
-* `grunt dist:proxy` >> first will execute `build:prod` task, after that start web server with generated files + proxy to route requests to other server based on given context, for example `/rest`
-
-* `grunt dist:sync` >> first will execute `build:prod` task, after that start web server with generated files + browser-sync to synchronize data and navigation
-
-* `grunt dist:sync:proxy` >> first will execute `build:prod` task, after that start web server with generated files + browser-sync to synchronize data and navigation + proxy to route requests to other server based on given context, for example `/rest`
+* `gulp --preview` - generate distribuction version on `./dist` and start webserver to check application
 
 #### Tests
 
 ##### Unit Tests
 
-* `grunt ci` - cleanup build directories and then execute `karma:ci` grunt task that run test's
+> karma configs defined on `./tools/karma.options.js`, `./tools/karma.config.js` and loaded on `./tools/config.js`
 
-* `grunt reports` - cleanup build directories, execute `karma:reports` grunt task that generate coverage and jasmine html reports and then open reports output directory
+* `gulp --karma` - run development and karma tests flow
 
-* `grunt specs` - first generate coverage and jasmine html reports, start karma with watch process and webserver with livereload watching reports html's
-
-> **Attention:** if you want to run with dev flow, run first dev task (ex.: `grunt dev`) in one terminal and in other terminal run `grunt specs`
+> **TODO:** review
 
 ##### e2e (end-to-end) - Selenium Tests
 
-* `grunt e2e` - execute `build:prod`, start web server with proxy support and then run e2e test's with Protractor
+> protractor global configs defined on `protractor.config.js` and loaded and specified on `./tools/config.js`
 
-* `grunt protractor` - run only e2e test's
+* `gulp --e2e` - generate distribuction files and after it start webserver and execute e2e tests
 
-> **Attention:** need to run with dev flow, run first (ex.: `grunt dev`) in one terminal and in other terminal run `grunt protractor` or specific test's suite `grunt protractor --suite bookmarks` (Protractor configs: `./tools/config.protractor.js`)
+* `gulp --protractor={suiteName}` - prepare webserver and run one suite test defined on `./tools/config.js`
 
 #### Tools Configuration
 
-* Tools global configs: `./tools/config.js` which is used on `./tools/helpers/grunt/config/project.js`
-
-  * Proxy routing configuration (see: `var backend = { ...`)
-
-    * Proxy Grunt.js Plugin : [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy) | [Using grunt-connect-proxy](http://www.fettblog.eu/blog/2013/09/20/using-grunt-connect-proxy/)
-
-  * To center and make more easy to manage Grunt.js tasks configurations was defined the file `./tools/helpers/grunt/config/project.js`
+* Tools global configs: `./tools/config.js` which is loaded on `./tools/gulp/helpers/$.js` this one is injected on each `./tools/gulp/tasks` file
 
 #### Tips
 
@@ -175,18 +142,9 @@ $ npm install
 
 ### Publishing tool for GitHub gh-pages
 
-> Inside `./publisher` directory, available grunt.js commands
+> Inside `./publisher` directory
 
-* `grunt init` >> do project clone from GitHub inside `./publisher/local/gh-pages` directory and checkout `gh-pages` branch, which is used to update remote `gh-pages` branch on GitHub
-
-> Execute this command at once, before the following commands
-
---
-
-* `grunt publish` >> this task will invoke `grunt build:prod` command inside `./tools` directory, then copy generated files from `./dist` to `./publisher/local/gh-pages`, commit files and finally push to `gh-pages` branch on GitHub
-
-* `grunt publish:dev` - this task will copy files  from `./src` to `./publisher/local/gh-pages`, commit files and finally push to `gh-pages` branch on GitHub
-
+* `gulp --publish` >> this task will invoke `gulp --release` command at root, then copy generated files from `./dist` to `./publisher/.local`, commit files and finally push to `gh-pages` branch on GitHub
 
 ## Directories Structure
 
@@ -197,26 +155,19 @@ $ npm install
   /publisher  >> publisher tool
 ```
 
-
 ### Development
 
 ```
 /tools
-  /helpers
-    /lib                 >> auxiliary processing
-    /scripts             >> automation processing
-    /html_report_template
-      jasmine.html       >> jasmine html report template
-    /grunt
-      /config            >> configuration files to grunt.js tasks
-      /tasks             >> custom grunt.js tasks
-    /tests
-      require.config.js  >> load application files and test's specs for Karma Runner
-  /templates             >> templates files for grunt.js generate task
-  config.js              >> global configs for grunt.js tasks
-  config.karma.js        >> referenced on config.js
-  config.protractor.js   >> config for Protractor
-  Gruntfile.js           >> main grunt.js configuration file
+  /gulp                  >> gulp tasks based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+  /lib                   >> auxiliary processing
+  /scripts               >> useful scripts used on npm scripts
+  /tests
+    require.config.js    >> load application files and test's specs for Karma Runner
+  config.js              >> global configs to gulp tasks
+  karma.config.js        >> karma tasks configs loaded on `config.js`
+  karma.options.js       >> karma configs used on `karma.config.js`
+  protractor.config.js   >> protractor config file used with protractor process
   package.json           >> node.js 'tools' project and dependencies configuration
 ```
 
@@ -225,11 +176,8 @@ $ npm install
 
 ```
 /publisher
-  /helpers
-    /grunt
-      /config     >> configuration files to grunt.js tasks
-      /tasks      >> custom grunt.js tasks
-  Gruntfile.js    >> main grunt.js configuration file
+  /gulp                  >> gulp tasks based on [[GitHub] soudev / gulp-steps](https://github.com/soudev/gulp-steps) - [04](https://github.com/soudev/gulp-steps/tree/master/04)
+  gulpfile.js     >> main gulp.js file
   package.json    >> node.js 'publisher' project and dependencies configuration
 ```
 
