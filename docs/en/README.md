@@ -49,7 +49,7 @@ $ cd publisher
 $ npm install
 ```
 
-> `./publisher/` installation is optional, used to deploy distribution version on gh-pages
+> `./publisher` - installation is optional, used to deploy distribution version on `gh-pages` branch
 
 ### Prerequisites
 
@@ -69,7 +69,7 @@ $ npm install
 
 #### Code Generation
 
-* `gulp generate` >> ask for which code generate option you want, values for the chosen and finally output destination, templated available on `./tools/lib/generate/templates`
+* `gulp generate` - ask for which code generate option you want, values for the chosen and finally output destination, templated available on `./tools/lib/generate/templates`
 
 #### Development
 
@@ -85,7 +85,7 @@ $ npm install
 
 ##### Unit Tests
 
-> karma configs defined on `./tools/karma.options.js`, `./tools/karma.config.js` and loaded on `./tools/config.js`
+> karma configs defined on `./tools/karma.options.js`, gulp tasks configs defined on `./tools/karma.config.js` and loaded on `./tools/config.js`
 
 * `gulp --karma` - run development and karma tests flow
 
