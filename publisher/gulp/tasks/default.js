@@ -12,7 +12,6 @@ module.exports = function(gulp, $) {
 
     } else if( $.is.init ) {
 
-      // dev flow
       runTasks = runTasks.concat([ 'init' ]);
 
     }
