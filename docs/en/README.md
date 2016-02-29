@@ -95,7 +95,7 @@ $ npm install
 
 ##### e2e (end-to-end) - Selenium Tests
 
-> protractor global configs defined on `protractor.config.js` and loaded and specified on `./tools/config.js`
+> protractor global configs defined on `./tools/protractor.config.js` and loaded and specified on `./tools/config.js`
 
 * `gulp --e2e` - generate distribuction files and after it start webserver and execute e2e tests
 
@@ -145,15 +145,17 @@ $ npm install
 
 > Inside `./publisher` directory
 
-* `gulp --publish` >> this task will invoke `gulp --release` command at root, then copy generated files from `./dist` to `./publisher/.local`, commit files and finally push to `gh-pages` branch on GitHub
+* `gulp --publish` - this task will invoke `gulp --release` command at root, then copy generated files from `./dist` to `./publisher/.local`, commit files and finally push to `gh-pages` branch on GitHub
 
 ## Directories Structure
 
 ```
 ./
-  /src        >> project source
-  /tools      >> development tools
-  /publisher  >> publisher tool
+  /src            >> project source
+  /tools          >> development tools
+  /publisher      >> publisher tool
+  gulpfile.js     >> main gulp.js file
+  package.json    >> node.js project and dependencies configuration
 ```
 
 ### Development
@@ -171,7 +173,6 @@ $ npm install
   karma.config.js        >> karma tasks configs loaded on `config.js`
   karma.options.js       >> karma configs used on `karma.config.js`
   protractor.config.js   >> protractor config file used with protractor process
-  package.json           >> node.js 'tools' project and dependencies configuration
 ```
 
 
@@ -183,7 +184,7 @@ $ npm install
 /publisher
   /gulp
   gulpfile.js     >> main gulp.js file
-  package.json    >> node.js 'publisher' project and dependencies configuration
+  package.json    >> node.js `publisher` project and dependencies configuration
 ```
 
 
