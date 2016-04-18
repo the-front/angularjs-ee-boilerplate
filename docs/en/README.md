@@ -44,7 +44,6 @@ Enter the following commands in the terminal
 $ git clone https://github.com/erkobridee/angularjs-ee-boilerplate.git
 $ cd angularjs-ee-boilerplate
 $ npm install
-$ cd ..
 $ cd publisher
 $ npm install
 ```
