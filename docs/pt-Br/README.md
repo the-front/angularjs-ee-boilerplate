@@ -45,7 +45,6 @@ $ git clone https://github.com/erkobridee/angularjs-ee-boilerplate.git
 $ cd angularjs-ee-boilerplate
 $ cd tools
 $ npm install
-$ cd ..
 $ cd publisher
 $ npm install
 ```
